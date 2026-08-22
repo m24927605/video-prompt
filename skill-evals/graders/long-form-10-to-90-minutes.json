@@ -1,0 +1,6 @@
+{
+  "case_id": "long-form-10-to-90-minutes",
+  "must_cover": ["Film/Sequence/Scene/Beat/Shot decomposition", "creative bible and state-specific passports", "continuity state/entity schedule/shot handoff", "manifest, dependency queue, versions, retry and selection lineage", "rough cut/pickups and full finishing chain", "checkpoints/rollback/QC/KPIs", "explicit untested-policy boundary"],
+  "must_not": ["single giant prompt", "unbounded extension chain", "raw generation equals final film", "invented budget or success rate"],
+  "critical_case_traps": ["giant-prompt or unlimited-extension recommendation", "fabricated tested optimum"]
+}

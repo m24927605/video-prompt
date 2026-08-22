@@ -1,0 +1,6 @@
+{
+  "case_id": "version-misattribution-trap",
+  "must_cover": ["reject proposed universal 2.5 claim", "separate brief-level claim from sampled asset label", "separate 4k badge, Size and decoded dimensions", "record five-to-three subject-count adherence failure", "label backend version/resolution/choreography generalization unknown"],
+  "must_not": ["attribute sampled Seedance 2 asset to 2.5", "equate UI 4k with native request resolution", "claim five-character success"],
+  "critical_case_traps": ["version misattribution", "fabricated native 4K or solved choreography claim"]
+}

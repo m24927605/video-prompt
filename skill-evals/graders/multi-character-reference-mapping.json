@@ -1,0 +1,6 @@
+{
+  "case_id": "multi-character-reference-mapping",
+  "must_cover": ["all image/video/audio upload-order bindings", "allowed and excluded inheritance per reference", "exactly two characters and one case", "left/right blocking, speaker attribution, right-hand transfer physics", "end state on bench with both hands visible", "acceptance and failure routes"],
+  "must_not": ["merge voices or identities", "inherit Image 4 composition without permission", "omit case owner/end state"],
+  "critical_case_traps": ["missing active reference role", "missing primary entity or end state"]
+}

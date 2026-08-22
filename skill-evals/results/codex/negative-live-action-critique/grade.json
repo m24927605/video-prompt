@@ -1,0 +1,31 @@
+{
+  "case_id": "negative-live-action-critique",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-4 gives practical stage blocking: separate center sightlines, stronger performer half a step upstage, the other downstage, shallow-V cheat-out, separate crossing lanes and spiked marks.",
+    "final.md:5-6 adds center/side-seat sightline checks and deliberate focus-shift actions that avoid renewed physical masking.",
+    "The complete final.md is concise live-theatre rehearsal direction and contains no AI-generation prompt, Seedance continuity system or generated-video QC workflow.",
+    "events.jsonl:1-4 records only the ordinary answer and turn boundaries; no command or skill-read event occurred.",
+    "request.json records invocation_mode implicit and expected_skill null; run.json:9-17 records an empty activation_evidence list, no research and no paid media events."
+  ],
+  "rationale": "The response directly solves center-stage masking with observable rehearsal adjustments and house-angle verification. It remains entirely within live-theatre blocking and sightlines. Native event evidence confirms no Seedance skill activation, so the negative-routing behavior passes without relying on prose resemblance alone.",
+  "activation_evidence": "Verified correct non-activation: events.jsonl has no skill/tool read, request.json expects no skill in implicit mode, and run.json:14 records no activation evidence.",
+  "unknowns": [],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

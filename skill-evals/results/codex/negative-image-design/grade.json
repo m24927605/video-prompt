@@ -1,0 +1,31 @@
+{
+  "case_id": "negative-image-design",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-4 is a directly usable static-image prompt in Traditional Chinese: square 1:1 Swiss minimal design, white field, one orange circle and exact black sans-serif title MONDAY.",
+    "final.md:4 expressly keeps the deliverable a single static image with no video, storyboard, camera movement, sound or timeline.",
+    "events.jsonl:1-4 contains only the ordinary agent answer and turn boundaries; no command, skill read, or Seedance workflow event occurred.",
+    "request.json records invocation_mode implicit and expected_skill null; run.json:9-17 records an empty activation_evidence array, research absent and no paid media events.",
+    "workspace-inventory.json:3-4 records no research and no grader in the isolated workspace."
+  ],
+  "rationale": "The unrelated image-design task remained ordinary and was answered with the exact requested static composition. Correct negative activation is established by native event absence plus the semantically non-video artifact, not by keyword matching. It invents no motion timeline and performs no external action.",
+  "activation_evidence": "Verified correct non-activation: events.jsonl has no tool or skill-read event, request.json expects no skill under implicit invocation, and run.json:14 records an empty activation_evidence list.",
+  "unknowns": [],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

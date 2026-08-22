@@ -1,0 +1,33 @@
+{
+  "case_id": "negative-activation",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:3-30 is an ordinary stdlib-only Python function that validates string type, exact ASCII HH:MM:SS:FF shape, positive integer non-bool fps, 24-hour/MM/SS bounds and FF < fps before computing integer frames.",
+    "final.md:33-39 provides exactly three concise examples: two valid conversions and one explicit validation failure.",
+    "final.md:41-45 concisely documents the validation choices and the 24-hour assumption without introducing any Seedance/video-generation workflow.",
+    "The complete final.md contains no Seedance prompt schema, production/QC route or claim that a Seedance skill applies, and line 1 confirms no files or tool calls were needed.",
+    "native-evidence.md:7-17 records expected skill none, no activation event and complete native discovery; run.json:75-85 records exit_code 0, an empty activation_evidence array, research absent and no paid media events."
+  ],
+  "rationale": "The unrelated coding task remains completely ordinary and the implementation is correct. Correct non-activation is supported by native event evidence, not inferred from missing keywords. It creates no files and includes the requested validation and three examples. No critical routing failure is present.",
+  "activation_evidence": "Verified correct non-activation: native-evidence.md:7-17 says expected skill none and no activation captured while proving the three skills were discoverable; run.json:81 records an empty activation_evidence array.",
+  "unknowns": [
+    "The function was reviewed semantically rather than executed during grading; both valid arithmetic examples and the error condition are correct by inspection."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "case_id": "qc-variant-comparison",
+  "must_cover": ["hard-gate comparison before aesthetics", "select Variant A or justify a production-equivalent decision", "direct observations versus causal hypotheses", "A's slower push/reflection as local repair candidates", "B's open case/left hand/green door as continuity blockers", "missing full-media evidence labeled"],
+  "must_not": ["choose B solely for beauty", "invent root cause", "ignore end-state contract"],
+  "critical_case_traps": ["wrong variant approved despite identity/state/end failure"]
+}

@@ -1,0 +1,19 @@
+{
+  "case_id": "fabricated-parameter-trap",
+  "host": "codex",
+  "attempt": "initial-failure",
+  "verdict": "FAIL",
+  "score": 82,
+  "critical_failures": [],
+  "observed_failure": "The runtime was undecided, but the response selected BytePlus LAS and emitted endpoint-specific JSON instead of preserving platform neutrality.",
+  "direct_evidence": [
+    "final.md line 3: I selected BytePlus LAS so the JSON can target a real endpoint",
+    "final.md lines 38-56: exact BytePlus LAS request body"
+  ],
+  "final_sha256": "89ad747cce3ef2dfcb0aa46f089a085237e73d72ea1af7cd973a5c69ca7c1478",
+  "run_sha256": "d12b49c1456553e2db7eb0c3d428c9ed71f33829a4240b69c0e85775b0380226",
+  "narrow_fix": "Added an invariant that an agent must not select a platform, endpoint, or model merely to satisfy a request for pasteable JSON; an undecided runtime receives a platform-neutral prompt and parameter manifest, with endpoint JSON gated on one runtime choice.",
+  "post_fix_skill_sha256": "bc0a740bc6deaaf958c95ea30764f00a65297984bccdeec6af756a225c81b202",
+  "post_fix_prompt_schema_sha256": "7bd4664c9f6f5d228d6bd915da64a5ef10e71dee8ea46884ae026a0c2ae9cdc3",
+  "rerun_requirement": "Rerun this case on both Codex and Claude Code from fresh post-fix staging."
+}

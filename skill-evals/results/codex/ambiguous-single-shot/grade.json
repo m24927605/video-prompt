@@ -1,0 +1,35 @@
+{
+  "case_id": "ambiguous-single-shot",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:5-8 labels the task as text generation with no references, marks platform/model unknown, and distinguishes semantic timecodes from frame-accurate guarantees.",
+    "final.md:15-25 gives a directly usable eight-second contract with one woman, one red umbrella, explicit spatial occupation, a single discovery event, observable reaction, and a visible held end state.",
+    "final.md:27-31 specifies motivated light, material response, camera/audio behavior, and exact positive/necessary constraints; final.md:34-41 makes those decisions observable acceptance checks.",
+    "final.md:49-53 supplies a finite three-step diagnostic ladder whose steps each isolate one change and end in a different route rather than an open-ended rewrite loop.",
+    "events.jsonl:4-5 records the implicit-run command reading .agents/skills/seedance-prompt-director/SKILL.md; request.json:6-9 shows invocation_mode implicit and an unchanged base/effective prompt.",
+    "run.json:8-19 records exit_code 0, final_present true, research_present false, and no paid media tool events; workspace-inventory.json:3-4 independently records no research or grader in the isolated workspace."
+  ],
+  "rationale": "The artifact resolves the deliberately underspecified request without blocking: unknown runtime facts stay unknown, the assumed format is labeled, and the final prompt is production-usable. It coherently covers the exact woman/umbrella story, first-frame geography, one causal beat, camera, light, sound, visible endpoint, acceptance gates, and bounded one-variable recovery. Native event evidence proves the applicable project-local skill was read during an implicit invocation. No critical trap is present.",
+  "activation_evidence": "Verified implicit activation: events.jsonl:4-5 shows Codex reading .agents/skills/seedance-prompt-director/SKILL.md before producing the artifact; request.json:6-9 proves no explicit skill token was prepended.",
+  "unknowns": [
+    "The unspecified generation platform's actual duration, aspect, and audio controls remain unknown, as the artifact correctly states.",
+    "No media was generated, so visual or audio success is neither observed nor claimed."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

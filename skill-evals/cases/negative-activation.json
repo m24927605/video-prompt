@@ -1,0 +1,8 @@
+{
+  "id": "negative-activation",
+  "title": "Unrelated coding task negative activation",
+  "expected_skill": null,
+  "invocation_mode": "implicit",
+  "locale": "en",
+  "prompt": "Write a small pure Python function that parses a non-drop-frame SMPTE timecode string in HH:MM:SS:FF form into an integer frame count for a supplied integer fps. Include input validation and three concise examples. Do not create files."
+}

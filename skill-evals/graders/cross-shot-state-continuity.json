@@ -1,0 +1,6 @@
+{
+  "case_id": "cross-shot-state-continuity",
+  "must_cover": ["distinct dry/wet/injured wardrobe-state assets", "sealed/open envelope state and owner/hand across all shots", "per-shot required/forbidden state and delta", "screen direction and handoffs", "stable IDs/versioning/selection lineage", "checkpoint and rollback from approved state only"],
+  "must_not": ["overwrite earlier state asset", "open envelope before shot 5", "treat latest generated frame as canonical"],
+  "critical_case_traps": ["state continuity contradiction", "unbounded retries or rejected-frame promotion"]
+}

@@ -1,0 +1,41 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Secrets and credentials
+.env*
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials.json
+credentials.*
+secrets.json
+secrets.*
+.netrc
+.npmrc
+.pypirc
+
+# Local working and extracted source material
+tmp/
+seedance-25-creative-bible.pdf
+seedance2.5-prompt-guide.md
+SEEDANCE_RESEARCH_GOAL.md
+
+# Third-party captures, downloaded media, and internal acquisition notes
+research/seedance-2.5/browser-evidence/
+research/seedance-2.5/higgsfield/
+research/seedance-2.5/sources/
+research/seedance-2.5/worknotes/
+research/seedance-2.5/PROGRESS.md
+research/seedance-2.5/goal-amendment-2026-08-22.md
+
+# Local tool state
+.gstack/
+.claude/settings.local.json
+.claude/*.local.*
+.agents/settings.local.json
+.agents/*.local.*

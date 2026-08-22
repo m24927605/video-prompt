@@ -1,0 +1,37 @@
+{
+  "case_id": "cross-shot-state-continuity",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 23,
+    "task_completeness": 34,
+    "evidence_discipline": 19,
+    "language_scope": 10
+  },
+  "total": 96,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:56-85 defines immutable dry/wet/injured character-state assets plus unsealed/sealed/opened envelope versions, canonical-first reference policy and explicit bans on conflicting state sheets.",
+    "final.md:87-112 gives a single-writer state matrix and immutable scene snapshots that track coat, injury, envelope seal/owner/location/hand, weather, Nia and Tomas across every boundary.",
+    "final.md:140-173 defines per-shot required/forbidden states, left-to-right/fixed-axis/anatomical-hand/cheek rules and the complete sealed-envelope ownership timeline through Tomas opening it in Shot 5.",
+    "final.md:175-198 provides executable shot contracts and local handoff packets, including Nia-right to Tomas-left transfer, sealed-through-Shot-4 behavior and the final opened state without overwriting canonical truth.",
+    "final.md:200-235 defines dependency waves, stable IDs, write-once assets, separate incoming/rejected/select/approved-memory stores, one-changed-variable run records and finite project ceilings.",
+    "final.md:227-244 contains a non-critical lineage ambiguity: the example makes rejected r021 the parent of r022, while line 244 says retry from an approved parent and never a rejected child. The surrounding text explicitly forbids rejected media as an input/reference, so this is not rejected-frame promotion, but the two meanings of parent_run need reconciliation before implementation.",
+    "final.md:237-248 supplies hard write-guard gates, immutable checkpoints and concrete rollback branches from approved state without deleting history; final.md:250-272 covers rough-cut pickups, finishing and actual-ledger KPIs.",
+    "native-evidence.md:7-20 records implicit native discovery/activation and complete three-skill listing; run.json:8-90 attests claude-fable-5/max with no fallback, exit_code 0, research absent and no paid media events."
+  ],
+  "rationale": "The plan materially satisfies all evaluator requirements: state-specific assets, seal/open and owner/hand tracking, per-shot delta/forbidden contracts, screen direction, handoffs, versions, selection lineage, checkpoints and rollback are explicit and coherent at the state level. The four-point deduction is for implementation ambiguity around the overloaded term parent_run and for making Shot 3's injury-canonization depend on its protection cluster; neither promotes rejected imagery or contradicts the story state, so no critical failure applies.",
+  "activation_evidence": "Verified implicit native activation: native-evidence.md:7-20 records the host skill listing, automatic seedance-film-producer events and discovery_complete true; run.json:81-85 provides the exact event indices.",
+  "unknowns": [
+    "The platform/model and real retry/throughput/cost values remain unknown and are correctly labeled as later decisions or ledger measurements.",
+    "Before implementing the run database, parent_run should be split into experimental-predecessor versus approved-input-checkpoint fields to remove the final.md:227-244 ambiguity."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

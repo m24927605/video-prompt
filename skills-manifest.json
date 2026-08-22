@@ -1,0 +1,1945 @@
+{
+  "schema_version": 1,
+  "algorithm": "sha256",
+  "exclusions": [
+    "skills-manifest.json",
+    "skill-evals/results/validation/manifest-check.json",
+    "skill-evals/results/validation/secret-scan.json",
+    "skill-evals/results/validation/gitleaks-final.json",
+    "skill-evals/results/validation/test-suite-final.json"
+  ],
+  "entries": [
+    {
+      "path": ".agents/skills/seedance-film-producer",
+      "type": "symlink",
+      "target": "../../skills/seedance-film-producer",
+      "resolved_tree_sha256": "22930562e0752ea5c1afe4ccd4631248462b10d9561977cf62f6bd2f0a20d970"
+    },
+    {
+      "path": ".agents/skills/seedance-prompt-director",
+      "type": "symlink",
+      "target": "../../skills/seedance-prompt-director",
+      "resolved_tree_sha256": "41134f42c02b3bb67bd12748aea253dafbb2711f5d28b6ad4594b90936116f70"
+    },
+    {
+      "path": ".agents/skills/seedance-video-qc",
+      "type": "symlink",
+      "target": "../../skills/seedance-video-qc",
+      "resolved_tree_sha256": "275ad41749df1cdcfcc8963a2df3c5e00560be2c5f1896e1c29085476c268dc2"
+    },
+    {
+      "path": ".claude/skills/seedance-film-producer",
+      "type": "symlink",
+      "target": "../../skills/seedance-film-producer",
+      "resolved_tree_sha256": "22930562e0752ea5c1afe4ccd4631248462b10d9561977cf62f6bd2f0a20d970"
+    },
+    {
+      "path": ".claude/skills/seedance-prompt-director",
+      "type": "symlink",
+      "target": "../../skills/seedance-prompt-director",
+      "resolved_tree_sha256": "41134f42c02b3bb67bd12748aea253dafbb2711f5d28b6ad4594b90936116f70"
+    },
+    {
+      "path": ".claude/skills/seedance-video-qc",
+      "type": "symlink",
+      "target": "../../skills/seedance-video-qc",
+      "resolved_tree_sha256": "275ad41749df1cdcfcc8963a2df3c5e00560be2c5f1896e1c29085476c268dc2"
+    },
+    {
+      "path": ".gitignore",
+      "type": "file",
+      "bytes": 742,
+      "sha256": "ebf79b80cb4be8ff374e07159c10b5d300aaba1cb7eaff07bd12ff27d0d54a59"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "file",
+      "bytes": 743,
+      "sha256": "6adf0b108334d5bd455bc17cefbc784e9d1ed39faf1a622360b36fe14e532be7"
+    },
+    {
+      "path": "README.md",
+      "type": "file",
+      "bytes": 1814,
+      "sha256": "f4505dd182f3cfff910bfbcc9199cfbc590a8b8edb79b578599ffc5ce2c2226b"
+    },
+    {
+      "path": "SEEDANCE_CROSS_AGENT_SKILLS_GOAL.md",
+      "type": "file",
+      "bytes": 16903,
+      "sha256": "b8daca381b22a7886647357b868cad121498ef6da6ad7c9e66fefa836f002202"
+    },
+    {
+      "path": "SKILLS.md",
+      "type": "file",
+      "bytes": 1313,
+      "sha256": "fe2d9a32a4a77b190d5cdf41c48bd2e0ec95df4905ec968f0f452f295edeca29"
+    },
+    {
+      "path": "SKILLS_PROGRESS.md",
+      "type": "file",
+      "bytes": 2301,
+      "sha256": "c23355a714ebce26b1f5c799386d26e825578039bfac5a8bc3f63819057a3838"
+    },
+    {
+      "path": "SKILLS_QA.md",
+      "type": "file",
+      "bytes": 11822,
+      "sha256": "53ae4cf378e2354ae285db489bab3788ffc3691e072564f135b3f85be8b84874"
+    },
+    {
+      "path": "SKILLS_SOURCE_MAP.md",
+      "type": "file",
+      "bytes": 13201,
+      "sha256": "6aabcce9055151aca8bdd02119b49ba23d6f84a1912d7fdff4e975e46256fd33"
+    },
+    {
+      "path": "VERSION",
+      "type": "file",
+      "bytes": 8,
+      "sha256": "29664df395de67d92cae1647568dbca6d4063b3bd45cc80f041e1c9a713bc940"
+    },
+    {
+      "path": "research/seedance-2.5/additional-findings.md",
+      "type": "file",
+      "bytes": 24683,
+      "sha256": "82d70b8d6324d240d9f270d0c5059de4ac289cedefb6913e42ff53f28e7ed085"
+    },
+    {
+      "path": "research/seedance-2.5/creative-bible-analysis.md",
+      "type": "file",
+      "bytes": 31369,
+      "sha256": "41401ac2020c3be7fec9384068fbd886f2ee53ca4b5698fd5718754a6e236979"
+    },
+    {
+      "path": "research/seedance-2.5/future-evaluation-plan.md",
+      "type": "file",
+      "bytes": 21187,
+      "sha256": "bfda7e66be0662d6ca439c3031db3c37ae9907365d4a9f16ccc094a710c25404"
+    },
+    {
+      "path": "research/seedance-2.5/higgsfield-nine-projects.md",
+      "type": "file",
+      "bytes": 39695,
+      "sha256": "f978301c0ab4609e122bc551ae6a02098be23285f98d2852f217acff06ef2a77"
+    },
+    {
+      "path": "research/seedance-2.5/long-form-film-workflow.md",
+      "type": "file",
+      "bytes": 35428,
+      "sha256": "b2eda11f8994234cec77b6433cc5bf6bf3674e95c3da6ae35a17ee1d93cbb77b"
+    },
+    {
+      "path": "research/seedance-2.5/prompt-playbook.md",
+      "type": "file",
+      "bytes": 59250,
+      "sha256": "3b41dabfa6acf1c06fff413252b537ee4831849c1b91d4a209e71a4209232296"
+    },
+    {
+      "path": "research/seedance-2.5/qa-report.md",
+      "type": "file",
+      "bytes": 10354,
+      "sha256": "cee0491e10a4622aa598a46db0d5191407557808d3c5bd1d31b35ba73714c4f1"
+    },
+    {
+      "path": "research/seedance-2.5/research-report.md",
+      "type": "file",
+      "bytes": 25796,
+      "sha256": "fddda48f57de97bbbcfc29126649e3830d5bd030a4c21e12d72ff9bc6eaafee6"
+    },
+    {
+      "path": "research/seedance-2.5/source-manifest.json",
+      "type": "file",
+      "bytes": 126206,
+      "sha256": "8ffa2e130e3a58f70884bc3b382b4b0fb5e6f361cab3f34ff6005effcec38d36"
+    },
+    {
+      "path": "skill-evals/cases/ambiguous-single-shot.json",
+      "type": "file",
+      "bytes": 451,
+      "sha256": "80ca318a4591bcda09c8fbc909fa3d769f57f38bbe3dccbe4ec5e551ad133f75"
+    },
+    {
+      "path": "skill-evals/cases/cantonese-dialogue-audio.json",
+      "type": "file",
+      "bytes": 673,
+      "sha256": "4ace2c245ce0b4291c70c261fb8060019efda596cf15f3ca79c34756b62a5f3c"
+    },
+    {
+      "path": "skill-evals/cases/cross-shot-state-continuity.json",
+      "type": "file",
+      "bytes": 841,
+      "sha256": "bb3fdfcb62fa7d9bf71edb0e8f3542230a72e7c6877cbf840b695016b0a55e56"
+    },
+    {
+      "path": "skill-evals/cases/fabricated-parameter-trap.json",
+      "type": "file",
+      "bytes": 766,
+      "sha256": "e68d7613a0b1cae8001558d9e88e7a67a17df4abe7814ef840d644bb38be17eb"
+    },
+    {
+      "path": "skill-evals/cases/failed-video-root-cause.json",
+      "type": "file",
+      "bytes": 862,
+      "sha256": "22fafdad582c444b8b5309634579664a6bc12449a6514973c1c7e79601d2995a"
+    },
+    {
+      "path": "skill-evals/cases/fight-physics-contact.json",
+      "type": "file",
+      "bytes": 666,
+      "sha256": "481f35f3ea11a8e4c4f7974ac5e0422e7803a5d2a887fd7320131abd61b4e3c8"
+    },
+    {
+      "path": "skill-evals/cases/long-form-10-to-90-minutes.json",
+      "type": "file",
+      "bytes": 785,
+      "sha256": "38786e8498f9f3727292941f94e7c1f557cdd45ea70bc935a61deabfbdf3c3cf"
+    },
+    {
+      "path": "skill-evals/cases/multi-character-reference-mapping.json",
+      "type": "file",
+      "bytes": 910,
+      "sha256": "48e4f286fe9b8b2f62371839be799cfcb8a62185fc29f792a5e9cb8aa470b6d0"
+    },
+    {
+      "path": "skill-evals/cases/negative-activation.json",
+      "type": "file",
+      "bytes": 418,
+      "sha256": "d24f6e4d6312ffd6bcf6db0546369b581811b97173fc96257c0aef6377e7635f"
+    },
+    {
+      "path": "skill-evals/cases/negative-image-design.json",
+      "type": "file",
+      "bytes": 402,
+      "sha256": "f249f785d9af8fa22b09c772365fc66c8d592aaf439332ec230ab0960c8ba4f9"
+    },
+    {
+      "path": "skill-evals/cases/negative-live-action-critique.json",
+      "type": "file",
+      "bytes": 534,
+      "sha256": "4d55c8e5bad163fd92b7939122143a9865cf87fddc7bd7c8eb0b08ea584e2622"
+    },
+    {
+      "path": "skill-evals/cases/qc-variant-comparison.json",
+      "type": "file",
+      "bytes": 864,
+      "sha256": "ed452ddb9998d7d0490615f1195ed119d8710b3f0a06fcddf67547f181d38582"
+    },
+    {
+      "path": "skill-evals/cases/quality-speed-tradeoff.json",
+      "type": "file",
+      "bytes": 740,
+      "sha256": "a98dfd5d18bc43912e3be2954ebb05b369106f4f899c24601a3c6dc9f8b5f29e"
+    },
+    {
+      "path": "skill-evals/cases/version-misattribution-trap.json",
+      "type": "file",
+      "bytes": 801,
+      "sha256": "b4d8dab51360983ec596ca5e7888104f36f5b848dee555f6579fc61b3760db33"
+    },
+    {
+      "path": "skill-evals/graders/ambiguous-single-shot.json",
+      "type": "file",
+      "bytes": 598,
+      "sha256": "5a0a278f881b39e828ba49dc029409084915a7836ff6ec784e8b6f4f23bbd0dc"
+    },
+    {
+      "path": "skill-evals/graders/cantonese-dialogue-audio.json",
+      "type": "file",
+      "bytes": 570,
+      "sha256": "8aa3eefaf0b58334ae1f093b726fbfb1d62b06041c3f1d2c5ec77ba4ae7f6bed"
+    },
+    {
+      "path": "skill-evals/graders/cross-shot-state-continuity.json",
+      "type": "file",
+      "bytes": 587,
+      "sha256": "2af373cea99bb8cc67f84e085350dd2f25c837217a67db998ffdceae2623cc3f"
+    },
+    {
+      "path": "skill-evals/graders/fabricated-parameter-trap.json",
+      "type": "file",
+      "bytes": 614,
+      "sha256": "dd191b2a602b9a74236fc53355e4949c9ba717de200230f3982fbe2421f83a3b"
+    },
+    {
+      "path": "skill-evals/graders/failed-video-root-cause.json",
+      "type": "file",
+      "bytes": 594,
+      "sha256": "75b2b792cebf0fef497e2994cf528cd7b7cf591e37a966cce3bfc1fb143ad56b"
+    },
+    {
+      "path": "skill-evals/graders/fight-physics-contact.json",
+      "type": "file",
+      "bytes": 589,
+      "sha256": "10d464d80d3f1d213e34a0acf90db64c7ef736b59bdd6ab47fdd366af7334095"
+    },
+    {
+      "path": "skill-evals/graders/long-form-10-to-90-minutes.json",
+      "type": "file",
+      "bytes": 640,
+      "sha256": "11a8a4ede0bb53e25c98a6a95ee060a0d85e22047a94972cef08578e529c30b3"
+    },
+    {
+      "path": "skill-evals/graders/multi-character-reference-mapping.json",
+      "type": "file",
+      "bytes": 583,
+      "sha256": "6ac3a11e9575a3c4bf2b89ff4c924612720efd5b9f970662f54ffaa95ae0600a"
+    },
+    {
+      "path": "skill-evals/graders/negative-activation.json",
+      "type": "file",
+      "bytes": 367,
+      "sha256": "677cf9651aee6faa0dfbc36c9d83a2b7df0e9f54b3d719fa9504a164350e81b0"
+    },
+    {
+      "path": "skill-evals/graders/negative-image-design.json",
+      "type": "file",
+      "bytes": 379,
+      "sha256": "613d55c3e5c7b134d8a389daa6fcf3d0013fd4efd34decf454d7a41184f85d54"
+    },
+    {
+      "path": "skill-evals/graders/negative-live-action-critique.json",
+      "type": "file",
+      "bytes": 335,
+      "sha256": "91ab05287dbf4e60e0454858e5c87ea435eba0d44da5f4079cb06682002451b2"
+    },
+    {
+      "path": "skill-evals/graders/qc-variant-comparison.json",
+      "type": "file",
+      "bytes": 554,
+      "sha256": "4935b5da0e0d4f1d5c1410534e471d0fbfcecb54d4b91f830ba6ffe7e49d3610"
+    },
+    {
+      "path": "skill-evals/graders/quality-speed-tradeoff.json",
+      "type": "file",
+      "bytes": 558,
+      "sha256": "cd3020b8d96abeb80ec63d9ed26a185b9e4e26a8786faf2d2036010753802d87"
+    },
+    {
+      "path": "skill-evals/graders/version-misattribution-trap.json",
+      "type": "file",
+      "bytes": 583,
+      "sha256": "3c5b9014c880030cc5ffedbc9c234cbdeb1a64ac0620e21be154801c8783e0a8"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/events.jsonl",
+      "type": "file",
+      "bytes": 117668,
+      "sha256": "9cbcd5cd45630c8accad9a351e734dc4164d9ef54938e0d1cf40fef4f0edbb21"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/final.md",
+      "type": "file",
+      "bytes": 13224,
+      "sha256": "74dabed2317e51d468eed5ce2df2fb49ec69c6e76f02ca0ac4c6401e4fe89281"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/grade.json",
+      "type": "file",
+      "bytes": 3104,
+      "sha256": "fe7b2c0eee14cf4bd70e5ce70e6cf04962c8edb855d67b8d6c90ea715dd4eed2"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/native-evidence.md",
+      "type": "file",
+      "bytes": 753,
+      "sha256": "fdab6d9e4aee1d14cc486343438885914ac6ef49ef8ed1e2dfd9c77e948dd6c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/request.json",
+      "type": "file",
+      "bytes": 1736,
+      "sha256": "36f1a739866f627a461e8f0610e76cddc8cf5233950ae23df751fa52ffd8ccde"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/response.json",
+      "type": "file",
+      "bytes": 15840,
+      "sha256": "439be96acf83dc7297eba93b42c0fb321ac4d7d7df709e439a90d92674548ba7"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/run.json",
+      "type": "file",
+      "bytes": 1148,
+      "sha256": "17ce22615f29e6f1157ef26f8c3b835517c06102c4181b46a33baa9af5a79e0d"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/ambiguous-single-shot/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "1149a579970aa8728f2b493d44e66c7d65390a45a3899b53bf588f350ed291bd"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/events.jsonl",
+      "type": "file",
+      "bytes": 115533,
+      "sha256": "c32e8aac9b0922d9488e106cc9c321572bab1fbae0614e49e10fe8ed78265d38"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/final.md",
+      "type": "file",
+      "bytes": 14270,
+      "sha256": "d7bb34352816821d40b0683f48c7beeff911f53ee36a56366efd28d5f9ac9efc"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/grade.json",
+      "type": "file",
+      "bytes": 3152,
+      "sha256": "05601601edfa9a439b39254b6f50abae247c2c94c3e6a15f034f978b75902f2d"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/native-evidence.md",
+      "type": "file",
+      "bytes": 897,
+      "sha256": "2fe2090a4c4631106e2c751f65f421d66877b672e9a6822757b1413c4a31d87a"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/request.json",
+      "type": "file",
+      "bytes": 2431,
+      "sha256": "1a3ed5a703415ef9fc5a64fee4d93206717f3413949e531a65d5a7bbf4a2a7d2"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/response.json",
+      "type": "file",
+      "bytes": 16958,
+      "sha256": "7ec42a30a902e9d2eba49d237e2cdf0cba42663b7386d13ee4aed5066ad0770e"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/run.json",
+      "type": "file",
+      "bytes": 2229,
+      "sha256": "5a02d372bc3bb55cd207636331c9d777cbd0545ab75cce4eda9df6b5bc75ae4b"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cantonese-dialogue-audio/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/events.jsonl",
+      "type": "file",
+      "bytes": 222680,
+      "sha256": "22c88f45b550209c4d7a592de32440acc23bf70224cf0bb06ad1985ce4e9e998"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/final.md",
+      "type": "file",
+      "bytes": 29765,
+      "sha256": "57be7d2e76904b4e7ce44f040bd9cb384cabefa6a9614238caac8027639b13a7"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/grade.json",
+      "type": "file",
+      "bytes": 3553,
+      "sha256": "226fb6803508c8caf3292501027262339e16b75baff50407b9080b65cf7640ab"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/native-evidence.md",
+      "type": "file",
+      "bytes": 943,
+      "sha256": "ec05295469988fc82ef2d548e46b0b0472acba01ea728fd6730e330c3eea18e0"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/request.json",
+      "type": "file",
+      "bytes": 2921,
+      "sha256": "7cc23c581a94e39cf8a22ea187f7ec8e30e12373045e78ccdb4b8f0051e24cba"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/response.json",
+      "type": "file",
+      "bytes": 32572,
+      "sha256": "59d23720bd86cd7e3f79f7bb2ad5e93c082343c552f3269ec9bec0830dcc6d9e"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/run.json",
+      "type": "file",
+      "bytes": 2254,
+      "sha256": "ae03987814ce7caa690f8fceb6d1df3dd68f3a31a034ce7c12c6740f1512369d"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/cross-shot-state-continuity/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/events.jsonl",
+      "type": "file",
+      "bytes": 101788,
+      "sha256": "bad9f25acce0f7a8f64781528fd91b0f818f54298ba733ed2b74f765e9f2a0f4"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/final.md",
+      "type": "file",
+      "bytes": 12191,
+      "sha256": "56b5864448d34c4f773f59882baa29145a618fc02674a69140b9e299b6f5009a"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/grade.json",
+      "type": "file",
+      "bytes": 3013,
+      "sha256": "d2b7c111d00f94ed6bdb3815c39f6b2a7c6b12564176c22c5fded658a4e38d8a"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/native-evidence.md",
+      "type": "file",
+      "bytes": 774,
+      "sha256": "b8cd2823a95585d6419e3cd6b44832e54a6b2a697971e752b758895b299970ce"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/request.json",
+      "type": "file",
+      "bytes": 2775,
+      "sha256": "6e3127f3a07443b95b141b4b04aceb121624c0face6e87fabcc27ceaf0027ec3"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/response.json",
+      "type": "file",
+      "bytes": 14494,
+      "sha256": "7306e11b7d7187c401eb8db88e7bccb2f638d5faa00a9e4cc4ad6e665d62df5c"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/run.json",
+      "type": "file",
+      "bytes": 2048,
+      "sha256": "5653b5cad6936c0392cf0321584966453bb5ca2ac7063fd3cf5c3065f5c83bc3"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fabricated-parameter-trap/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/events.jsonl",
+      "type": "file",
+      "bytes": 135940,
+      "sha256": "9fb59b99f5f7b5cf360ccc897e30cf32172c808ea04f6fc44a4d10848acf356b"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/final.md",
+      "type": "file",
+      "bytes": 13063,
+      "sha256": "9d610afb6cf2cf78970a4a3d4ca8b928d6f0df28f252294116351c050afd3b19"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/grade.json",
+      "type": "file",
+      "bytes": 2961,
+      "sha256": "ee968dadb4ab43f7053449db9a052e9137ac46d90fe054de5e6a84edf044099b"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/native-evidence.md",
+      "type": "file",
+      "bytes": 622,
+      "sha256": "3f08cd1deb71626d88aed24cfdc65177644084a465e3a6bf549d533fc2f6629c"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/request.json",
+      "type": "file",
+      "bytes": 3005,
+      "sha256": "7673005c98dded3294b73e757d21db411da95ad142adac3afbd22b90d65b9151"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/response.json",
+      "type": "file",
+      "bytes": 15391,
+      "sha256": "04eed634537257675384c473a2f910c84e41bc4e9b4f920069f28c4fa83dcaba"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/run.json",
+      "type": "file",
+      "bytes": 967,
+      "sha256": "281f6158e524b30acfc9b81a2f1d1ffed6e0415fb4b7c33a9d3a92a40721b8db"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/failed-video-root-cause/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "1149a579970aa8728f2b493d44e66c7d65390a45a3899b53bf588f350ed291bd"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/events.jsonl",
+      "type": "file",
+      "bytes": 117487,
+      "sha256": "4e02007ed4299f43dd39f69245e9017df41bf57bad8d1b5a7c26b5f5143233c3"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/final.md",
+      "type": "file",
+      "bytes": 15984,
+      "sha256": "c4ad2f6912eaf478eb3cc3f2961eecc1b3fe826c3a6aad9980d846aea8c4f81e"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/grade.json",
+      "type": "file",
+      "bytes": 2874,
+      "sha256": "262af53e4633bc875c53fa44c51fd004ab5cca2013acd7c4c536aad08a686730"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/native-evidence.md",
+      "type": "file",
+      "bytes": 629,
+      "sha256": "dde3e1ff52fc47caceb141db97f63638a9dbb9d25c667e3811d60143aff81165"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/request.json",
+      "type": "file",
+      "bytes": 2445,
+      "sha256": "b7ee7b568f99b73eefb6668b8776463aa2416089eb8937032c68237e955c1cad"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/response.json",
+      "type": "file",
+      "bytes": 18342,
+      "sha256": "7923f8b9157ffe134a568c8fcb8f5308aff66b19f9dfcd5d0e1c2fb971eb9fbb"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/run.json",
+      "type": "file",
+      "bytes": 965,
+      "sha256": "96b5a6c827516b4a48752897cf3191ddb15a127a2313412f56940e13e756d351"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/fight-physics-contact/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "1149a579970aa8728f2b493d44e66c7d65390a45a3899b53bf588f350ed291bd"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/events.jsonl",
+      "type": "file",
+      "bytes": 312170,
+      "sha256": "658d05fab1a6e6cca8ba1c43f3014a67accdb1b05af2802fb04e02119987caae"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/final.md",
+      "type": "file",
+      "bytes": 39270,
+      "sha256": "8ebe218d7123e7a5bf9c6bc1ca5a644a267761ac59cc5497d00e86f1dc8c819e"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/grade.json",
+      "type": "file",
+      "bytes": 3545,
+      "sha256": "133e1e13da9c46466a35fc320255e32aa16708790e5e74d893a11a43e3b7e89d"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/native-evidence.md",
+      "type": "file",
+      "bytes": 963,
+      "sha256": "6bfe585d985b648b4d27d54dfe8580a0b9fee5a5ed6c8b3d23ab9069dc68340e"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/request.json",
+      "type": "file",
+      "bytes": 2803,
+      "sha256": "ee799708ad409f32ad89cdc7e621b427d20fcf6f7728481007d8c0c5a49f3379"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/response.json",
+      "type": "file",
+      "bytes": 41922,
+      "sha256": "8243eb48bc235297b43d025123abe4563577fbe9072f9db5bdfffa255114f598"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/run.json",
+      "type": "file",
+      "bytes": 2136,
+      "sha256": "1dc3fbb2f1f5fd9a7b5467e66d8f34c7c90dad824724fd3780273715a9542011"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/long-form-10-to-90-minutes/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/events.jsonl",
+      "type": "file",
+      "bytes": 109555,
+      "sha256": "20018df619e22d15531da72aaa330742e8e754cafce47a9058a410da12ace883"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/final.md",
+      "type": "file",
+      "bytes": 14767,
+      "sha256": "8fdc98bb39c0a44f3d5ecbecd329439c84ef8f0987425e434eacc5c362813820"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/grade.json",
+      "type": "file",
+      "bytes": 2848,
+      "sha256": "6a8e2231db77a164d9b3cc9f93e9452b49b8e52040ca9cb58a02de950782eb92"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/native-evidence.md",
+      "type": "file",
+      "bytes": 629,
+      "sha256": "d5da62a976ccf54ce251e057727be21318d437e9ba13846e8668c397aef7c201"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/request.json",
+      "type": "file",
+      "bytes": 3114,
+      "sha256": "0d00f54d53758f5fbf703efe74dd4c548f7bb0a72be380f54de95ab17e7e2779"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/response.json",
+      "type": "file",
+      "bytes": 17062,
+      "sha256": "5f380eab4ec59936fb6c2f2f03d8a518a169c6e365504c7e15cd14af2f3d7445"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/run.json",
+      "type": "file",
+      "bytes": 977,
+      "sha256": "022104a03ef00446f639ba145ce008838d4d2c03e6f1d3b7461a6ccdf15d2281"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/multi-character-reference-mapping/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "1149a579970aa8728f2b493d44e66c7d65390a45a3899b53bf588f350ed291bd"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/events.jsonl",
+      "type": "file",
+      "bytes": 11773,
+      "sha256": "8288d7d22e4450e070742e95cd3b93caaf0110cda04d79b453ec7e070025fa36"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/final.md",
+      "type": "file",
+      "bytes": 2058,
+      "sha256": "211129794bbc2761fc9fb0a6a164051884d4d9ef9a0d3c9c00f9e1a300daffbe"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/grade.json",
+      "type": "file",
+      "bytes": 2152,
+      "sha256": "140cc9e2565501d5afa81f3a2c7115cf0f5cdd4f916f0b85e0e9f66652f87951"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/native-evidence.md",
+      "type": "file",
+      "bytes": 767,
+      "sha256": "258d8b955eb34ebaf88e4680885cc7395b0f297d82842abb460e22d44c4f96de"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/request.json",
+      "type": "file",
+      "bytes": 1723,
+      "sha256": "91ecc31c8e7530c89f9bfd3b20161a81db16fe034308457d0816c04e92cdd7ab"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/response.json",
+      "type": "file",
+      "bytes": 4612,
+      "sha256": "57f7cb0a8724214939e79b96a5b8d43e57e08363a491602cacd8d425a58ab236"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/run.json",
+      "type": "file",
+      "bytes": 2123,
+      "sha256": "361737fc8d1b028a4299ff8975049e83bd75728560f7adafb203539a3ea27717"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-activation/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/events.jsonl",
+      "type": "file",
+      "bytes": 16456,
+      "sha256": "9f3c5cf7c124e05718e4f3d5e36c3e858d34c0081ced2a0e27eee00d282c44c2"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/final.md",
+      "type": "file",
+      "bytes": 2454,
+      "sha256": "5ecdf39fb843a4882daca80c0ddb77f6f3568a70b062c1c85b399d3af4da5292"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/grade.json",
+      "type": "file",
+      "bytes": 2241,
+      "sha256": "d2a996b043a0c2cdd69e78a23f2fd1ad05702690b7f11fa72744229bd16ea446"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/native-evidence.md",
+      "type": "file",
+      "bytes": 767,
+      "sha256": "258d8b955eb34ebaf88e4680885cc7395b0f297d82842abb460e22d44c4f96de"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/request.json",
+      "type": "file",
+      "bytes": 1662,
+      "sha256": "42797c7c7e35fb9b6fef40df831ca43ccaa674317d6c688d68ed4efb4466b5d9"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/response.json",
+      "type": "file",
+      "bytes": 5005,
+      "sha256": "bd5333d2f76cdbeeff9e195142adac675c3441a67fdaef545b7e45d0ee1c547b"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/run.json",
+      "type": "file",
+      "bytes": 2125,
+      "sha256": "ce10ec4b436054eb544f077bc442afd7528fc1c369f8199fc8740ec22bd5c1f3"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-image-design/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/events.jsonl",
+      "type": "file",
+      "bytes": 20328,
+      "sha256": "cea6c7eef406dc2e01de4d8726a3ef5625ac7460d644d7485d13e1992c952b3a"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/final.md",
+      "type": "file",
+      "bytes": 2956,
+      "sha256": "4d8cf4692152b5cfe4bca686e45a668d2b3c0b467516efed19215ab2b8b44cf6"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/grade.json",
+      "type": "file",
+      "bytes": 2056,
+      "sha256": "fc26bacfed01b72c4706d00b9b0c73891caa894194ae9844ddc379f0b48a616d"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/native-evidence.md",
+      "type": "file",
+      "bytes": 767,
+      "sha256": "258d8b955eb34ebaf88e4680885cc7395b0f297d82842abb460e22d44c4f96de"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/request.json",
+      "type": "file",
+      "bytes": 2024,
+      "sha256": "786f04308c39a034a490333a30c10623cde9c6ef5e514c46e26a5e667a01ac8a"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/response.json",
+      "type": "file",
+      "bytes": 5521,
+      "sha256": "b3f30c4ade0166df8c8e5c7f5d5dff9f84a0e29f0294a2504d41d2e771a15249"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/run.json",
+      "type": "file",
+      "bytes": 2134,
+      "sha256": "cfb573526a0fbf5623ac893b0846030af2ace9f86ca8de4dca380feafa3a3fca"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/negative-live-action-critique/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/events.jsonl",
+      "type": "file",
+      "bytes": 151230,
+      "sha256": "d3de31c86c2dd1a35b003b80a1c917081567cb343267bb639ffa98645e9bd77a"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/final.md",
+      "type": "file",
+      "bytes": 12628,
+      "sha256": "d12c2eb542a9afa0aa8026bb6b19484f9b9a88c0971d8b9baeec3ac1b4fd35a5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/grade.json",
+      "type": "file",
+      "bytes": 2616,
+      "sha256": "f6fdc92b62c5ee16b49e26f6711d1c15731906a61a451e2a36dd12caed5ed567"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/native-evidence.md",
+      "type": "file",
+      "bytes": 986,
+      "sha256": "a0c5e34ec1cd6df6f9db049a1d1a2ee15701ff909ca84c1c537e98398efddcbb"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/request.json",
+      "type": "file",
+      "bytes": 3048,
+      "sha256": "6a8e610ad5d0ae25d71ac5b450fad82b82ee300830ce6c61807be3670dd94f15"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/response.json",
+      "type": "file",
+      "bytes": 15292,
+      "sha256": "d81dadc555bdf60912f92f05919a9517d7db612f4787038b12a520587a150f60"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/run.json",
+      "type": "file",
+      "bytes": 2270,
+      "sha256": "2a00adcc49fe82c327c13deb3a089f43dfc191095971cd7d859eb687e22b8b43"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/qc-variant-comparison/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/events.jsonl",
+      "type": "file",
+      "bytes": 270755,
+      "sha256": "7554873e368e3bbf698b7a4978ca4167c54f57407490f0740bbb62b9a7e25229"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/final.md",
+      "type": "file",
+      "bytes": 23698,
+      "sha256": "13e7f4088f1921fe1b845b2563b1256387d97e65f9a039af64d60d7e74d54591"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/grade.json",
+      "type": "file",
+      "bytes": 3273,
+      "sha256": "252d815ecfc75026afeac7a53b9a9119ac7a52e665c8a0a27e5af332a9ffbdfa"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/native-evidence.md",
+      "type": "file",
+      "bytes": 991,
+      "sha256": "bf622f5e6ee6fcc7cad8bfa795d30f36b59cb2da64a297b400c2191cbd6e94a8"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/request.json",
+      "type": "file",
+      "bytes": 2652,
+      "sha256": "291b5d251bd28073a517b716b363321ec468e17a6258816aca893dfc50731b9b"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/response.json",
+      "type": "file",
+      "bytes": 26396,
+      "sha256": "353c84d68ee0a6d3ced21e3bbf2a0e83198b457634a7aa88c0a433f3b3edb795"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/run.json",
+      "type": "file",
+      "bytes": 2271,
+      "sha256": "9f129db94c564e2ccb7c7b2bc2917298cff4631fc8710c852b277a889ae0242f"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/quality-speed-tradeoff/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/summary.json",
+      "type": "file",
+      "bytes": 657,
+      "sha256": "ec4717f8fd4a7c004e0698db7e73ff9d507f6cf2e8df406dbcd86fd3c398fc30"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/events.jsonl",
+      "type": "file",
+      "bytes": 77895,
+      "sha256": "426c0bbd6519f92be20edd5a4fcd8612b500155649bd21a8e68c2cca5632aec8"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/final.md",
+      "type": "file",
+      "bytes": 8433,
+      "sha256": "0df1528e361dbcbf765b2c8f93f968682793dba7575308345a2f23aefdb25932"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/grade.json",
+      "type": "file",
+      "bytes": 2914,
+      "sha256": "694d82a985f219b90c5186de46307f8d10c3813bc59f339f828fc9005e0495dd"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/native-evidence.md",
+      "type": "file",
+      "bytes": 891,
+      "sha256": "2c6d29aabd85c5468df7b5c7ad7d95f2184901d9c8e9b85224a408a8a18bb9c5"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/request.json",
+      "type": "file",
+      "bytes": 2841,
+      "sha256": "b883cbea6c8350a6a8cec4b6143217676f576a752673343801cca890b5f8d84e"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/response.json",
+      "type": "file",
+      "bytes": 11057,
+      "sha256": "d0474bcfbba1ff497f42b82442cb579afeb5fb79ddb9cbbe20c178fc5d91f720"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/run.json",
+      "type": "file",
+      "bytes": 2232,
+      "sha256": "094b6d6651ea818228056694e72ee9b70ee5271a5624ea8c08c304e532c7d508"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/stderr.txt",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/claude-code/version-misattribution-trap/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4231,
+      "sha256": "d142879110cb146efbab13aad88e86257b902a244b21854fd9e53bf9303db8c5"
+    },
+    {
+      "path": "skill-evals/results/codex/ambiguous-single-shot/events.jsonl",
+      "type": "file",
+      "bytes": 27089,
+      "sha256": "31fbd291dc9aba16ee905e93b10076c291976e4674bf59e7e0cd5f566cdd295e"
+    },
+    {
+      "path": "skill-evals/results/codex/ambiguous-single-shot/final.md",
+      "type": "file",
+      "bytes": 4234,
+      "sha256": "47691672e748d14dee73c6d1de7647ec4dc9f479ea1d75567eac4b99e4de96e0"
+    },
+    {
+      "path": "skill-evals/results/codex/ambiguous-single-shot/grade.json",
+      "type": "file",
+      "bytes": 2687,
+      "sha256": "bc1f849250747d98475075d0953386675b9f873f933ebdcdd065a6081f4b5b8d"
+    },
+    {
+      "path": "skill-evals/results/codex/ambiguous-single-shot/request.json",
+      "type": "file",
+      "bytes": 1716,
+      "sha256": "190d7aa9a2af8528120142e5867cdc20c79bf5e6dfd872be894a9f7c2b4071b6"
+    },
+    {
+      "path": "skill-evals/results/codex/ambiguous-single-shot/run.json",
+      "type": "file",
+      "bytes": 705,
+      "sha256": "2d3606f67f32fbf217a2794a02d6bc6571d21a7bf3ca15b642f397c0a4fde1eb"
+    },
+    {
+      "path": "skill-evals/results/codex/ambiguous-single-shot/stderr.txt",
+      "type": "file",
+      "bytes": 162,
+      "sha256": "f75db21728d639d7b9753228922254bd2f6106ba3ab7f2f6bc0b389496d6c43c"
+    },
+    {
+      "path": "skill-evals/results/codex/ambiguous-single-shot/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4225,
+      "sha256": "b52b5e414c1c16ad3f119e5447bcc65bacf9d302ba78e9404cc3ae162047b1d4"
+    },
+    {
+      "path": "skill-evals/results/codex/cantonese-dialogue-audio/final.md",
+      "type": "file",
+      "bytes": 4720,
+      "sha256": "cf7852d172c7632f2465c90f4426d7da5aa4e84c34d530816bea6dd0a305c1e7"
+    },
+    {
+      "path": "skill-evals/results/codex/cantonese-dialogue-audio/grade.json",
+      "type": "file",
+      "bytes": 2513,
+      "sha256": "17ceeb9a058d8b44e33f28f90161f0c9275f527e33c3a8e0cae4120828c68b80"
+    },
+    {
+      "path": "skill-evals/results/codex/cantonese-dialogue-audio/native-evidence.md",
+      "type": "file",
+      "bytes": 386,
+      "sha256": "b70868743b87be1358aadb6251d361d8aeafd489c0d51df0802ea726b9e67164"
+    },
+    {
+      "path": "skill-evals/results/codex/cantonese-dialogue-audio/request.json",
+      "type": "file",
+      "bytes": 1402,
+      "sha256": "108f338534e920c35216df463b1aea6d36410d88b46126abf6b96696b26d1d40"
+    },
+    {
+      "path": "skill-evals/results/codex/cantonese-dialogue-audio/run.json",
+      "type": "file",
+      "bytes": 751,
+      "sha256": "071f8a45798aa309359bac25e8183041e35e9f96d371ef7c8fa5df0e4265f337"
+    },
+    {
+      "path": "skill-evals/results/codex/cantonese-dialogue-audio/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "589857868e12b9c41a33fe16220681e944c3c233c6c81b6cd8de17d632f0ff3c"
+    },
+    {
+      "path": "skill-evals/results/codex/cross-shot-state-continuity/final.md",
+      "type": "file",
+      "bytes": 12946,
+      "sha256": "5d235ec73a49d96bd4273ed4772dbd12361b68e100a0db7def0748c681e208de"
+    },
+    {
+      "path": "skill-evals/results/codex/cross-shot-state-continuity/grade.json",
+      "type": "file",
+      "bytes": 2736,
+      "sha256": "f79893689527a4a06d53aa235c23d17eb26bffb97c1b735ca40cc6b7ce1c50f9"
+    },
+    {
+      "path": "skill-evals/results/codex/cross-shot-state-continuity/native-evidence.md",
+      "type": "file",
+      "bytes": 380,
+      "sha256": "f4df7b48554b1ec5fc2240b19d8c8cda6162634d13d9cce6c67506cd6a74ac90"
+    },
+    {
+      "path": "skill-evals/results/codex/cross-shot-state-continuity/request.json",
+      "type": "file",
+      "bytes": 1729,
+      "sha256": "ec7e3254dc93f100ed1969160e1dd2ea332632244df339d9dee338d599507051"
+    },
+    {
+      "path": "skill-evals/results/codex/cross-shot-state-continuity/run.json",
+      "type": "file",
+      "bytes": 750,
+      "sha256": "5164057ac3358496072e40170926a48f4a9a4e40d6923524ed3e84fe8971d6cb"
+    },
+    {
+      "path": "skill-evals/results/codex/cross-shot-state-continuity/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "589857868e12b9c41a33fe16220681e944c3c233c6c81b6cd8de17d632f0ff3c"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/attempts/initial-failure/final.md",
+      "type": "file",
+      "bytes": 7114,
+      "sha256": "89ad747cce3ef2dfcb0aa46f089a085237e73d72ea1af7cd973a5c69ca7c1478"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/attempts/initial-failure/lineage.json",
+      "type": "file",
+      "bytes": 1247,
+      "sha256": "be7971a433610a298db8200134318c5cec7ea8122ef5b3ca1b92017a61fd348e"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/attempts/initial-failure/run.json",
+      "type": "file",
+      "bytes": 774,
+      "sha256": "d12b49c1456553e2db7eb0c3d428c9ed71f33829a4240b69c0e85775b0380226"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/events.jsonl",
+      "type": "file",
+      "bytes": 37617,
+      "sha256": "b8e1eb26425c74e40ec2f35ef5be62c13ffccea87b6f8129df58b1eaf0e29146"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/final.md",
+      "type": "file",
+      "bytes": 8615,
+      "sha256": "e655c7d2bc4168d6b59de319a898bbde84f34aa1b13086e1beaa10964679c193"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/grade.json",
+      "type": "file",
+      "bytes": 2835,
+      "sha256": "dc91a969c62a608acac7c9893d0574626f173a1e8025b697c2af96d56fc940a4"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/native-evidence.md",
+      "type": "file",
+      "bytes": 418,
+      "sha256": "41db962e3042f68d76762ed1d42ef886692bbf82402d5a55f499eb1a60e4ca63"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/request.json",
+      "type": "file",
+      "bytes": 1622,
+      "sha256": "a181df764a5a1fd5f43e29866fcf69d0af86f474e23329bfee86c999faf5ade3"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/run.json",
+      "type": "file",
+      "bytes": 810,
+      "sha256": "8b81bc55e082cdbc0f51ca5ab31cfee44308230e7c71363ba76561ff1af7b670"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/stderr.txt",
+      "type": "file",
+      "bytes": 162,
+      "sha256": "955ebb2b2cc5c3dcd78360efd547f28c14946383a869abc5a497f07c5e5502e4"
+    },
+    {
+      "path": "skill-evals/results/codex/fabricated-parameter-trap/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "8df00f31c826cf1abfac52b735868b762c526861f78d9000591ae00ada13b7f1"
+    },
+    {
+      "path": "skill-evals/results/codex/failed-video-root-cause/final.md",
+      "type": "file",
+      "bytes": 4361,
+      "sha256": "8427593e595aef1fde4dfcfaef2b5a51420ac41d9839a4bb8d17f405e751f62b"
+    },
+    {
+      "path": "skill-evals/results/codex/failed-video-root-cause/grade.json",
+      "type": "file",
+      "bytes": 2601,
+      "sha256": "2b4af207b1a476fc79238d4163480646f3a90b42d4f32de4aa094002a98e78fc"
+    },
+    {
+      "path": "skill-evals/results/codex/failed-video-root-cause/native-evidence.md",
+      "type": "file",
+      "bytes": 376,
+      "sha256": "82795d41a306a33bc4998aac0cf49ca7be8eb8044874d1691bbc58940c202828"
+    },
+    {
+      "path": "skill-evals/results/codex/failed-video-root-cause/request.json",
+      "type": "file",
+      "bytes": 1818,
+      "sha256": "a9f9d6029c7f77f04c38a82b68c1b389ae0159c391369ba90fda10b4dc04d3eb"
+    },
+    {
+      "path": "skill-evals/results/codex/failed-video-root-cause/run.json",
+      "type": "file",
+      "bytes": 747,
+      "sha256": "fd80fe06df7ba851148aa70cd8e7d0e1e710b6e06c0e9e9b9a5824608ebaa5a9"
+    },
+    {
+      "path": "skill-evals/results/codex/failed-video-root-cause/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "589857868e12b9c41a33fe16220681e944c3c233c6c81b6cd8de17d632f0ff3c"
+    },
+    {
+      "path": "skill-evals/results/codex/fight-physics-contact/final.md",
+      "type": "file",
+      "bytes": 5731,
+      "sha256": "9d553a84018d799621e69dccaa8f6a2cfa58fd5a9e5cb4cc463095ed42d62419"
+    },
+    {
+      "path": "skill-evals/results/codex/fight-physics-contact/grade.json",
+      "type": "file",
+      "bytes": 2502,
+      "sha256": "631f8797ab65a96ffe18032173daf740678b7f9f5d073dfbcc28fda9da4b33da"
+    },
+    {
+      "path": "skill-evals/results/codex/fight-physics-contact/native-evidence.md",
+      "type": "file",
+      "bytes": 401,
+      "sha256": "00d5b9137940c3fc1c1b103e3e838a81819453030ea23403dc4096925cc83ee4"
+    },
+    {
+      "path": "skill-evals/results/codex/fight-physics-contact/request.json",
+      "type": "file",
+      "bytes": 1444,
+      "sha256": "d5e5d914dd1b2a80beebbe308930a67a9d46528d51f4d765b9b4fe732c7ac1c7"
+    },
+    {
+      "path": "skill-evals/results/codex/fight-physics-contact/run.json",
+      "type": "file",
+      "bytes": 763,
+      "sha256": "0b8d48f70680ede15c3641c6509b433dda9a92116b221b4d34d2f7c533ef5a4a"
+    },
+    {
+      "path": "skill-evals/results/codex/fight-physics-contact/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "589857868e12b9c41a33fe16220681e944c3c233c6c81b6cd8de17d632f0ff3c"
+    },
+    {
+      "path": "skill-evals/results/codex/long-form-10-to-90-minutes/final.md",
+      "type": "file",
+      "bytes": 23917,
+      "sha256": "fe9061a531ef7c07f89877d18a54d9b71e7e2c0987d657f7499ec272b0aa5f5c"
+    },
+    {
+      "path": "skill-evals/results/codex/long-form-10-to-90-minutes/grade.json",
+      "type": "file",
+      "bytes": 3289,
+      "sha256": "a125d99d7660f1ba4f5d8723b90a1ec0662b25fa5571ef272652d7e28c14123a"
+    },
+    {
+      "path": "skill-evals/results/codex/long-form-10-to-90-minutes/native-evidence.md",
+      "type": "file",
+      "bytes": 404,
+      "sha256": "a1956a93167388ae1d6b2dcbb0f6d54c22d33a30f9e73ea5ba93ddd7f873a244"
+    },
+    {
+      "path": "skill-evals/results/codex/long-form-10-to-90-minutes/request.json",
+      "type": "file",
+      "bytes": 1641,
+      "sha256": "2b45bc06e0fbe146b083dce150938479773c116f3265a24d56793e7dfb3826a5"
+    },
+    {
+      "path": "skill-evals/results/codex/long-form-10-to-90-minutes/run.json",
+      "type": "file",
+      "bytes": 773,
+      "sha256": "61d3facc9c4657a2315bb64d51b240e4155dcc19ee413244e1cd2d53bdf40757"
+    },
+    {
+      "path": "skill-evals/results/codex/long-form-10-to-90-minutes/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "589857868e12b9c41a33fe16220681e944c3c233c6c81b6cd8de17d632f0ff3c"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/events.jsonl",
+      "type": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/final.md",
+      "type": "file",
+      "bytes": 9486,
+      "sha256": "9027b647cde89021f3e5b1e8e839d133da94bc47e2eeb52d2ba78ac617126132"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/grade.json",
+      "type": "file",
+      "bytes": 2708,
+      "sha256": "75c5d9efe1216bab2b39f03dfd8d37ff925523ffda8f926ed93454887c61d433"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/native-evidence.md",
+      "type": "file",
+      "bytes": 405,
+      "sha256": "51f1aa59ec30a664bbfeb3037833fa0c3cd48c0e113321dd0694f3dc98ebb4ac"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/request.json",
+      "type": "file",
+      "bytes": 1894,
+      "sha256": "c9a97abfa5dc3f461cd71517c8996734ce135523819c6abc1bd89120d812262b"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/run.json",
+      "type": "file",
+      "bytes": 779,
+      "sha256": "81f6cbd28b7c9539ec863fe1401272f88fb1c0597a2932e9378fb84c2568feb5"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/stderr.txt",
+      "type": "file",
+      "bytes": 238,
+      "sha256": "6aa9956b783a9cb8d078c83478d8e740ffc26f788d4ac61b4d9865d5deee12f1"
+    },
+    {
+      "path": "skill-evals/results/codex/multi-character-reference-mapping/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "589857868e12b9c41a33fe16220681e944c3c233c6c81b6cd8de17d632f0ff3c"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/events.jsonl",
+      "type": "file",
+      "bytes": 1391,
+      "sha256": "f0970cd01bcf6da1bb6bd5985266bca2b3a0f176720f8ae4487bdb1cf08188d7"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/final.md",
+      "type": "file",
+      "bytes": 1043,
+      "sha256": "6f553a8ed889882ccd0482e9cee23c4e29c6dec379a465e85db39268a602db60"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/grade.json",
+      "type": "file",
+      "bytes": 2221,
+      "sha256": "85fea77f5e4cf44c5cae21014d0b66bbe2f2c834ab4c5e5c42f39319bfd44299"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/native-evidence.md",
+      "type": "file",
+      "bytes": 355,
+      "sha256": "f87390769ab18511602a79e1a52542a4eca4c242c6b78b8c34e460d734c60226"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/request.json",
+      "type": "file",
+      "bytes": 1638,
+      "sha256": "ee8c97f4414016a3b3aab1af7d668dbcc697dcd70e50d8d3c7a20d6b3bc87272"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/run.json",
+      "type": "file",
+      "bytes": 687,
+      "sha256": "3fa6cfe98faf3fb0b261fb6c74ebb4b902ff25b89872cd7396f84534083dcda7"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/stderr.txt",
+      "type": "file",
+      "bytes": 39,
+      "sha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-activation/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4225,
+      "sha256": "b52b5e414c1c16ad3f119e5447bcc65bacf9d302ba78e9404cc3ae162047b1d4"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/events.jsonl",
+      "type": "file",
+      "bytes": 944,
+      "sha256": "c6a31c55af04b670b61008b3fe432f227e89a52e166c32cdccf18c30a98eed07"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/final.md",
+      "type": "file",
+      "bytes": 643,
+      "sha256": "187359c3ac1dc7994dd307d6f5a746a565aaaad277d7055e83830a6875e22aa1"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/grade.json",
+      "type": "file",
+      "bytes": 1810,
+      "sha256": "263eed74309770be69f779b414a874232bed6996429f37909ffd4ef0fd7e55ea"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/native-evidence.md",
+      "type": "file",
+      "bytes": 355,
+      "sha256": "f87390769ab18511602a79e1a52542a4eca4c242c6b78b8c34e460d734c60226"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/request.json",
+      "type": "file",
+      "bytes": 1577,
+      "sha256": "9ad2a61b9b767be5d22427a4794eddb6de34a59868c77daf134c83acb60b6ea3"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/run.json",
+      "type": "file",
+      "bytes": 688,
+      "sha256": "bba7110f3a59e08a35de4d17a345f8a053012e899cf1bdde45450a0a057220fe"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/stderr.txt",
+      "type": "file",
+      "bytes": 39,
+      "sha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-image-design/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4225,
+      "sha256": "b52b5e414c1c16ad3f119e5447bcc65bacf9d302ba78e9404cc3ae162047b1d4"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/events.jsonl",
+      "type": "file",
+      "bytes": 916,
+      "sha256": "474f4f6aff6a428a1ea8870aa3bcf6362dc587200b12d29ebcfaad4764292753"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/final.md",
+      "type": "file",
+      "bytes": 611,
+      "sha256": "7fc7da7a74a6d91b960026e49df375e3d285a203f365e4e1b17f66c1e052a4fa"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/grade.json",
+      "type": "file",
+      "bytes": 1859,
+      "sha256": "71e2302ac392c3784c6e4ee9dea71e9f9ab92c4d1903b9d2dd7949698d579e93"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/native-evidence.md",
+      "type": "file",
+      "bytes": 355,
+      "sha256": "f87390769ab18511602a79e1a52542a4eca4c242c6b78b8c34e460d734c60226"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/request.json",
+      "type": "file",
+      "bytes": 1939,
+      "sha256": "deab001e366dc9e99d3695cfab0932eff7509fd74ef8772766ef4d6a226ee15c"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/run.json",
+      "type": "file",
+      "bytes": 697,
+      "sha256": "7fe9a14d084c07df6c27f5e5df635d5ab7a6a423529d33d7b5ddfa0a6ffe6985"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/stderr.txt",
+      "type": "file",
+      "bytes": 39,
+      "sha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721"
+    },
+    {
+      "path": "skill-evals/results/codex/negative-live-action-critique/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4225,
+      "sha256": "b52b5e414c1c16ad3f119e5447bcc65bacf9d302ba78e9404cc3ae162047b1d4"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/events.jsonl",
+      "type": "file",
+      "bytes": 25656,
+      "sha256": "5c89929d21285b86754e7dcb8a80621c577ba473f76ded2aefe7d53382687ad2"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/final.md",
+      "type": "file",
+      "bytes": 3074,
+      "sha256": "6b6a686fcca2989694b4565c05043e0066454ce592e3954254c17565b8dc94d3"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/grade.json",
+      "type": "file",
+      "bytes": 2620,
+      "sha256": "5cf3f3122292ce64c2fa04d92b627cecc66759ec84f687034d43ef2bc098ca52"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/native-evidence.md",
+      "type": "file",
+      "bytes": 415,
+      "sha256": "a7ad7895a0de85f4f700a316841325f81ab30ef5c0971d0ba20697a08f3ba09a"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/request.json",
+      "type": "file",
+      "bytes": 2963,
+      "sha256": "8a175969e05191356b3d1c3131ffeee3dfbc757dd5ae458f38647440e9ae6ff9"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/run.json",
+      "type": "file",
+      "bytes": 753,
+      "sha256": "298386e4d1be83850b6c401dcac92de6098c8145162bceb8ab549f0a4c906d6c"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/stderr.txt",
+      "type": "file",
+      "bytes": 162,
+      "sha256": "5fcdc956d205dda57fd01c5a5228a246ade3a5656e7ac0a8832b42c9933e8610"
+    },
+    {
+      "path": "skill-evals/results/codex/qc-variant-comparison/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4225,
+      "sha256": "b52b5e414c1c16ad3f119e5447bcc65bacf9d302ba78e9404cc3ae162047b1d4"
+    },
+    {
+      "path": "skill-evals/results/codex/quality-speed-tradeoff/final.md",
+      "type": "file",
+      "bytes": 12482,
+      "sha256": "6e0c37fd3f60684b66e32454bc2b53c52659f9040e7fb055d327b0a0bd536cd5"
+    },
+    {
+      "path": "skill-evals/results/codex/quality-speed-tradeoff/grade.json",
+      "type": "file",
+      "bytes": 2608,
+      "sha256": "4c9b991cf2154820e7dbc3936d3790bd18aad30148970390c9b6e5b1e8e35516"
+    },
+    {
+      "path": "skill-evals/results/codex/quality-speed-tradeoff/native-evidence.md",
+      "type": "file",
+      "bytes": 380,
+      "sha256": "f4df7b48554b1ec5fc2240b19d8c8cda6162634d13d9cce6c67506cd6a74ac90"
+    },
+    {
+      "path": "skill-evals/results/codex/quality-speed-tradeoff/request.json",
+      "type": "file",
+      "bytes": 1548,
+      "sha256": "5d0bb70a37154fe4d1ef041e2ec87610cc4cd84e4705538c483f171737328276"
+    },
+    {
+      "path": "skill-evals/results/codex/quality-speed-tradeoff/run.json",
+      "type": "file",
+      "bytes": 745,
+      "sha256": "9e562702910d3f95676a7acbb88ae40e2c06fcade61e4a39aa4f739d89d8f9eb"
+    },
+    {
+      "path": "skill-evals/results/codex/quality-speed-tradeoff/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4206,
+      "sha256": "589857868e12b9c41a33fe16220681e944c3c233c6c81b6cd8de17d632f0ff3c"
+    },
+    {
+      "path": "skill-evals/results/codex/summary.json",
+      "type": "file",
+      "bytes": 651,
+      "sha256": "0774f56a677ee277750c1b65255e8178b8a49c8f3d4dd0e38bfd93132a27972b"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/events.jsonl",
+      "type": "file",
+      "bytes": 27230,
+      "sha256": "1ac7a0d76e780a091dadd4990e7c45cc720cd1d91c7b1e9d0fa6cf28398feeca"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/final.md",
+      "type": "file",
+      "bytes": 2590,
+      "sha256": "f806022db7d015d8e9304f8279e962c2156514e4528aca842c8766be3384b435"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/grade.json",
+      "type": "file",
+      "bytes": 2631,
+      "sha256": "f12a47026c971a432fc2902916f170731f5feaebb41d1572d6dcc2f2d0aa79b8"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/native-evidence.md",
+      "type": "file",
+      "bytes": 415,
+      "sha256": "a7ad7895a0de85f4f700a316841325f81ab30ef5c0971d0ba20697a08f3ba09a"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/request.json",
+      "type": "file",
+      "bytes": 2756,
+      "sha256": "ea9fe2ebcd03fe7088e35473f05827bc061022279ed1737fcdd8a70dce99b3e4"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/run.json",
+      "type": "file",
+      "bytes": 759,
+      "sha256": "c5c687e92093740613905faf2905d3288a166fb14f5c4e7b9389b7458e1fa8f4"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/stderr.txt",
+      "type": "file",
+      "bytes": 162,
+      "sha256": "3124643cecd750f05d8a29f46e6362471c1a5545235b6af7df20ac3771138c38"
+    },
+    {
+      "path": "skill-evals/results/codex/version-misattribution-trap/workspace-inventory.json",
+      "type": "file",
+      "bytes": 4225,
+      "sha256": "b52b5e414c1c16ad3f119e5447bcc65bacf9d302ba78e9404cc3ae162047b1d4"
+    },
+    {
+      "path": "skill-evals/results/reviews/adversarial-review.md",
+      "type": "file",
+      "bytes": 14202,
+      "sha256": "cd9c9c3661e7faedcdd8569900ab04dd677ac7bf4a4f0f84c1a455dbb5f0ec7d"
+    },
+    {
+      "path": "skill-evals/results/reviews/research-distiller.md",
+      "type": "file",
+      "bytes": 5695,
+      "sha256": "52eeaa5df9dd51bfadeb54d6e5640b9cf0dc09222fda03aa19d4588e600200c2"
+    },
+    {
+      "path": "skill-evals/results/summary.json",
+      "type": "file",
+      "bytes": 1574,
+      "sha256": "432fcbfddda1084fa297cd1ff66412ac4877dca5c9cbf95ac00290470d2cf6e1"
+    },
+    {
+      "path": "skill-evals/results/validation/gitleaks.json",
+      "type": "file",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "skill-evals/results/validation/host-probes.json",
+      "type": "file",
+      "bytes": 691,
+      "sha256": "0fd560eba0c9f0211dace74d5666dde130f03f411deba425da9866fe084f10e3"
+    },
+    {
+      "path": "skill-evals/results/validation/quick-validate.json",
+      "type": "file",
+      "bytes": 460,
+      "sha256": "934e5713d68ec2b23af5bbd53cf78d4b1043d3048b5d1c1924ae1c1bfa252d4c"
+    },
+    {
+      "path": "skill-evals/rubric.md",
+      "type": "file",
+      "bytes": 4543,
+      "sha256": "0d245f00fad973dd0960e2d0f9d8ba7941ec54fa1df15e21161b8920ef44e3fc"
+    },
+    {
+      "path": "skill-evals/schemas/grade.schema.json",
+      "type": "file",
+      "bytes": 1783,
+      "sha256": "b191557fed545b7879b8e73c71fdfe77315b3763fb82791cc7534b509baad1ae"
+    },
+    {
+      "path": "skill-evals/scripts/aggregate_scores.py",
+      "type": "file",
+      "bytes": 9963,
+      "sha256": "c999b950ca63b76ace0f423e7a1db4f838e2ec3ac651edd84908ebfcf4186533"
+    },
+    {
+      "path": "skill-evals/scripts/build_manifest.py",
+      "type": "file",
+      "bytes": 3984,
+      "sha256": "bfbc59106a55d8ea64c61a8db555be61ae7eb7450986a3b3573b7577205d3b5f"
+    },
+    {
+      "path": "skill-evals/scripts/collect_direct_eval.py",
+      "type": "file",
+      "bytes": 7690,
+      "sha256": "242024f72a888c29105a8dcc617404318b13a52a63b1f5921c0eefa1b67d7705"
+    },
+    {
+      "path": "skill-evals/scripts/resanitize_results.py",
+      "type": "file",
+      "bytes": 3322,
+      "sha256": "a4ac092096d40fc070614d2217285c242aa57d7b6d7d354dd8934a9add7623de"
+    },
+    {
+      "path": "skill-evals/scripts/run_host_eval.py",
+      "type": "file",
+      "bytes": 18032,
+      "sha256": "544fab4419493f39a77c4430005e0ed0cb6361df1df814a61e01aa287aeaa2b9"
+    },
+    {
+      "path": "skill-evals/scripts/scan_signed_queries.py",
+      "type": "file",
+      "bytes": 3570,
+      "sha256": "a090ea236425cb2e69d3b51fe44e8f60a03969f7be1254be1a893a1eb1903b63"
+    },
+    {
+      "path": "skill-evals/scripts/sensitive_urls.py",
+      "type": "file",
+      "bytes": 685,
+      "sha256": "dfe5f4d06778091ced5f2dafb3486e65a0761b547cb9f4f06b794682b1d58699"
+    },
+    {
+      "path": "skill-evals/tests/test_aggregate_scores.py",
+      "type": "file",
+      "bytes": 4690,
+      "sha256": "254e57dc0ebc197a3c930c4b167ec097d54099d80fac7fc0b52f6334245ec382"
+    },
+    {
+      "path": "skill-evals/tests/test_build_manifest.py",
+      "type": "file",
+      "bytes": 2266,
+      "sha256": "9ec241aa3817fd10b600c39641f27eb0a09eb935346b64b6d01a054e46ad6a0b"
+    },
+    {
+      "path": "skill-evals/tests/test_collect_direct_eval.py",
+      "type": "file",
+      "bytes": 3356,
+      "sha256": "e0ecf9850a3158493589e7b604ecee1d2e23fe394b4e4964a4428893a7342888"
+    },
+    {
+      "path": "skill-evals/tests/test_public_artifact_scans.py",
+      "type": "file",
+      "bytes": 5524,
+      "sha256": "415965aa82a2b6e2d3399bfb759f9fae750eeb671b8c5748bfb911a9fcfdf037"
+    },
+    {
+      "path": "skill-evals/tests/test_run_host_eval.py",
+      "type": "file",
+      "bytes": 6961,
+      "sha256": "edd0923ca0b365b706baab1659131545436299661e5a9a3c0cd218714cfabdbb"
+    },
+    {
+      "path": "skill-evals/tests/test_skill_suite_structure.py",
+      "type": "file",
+      "bytes": 12709,
+      "sha256": "38ae7666c56a4bb8705b5e6218b6e8afcf92efe754a4da103469fed606de3e8b"
+    },
+    {
+      "path": "skills/seedance-film-producer/SKILL.md",
+      "type": "file",
+      "bytes": 5479,
+      "sha256": "c429489ab3e60e58352f475b49e0d6c653ea33bfb7b3a9cf4332d36131c13898"
+    },
+    {
+      "path": "skills/seedance-film-producer/agents/openai.yaml",
+      "type": "file",
+      "bytes": 274,
+      "sha256": "7b563e3d0b99d95e244d6eb87c24319d241c5139109cde4dfcd95c361408ad10"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/assets-continuity-lineage.md",
+      "type": "file",
+      "bytes": 5414,
+      "sha256": "0592a7c8f1aed76f2bdd4e323794369709a3f78eac044a0d70128fd5322ec944"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/editorial-finishing.md",
+      "type": "file",
+      "bytes": 4150,
+      "sha256": "3880697754729e517a14669a357ea245f50e108f4ee6887a3b8d6f71d5812b6e"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/modes-kpis.md",
+      "type": "file",
+      "bytes": 5088,
+      "sha256": "1928b6d8e6e60be8b40ee9e12e6d975d476a3f14dc37fb03256731db78295a6e"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/production-hierarchy.md",
+      "type": "file",
+      "bytes": 5202,
+      "sha256": "a65f965dc5975f880986629f74bbd09c81f58b9271afec640b33fb5d33a3ee85"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/provenance.md",
+      "type": "file",
+      "bytes": 5736,
+      "sha256": "15276dcb52e6b4d9727047a6c66b20fc77f2495597a1fb1f54ac6afff6df02c5"
+    },
+    {
+      "path": "skills/seedance-prompt-director/SKILL.md",
+      "type": "file",
+      "bytes": 5980,
+      "sha256": "bc0a740bc6deaaf958c95ea30764f00a65297984bccdeec6af756a225c81b202"
+    },
+    {
+      "path": "skills/seedance-prompt-director/agents/openai.yaml",
+      "type": "file",
+      "bytes": 277,
+      "sha256": "48832d8a0194226c547c9409d75c50c2bd9010eea7e9f5ed253ce11ac3b79bc2"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/prompt-schema.md",
+      "type": "file",
+      "bytes": 6732,
+      "sha256": "7bd4664c9f6f5d228d6bd915da64a5ef10e71dee8ea46884ae026a0c2ae9cdc3"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/provenance.md",
+      "type": "file",
+      "bytes": 6656,
+      "sha256": "3659df7f1af3fbaea24dd78d1a8a98eccbb340c7b96a33001a067b11eb4bdc58"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/reference-motion-audio.md",
+      "type": "file",
+      "bytes": 6657,
+      "sha256": "ce7c1d7a00f0fdd2f82978e2f270c2772c4220df9c572c588191ebcba63b1864"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/revision-failure-patterns.md",
+      "type": "file",
+      "bytes": 4353,
+      "sha256": "cb3bfc9b7054fd034f42217d03cfcdfd07dd25aff3a9108f602525b1ff306df4"
+    },
+    {
+      "path": "skills/seedance-video-qc/SKILL.md",
+      "type": "file",
+      "bytes": 5009,
+      "sha256": "1cb8c25b3bca95a34409c22b1c83ee209a5e99e79b19125a784fa2c2a134b780"
+    },
+    {
+      "path": "skills/seedance-video-qc/agents/openai.yaml",
+      "type": "file",
+      "bytes": 267,
+      "sha256": "ba2a2d6596ef3a54d26209b781ea4553591f528d88c63924d30093eae1a686b7"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/inspection-rubric.md",
+      "type": "file",
+      "bytes": 5938,
+      "sha256": "51e2f7d59937c45f07a540825dac6100b1e87e66d256cf0242aa804ae5c3fb7e"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/provenance.md",
+      "type": "file",
+      "bytes": 5631,
+      "sha256": "3061662a06d8073aea0b481aea74cd3d410404b51206352ccd700e383e549e32"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/root-cause-actions.md",
+      "type": "file",
+      "bytes": 4700,
+      "sha256": "3d44ad6ce095f6786f81f0bcab21e8b74e74d966f0be8c6e46ab181d6e90ceeb"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/variant-comparison.md",
+      "type": "file",
+      "bytes": 2798,
+      "sha256": "23dfa4f0a95ea72d5603e209750b314a8c62e338955bcba897dcaeac2bab482d"
+    }
+  ]
+}

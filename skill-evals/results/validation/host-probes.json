@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-22",
+  "codex": {
+    "cli": "codex-cli 0.149.0",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "probe": "CODEX_ULTRA_OK",
+    "status": "PASS",
+    "note": "Codex host catalog exposes ultra above the public API max effort; a real ephemeral read-only probe passed."
+  },
+  "claude_code": {
+    "cli": "2.1.239 (Claude Code)",
+    "model": "claude-fable-5",
+    "effort": "max",
+    "provider": "firstParty",
+    "subscription": "max",
+    "probe": "CLAUDE_FABLE_MAX_OK",
+    "status": "PASS",
+    "note": "Primary model metadata resolved to claude-fable-5. A small Haiku auxiliary call was reported separately from the primary model."
+  },
+  "status": "PASS"
+}

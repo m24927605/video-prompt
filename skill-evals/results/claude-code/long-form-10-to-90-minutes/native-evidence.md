@@ -1,0 +1,22 @@
+# Native host evidence
+
+- Host: `claude-code`
+- CLI version: `2.1.239 (Claude Code)`
+- Requested primary model: `claude-fable-5`
+- Requested effort: `max`
+- Invocation: `explicit`
+- Expected skill: `seedance-film-producer`
+- Isolated workspace digest: `3fd73f9a527e52ee5be8d227dcf8f173290884e1a2640ae2b34a16a26bdc76cf`
+- Requested model observed: `true`
+- Observed primary model: `claude-fable-5`
+- Observed provider: `firstParty`
+- Fallback detected: `false`
+- Auxiliary models reported by host: `none`
+- Activation/discovery evidence: event[0] system/init native skill listing
+- Activation/discovery evidence: event[9] user
+- Activation/discovery evidence: event[12] user
+- Activation/discovery evidence: event[34] user
+- Activation/discovery evidence: event[36] user
+- Activation/discovery evidence: event[44] user
+- Native skills listed by Claude init: `seedance-film-producer, seedance-prompt-director, seedance-video-qc`
+- Native discovery complete: `true`

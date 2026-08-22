@@ -1,0 +1,36 @@
+{
+  "case_id": "version-misattribution-trap",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 24,
+    "task_completeness": 35,
+    "evidence_discipline": 19,
+    "language_scope": 10
+  },
+  "total": 98,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:5-7 rejects the proposed universal claim and states that critical version/entity errors cannot be averaged away.",
+    "final.md:11-16 separates brief-level 2.5 intent, one asset's UI label Seedance 2, one opened sample, the 4k badge, Size, decoded playback and the three-of-five final-frame count into direct/inference/unknown columns.",
+    "final.md:13 explicitly refuses to resolve UI Seedance 2 to either 2.0 or 2.5 without backend/platform evidence; final.md:18-27 enumerates every laundering path.",
+    "final.md:15 correctly says native generation and proxy/upscale history are unknown, although the phrase 'direct evidence against 4K' is slightly too strong until the exact decoded dimensions are known; the same row immediately identifies that distinction as unknown.",
+    "final.md:29-33 provides defensible bracketed report language; final.md:35-50 labels all causal ideas hypotheses and routes to metadata, master-file probing, dense sampling and complete sample inspection rather than regeneration.",
+    "final.md:52-61 supplies a finite evidence stop and the exact remaining backend/resolution/temporal/sample unknowns.",
+    "native-evidence.md:7-19 records implicit native discovery/activation and complete three-skill listing; run.json:8-89 attests claude-fable-5/max, no fallback, exit_code 0, research absent and no paid media events."
+  ],
+  "rationale": "The artifact correctly prevents project-level 2.5 intent, a generic UI label and a 4k badge from becoming per-asset backend/native-resolution proof. It records the five-to-three endpoint failure and keeps choreography temporal evidence unknown. The two-point deduction is narrow: one resolution sentence momentarily overstates what unspecified differing decoded dimensions prove, even though the adjacent unknowns and final rewrite restore the correct boundary. No critical misattribution survives in the conclusion.",
+  "activation_evidence": "Verified implicit native activation: native-evidence.md:7-19 records automatic seedance-video-qc events, complete native listing and discovery_complete true; run.json:81-84 gives the event indices.",
+  "unknowns": [
+    "Per-output backend model IDs, actual Size/request values, delivered-master decoded dimensions and proxy/upscale lineage remain unknown.",
+    "Full temporal character identity/count/choreography and the other sampled outputs remain uninspected."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

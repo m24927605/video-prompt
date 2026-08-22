@@ -1,0 +1,36 @@
+{
+  "case_id": "multi-character-reference-mapping",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:5-10 classifies reference generation, keeps the platform/model/runtime unknown, labels all assumptions and marks the workflow as untested rather than claiming a result.",
+    "final.md:18-25 binds Images 1-4, Video 1 and Audio 1-2 by upload order with explicit allowed and excluded inheritance, including a direct ban on Image 4 composition leakage and any voice/identity/wardrobe exchange.",
+    "final.md:27-37 locks exactly Mara, Ivo, one closed brass case and one bench, frame-left/frame-right blocking, Mara's right-hand ownership and all four hands visible in the first frame.",
+    "final.md:39-65 preserves both exact dialogue lines and silence order, moves the case left-to-right from Mara's right hand with continuous load/contact physics, and ends with the case on the bench plus all four hands visible and empty.",
+    "final.md:68-103 provides yes/no gates for counts, every reference role, blocking, handoff physics, acting, camera, audio and the required endpoint.",
+    "final.md:105-130 identifies concrete leakage/contact/dialogue risks and gives one-variable routes to asset isolation, location cropping, simplified contact, motion removal, ADR or duration adjustment with a repeated-defect stop.",
+    "native-evidence.md:7-16 records explicit native skill discovery/injection; run.json:8-27 attests claude-fable-5/max with no fallback, exit_code 0, research absent and no paid media events."
+  ],
+  "rationale": "All seven reference inputs receive unambiguous jobs and inheritance boundaries. The two identities, wardrobes and voices never cross; Image 4 does not own composition; the transfer retains Mara's right-hand ownership/path and believable support/release physics; and the exact bench/all-hands endpoint is explicit. Acceptance and failure routes are production-ready and evidence-bounded. No critical trap is present.",
+  "activation_evidence": "Verified explicit native activation: native-evidence.md:7-16 records /seedance-prompt-director through the host's native skill listing and injected skill event; run.json:20-22 records the same evidence.",
+  "unknowns": [
+    "The unspecified platform's binding syntax, 12-second option, multi-audio behavior and lip-sync performance remain unknown and are disclosed.",
+    "No generated media was available to validate reference adherence."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

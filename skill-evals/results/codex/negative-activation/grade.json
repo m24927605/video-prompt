@@ -1,0 +1,34 @@
+{
+  "case_id": "negative-activation",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-22 is an ordinary pure-Python solution: it validates string input, positive integer non-bool fps, exact HH:MM:SS:FF shape, time-field ranges and FF < fps before computing an integer frame count.",
+    "final.md:25-27 supplies exactly three concise examples with correct frame totals.",
+    "The entire final.md contains no Seedance prompt schema, video-production workflow, generated-video QC framing, or claim that a Seedance skill is relevant.",
+    "events.jsonl:1-4 records only thread/turn boundaries and the ordinary agent answer; there is no command or skill-read event.",
+    "request.json records invocation_mode implicit and expected_skill null; run.json:9-17 records exit_code 0, an empty activation_evidence list, research absent and no paid media events.",
+    "workspace-inventory.json:3-4 records no research and no grader in the isolated workspace; the task requested no file creation and the event stream shows none."
+  ],
+  "rationale": "This negative case remains a normal coding task. The function and examples satisfy the requested deliverable and validation scope, while the event stream proves no Seedance skill was read or invoked and no file was created. This is positive evidence of non-activation, not merely an absence of Seedance keywords in prose.",
+  "activation_evidence": "Verified correct non-activation: events.jsonl has no tool/skill-read events, request.json expects no skill in implicit mode, run.json:14 has an empty activation_evidence array, and the final artifact remains ordinary Python.",
+  "unknowns": [
+    "The artifact was semantically reviewed but not executed as part of this grading pass; the arithmetic shown in all three examples is correct by inspection."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

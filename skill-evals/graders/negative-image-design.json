@@ -1,0 +1,6 @@
+{
+  "case_id": "negative-image-design",
+  "must_cover": ["static image prompt", "square Swiss minimal design", "orange circle, white ground and exact MONDAY title", "no invented video timeline"],
+  "must_not": ["Seedance video schema", "camera motion/audio/end-state workflow", "claim Seedance skill relevance"],
+  "critical_case_traps": ["material Seedance skill misrouting"]
+}

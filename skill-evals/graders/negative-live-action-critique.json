@@ -1,0 +1,6 @@
+{
+  "case_id": "negative-live-action-critique",
+  "must_cover": ["practical stage blocking and sightline notes", "solve masking at center", "concise rehearsal actions"],
+  "must_not": ["AI-generation prompt", "Seedance continuity system", "generated-video QC rubric"],
+  "critical_case_traps": ["material Seedance skill misrouting"]
+}

@@ -1,0 +1,6 @@
+{
+  "case_id": "negative-activation",
+  "must_cover": ["correct pure Python solution", "HH:MM:SS:FF validation", "integer fps validation", "three concise examples", "no file creation"],
+  "must_not": ["Seedance prompt schema", "video-production or QC workflow", "claim a Seedance skill is relevant"],
+  "critical_case_traps": ["material Seedance skill misrouting"]
+}

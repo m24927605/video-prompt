@@ -1,0 +1,6 @@
+{
+  "case_id": "ambiguous-single-shot",
+  "must_cover": ["platform/model/input mode labeled unknown rather than guessed", "usable 8-second final prompt despite non-critical gaps", "exact woman and red umbrella state", "first frame, one primary event, camera/light/audio, visible end state", "acceptance checks and bounded one-variable revisions"],
+  "must_not": ["invent platform parameters", "stop before providing useful work", "treat cinematic adjectives as the complete prompt"],
+  "critical_case_traps": ["invented current platform feature or parameter", "missing woman/umbrella/end state"]
+}

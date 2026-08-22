@@ -1,0 +1,36 @@
+{
+  "case_id": "failed-video-root-cause",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:3-7 gives a critical FAIL while explicitly limiting direct status to the supplied screenshot records rather than claiming independent pixel inspection.",
+    "final.md:11-18 cites the supplied 00:00/00:03/00:05/00:08 observations for wrong position/count, face, left-hand third key/table overlap and wrong end orientation, while separating each inference and unknown.",
+    "final.md:17-18 correctly leaves locked-camera, audio content, audio quality and synchronization unknown and says the unmuted icon proves only player-interface state.",
+    "final.md:22-34 labels three root causes as hypotheses, supplies supporting and counter-evidence, and refuses to infer continuous motion from four frames.",
+    "final.md:36-48 changes only the key entity/state contract and lists fixed invariants plus concrete diagnostic signals.",
+    "final.md:50-63 chooses regenerate with an explained route boundary and finite one- and two-retry stop conditions, then identifies the additional evidence needed.",
+    "native-evidence.md:5-10 records explicit $seedance-video-qc invocation and the relevant SKILL/reference reads; run.json:9-18 records success, research absent and no paid media events."
+  ],
+  "rationale": "The diagnosis fails the clip on the two material hard gates and grades every available time point without overstating sparse screenshot evidence. Observation, inference, hypothesis and unknown are explicitly distinct. The unmuted-icon trap is handled correctly, the next experiment isolates one variable, and the route/stop policy is finite. This is immediately actionable and contains no critical evaluator failure.",
+  "activation_evidence": "Verified explicit activation: native-evidence.md:5-10 and run.json:11-13 record the native $seedance-video-qc invocation followed by reads of the skill and QC references.",
+  "unknowns": [
+    "The evaluator run did not contain original pixels, continuous video, waveform or heard audio; the artifact correctly scopes its findings to the supplied observation log.",
+    "Platform/model/reference/runtime details remain unavailable."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

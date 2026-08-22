@@ -1,0 +1,19 @@
+{
+  "case_id": "cantonese-dialogue-audio",
+  "host": "codex",
+  "cli_version": "codex-cli 0.149.0",
+  "requested_primary_model": "gpt-5.6-sol",
+  "requested_effort": "ultra",
+  "fallback_model": null,
+  "exit_code": 0,
+  "timed_out": false,
+  "final_present": true,
+  "activation_evidence": [
+    "implicit routing to seedance-prompt-director",
+    "Codex event item_1 read .agents/skills/seedance-prompt-director/SKILL.md"
+  ],
+  "research_present": false,
+  "workspace_digest": "51011d9c80308dea251d35ac0376801bf731d8960058cdeeb3f5c90a5b3d6e0f",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

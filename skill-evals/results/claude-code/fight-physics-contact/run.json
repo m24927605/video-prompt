@@ -1,0 +1,28 @@
+{
+  "case_id": "fight-physics-contact",
+  "host": "claude-code",
+  "cli_version": "2.1.239 (Claude Code)",
+  "requested_primary_model": "claude-fable-5",
+  "requested_effort": "max",
+  "fallback_model": null,
+  "model_evidence": {
+    "requested_model_observed": true,
+    "actual_primary_model": "claude-fable-5",
+    "actual_primary_provider": "firstParty",
+    "auxiliary_models": [],
+    "fallback_detected": false
+  },
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 452.539,
+  "event_count": 210,
+  "final_present": true,
+  "activation_evidence": [
+    "event[0] system/init native skill listing",
+    "event[24] user"
+  ],
+  "research_present": false,
+  "workspace_digest": "8814090cfaf8d6278bba3c23d22e9675c65a845724f6df8541f32e6d12e3fd58",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

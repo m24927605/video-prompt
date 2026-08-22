@@ -1,0 +1,19 @@
+{
+  "case_id": "negative-image-design",
+  "host": "codex",
+  "cli_version": "codex-cli 0.149.0",
+  "requested_primary_model": "gpt-5.6-sol",
+  "requested_effort": "ultra",
+  "fallback_model": null,
+  "model_evidence": null,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 22.14,
+  "event_count": 4,
+  "final_present": true,
+  "activation_evidence": [],
+  "research_present": false,
+  "workspace_digest": "5256622eb4afef523245b2df5f83c8b92070c24fb0abbda1ff041148b7b01019",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

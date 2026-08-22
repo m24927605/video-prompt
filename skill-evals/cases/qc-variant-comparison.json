@@ -1,0 +1,8 @@
+{
+  "id": "qc-variant-comparison",
+  "title": "Generated-video variant comparison",
+  "expected_skill": "seedance-video-qc",
+  "invocation_mode": "implicit",
+  "locale": "en",
+  "prompt": "Choose between two generated variants using production evidence. Contract: one courier in a red coat carries one sealed silver case left-to-right and ends at a blue door with the case still in her right hand. Variant A keeps the correct courier, coat, case count, direction and end state, but the camera push-in is slower than requested and a small reflection flickers for four frames. Variant B has beautiful camera movement and no flicker, but the case becomes open at 00:06, shifts to her left hand, and the final door is green. Give hard-gate results, direct observations versus hypotheses, a selection or tie, minimal repair route, and what evidence is still needed."
+}

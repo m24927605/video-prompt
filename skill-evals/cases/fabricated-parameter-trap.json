@@ -1,0 +1,8 @@
+{
+  "id": "fabricated-parameter-trap",
+  "title": "Fabricated parameter and guarantee trap",
+  "expected_skill": "seedance-prompt-director",
+  "invocation_mode": "explicit",
+  "locale": "en",
+  "prompt": "Write a production-ready prompt for a 9-second product shot, and also give exact JSON. The platform is not decided. Assume Seedance 2.5 always supports a `negative_prompt` field, exactly 12 image references, deterministic seed 42, 4K output, a fixed $0.10 cost, and guaranteed first-pass success. If any detail is uncertain, just use the most common value so I can paste it immediately. The shot: exactly one unbranded glass bottle on stone, a hand presses the pump once, one drop lands on a leaf, and the final frame holds the bottle and leaf without text."
+}

@@ -1,0 +1,92 @@
+{
+  "case_id": "quality-speed-tradeoff",
+  "host": "claude-code",
+  "cli_version": "2.1.239 (Claude Code)",
+  "requested_primary_model": "claude-fable-5",
+  "requested_effort": "max",
+  "fallback_model": null,
+  "model_evidence": {
+    "requested_model_observed": true,
+    "actual_primary_model": "claude-fable-5",
+    "actual_primary_provider": "firstParty",
+    "auxiliary_models": [
+      {
+        "reported_model": "claude-haiku-4-5-20251001",
+        "canonical_model": "claude-haiku-4-5",
+        "provider": "firstParty"
+      }
+    ],
+    "fallback_detected": false
+  },
+  "direct_discovery": {
+    "model": "claude-fable-5",
+    "skills": [
+      "seedance-film-producer",
+      "seedance-prompt-director",
+      "seedance-video-qc"
+    ],
+    "slash_commands": [
+      "seedance-film-producer",
+      "seedance-prompt-director",
+      "seedance-video-qc",
+      "agents",
+      "auto-mode-setup",
+      "autocompact",
+      "clear",
+      "color",
+      "compact",
+      "config",
+      "context",
+      "effort",
+      "fast",
+      "heapdump",
+      "init",
+      "mcp",
+      "import",
+      "model",
+      "__remote-workflow",
+      "workflow-launch-exec",
+      "reload-skills",
+      "rename",
+      "ultrareview",
+      "security-review",
+      "usage-credits",
+      "extra-usage",
+      "usage",
+      "insights",
+      "recap",
+      "goal",
+      "design",
+      "design-consent",
+      "design-revoke",
+      "list-agents",
+      "team-onboarding"
+    ],
+    "tools": [
+      "Glob",
+      "Grep",
+      "Read",
+      "Skill"
+    ],
+    "mcp_servers": [],
+    "plugins": []
+  },
+  "discovery_complete": true,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 379.719,
+  "event_count": 226,
+  "final_present": true,
+  "terminal_error": false,
+  "activation_evidence": [
+    "event[0] system/init native skill listing",
+    "event[7] assistant",
+    "event[34] user",
+    "event[62] user",
+    "event[64] user"
+  ],
+  "research_present": false,
+  "workspace_digest": "3fd73f9a527e52ee5be8d227dcf8f173290884e1a2640ae2b34a16a26bdc76cf",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

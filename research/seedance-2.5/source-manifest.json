@@ -1,0 +1,2686 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-08-22T10:08:38.808+00:00",
+  "timezone": "Asia/Taipei (+08:00)",
+  "completion_summary": {
+    "status": "complete_with_explicit_unknowns",
+    "source_count": 4,
+    "supplemental_source_count": 10,
+    "source_file_entries": 385,
+    "unique_local_files": 384,
+    "hard_gates_open": []
+  },
+  "sources": [
+    {
+      "id": "A",
+      "source_url": "https://bytedance.larkoffice.com/docx/A88jd0B47oAd8zxWp5ycZFMfnxh",
+      "title": "Dreamina Seedance 2.5 Prompt Writing Guide",
+      "accessed_at": "2026-08-22 Asia/Taipei",
+      "visible_version_or_update": "Last updated: Aug 12",
+      "browser": "Google Chrome extension session",
+      "acquisition_class": "capture",
+      "completeness": "full_body_high_confidence; official_export_missing",
+      "method": "visible Chrome top/middle/bottom and true-bottom inspection; 300px overlapping virtual-scroll harvest; double-select clipboard text/html/docx-record; offline HTML reopened in Chrome",
+      "counts": {
+        "plain_text_chars": 57053,
+        "rich_html_chars": 613654,
+        "docx_record_chars": 316010,
+        "blocks": 512,
+        "block_id_range": "2-513",
+        "block_id_gaps": 0,
+        "offline_visible_chars": 57390,
+        "tables": 9,
+        "pre_or_code_nodes": 110
+      },
+      "missing": [
+        {
+          "item": "site-provided original export",
+          "reason": "Anonymous More menu exposed only Report Abuse; no export/download option."
+        },
+        {
+          "item": "non-body Lark file_list_load_error UI image",
+          "reason": "Browser pageAssets fetch failed; not a body asset."
+        }
+      ],
+      "files": [
+        {
+          "path": "research/seedance-2.5/sources/lark/QA.md",
+          "mime_type": "text/markdown",
+          "byte_size": 1278,
+          "sha256": "5b5abc217c5c3a80d23175cd342eed40f13aac93ee06c90eb6198a9b0e2d963a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/README.md",
+          "mime_type": "text/markdown",
+          "byte_size": 3695,
+          "sha256": "006f4b29beb04e65cf508e5018ef9119c3cd124826cf9c741eb851c41b03db80"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/asset-bundle-result.json",
+          "mime_type": "application/json",
+          "byte_size": 22232,
+          "sha256": "09ae582094d99d6bc6fd0e312424af6a39296f2deec282e217a61e6ad599fd91"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/asset-inventory.sanitized.json",
+          "mime_type": "application/json",
+          "byte_size": 112337,
+          "sha256": "0052ea6ab3c941a77c33ace20296e355df00a1fbf59588cf4c10a565fd27bc6d"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/00f5298d9581098c.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 51533,
+          "sha256": "c63d9da4cc71f82a7d202561fad5522bb28cf54fb1087b6a52f892d475109342"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/0357e2130265d310.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/03ad24af59169bcb.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 484,
+          "sha256": "319a7cd67292355c66c8bcfe0d8e357146b169b970fb8efc0e28caea93aca802"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/0ea1e73e1f9927b0.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 123754,
+          "sha256": "44eee989ec53e6688090ef95841e9277e5d9fcc3620a47dc005df1f15b89bac9"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/13154a511f1ad365.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/1c265d71886d2d96.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 17629,
+          "sha256": "1f6873a2d545b46b22f8a2300b3d4acfb0b261eb75f2ca8257832659abdb5b84"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/1cb28e2677669976.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 76308,
+          "sha256": "902f807ecdcdafdecb19c43870e3a75b75c5f2e6b8bbd91ce88c4368bd362a45"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/22eefa509d6d9556.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 1969,
+          "sha256": "1a0bd9771bd450a15bc0fc1c72592005071e5cde2b7403717b7d1b3f5dd12fa8"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/2a00e2271e9266f4.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 2014,
+          "sha256": "fc37ebf4c4b8d901976970626201ea238e54e16d6e4ed2d7a893a014b058cc5f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/38a78c030a11a5a2.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 277859,
+          "sha256": "761328ad37df1702167d569b18e032523e6654738b82312cf47d04073a8dfef7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/393b340107123737.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/3f80aef22b4caa2e.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/408fc801c95665c8.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/42a5c29dc4e23e87.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 17486,
+          "sha256": "9d5a3005e561778c9373da032d20b3dc367e45379d4007e06adf378f4fc58569"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/42c9295d7c2a2309.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 121693,
+          "sha256": "1e8bfd9200b06555784d5da88ed1c2142b8f2d4cc7bfb81f25916769a8cae177"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/4eb0f4e6e06e8c76.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 1355,
+          "sha256": "db2ce5f2222d93266b5b563f18c9069c78a3471737c9af57926d3259e0131b46"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/522e385662a41ff0.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 482,
+          "sha256": "d20320de8e07e190dba768c107c1a499d6d3192d5493f57ca0ea406a9b4b5686"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/54a4ce75a9f6b568.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 327,
+          "sha256": "5f44db25dd89ff95d895847396968c0e149e4dc91b565cb491850be14895a2ed"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/550b332e49db3209.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/56d36986186eef5c.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 520,
+          "sha256": "3bd394d2b14caf360086a4f6ca3c407b7edf7e7eb6c61e4d5fdf9810f85f36e7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/5830744787c33838.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 9524,
+          "sha256": "59fa7b3c8d83dc140e2b4d65400decbfb36084254f389edf17ad1a04ae3e4fe8"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/5870f89936b84c67.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 8192,
+          "sha256": "4ad603f7ee98409688100e5ea7d0649209d7ec28e68be704de9bc34ef047b179"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/5ca4de49f7b5b054.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 35445,
+          "sha256": "fa8f1333befb7af946bc371dc33f773e27c79d15fbc808296d0971cdc49b8d58"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/5cfe6504ec5255a8.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 16152,
+          "sha256": "c3808159576f92991326befa388387a245bcbecc091daa59c7f04ee85b5ad5a7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/5e4366d192c98a55.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 58117,
+          "sha256": "b85e0387a6414f47c980959ccebbb0d4e743564f28bde4028c0b59bf2d66ded4"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/5e819a2034b26242.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/5ed2eff0ecb3fae6.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 2014,
+          "sha256": "fc37ebf4c4b8d901976970626201ea238e54e16d6e4ed2d7a893a014b058cc5f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/61af1bd672395646.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 193079,
+          "sha256": "785676b3d63c3b447ff5665c7cef395c5d420d38e84bb1fac41e14aa93b95512"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/689c8aaa710da438.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 95105,
+          "sha256": "3ccfb4ce45b4fd170e7f871275b5c42589125ffc8cc9a73b71cb77d21cfc750f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/6929ad160b4c2cc8.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/6b8307588e79f1bb.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 914156,
+          "sha256": "18df5142978fa6fa4ed2743cf685232db61792c118d856ee529440186cbfd5d7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/6cf800b65ea99fac.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/6fabb1cb7d11f805.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/72b70299c8b84771.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 26569,
+          "sha256": "819abc6b2c89586f22c9560a851aad78cb88f7086b388067cdf98e49c4040b7a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/77ce162f88fd0a8a.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 557,
+          "sha256": "9aef588d4d564ab802d2be5fb244ffe743f32162e1ca24dc0eb0c64a5ba57711"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/780fd9c4451c27cb.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/7867888553eaa73e.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/7a83e31a4eacb32a.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 536,
+          "sha256": "d97fac1ceb4fbd0259db58025630ca4680a4975bf4f2150cb8e281f031221586"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/7ec2bc68ec2fdc9a.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 4906,
+          "sha256": "d1649b55d6cb83d80d7084567adab6151b05eeedb7808a1cb51056ba789430ad"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/8013457568c05f65.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 393,
+          "sha256": "fa3f57260467d934a628e5862df873bc428871873c8be539235d4ef277c251f5"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/81cd3ec703392f6d.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/82f82e6d502d3fcd.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/8a1dce24382610ce.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 2504,
+          "sha256": "02898a63cfcd400acfdc507f7ace9dba78c1d0a035c99221a03a6c1c9b22c5b9"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/8c1edd964ee299ec.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 8889,
+          "sha256": "41f4d6d8fd553331710dd2c24a9610eb5de544bdb9db35b28beaefdca408c048"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/91b0bd3ebecaa0a9.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 2358,
+          "sha256": "ff26f8cd580e71cce78b9b713ba7a913b0be032d94044f6b78c8337883da3c90"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/96a08d98f0fffe2f.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 3249,
+          "sha256": "94c3a6bf8ad9f391ce6900d10f7f97dbd55116b10db6433a7e5e547f16023e3d"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/99d1c3251fde393b.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 32617,
+          "sha256": "95a164e528cfb71a07eeef707439d9daf66e41d7eee06e514025e80212f0cd6f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/9be6ff2ecd9d8d52.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 12487,
+          "sha256": "09ad0a1354ae1e610ec9a171b246fa6ac86a99e60be3abf355c1ac64fbefb0fc"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/9e17add74f53bfca.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 299,
+          "sha256": "a80c529931051366164a84433247eabdd23a4aacd172c20692d40b350cecd398"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/9e7105bfb7988a18.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 2213,
+          "sha256": "7b8d62d81b571390f6f91abc3f23871e2d08296f1bd30c34bd86c168e68e95e1"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/a0bf93975d4b367c.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/a94572dcbf3c56b7.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/a9b24611baa2d232.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 1781,
+          "sha256": "02eba338a69f48dd64da00775ea7e3c4faf35a37e8a3726bde751c33486f421b"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/ac3878eeed2259de.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/af6c5e9d7f57cada.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 18781,
+          "sha256": "8fe7d62a0341f54cf0c81cb9796609e94526dbd56ea82a772c116f79982166d9"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/b64aa2378d92fbf8.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 908,
+          "sha256": "2254b442a3b40fdc91837c3b42c9834b33572237654104952628c44a305a38c0"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/b7544caf9d33e792.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 3584,
+          "sha256": "0d75781c35101507cd340aa222aa4bf025e058617ccfa878a507a7b973ddf39e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/b7c82b5ed76a856d.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 12417,
+          "sha256": "737628105ab2dcb932ab3dcce84c15975c91253ecf08f48cab6eb08fb6d5ec4b"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/bba83e800ab2f1ea.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 71112,
+          "sha256": "765a89a354db72a9305e4d490c80f76ffefa33f08c4ba11180db3d02d0311d41"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/c036897f57549903.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 215637,
+          "sha256": "03687533039905135b9a888f13782aff3d93e36c638cef77689603119188311f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/c15055cd024b9ac7.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 17692,
+          "sha256": "24d0840c95601614d81b24d9c0aecafb06087ed02dd94c5336bd5aeedb7f3b87"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/d2c895869f8fc6e0.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/d59e71b15cf8bb9e.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 1802,
+          "sha256": "483079485357cecea864611798a93b513ee82f6f904a8a941b9ebe3838bb47f9"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/d91e2c24fea74a3e.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 51198,
+          "sha256": "7162c776e421a031ab29ba6960c1e4e25f3fa8328501825d978d3a6b6252a39f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/dc6b67101a8cdb5c.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/de70d166d1c39b03.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 275,
+          "sha256": "bc215ae3c0cb8dbcfcd596f692f41b8205a0e3b989238247e060ebf5c78b577c"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/e01e6c7d1cbe3a7b.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 207,
+          "sha256": "b58ec113919d546a866367e3897751708e8caf5b9fc47fb07dc803dbca22037e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/e378952dd20a2b25.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 17692,
+          "sha256": "24d0840c95601614d81b24d9c0aecafb06087ed02dd94c5336bd5aeedb7f3b87"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/e7bde36f7a780866.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 251,
+          "sha256": "9cfdf78f3f72d4c2d73e09aa1b78689a25d032c992037ed21b5909eef3c9ce80"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/fab1ed2d56d4e362.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 93878,
+          "sha256": "ee8e711f877b9c5e4182699069f40c3a88cd62cb5ed0db14aa15ed49865e92ad"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/fadbe68619e8122c.css",
+          "mime_type": "application/octet-stream",
+          "byte_size": 10180,
+          "sha256": "7f097c4e8fdb9bfd13966bc9e05c24bba634ea4b77b37012272a2193560fef09"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/ffcc470f578c1502.svg",
+          "mime_type": "application/octet-stream",
+          "byte_size": 251,
+          "sha256": "9cfdf78f3f72d4c2d73e09aa1b78689a25d032c992037ed21b5909eef3c9ce80"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/assets/page-bundle/manifest.json",
+          "mime_type": "application/json",
+          "byte_size": 28845,
+          "sha256": "47af59f76b9333714d9b5522caa5e763b0b8476b3900a3ea867850e3d4f6aea3"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/blocks.json",
+          "mime_type": "application/json",
+          "byte_size": 1232954,
+          "sha256": "1a61bb36652620c7be091393b107ee94fc4a64e0738d76ea12b4a60a501db2c6"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/clipboard-rich.html",
+          "mime_type": "text/html",
+          "byte_size": 613848,
+          "sha256": "1511ad3ec0b4b6d3790af749054d290b29361b2ae277a0128301f8943c8e351b"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/full-text.txt",
+          "mime_type": "text/plain",
+          "byte_size": 57143,
+          "sha256": "832045044ec6a281fa39e5f706f9b52370e08d92796f7b6d59a1eb58a43e658a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/lark-record.json",
+          "mime_type": "application/json",
+          "byte_size": 316110,
+          "sha256": "2275ec1c961bef27515ba8b014f627916135d49e26bd636a6d9f3dc30371bf54"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/offline-full.html",
+          "mime_type": "text/html",
+          "byte_size": 615005,
+          "sha256": "8a81bb72416806a9789e533524352748131607fda6e5a72900f6ee4ea2cebbf3"
+        },
+        {
+          "path": "research/seedance-2.5/sources/lark/structured.md",
+          "mime_type": "text/markdown",
+          "byte_size": 59161,
+          "sha256": "f92899e5beec2c4024b7efcc635e1641549da92a375a4b2b94ebccf837a6435e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/README.md",
+          "mime_type": "text/markdown",
+          "byte_size": 2419,
+          "sha256": "cd9cadd1994eb840d66d9e58ca3503b796d90b64f205002f12dd9248c7a30a4a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/a-start.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 109926,
+          "sha256": "ddc539c4779f26eeda28dfff73a504dfdc59b70026dec2f39b7a560730f41b41"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/lark-bottom.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 109421,
+          "sha256": "d2e66d551274918bc9014e610afd60e35c438b3a7ea56fa5107c7307450abe46"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/lark-middle.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 102274,
+          "sha256": "d6e854312889abfe54f6f7c76716044ffebfdbee1d7168cda7f528b36e9f9d45"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/lark-offline-bottom.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 113307,
+          "sha256": "91c25cecff2f2dad3b7d66b22a08bad2182073ac6d348f23ef4e96e6670b2698"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/lark-offline-top.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 105753,
+          "sha256": "1318676f2ad2c63e9c7da3e3e21dcdaa15986ee7768024e867d9b517be57e46c"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/lark-scroll-harvest-log.json",
+          "mime_type": "application/json",
+          "byte_size": 39255,
+          "sha256": "3767257ebd409bf74c86bceaf3f04c27fcfc7461e5cb12cfb889c7c9ca0c3348"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/lark-top.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 109926,
+          "sha256": "ddc539c4779f26eeda28dfff73a504dfdc59b70026dec2f39b7a560730f41b41"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "source_url": "https://docs.byteplus.com/en/docs/ModelArk/2607689",
+      "title": "Dreamina Seedance 2.5 prompt guide",
+      "accessed_at": "2026-08-22 Asia/Taipei",
+      "created_time": "2026-08-06T17:32:19Z",
+      "updated_time": "2026-08-13T05:58:42Z",
+      "browser": "Visible Google Chrome. Chrome-plugin DOM/screenshot failed for this host; user-authorized Computer Use succeeded for live top/opening and full outline only. Full-body acceptance is based on the user's verified complete Markdown amendment.",
+      "acquisition_class": "raw_http_original_plus_capture",
+      "completeness": "user-provided full Markdown verified exact against archived MDContent; SSR/Markdown/body-assets/offline rendering complete; Computer Use inspected live top/opening and full outline, but not a full live middle/bottom scroll; official PDF missing",
+      "method": "Chrome plugin reached the correct title/final URL but its DOM/screenshot access failed; Computer Use later inspected the live top/opening, Get the skill, Bash block, Overall introduction and outline through Summary. Public SSR HTML and curDoc were archived, every Markdown media asset was downloaded and hashed, and localized Markdown was visibly reopened. The user explicitly accepted seedance2.5-prompt-guide.md as sufficient; independent audit proved it equals archived MDContent plus one trailing LF.",
+      "counts": {
+        "raw_html_bytes": 584583,
+        "content_json_chars": 165539,
+        "md_content_chars": 64717,
+        "unique_images": 50,
+        "image_occurrences": 51,
+        "unique_videos": 22,
+        "body_assets": 72,
+        "body_asset_bytes": 520243241,
+        "missing_body_assets": 0,
+        "remote_body_media_hotlinks_in_offline_outputs": 0,
+        "offline_tables": 4,
+        "offline_table_rows": 34,
+        "offline_headings": 38,
+        "offline_fenced_code_blocks": 3,
+        "offline_columns": 15,
+        "offline_column_items": 48,
+        "offline_image_occurrences": 51,
+        "offline_video_elements": 22,
+        "offline_media_occurrences": 73,
+        "offline_unique_local_media_paths": 72,
+        "offline_missing_media_paths": 0,
+        "offline_remote_media_src_attributes": 0,
+        "offline_independent_v2_review": "pass",
+        "user_markdown_bytes": 65090,
+        "user_markdown_source_headings": 37,
+        "user_markdown_tables": 4,
+        "user_markdown_table_rows": 34,
+        "user_markdown_fenced_code_blocks": 3,
+        "user_markdown_unique_media_urls": 72,
+        "user_markdown_independent_review": "pass"
+      },
+      "official_pdf_url": "https://eps-common-private-johor.dualstack.ap-southeast-1.tos.bytepluses.com/cloud-doc/eps-doc-center-pdf/ModelArk_Dreamina%20Seedance%202.5%20prompt%20guide_1786441443.pdf",
+      "missing": [
+        {
+          "item": "site-provided official PDF",
+          "reason": "PDFURL hostname returned NXDOMAIN via system/Google DNS and curl retries."
+        }
+      ],
+      "files": [
+        {
+          "path": "research/seedance-2.5/sources/byteplus/QA.md",
+          "mime_type": "text/markdown",
+          "byte_size": 2883,
+          "sha256": "d9ece3e920c5a70acd9d49bf916b08980be3652f188fd2d5839c835632b08958"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/README.md",
+          "mime_type": "text/markdown",
+          "byte_size": 6774,
+          "sha256": "58318f3bf8c332c2c2e9bdaa859bb634693eb46c84866f58e4725f4ce33170e3"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/asset-manifest.json",
+          "mime_type": "application/json",
+          "byte_size": 31167,
+          "sha256": "50adf4d6c5ed7311abe9cb40ac534229fee8577c8cc049b45c48587bbc3a619e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/asset-urls.json",
+          "mime_type": "application/json",
+          "byte_size": 13520,
+          "sha256": "8240598a5130e03b75de63f7370941666a73d9938c5fff4ea990af53bbf2dc24"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/asset-urls.txt",
+          "mime_type": "text/plain",
+          "byte_size": 8622,
+          "sha256": "10cbc86f55aefe7dbe1c65085381dbac80a2bf271306cb35b58441707528f1c6"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/001_img_001_D1WGdoTCUosz6Nxs5cRc9hgyn2b.png",
+          "mime_type": "image/png",
+          "byte_size": 2066413,
+          "sha256": "00bc26c124445de8feb35a282ce97a4860acf33d6e6dc78b87f4c8154ec87af3"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/002_img_002_DwRTdAYJhoPCYAxlq1Acypfcn9e.png",
+          "mime_type": "image/png",
+          "byte_size": 4340302,
+          "sha256": "57caf108746d32057d961cbe100947d9bd41227c4d4a496c98bfebe7e2d0c883"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/003_img_003_Ey86dklhnoS8Q6xr1BBcCqUgnwb.png",
+          "mime_type": "image/png",
+          "byte_size": 4070357,
+          "sha256": "b45b67803dccda2d75719de9ec61fe95f7531d5bb0c91f5eac97c48ccfce840d"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/004_img_004_WVY6dMcTIoDWm1xfXZzcYXQdncd.png",
+          "mime_type": "image/png",
+          "byte_size": 2667891,
+          "sha256": "00010531813ac2e8449515b7431c0b04b0b52a1ac870b3f43187adb3f7572d04"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/005_img_005_Y3BsdKO7Vov0Foxl9PPceRkLned.png",
+          "mime_type": "image/png",
+          "byte_size": 3730668,
+          "sha256": "9caf0a2041c018628c43fd3e350339aa574ba30b4cf83a9c2b76e64d126d7225"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/006_img_006_FbLvdj4Rao2njbxc0EicyNYFnxc.png",
+          "mime_type": "image/png",
+          "byte_size": 3589338,
+          "sha256": "22814647cd0ef0e44e2962dd1327ca0e36266325bcaa7ae4bcffb6c03013a9d6"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/007_img_007_P5SAdYqZjom7FSxE5eicG54hnOd.png",
+          "mime_type": "image/png",
+          "byte_size": 3776892,
+          "sha256": "954bad0523a947a770b2256ca318d6bb1787cd66e2f27984b6acba56b7049765"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/008_img_008_DIYudkBHno6uuOxX8lgckyoQnuh.png",
+          "mime_type": "image/png",
+          "byte_size": 3241536,
+          "sha256": "33a24621ca169709d1aa573ce4a470c6712859b038e225443b3405621912b60a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/009_img_009_XAnedIcrLoYcTOxTbvccxrKznfh.png",
+          "mime_type": "image/png",
+          "byte_size": 4136988,
+          "sha256": "64fa94fbb7822f72ffdc0dfa78171715b119fb7eccbed241a353594444d90014"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/010_img_010_P4uodRd1VoGtlKxa3rccsEHonTd.png",
+          "mime_type": "image/png",
+          "byte_size": 3240400,
+          "sha256": "0fb7de329909e21d12f075638a26e7b91b1f7ea0f5586a7bb4116aebaa8cef63"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/011_img_011_FLdHd8tNgoJaW2x2woccLQ67nnc.png",
+          "mime_type": "image/png",
+          "byte_size": 2131349,
+          "sha256": "97fd541af802c189be697ef6eff17f1fb3e8853f93d8f7529120e69cba1a3962"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/012_img_013_A8ZfdshHnorwKHxxn9vcJZ36n5P.png",
+          "mime_type": "image/png",
+          "byte_size": 5510524,
+          "sha256": "cce726634dc9d98f455033cc308f4c6c228e9d20630fc5b0a0977c9a1034345a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/013_img_014_To54dlVwsoe0grxwLOxcoOKWnbG.png",
+          "mime_type": "image/png",
+          "byte_size": 1769231,
+          "sha256": "85997f50bb27d9f8770bb06ec434c98a7ba71eda2c431a46f3d812024fdf33fc"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/014_img_015_LmUsdFzCfoUVGsx1uoXcS51TnUg.png",
+          "mime_type": "image/png",
+          "byte_size": 4340302,
+          "sha256": "57caf108746d32057d961cbe100947d9bd41227c4d4a496c98bfebe7e2d0c883"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/015_img_016_O6GfdOchEokX1WxachycYQO6n2c.png",
+          "mime_type": "image/png",
+          "byte_size": 4070357,
+          "sha256": "b45b67803dccda2d75719de9ec61fe95f7531d5bb0c91f5eac97c48ccfce840d"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/016_img_017_VaV5dOFvGouMVhxrL75cZ8DLncb.png",
+          "mime_type": "image/png",
+          "byte_size": 2667891,
+          "sha256": "00010531813ac2e8449515b7431c0b04b0b52a1ac870b3f43187adb3f7572d04"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/017_img_018_RX5ydLzxmonwNrx0u8CcZ1GLnDg.png",
+          "mime_type": "image/png",
+          "byte_size": 3730668,
+          "sha256": "9caf0a2041c018628c43fd3e350339aa574ba30b4cf83a9c2b76e64d126d7225"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/018_img_019_KO88dDOFsoPElXxQd6tcoUdXnKf.png",
+          "mime_type": "image/png",
+          "byte_size": 3589338,
+          "sha256": "22814647cd0ef0e44e2962dd1327ca0e36266325bcaa7ae4bcffb6c03013a9d6"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/019_img_020_V606dSWxgoGbp0x0brxcIgBsnic.png",
+          "mime_type": "image/png",
+          "byte_size": 3776892,
+          "sha256": "954bad0523a947a770b2256ca318d6bb1787cd66e2f27984b6acba56b7049765"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/020_img_021_Z5mBdYZqGoVRYpxMcA4c4whvnVa.png",
+          "mime_type": "image/png",
+          "byte_size": 3241536,
+          "sha256": "33a24621ca169709d1aa573ce4a470c6712859b038e225443b3405621912b60a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/021_img_022_AjpddkViSolsPfxJTv7c9uDEnCe.png",
+          "mime_type": "image/png",
+          "byte_size": 3984331,
+          "sha256": "bdc62fffd5c337f19cea686dab02d405b472f111894baa0e50badf266886ad68"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/022_img_023_KTDddO41Vod4W1xxY2icesjzn0f.png",
+          "mime_type": "image/png",
+          "byte_size": 3922969,
+          "sha256": "065fcbfa80cfed5031311bc97b050df68219dcdc2a34c4952aabb632af693dad"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/023_img_024_A8AcdIHcQolmt7xFxTTcAhHonsb.png",
+          "mime_type": "image/png",
+          "byte_size": 4164793,
+          "sha256": "54ebaa089679f8cfb6150b66535f1e0bacde08a40e1c0de7bde4870388bd5c49"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/024_img_025_FLzjd3zABo9HmqxDVEIcRwKZnLf.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 148909,
+          "sha256": "df31859d1e1917c685abe127cfb969350d27dccc7cd24c7d02490dd5a574eaf7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/025_img_026_HFQid7k5AovyMhxXJcHcZc96nOc.png",
+          "mime_type": "image/png",
+          "byte_size": 4017876,
+          "sha256": "eef94ab2ec8a642c91a56c8f153586eeb96b5884e93ad46bb12f2ada85560691"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/026_img_027_J6vWd5GW0oH8LYxYXhYceCvxnVj.png",
+          "mime_type": "image/png",
+          "byte_size": 4636295,
+          "sha256": "a6ecd696cc26e8cc3043399cd5d5908c28a622295078570a0eac8f2fc96148b4"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/027_img_028_F0pkdLxQVok07Ax1Ge9cbDP5nxc.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 1850435,
+          "sha256": "3a5f0761c2ef8c2d74dbec4792c9ad8009278839828c4921baeb942c815e86e2"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/028_img_029_Ol7PdZ0choM5KRxCNaZcJBrDn2g.png",
+          "mime_type": "image/png",
+          "byte_size": 6449312,
+          "sha256": "c65a22277e85385674e57dc28a75b6e31f73af7e7509c3a5d6cf737486140d91"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/029_img_030_S0XidqVTDoTVw0xFaiIcsvY4nAe.png",
+          "mime_type": "image/png",
+          "byte_size": 2793232,
+          "sha256": "547bb87a94a761d6f926358184211b42dbc14ce17d051a5c3a0ce69662db5ca5"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/030_img_031_GDwhdxBqTooHB9xSGIpcQNz2nDb.png",
+          "mime_type": "image/png",
+          "byte_size": 2494663,
+          "sha256": "469101456db0045d0340d69fc5aafa9a5f6eacc4c4aec789932fc964f87392ad"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/031_img_032_RkIdd31hTo7VtBxs5ZacIQY4nhH.png",
+          "mime_type": "image/png",
+          "byte_size": 2053583,
+          "sha256": "74b5919507d0fcf6439be7b5299bc4f2fb1d23d8e1df0236d5df0c0b0cf54464"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/032_img_033_SAkwdVijHoYqmzxxvtncFt9pnsg.png",
+          "mime_type": "image/png",
+          "byte_size": 2286411,
+          "sha256": "0b68b3cdfeaecf60b519908caf431e2f44a7d508b71d090512e7ab7161b04c48"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/033_img_034_ZdDydqSsIoiTbbx0na3cTYLanPg.png",
+          "mime_type": "image/png",
+          "byte_size": 2398794,
+          "sha256": "37c2d81935cf2b7d22d7ac355589b7b50fe16504fdc439d7be9ee3e27ad2a894"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/034_img_035_F1jNda7EvoU6s8xZOu6c3OW6ngg.png",
+          "mime_type": "image/png",
+          "byte_size": 172615,
+          "sha256": "3fa58b87469f1d552f4090df248309a9a4bdfe637a95dab66a43506f10532c9f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/035_img_036_N5M0du2QZoBTRTxltFYcmgnCnsb.png",
+          "mime_type": "image/png",
+          "byte_size": 396321,
+          "sha256": "bdfb6742535135dd4350784d4a2d9646d07392ba04bb5f416fe291de24c792f0"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/036_img_037_F38XdqrFkokBhRxHyA0caAnCnmc.png",
+          "mime_type": "image/png",
+          "byte_size": 121740,
+          "sha256": "65bf21e43f76da95884f3606ea868899a0810aa5ad7b29c6efffe61e272f4af2"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/037_img_038_Oj26dVH9Po2wSzxHmp2cGRjcnTf.png",
+          "mime_type": "image/png",
+          "byte_size": 235890,
+          "sha256": "16fe997d1bb2ad6192448123fd9ad71325bc09678fdc8238bc7ab8f0d5b1e314"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/038_img_039_NJ6rdj0RcoiL8ExidO7cWlLznvj.png",
+          "mime_type": "image/png",
+          "byte_size": 257838,
+          "sha256": "651ac80428dcbfbb7bbd4a98af9fb926c0349c1ca605287898137e794379576b"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/039_img_040_FKETdT9WroMFs6xgJa1cl4lWnEf.png",
+          "mime_type": "image/png",
+          "byte_size": 260050,
+          "sha256": "461ba827009a9df8d386b8fcb17f1bc083d6d25839553a9577f87ef247ab38d4"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/040_img_041_TEd5dsNe8oQ8zAxxygRcgnqAnug.png",
+          "mime_type": "image/png",
+          "byte_size": 3459892,
+          "sha256": "fb1b52137a8289c2e6710464f8fd6112aecaee8d4a6f9372bd7cee1f42023f2f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/041_img_042_AEsxdxoL2oCC5CxHuvMcSnoLnab.png",
+          "mime_type": "image/png",
+          "byte_size": 3280899,
+          "sha256": "b826c0d4f8dc62076cca09e62daf2b86888252c9f63580d54d233d72ba276b04"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/042_img_043_Z0shdkGCbo0aTFxxJrfcN1h7n4d.png",
+          "mime_type": "image/png",
+          "byte_size": 1745742,
+          "sha256": "bab93b5660c3c59e8c9a1a1daa5a02ab8aec861f36efb67fab265c0f05246fd9"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/043_img_044_YmwkduFMtopY2zxd5WxcgISrnCd.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 142359,
+          "sha256": "32ff4d51cdfad4772932c5653e6605822ab0c06b4c584856e436e4afe57282eb"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/044_img_045_JRY2dVlgMohjLWxPTsUcosBbneb.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 348415,
+          "sha256": "ebd87a979c128443f3b9f3ee01f5d77f252a6c9d67fe72d2d9335a1e6782e665"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/045_img_046_HJDQdOr6IoxSIdxqHItc1NvKn8t.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 207096,
+          "sha256": "b64b60d03a9d8966b820b955096b542ced0edec6be340dfe5952e38a7562320e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/046_img_047_MEbKdxSqxoCRuSxcC5QcBOyrnWf.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 263712,
+          "sha256": "755531ab9ca76228e96e2dcd0471b5206dd75735dc9bcf235c2f66477c508c3f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/047_img_048_VhAtdRoM5osPffxjKuZcrpHInde.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 301579,
+          "sha256": "a347d8346322d36f47626dc9c57e86936de866cc65c9871e1ad4ddf85422ad63"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/048_img_049_Rp2Sdg6OUosVCKxsnjMcGC3Anhh.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 94756,
+          "sha256": "6d745a87b383ac12b8bf4cd493a66847f8862438a88327e407b7d3851209db4b"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/049_img_050_ScYudGz7So5oHoxJp8Icsk94nRc.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 84206,
+          "sha256": "ab6e9fa57e498e264eb3c8686b6639ee04b7a428beb899027e4c13008d72cab8"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/image/050_img_051_MLVNdsa65oMMAYxdVouc7pysndb.jpg",
+          "mime_type": "image/jpeg",
+          "byte_size": 75677,
+          "sha256": "13eba27ecd5635aff9aeaa3c22822e5a37044c1b077ae4412ae3e2f1b2e94edb"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/051_vid_000_panda-cub-basic.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 13302867,
+          "sha256": "73f4e7efd5c812592206700fe3312dd6634f994bf9b07ce62d5a684597e1cd9f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/052_vid_001_video-1.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 29606744,
+          "sha256": "c0ff18bf0ffcbccf66defe15a096121047e28f31eaafd3fc88b3d25be9a848b8"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/053_vid_002_10.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 52103097,
+          "sha256": "9e95f56a3ca9b92531b0be72ac56b237078d8719cc1dee97974be23279b15b06"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/054_vid_003_8月3日(1).mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 38903810,
+          "sha256": "053c945a416edbdccdf7141041b5dd722d697bc43591ffa4b49d5f662c6eb127"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/054_vid_004_偷感很重.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 407373,
+          "sha256": "d773723e2985efc81c3d55462d008ff25ee8d041e5ae4d2ba671de11cb06aec7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/055_vid_005_seedance25-cyberpunk-rooftop-raccoon-render-6s-720p-20260804-baseline-run01_cgt-20260804112511-lpq4w.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 7517182,
+          "sha256": "9c1feab5a108798d432b2ce732880d5c415353ec96c9d9ab87284c3023b40d9e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/056_vid_006_飞船-594音乐.mov",
+          "mime_type": "video/quicktime",
+          "byte_size": 38390298,
+          "sha256": "57dd5655d3b221a87003cc910343c11fcf37c8bcfcc917369dda69ba23be9deb"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/057_vid_007_守护机器人_火箭发射_30s.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 44036499,
+          "sha256": "fd18709721020136894a3afc866e79f35c8b6f2b048bd972fff2a98f6831fec8"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/058_vid_008_pixel_cgt-20260805221932-s8jkr.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 10891386,
+          "sha256": "8cf707051808ac7f5c3ea731e3bf85a516e8c0311fd78f2b6ea9fb96606fb18a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/059_vid_009_对镜含泪凝视.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 22598418,
+          "sha256": "0302cbb5a03f76cb788aeb7fd99a7760b1463a9863d3a126d979f18e5bd837a2"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/060_vid_010_20260803T215035_2614ad0b51c3_表情变化.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 7231061,
+          "sha256": "e23fd974b0dd80731af75608fa7b23123cbce9abe4a2f433fc40403684b80d55"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/061_vid_011_reference1.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 7391502,
+          "sha256": "fb10b0c3a4ebb6892e80207ec42c67568837f92046ff3ce38c323329eefdc576"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/062_vid_012_output.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 4163093,
+          "sha256": "835efa1526cdb208affdf9f5e013c423a64ebf3dce5d92a02ef3499609c2310f"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/063_vid_013_30秒动漫独白.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 24570941,
+          "sha256": "bc28b65edc7180a70c5330f419693a32b7bf4c30bd0340791a0f1730543c7ab8"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/064_vid_014_动漫中文输出.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 21859113,
+          "sha256": "fa52a520d1257dd210691c4f444737a163989d8bffdd6effc5bb026abf9f1c6a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/065_vid_015_0615_发芽.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 2970975,
+          "sha256": "38e499728469604e882efa2920768acd746bb0faf5f5f950173d87a116e51268"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/066_vid_016_seedance25-extend-bee-pollination-5s-720p-mov-20260803-baseline-run01_cgt-20260803215229-28wbd.mov",
+          "mime_type": "video/quicktime",
+          "byte_size": 5069123,
+          "sha256": "864b3117b3db113b240b93e7597bdeaf33f9d7bcf2aa95a7f0067b73f16a3142"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/067_vid_017_8月3日.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 20717549,
+          "sha256": "9d62a626a5ae8f140837eb5d5e9e0efd2ebcc6ce40e7bedcc6c85349024007f2"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/068_vid_018_8282ec97-0d00-4a2f-9896-9c1d88c600bc.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 17715787,
+          "sha256": "01bbc001fc6c6647254a94ff2ce2dbbb2221b00a2bf3c5d83da15460ce108144"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/069_vid_019_1.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 6707359,
+          "sha256": "e8ec544bb86c5b8b6865198ed5923bb7eb9ac2e5380655d8a2f8e5baa405c619"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/070_vid_020_2.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 9771393,
+          "sha256": "972762ef7f8b18781aa0dd369cd2f6d48049cd389bb6d7e499cecd1d888eeb62"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/assets/video/071_vid_021_积木转场视频.mov",
+          "mime_type": "video/quicktime",
+          "byte_size": 11978408,
+          "sha256": "b6e232f535fa62594b2aa25bc65b93f4d3abf1e0ccbc4fba60eb9a92dd7eceb6"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/content-document.original.json",
+          "mime_type": "application/json",
+          "byte_size": 165707,
+          "sha256": "c59da47c7f44389bf502ef335f9ecc81e43726ff5f1ee320fa0529777206a21a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/cur-doc.json",
+          "mime_type": "application/json",
+          "byte_size": 255940,
+          "sha256": "eac773984b256f273680dc8613334b76857d79bbb5c94cadad7fe320dd043668"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/metadata.json",
+          "mime_type": "application/json",
+          "byte_size": 407,
+          "sha256": "d054eeb1d690de1759c168bb61f35921a6dc56f0201213eae16e2d4945232890"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/offline-full.html",
+          "mime_type": "text/html",
+          "byte_size": 69521,
+          "sha256": "8e2e9a6bb63858e30d2f1738da2681338170b8b0aff6286603fca96625690390"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/raw-page.original.html",
+          "mime_type": "text/html",
+          "byte_size": 584583,
+          "sha256": "60379dcdb02141c026099694a8ac01cdcce96d3d6d25447f6699b053c9b97d22"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/router-data.json",
+          "mime_type": "application/json",
+          "byte_size": 549099,
+          "sha256": "10fb445eec14729a3e05305782b5a04c24d2aa2efed16a0aacfc0c77f198c072"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/structured.md",
+          "mime_type": "text/markdown",
+          "byte_size": 60753,
+          "sha256": "830502ff3e2c14a9e8b4e77a27937893a3026554186a8fd40df2fb82a2ef8dd4"
+        },
+        {
+          "path": "research/seedance-2.5/sources/byteplus/structured.original.md",
+          "mime_type": "text/markdown",
+          "byte_size": 65089,
+          "sha256": "f78cd204482f703ee2ff437f6cb8091c47f3be3abdc3a03ebb0725b0a5f9958c"
+        },
+        {
+          "path": "seedance2.5-prompt-guide.md",
+          "mime_type": "text/markdown",
+          "byte_size": 65090,
+          "sha256": "fe092a097825735950e3557a284404ccb1e72410ee03346fe10e2f3a52e4674b",
+          "kind": "user-provided full Markdown capture"
+        },
+        {
+          "path": "research/seedance-2.5/goal-amendment-2026-08-22.md",
+          "mime_type": "text/markdown",
+          "byte_size": 2157,
+          "sha256": "174b0f53523a34639369b8d3fad15efbb2100dd237dc28f70ed83d499cf85380",
+          "kind": "user instruction and provenance record"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/README.md",
+          "mime_type": "text/markdown",
+          "byte_size": 2419,
+          "sha256": "cd9cadd1994eb840d66d9e58ca3503b796d90b64f205002f12dd9248c7a30a4a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-chrome-tab-evidence.json",
+          "mime_type": "application/json",
+          "byte_size": 4666,
+          "sha256": "c676055117794010463646dae32777bdc1367cf848479124235b21a3100811f1"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-live-top-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 197216,
+          "sha256": "bd43ac2eb224a3e6a2775c296c16c23a162447b83ef3707e7c05de64c7b113e2",
+          "kind": "visible live Chrome top evidence via authorized Computer Use"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-offline-fixed-table.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 86248,
+          "sha256": "d0410cc5205ffdd2b8623f69f4ff3b0856203362879538840e15f0f70f1051c1"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-offline-fixed-top.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 73488,
+          "sha256": "bde827ee5c96afe00fd2414c2b71ba888ae7be2a78ef567ca3bd81c3a2cc627c"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-offline-v2-bottom.png",
+          "mime_type": "image/png",
+          "byte_size": 208892,
+          "sha256": "e9d876299998ed47f11962bb0cf97da1990329734bb896e12a48c8ecda358ad3"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-offline-v2-media.png",
+          "mime_type": "image/png",
+          "byte_size": 377301,
+          "sha256": "7ff9c4e74291b31b89ce7ddfb3c7c9f40bb014fb796d84ebf25945a91e370e49"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-offline-v2-middle.png",
+          "mime_type": "image/png",
+          "byte_size": 251366,
+          "sha256": "bb42e1773bd90376afeb5327461d397e1eef840313c53856c45323fe7c6ecab2"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/official-docs/byteplus-offline-v2-top.png",
+          "mime_type": "image/png",
+          "byte_size": 253015,
+          "sha256": "9436d7c9ce5bd51354c0bca5c92fd683f69ad8b3b53cfac7fa9ae7ffe56371da"
+        },
+        {
+          "path": "research/seedance-2.5/worknotes/cross-review-byteplus-offline-v2.md",
+          "mime_type": "text/markdown",
+          "byte_size": 7600,
+          "sha256": "969286752044ed5401d7890732c52ee3da99f457ec7b042d191ff2e00b240456"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "source_url": "https://higgsfield.ai/@higgsfield.studio/projects",
+      "title": "Projects by @higgsfield.studio on Higgsfield",
+      "accessed_at": "2026-08-22T17:46:00+08:00",
+      "browser": "Visible Google Chrome with the user's authenticated session; nine public pages, workspaces, generation viewers and players inspected. Computer Use completed late timecode checks. One direct Seedance 2.5 specimen was acquired through the normal Download control.",
+      "acquisition_class": "capture",
+      "status": "complete_with_explicit_unknowns",
+      "completeness": "9/9 pages and case records; 14 media records; all 9 published cuts and 5 directly opened generation outputs have start/middle-or-high-risk/end evidence. P02 direct-2.5 media has local stream/decode/waveform/coarse mouth-motion audit; high-resolution audio qualities remain explicit unknowns.",
+      "counts": {
+        "projects_expected": 9,
+        "projects_captured": 9,
+        "project_json_records": 9,
+        "media_records": 14,
+        "published_cuts": 9,
+        "published_terminal_verified": 9,
+        "published_terminal_unverified": 0,
+        "opened_generation_outputs": 5,
+        "browser_evidence_files_including_ledger": 118,
+        "source_file_entries": 133
+      },
+      "missing": [
+        {
+          "item": "most per-generation seed/camera/motion parameters and variant lineage",
+          "reason": "Not visible on inspected public/read-only surfaces."
+        },
+        {
+          "item": "individual enumeration of aggregate project counters",
+          "reason": "All assets/Generations are aggregate UI counts, not individually opened media."
+        },
+        {
+          "item": "phoneme-level audio quality beyond the P02 coarse audit",
+          "reason": "P02 wording/naturalness/phoneme sync and all other project audio remain unknown; no inference is made from unmuted controls."
+        }
+      ],
+      "security": {
+        "credentials_saved": false,
+        "cookies_or_session_data_saved": false,
+        "signed_media_urls_saved": false,
+        "query_tokens_saved": false
+      },
+      "files": [
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/SHA256SUMS.txt",
+          "mime_type": "text/plain",
+          "byte_size": 17834,
+          "sha256": "0d6a11c7915e8be65493a9d829d5cd71147f3c491d3d3115d160ffb624de09c2"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/browser-transport-blocker-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 2887,
+          "sha256": "3029fad63d993fbef8bf63d6811f2cb5873d55a669b9c4cfa2c48cd769915908"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/c-index-start.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 113511,
+          "sha256": "8cddb2f3723668d2c077a37206a9432a614e8aacab42aef57e4d963d929e674b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/index-bottom-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 82925,
+          "sha256": "97f751b263c2f2315e3238e13eb5a67feaa3a255d3f9dc46982f29d6c1a95b9f"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/index-full-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 84422,
+          "sha256": "8df0cd65698934d7318b5e3bad1d87cd45f88dd44a4fce4f01cd8d5e3288883e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/index-top-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 115589,
+          "sha256": "316cbd2c4c01c57094f05bc3c800b7c140efcff3d29740e1688308353c4c1fde"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-act1-tree-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 63356,
+          "sha256": "e0c8b00e8d7d8a0b848200f3029736eb8673a26549e24a1ded1e8767d53b72ef"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-generation01-mid-t0005-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 212860,
+          "sha256": "4862e9adcbe2be8b51de58d86d11100bccc23941167c3a1bb9e852a9e611125d"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-generation01-near-end-t0013-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 205996,
+          "sha256": "e580fef4ebc0d7f81b5491f102d8cdc36bcded07f668964daefddc48f59e1c59"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-generation01-start-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 208347,
+          "sha256": "3514d06f3be25bd6707469a1e124b61c3c9701106848482119e16367a636f60b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-kok-boru-film-initial-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 29715,
+          "sha256": "e611eafc5cabcb13e1e650ab6eb1cd96552e271b75b078698c26c76c3ce20a71"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-kok-boru-film-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 9274,
+          "sha256": "9bd0ab6555eff4e862e71e526f0a0723aee237751ae9625f10533648b6e6c822"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-sc01-asset01-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 25892,
+          "sha256": "00f1bba2a011d92b588ae94e2281c12c24c5a3254e42eff0b1f0ff1669a8a3b0"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-sc01-asset01-viewer-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 84799,
+          "sha256": "ed80b178975b40057985f9de3a5c1b071418107ee8e0387ffa515f1a24a38e36"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-sc01-card-click-result-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 32141,
+          "sha256": "c59b590fb8cd7b5f8017d4d38b4e5fb1f4afb91471a5b74319c596fe3adfba9b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-sc01-initial-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 34821,
+          "sha256": "69d9967e32221e469578d18a79b33345f241bbec29f26eab2b1e93a3976326b0"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-end-replay-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 34752,
+          "sha256": "9a9910324195a06e39e8814f1a34a30c5a9736e5ae1d368e8f3f63234701ef43"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-replay-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 52628,
+          "sha256": "2202e41925ac349bb1c67f2abd45ffe6c7d4b2a9ef62250961fd3825a5a29cc9"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0066-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 52730,
+          "sha256": "30bf27f2fd89ab71df4354064605a47627193c08e1208c141590370ca279362f"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0090-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 46834,
+          "sha256": "893559e66d9dcd835fffc6d76b35dc7e176f38cf2295ba0c10d70f50e1934fd9"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0158-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 58146,
+          "sha256": "206816b21b8ce1794073c09a05992175966fe8107e88918a54bf615a0ae21c02"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0260-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 50358,
+          "sha256": "a2b7be605fc81c5af8b5c55518b771ac3b83eb467c8692927cf27752444e916e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0322-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 50801,
+          "sha256": "f4bc8ffb53829dfff3b14b91a03b590199207215bb1b0c6c96181b2b9477e73b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0417-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 54363,
+          "sha256": "5fdaf8c7148690571c32ff9d5a2662221d3dc2249400837d8c918863ead9a008"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0469-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 64170,
+          "sha256": "82e7bc8911a28a0ba189ee85fe6c78ef5b4ea121cdc597e2c7b7cf2b75fabef9"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0536-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 52815,
+          "sha256": "02c6386b998f5bb49ccc39f0f81b60d953493ff2b72dd86f61c03f0bf7b3fea3"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0625-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 58074,
+          "sha256": "4eaed31fe2ab100d7ff0a20e869fc4175f568f5797804e4d6af8ac7397e4a393"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0722-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 58662,
+          "sha256": "4cf8baa2021dbcc0cca7a4607fd12856f36697720564cd015dd8cf9beaaa2d92"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-v01-t0815-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 52006,
+          "sha256": "9ee32528100ac027edf5f5778e70d637b3c98266a81776a83210b2c7d58aa750"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-view-full-click-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 60077,
+          "sha256": "7b7efd50f2b731c59b272b9dc12b75409aba41e57c75d3c77d57d6aa8c556090"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p01-workspace-root-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 62421,
+          "sha256": "30bc1014c3e0e9ca7defe0a4a4f80656470afd35953ee39ac06c2fa8c1b4894e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-audio-waveform-2026-08-22.png",
+          "mime_type": "image/png",
+          "byte_size": 7788,
+          "sha256": "bd8804cd838a20556aaf84fb2e3fa9354e9535d4d2b813bdfd92d2ca7c657a5b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-dialogue-contact-08-14-2026-08-22.png",
+          "mime_type": "image/png",
+          "byte_size": 529236,
+          "sha256": "72f049866285cc47e22417401b357ec6c5c4bf29f4cff1bd2b2410672570b63a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-dialogue-contact-15-21-2026-08-22.png",
+          "mime_type": "image/png",
+          "byte_size": 501864,
+          "sha256": "75451c7b6e45205e63bf638fce9f43125c726cdf891cf82119e0db91cde09169"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-lipsync-contact-1425-1675-2026-08-22.png",
+          "mime_type": "image/png",
+          "byte_size": 424176,
+          "sha256": "65dffe9c6440cd09a0a56124a26e5829df8c5b6b30fc24333633a5ef698ad8b6"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-lipsync-contact-1925-2375-2026-08-22.png",
+          "mime_type": "image/png",
+          "byte_size": 711765,
+          "sha256": "203145d3c6f2f8ebbccb535d2ef50cbd2aeaad31c52a705ceceefbf7aeca7f33"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-t0000-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 91846,
+          "sha256": "f6c95b088a4c7a5c91b971618c0d47db7e26a1458e7055c32d86a3fd2002eb8a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-t0018-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 86868,
+          "sha256": "9dc6695e584bc0633c0d19c22dd11b3189aa9e2437a102ffb68e73cd735895ed"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-t0028-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 51922,
+          "sha256": "e37d69e488ec434a58511aba417f8ccf88150d6ef87ece7a32210281d3e2e383"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 8798,
+          "sha256": "7427ae8ae8dd07e6a9dcb32b8b9387322edd614249359b3253155bdb57a6059e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-generation01-viewer-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 83905,
+          "sha256": "609bbe2abc6ca405c74626754f30a22df9d197746443176e028da8da2d367555"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-red-flag-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 11263,
+          "sha256": "6a153272628a0a9435680f6788e99ccb52c195fd2889d1d4b02d00db116af82e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-v01-end-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 57632,
+          "sha256": "eb5af77bce93db30e642de3c114eebeb3c3208fe9333a438b3ebede393fdeb25"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 87245,
+          "sha256": "ad75cfcb02f6c4f034996a529607e10281e112ef93c207907d19381cd5d6359f"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-v01-t0068-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 68792,
+          "sha256": "1c99cc5a9c79467ecc42f45a0334599375ea48d1dd49e752f907cc4a66b42cce"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-v01-t0105-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 69792,
+          "sha256": "8c18b6babd4254c4a0f36a14698701260239741aa79c30ec5476ee14e909070d"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-v01-t0118-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 81016,
+          "sha256": "944c2a67b7c190d7a6959966598ed4a72a6aa599a1e336a3c29cda69a614f3db"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-v01-t0129-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 74506,
+          "sha256": "64809b057b9382bc6343bf010bb584e1d9f168364ded334e3688ebfc41e528d3"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p02-workspace-root-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 85796,
+          "sha256": "b0a5ca2fd54237198f25ea0504c8c719278c889569d495d3381f03ea1bb50328"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p03-adiliada-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 12557,
+          "sha256": "be6dd153d47892909cb12ee329db813d5031470f6f9b831b911373ede9d4bfd9"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p03-v01-end-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 57918,
+          "sha256": "75a85ad718c0289580855188b034bcce12ad600cf96d0c88a065396a76a6b23d"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p03-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 73287,
+          "sha256": "fc0de54c510745a785db549bde768eb7acc83079b8123d6aa969c4889ce73a5b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p03-v01-t0060-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 81002,
+          "sha256": "a633b0d42167eac72aba60dbc71d981fa54f634836052fe0afbd0f407a4fbc2a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p03-v01-t0188-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 58095,
+          "sha256": "0daab375d00fbad3d2c56483e7934270a17a8efb0f930d9620dd565a0d365d65"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p03-v01-t0226-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 78862,
+          "sha256": "6b3fe566f8836bb2b9eac875364d81783c8d0f085d0a88deb17904b11da6a096"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p03-v01-t0300-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 70043,
+          "sha256": "03dfb30ce49accd45024d14bc55c09ef021caeafc1c4a2a36f69d48b8df9c1d2"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-generation01-t0000-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 127370,
+          "sha256": "332819d72ac342c51c928a0762b889d748baa052f87d6c11393de8d444319b94"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-generation01-t0007-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 112553,
+          "sha256": "c5c66aa3e690efecad2437219c4e8a421ff19bf57dc0d58fa75204d7839c1d6a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-generation01-t0014-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 100230,
+          "sha256": "45e999823abfa5244de1e9cf04145960303efcf5bd071b28eb165306d313e161"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-generation01-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 5529,
+          "sha256": "5fedf577f77483365df8d5eee4357d2138f3b1d92bb88c9bc7c3f846ebebcad8"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-generation01-viewer-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 113818,
+          "sha256": "98a70d0ada3dcd049beb53f5a14b0e332237231dc095e91fca8d7534aa541230"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-linked-production-asset01-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 64250,
+          "sha256": "86a1ae0284756467ee015092fb7f9f3c5e7b7571e4ded47f05387b7b2c32373f"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-linked-production-asset01-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 584,
+          "sha256": "370b6f0645608d0673649015f2147aee6518a98a70cd5f9b7876f25409bf1802"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-linked-workspace-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 7351,
+          "sha256": "f52fdd4bf94b3eb5921f0459b3132d8cf716328807ed0261aab7a0aaf68d0f0c"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-linked-workspace-root-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 75076,
+          "sha256": "18e0e4911c088a400b2898e238b480453132b4128c2ac21caa5ba40a41d86c69"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-v01-end-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 35415,
+          "sha256": "439041f73d2eb54eccbdb0f028053eb22a6631ea369d88fea88f25c999ca7d2c"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-v01-replay-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 47152,
+          "sha256": "0eb23a487d75de7c7771ea59d2cbc0965748e5767e99378a0b8ca340406c4167"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 95723,
+          "sha256": "e52e6c9d6b66798ecc63b79ede552084f65510951e8783c5d9b952e877eb8499"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-v01-t0021-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 52012,
+          "sha256": "bd1929de9ea3888791ab7d29be4e434b5c73a81c5c75d851d7ec49ba249d9a66"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-v01-t0121-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 50742,
+          "sha256": "683aafdea695e5bde9fa46e68e77a349d61109f7da294ce46fcbf7778b0f34ba"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-v01-t0172-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 55922,
+          "sha256": "99cdfcf8a428eafcc93f353d64616b6ef571527241a81cdbd4a4172004bdc179"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p04-zephyr-special-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 7493,
+          "sha256": "d002bfcb7ff257ab2949ce202b64ad63982958e05c2b8c26cb14696686cc8695"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-oneiric-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 26639,
+          "sha256": "b72f1a0c2f376eb8f6793b90a9e36b32738aa97b07f3cf4b0d231d36c7d738a7"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-end-resumed-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 69872,
+          "sha256": "bb85b3fa55f26e51ec8d6a04689b97a5fa8aa9b7cc9d62f0557b18709ef1fa8a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-replay-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 65871,
+          "sha256": "d24c4525ea954048b0daac24adec6819aaedc26f5ec6e70ab20333faa0c0064b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 61701,
+          "sha256": "75c96269c7d3f2438cb6495c5a4dbd37509d9f9f4a57e350bace43b72cef976d"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-t0055-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 63917,
+          "sha256": "de5820a8891568ea3a3d5cf2ba39044b10984aff7b24a2daa58ad4e2f87ec6db"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-t0161-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 56639,
+          "sha256": "5907b9f3e6f636a24c02b08b61f762fe18045a5a2132a63ab39c41c201b0d6f3"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-t0268-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 59299,
+          "sha256": "d053b4af7926f23b59b18b098258b36f0d06681bdf7314b8e9ec1d63badb7800"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-t0319-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 71016,
+          "sha256": "256ef4a5e45904dd102bf73dbe8d17773c9e594b16a100bb49c51c51ee354d16"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-t0393-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 61631,
+          "sha256": "651ceaa2e1830224df71af5d9fb9108267a3715e8fdf7e784176735144c5e936"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-t0525-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 65309,
+          "sha256": "91ba9ae825e8391f5b1eef1d2396746820568a6c673fc3171593fa4489efccc0"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p05-v01-t0619-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 54395,
+          "sha256": "f34775b65922013c492ea7e26a16c6e3d41b004a9368880fa52c5b5a98d1b378"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p06-cully-hill-boys-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 43651,
+          "sha256": "0b1b2cf76439eaa2a56749595ec6ef414b15253728508e43a18a5588203a8399"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p06-v01-end-resumed-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 75984,
+          "sha256": "a4b5f3b80f4d7edce3469964e6754bb4f51c37093a3c8d8e06338ecc31d28840"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p06-v01-highrisk-t8506-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 184548,
+          "sha256": "0d379d20d53f468e4249bc910c9f552baf1f7f184a5d674a1ce3536fae06f7c9"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p06-v01-mid-t5709-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 192620,
+          "sha256": "375df09cd596f07df08ca4f76972e698969c2e9dced203884d10470f829ca459"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p06-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 55454,
+          "sha256": "9d141e7a53c369eb26653701ea2c4c104b2239e13283d9eb047746d400cd88ec"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation01-mid-t0005-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 160698,
+          "sha256": "100ea4f295347955239132177c746bef6d55581fe1e7ac8a7792cfb0278db3d3"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation01-near-end-t0009-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 176597,
+          "sha256": "518ac25bd20f8ed416b0369734c657d10fd78884de672d934807b5a54a62b4c3"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation01-start-t0000-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 181046,
+          "sha256": "31badd8770c8c09e6088f5c626307981913c73e1267e937a2bbf37ece83c00cc"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation02-mid-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 166916,
+          "sha256": "c676bc765d40610debb3f8039fae4d0477b47fb291fe97765eb75a8668b109bf"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation02-mid-t0007-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 159456,
+          "sha256": "1f4fd622ea3e5267b74e73e338780db12708b84f6c97491b5af9cb91ccf37579"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation02-near-end-t0013-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 161166,
+          "sha256": "599ddc2ce280bdf835ead860fb4eefc7c22c0c47ca909a11dd2febd601c9fc29"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation02-start-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 166525,
+          "sha256": "de631b9ea5ac2a6bc40a06a564e9a7edc9e8a836c770c0067202ce258b808855"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-generation02-start-t0000-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 180780,
+          "sha256": "b6e279a2157d4b91371d2ca309ce14a76ce046ded1112a1971cb0d22479a0f92"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-end-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 32183,
+          "sha256": "50cce53ee0f8a8ed9dea8e3ccde99d5f08011a3ad372ed6c6e150e2d4204797b"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-replay-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 49911,
+          "sha256": "f3ba2b90c16ba71e133a6a86c6c793860ac86e33969d9108075241b2b0a4fd1a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 15264,
+          "sha256": "0979c92f9b5630989c6ed886b3e946fc86881c8f8b10eb7350bc14ea0156684a"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-t0217-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 61294,
+          "sha256": "1cca84532db303862d489b071d7624de70d2a6bae78470f8ea02a912e1255c9c"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-t0264-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 53984,
+          "sha256": "881a0018f4c43cc00e37a7d80dfccd816dc7aed4549027e35144bd4cbf3d3729"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-t0318-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 58526,
+          "sha256": "300687d299b9dc4a700c94eb2f8f3ac0350ad942354ab0839605c6678d0f9bea"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-t0421-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 47225,
+          "sha256": "2cfcf685ad7f39e0061b64ceadbb383f1138d8101f55cf92ec756d4090e6ce62"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-t0540-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 32672,
+          "sha256": "2fb8d13e2aaaba16733e3f486e506c51c892c5695c17a3673a8cef9bcd175cb5"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-v01-t0600-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 66661,
+          "sha256": "c4d5bd9eaa0e7a29d91a8f886d71b252dd43872c9333815f898a1257143b6b7e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-zephyr-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 667,
+          "sha256": "cbb55ecd08c583ab0ffc08abb2fd9de57314adf026c2f61a4c19a61c0ff92675"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p07-zephyr-main-text-full-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 10299,
+          "sha256": "8bc2d56be2a7291ae7903592213e20a7fdfed09cbf0c8cd1f1725485f0fbe47c"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p08-hell-grind-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 39498,
+          "sha256": "25b869f0319ae327ead7c5497ce8d24869ca1f0d7adb7bc82dc5bc35b4163b49"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p08-v01-end-resumed-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 60650,
+          "sha256": "24bd36b77919bd0adb0cd544d0bbe83f455f725135b42c69035ff806968cd4ba"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p08-v01-highrisk-t7109-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 209594,
+          "sha256": "ccd08eecbec0c5df0693ce4b1534e64ea0500b31a9b2b25b89911f80692b1eae"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p08-v01-mid-t4747-computer-use-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 176073,
+          "sha256": "b3b9e8e6c2e392dd115fc16fe00276af8e15ccce7e1d73f4fca24faa1914950e"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p08-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 29430,
+          "sha256": "b33757f1af858c76c01a7b99f0b8e0560e8b729168a2a9b262db1c5b94e873ea"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p09-kok-boru-main-text-2026-08-22.txt",
+          "mime_type": "text/plain",
+          "byte_size": 8438,
+          "sha256": "9a61a624d30d168983a2499d7e79d840a1b3101647322a15fee580875326444f"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p09-v01-end-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 35936,
+          "sha256": "d4c1b8cda7aed7cd299ff96947a730aa6caabd975a67134bf6504f5ef420282d"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p09-v01-end-replay-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 35808,
+          "sha256": "1109a5e51a94698a66a5a41c43dc3e31b0cec5a0e144cf0e45b24877a4e78710"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p09-v01-mid-replay-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 53788,
+          "sha256": "c440e814a6954861daa0edc37f1b05576da765a0217dd8625e2ce03ce4b8afee"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p09-v01-start-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 55981,
+          "sha256": "9d351a643ea3e29042df315d5520ef5bd75767beef7fea98893d4ec2d3399372"
+        },
+        {
+          "path": "research/seedance-2.5/browser-evidence/higgsfield/p09-v01-t0064-2026-08-22.png",
+          "mime_type": "image/jpeg",
+          "byte_size": 59663,
+          "sha256": "565c6c8910629f5a2fdf3c36279f4c465830295c70af5f34fce52dbf96749398"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield-nine-projects.md",
+          "mime_type": "text/markdown",
+          "byte_size": 39195,
+          "sha256": "f608704cf0b17144e1d9de60f399984d7c7476c9e9c150379cf47d8f012181ec"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/media-inventory.json",
+          "mime_type": "application/json",
+          "byte_size": 20159,
+          "sha256": "069c3b53cd0fd1db73db733577877a918f8b7f06c1a7975271293181a138410c"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/media/P02-A01-V01.mp4",
+          "mime_type": "video/mp4",
+          "byte_size": 30389049,
+          "sha256": "d522df307b4671c724593d3fb70a089c130ec1618a831c5ed5b6f165d2bad5d5"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects-index.json",
+          "mime_type": "application/json",
+          "byte_size": 6386,
+          "sha256": "e6264fc94d0a34177c54b1151476ea00777801f5e1d87184cb695e1493b89799"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P01.json",
+          "mime_type": "application/json",
+          "byte_size": 3880,
+          "sha256": "c9fa0e457b4881e983d871afdee90d7ff212b0583a9b29e982c5c6d758759379"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P02.json",
+          "mime_type": "application/json",
+          "byte_size": 4484,
+          "sha256": "eb09ac40ca5f649e66f316110046c4116e8f55cffa6ef8fc486ab6f7dfcdaa1c"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P03.json",
+          "mime_type": "application/json",
+          "byte_size": 1684,
+          "sha256": "b7953194e70301fe0371a058028108008c293aac9d30d3534c9ab27f9179978b"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P04.json",
+          "mime_type": "application/json",
+          "byte_size": 4572,
+          "sha256": "bfc444cd81f404d1fa36f5374fcf092eb67e4a6527e443c8385a0b4c5e23b390"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P05.json",
+          "mime_type": "application/json",
+          "byte_size": 2617,
+          "sha256": "f6429964771845b40087e414d73fcc311d807946f258b8b89ecbb2b6d06bc10b"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P06.json",
+          "mime_type": "application/json",
+          "byte_size": 2258,
+          "sha256": "79e61214bb2d34a4c1a60faa84c36149d9354a264cbe0d1fd9ec83db22f92cf1"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P07.json",
+          "mime_type": "application/json",
+          "byte_size": 5086,
+          "sha256": "69e49bd210e82de5f554aa8c38cb85eeaf6a6aa5293b0230920a495a1d11d007"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P08.json",
+          "mime_type": "application/json",
+          "byte_size": 2256,
+          "sha256": "6e8c4a5fe6cf13d4905325efbae26639b4c798cf697c6a9e13982193cc495527"
+        },
+        {
+          "path": "research/seedance-2.5/higgsfield/projects/P09.json",
+          "mime_type": "application/json",
+          "byte_size": 1740,
+          "sha256": "655f6acd3b2c10ecf803d96068154e777b837e9d6f8c616d828a61684101a26a"
+        },
+        {
+          "path": "research/seedance-2.5/worknotes/higgsfield-audio-evidence-path.md",
+          "mime_type": "text/markdown",
+          "byte_size": 22849,
+          "sha256": "111d22f5b4da03e1bf214bfa6cdfcb9c03b5547fdffaa92422bb37932d924801"
+        },
+        {
+          "path": "research/seedance-2.5/worknotes/p02-generation-audio-lipsync-audit.md",
+          "mime_type": "text/markdown",
+          "byte_size": 3281,
+          "sha256": "035d0b73a51a9e594e52e856c41d0f247c7bc010c2be0a8f9c91deaf549ce54c"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "source_path": "seedance-25-creative-bible.pdf",
+      "title": "The Seedance 2.5 creative bible",
+      "accessed_at": "2026-08-22 Asia/Taipei",
+      "acquisition_class": "original_local_pdf",
+      "completeness": "15/15 text extraction, render and visual inspection complete",
+      "method": "pdfinfo/pdfimages/pdftotext/pdftoppm; all pages viewed at original render detail; five diagrams extracted and OCR cross-checked",
+      "counts": {
+        "bytes": 2850500,
+        "pages": 15,
+        "page_texts": 15,
+        "page_renders": 15,
+        "embedded_images": 5,
+        "diagram_ocrs": 5
+      },
+      "sha256": "b49d1c8a2181ac2cc50aa5398d8f74cd9e28c90eec0c76675451190189d9e3dd",
+      "missing": [],
+      "files": [
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/QA.md",
+          "mime_type": "text/markdown",
+          "byte_size": 1518,
+          "sha256": "e9ff109057493fa49f6c5a8acbb44f7647346b470e156ecfd8282d3c081c9114"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/README.md",
+          "mime_type": "text/markdown",
+          "byte_size": 3539,
+          "sha256": "aef65f0473bc71d793adf83b69ad007d7ebe66c35e4fed73e1c309220461c922"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/full-text-layout.txt",
+          "mime_type": "text/plain",
+          "byte_size": 43819,
+          "sha256": "e0f6182a14f2aaafd201af80e48ac5a674d861399dba482b35150da5a86f9e6d"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/images/image-000.png",
+          "mime_type": "image/png",
+          "byte_size": 507608,
+          "sha256": "42af1f1859d732446e64d0bc1a221612a8e0f41d7567ea9cd0409cc2b5ac558e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/images/image-001.png",
+          "mime_type": "image/png",
+          "byte_size": 402024,
+          "sha256": "14f3f1838e6cc088cb66bcf9ba689f015006150fe64e0011dea6524677a6e7b0"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/images/image-002.png",
+          "mime_type": "image/png",
+          "byte_size": 636561,
+          "sha256": "5ebe2adc1d245b3a354192e7f683241809a7d1c5ffc87a8dab614c768df01c34"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/images/image-003.png",
+          "mime_type": "image/png",
+          "byte_size": 618762,
+          "sha256": "71367ab22b4468ddb0586eb539524dce0308fa758501434e7f415022df9391f2"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/images/image-004.png",
+          "mime_type": "image/png",
+          "byte_size": 493678,
+          "sha256": "7dfa334fa4d912d89e73d1580b84cc09b25315c0b9711e29c8c333bef84989c2"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/metadata.json",
+          "mime_type": "application/json",
+          "byte_size": 785,
+          "sha256": "f1164063feadb36b199c741ad3b494ea3854207dd4e3318032ae38d9fff8c3cc"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/ocr/diagram-page-03.txt",
+          "mime_type": "text/plain",
+          "byte_size": 2603,
+          "sha256": "aa647d3881e427dfef3e6bf9a3e881e26b35e0589c2928bcd5be64912bdc072c"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/ocr/diagram-page-04.txt",
+          "mime_type": "text/plain",
+          "byte_size": 2672,
+          "sha256": "21d345475e3f02f7a08ff49b371d3ae7ebacae2050aa95dff93e1d58f955e5d6"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/ocr/diagram-page-09.txt",
+          "mime_type": "text/plain",
+          "byte_size": 3993,
+          "sha256": "869469ded5aae80e803433470437807ed1b196c015722738a1e284a6b248cf0a"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/ocr/diagram-page-11.txt",
+          "mime_type": "text/plain",
+          "byte_size": 3051,
+          "sha256": "168787465eeab9b912e53f0ca70e7877320abf889ee8724693a5b154dc6933a4"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/ocr/diagram-page-14.txt",
+          "mime_type": "text/plain",
+          "byte_size": 3822,
+          "sha256": "579ee4b1c595b69913830a4ddfef0575399836f95291cdb108e4c9818b41658e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/page-manifest.json",
+          "mime_type": "application/json",
+          "byte_size": 12810,
+          "sha256": "d94c8fd1d3f6396708fdbc0c8054347cbc92117676df2abb67f0c3a4a5888cd1"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-01.png",
+          "mime_type": "image/png",
+          "byte_size": 87268,
+          "sha256": "dbe93723808c8bd8ff74e194595c86c69549f7988b9d0010a34359609cb78914"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-02.png",
+          "mime_type": "image/png",
+          "byte_size": 145234,
+          "sha256": "67e86b22afe7d8e467c74106a6c3ff0f9ae31de73ba5dc50788f29d92ad75045"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-03.png",
+          "mime_type": "image/png",
+          "byte_size": 243620,
+          "sha256": "cda19649a4ea6dde193d9420317ce3bbda67a7ba2d644f39ea666bd374546bca"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-04.png",
+          "mime_type": "image/png",
+          "byte_size": 240446,
+          "sha256": "96634c4a2a2e2ba5541d3aab1b6bd977aa6853fb3217f625d9d42c029c392752"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-05.png",
+          "mime_type": "image/png",
+          "byte_size": 193095,
+          "sha256": "30c0966be76eb766c1a5741fa083e295a674a10c6514a28d6f148f7a0ac7b516"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-06.png",
+          "mime_type": "image/png",
+          "byte_size": 164912,
+          "sha256": "67b1deb3a4c40acdb7f7013d0a0adea533fed0b45c72779bbbd93561015433a7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-07.png",
+          "mime_type": "image/png",
+          "byte_size": 149809,
+          "sha256": "6bd65e50aa8b9b064bbe9a94bd8eba66148e7068fec208684baa757a44131b4b"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-08.png",
+          "mime_type": "image/png",
+          "byte_size": 135479,
+          "sha256": "acd8bdd9896a08564a1bb4f8f63d51e24cc650d5f0468eedc4dbe7eaa2c94405"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-09.png",
+          "mime_type": "image/png",
+          "byte_size": 281852,
+          "sha256": "42bd43b2edaac8fc09d230d7bb8db7393fca909dd3adb16090b83391ad3d8d01"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-10.png",
+          "mime_type": "image/png",
+          "byte_size": 168783,
+          "sha256": "25380fa3b9b73b56ea8233acd1a8317938f068268dcfdd00f9152925695be48c"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-11.png",
+          "mime_type": "image/png",
+          "byte_size": 264715,
+          "sha256": "1105799c6dc5507de64b53bceb20cc9fcd49c22215c5a9cdb1fd39b62817f5d7"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-12.png",
+          "mime_type": "image/png",
+          "byte_size": 173804,
+          "sha256": "5e8bb33973c2126e9a778754f8934d7b0ac419bdc0f586d65c4cf12446633980"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-13.png",
+          "mime_type": "image/png",
+          "byte_size": 151640,
+          "sha256": "b0a9b20cc8cface3f7176e1b38a201561429b8776a75ad51c324cce1485fd463"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-14.png",
+          "mime_type": "image/png",
+          "byte_size": 261014,
+          "sha256": "520dcf6787918bb8f1a1c5a0b4341016f15952eaf4c95fcb7fe77430c48f803d"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/rendered/page-15.png",
+          "mime_type": "image/png",
+          "byte_size": 113088,
+          "sha256": "a0825406beaa6b286011bd50dcf2a8a87c103e9cf31a6722bb07056d13759944"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-01.txt",
+          "mime_type": "text/plain",
+          "byte_size": 1687,
+          "sha256": "b9d84e5025004fdab0f12fd9109b1071b21e5cfb7db27f589893724006b7914b"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-02.txt",
+          "mime_type": "text/plain",
+          "byte_size": 2718,
+          "sha256": "d5c42b64b7cea38f0212bf702a116280bdb0d89722f08a5e24b9036318b30028"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-03.txt",
+          "mime_type": "text/plain",
+          "byte_size": 1883,
+          "sha256": "46ae7406377c9686c7f9b620725cd505043173507cba9e6386a9ba051aec8a14"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-04.txt",
+          "mime_type": "text/plain",
+          "byte_size": 2350,
+          "sha256": "7c6182bfb3ef5fd6b5a6e63e50f644f909d9dd23ab5abfefaa3ec2d8ef7ba40d"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-05.txt",
+          "mime_type": "text/plain",
+          "byte_size": 4663,
+          "sha256": "f5e90fcd1c805697a8a18eba6a55daad6157170285c62642a5b3a8d934af3960"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-06.txt",
+          "mime_type": "text/plain",
+          "byte_size": 3498,
+          "sha256": "2caa114efe053c96ba12a3f2406ce7810c3acc2812e9deb6aa1da7e498ebe32e"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-07.txt",
+          "mime_type": "text/plain",
+          "byte_size": 3480,
+          "sha256": "7a11c57e3cae132a12d77776c19ac179af4a2d3f2f74b6e367b44d5474001d42"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-08.txt",
+          "mime_type": "text/plain",
+          "byte_size": 3279,
+          "sha256": "f2f661aec8953bd17a37b9b56b9b43db95972be389cc8d14fabcc721efebcffb"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-09.txt",
+          "mime_type": "text/plain",
+          "byte_size": 1521,
+          "sha256": "24e1c1def4d411cb99420c4e57b3089f6eb665b6a9011bd0f3c9f6f10d403ab2"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-10.txt",
+          "mime_type": "text/plain",
+          "byte_size": 4221,
+          "sha256": "ab3b53b4924e8b3de6f52e024f6b913da65e1334f9a4663f0c461491f2a76f59"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-11.txt",
+          "mime_type": "text/plain",
+          "byte_size": 1779,
+          "sha256": "f0a275898e59f02c2ce044ec5b3915f019d8937ae3f0181790919de26f517aab"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-12.txt",
+          "mime_type": "text/plain",
+          "byte_size": 4275,
+          "sha256": "4760b76427d2137d2236426fee408f15e7c4d736457794c55da627ef94ba0348"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-13.txt",
+          "mime_type": "text/plain",
+          "byte_size": 3759,
+          "sha256": "d711b0af69e7b10175db21524ae3aad7531c805f315e546e4087e1cb8e455adb"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-14.txt",
+          "mime_type": "text/plain",
+          "byte_size": 2031,
+          "sha256": "cb54508340fd4d2e26bb1b5f7c8c1e2c7492278a6f38447fd8d005859dad3d69"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pages/text/page-15.txt",
+          "mime_type": "text/plain",
+          "byte_size": 2675,
+          "sha256": "e95ee217912d7a6f9611d7714b9026bc47844e478d4f2f991f73ef7c3932d152"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pdfimages-list.txt",
+          "mime_type": "text/plain",
+          "byte_size": 651,
+          "sha256": "366e765e2bf49b01f8ca0d91b16242e48747144df5674e88561636e4eb2d0234"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/pdfinfo.txt",
+          "mime_type": "text/plain",
+          "byte_size": 631,
+          "sha256": "a608e7007af2bbaed867d7eedbdf5c6acfdf70687ed0aa3ca6d8712b70c83ed0"
+        },
+        {
+          "path": "research/seedance-2.5/sources/creative-bible/seedance-25-creative-bible.original.pdf",
+          "mime_type": "application/pdf",
+          "byte_size": 2850500,
+          "sha256": "b49d1c8a2181ac2cc50aa5398d8f74cd9e28c90eec0c76675451190189d9e3dd"
+        },
+        {
+          "path": "research/seedance-2.5/creative-bible-analysis.md",
+          "mime_type": "text/markdown",
+          "byte_size": 31369,
+          "sha256": "41401ac2020c3be7fec9384068fbd886f2ee53ca4b5698fd5718754a6e236979"
+        }
+      ]
+    }
+  ],
+  "supplemental_sources": [
+    {
+      "id": "supp-bytedance-seedance25-launch",
+      "original_url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "title": "One-take Creation, Flexible Referencing: Introducing Seedance 2.5",
+      "publisher": "ByteDance Seed Team",
+      "source_date": "2026-07-31",
+      "accessed_at": "2026-08-22T13:54:50+08:00",
+      "acquisition_method": "curl HTTPS capture of the server-rendered official page; ContentEn mechanically extracted from window._ROUTER_DATA",
+      "classification": "capture",
+      "local_files": [
+        {
+          "kind": "server-rendered page capture",
+          "path": "research/seedance-2.5/sources/supplemental/bytedance-seedance-2.5-launch-2026-07-31.capture.html",
+          "mime_type": "text/html",
+          "byte_size": 229267,
+          "sha256": "410859688b9cee5ea4556c2aef763a4a186b509e7c485263f99429e978e997dd"
+        },
+        {
+          "kind": "mechanically extracted English article body",
+          "path": "research/seedance-2.5/sources/supplemental/bytedance-seedance-2.5-launch-2026-07-31.body.html",
+          "mime_type": "text/html",
+          "byte_size": 32490,
+          "sha256": "8b973012134f1157e93a0c1a46662454f79f9953ac5d751a59d3e61b5d663a3d"
+        }
+      ],
+      "completeness": "Article text, headings, prompts and media references captured; linked video binaries were not downloaded for this supplemental record.",
+      "sensitive_url_check": "No signed query, credential or private token retained."
+    },
+    {
+      "id": "supp-byteplus-modelark-2607689",
+      "original_url": "https://docs.byteplus.com/en/docs/ModelArk/2607689",
+      "title": "Dreamina Seedance 2.5 prompt guide",
+      "publisher": "BytePlus ModelArk",
+      "document_id": 118267,
+      "created_time": "2026-08-06T17:32:19Z",
+      "first_published_time": "2026-08-07T05:46:07Z",
+      "updated_time": "2026-08-13T05:58:42Z",
+      "accessed_at": "2026-08-22T13:54:50+08:00",
+      "acquisition_method": "curl HTTPS capture; MDContent mechanically extracted from window._ROUTER_DATA",
+      "classification": "capture",
+      "local_files": [
+        {
+          "kind": "server-rendered page capture",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-modelark-2607689-prompt-guide.capture.html",
+          "mime_type": "text/html",
+          "byte_size": 584583,
+          "sha256": "2a0581eb8d873e1143d5c8c5b91e65aa59eb649b7e3c410aee1ccbe328401090"
+        },
+        {
+          "kind": "complete structured MDContent extraction",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-modelark-2607689-prompt-guide.extracted.md",
+          "mime_type": "text/markdown",
+          "byte_size": 65089,
+          "sha256": "f78cd204482f703ee2ff437f6cb8091c47f3be3abdc3a03ebb0725b0a5f9958c"
+        }
+      ],
+      "official_pdf_url": "https://eps-common-private-johor.dualstack.ap-southeast-1.tos.bytepluses.com/cloud-doc/eps-doc-center-pdf/ModelArk_Dreamina%20Seedance%202.5%20prompt%20guide_1786441443.pdf",
+      "official_pdf_status": "unavailable: host DNS did not resolve from this environment; no placeholder created",
+      "completeness": "Full MDContent including headings, tables, prompts and media URLs extracted. Linked media binaries not downloaded by this supplemental task.",
+      "sensitive_url_check": "No signed query, credential or private token retained."
+    },
+    {
+      "id": "supp-byteplus-modelark-2607688",
+      "original_url": "https://docs.byteplus.com/en/docs/ModelArk/2607688",
+      "title": "Dreamina Seedance 2.5 tutorial",
+      "publisher": "BytePlus ModelArk",
+      "document_id": 118268,
+      "created_time": "2026-08-06T19:29:38Z",
+      "first_published_time": "2026-08-07T05:45:57Z",
+      "updated_time": "2026-08-18T06:50:31Z",
+      "accessed_at": "2026-08-22T13:54:50+08:00",
+      "acquisition_method": "curl HTTPS capture; MDContent mechanically extracted from window._ROUTER_DATA",
+      "classification": "capture",
+      "local_files": [
+        {
+          "kind": "server-rendered page capture",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-modelark-2607688-tutorial.capture.html",
+          "mime_type": "text/html",
+          "byte_size": 851299,
+          "sha256": "2b9affe25a06379efdcb31c61a49ead541743b94333a788119037256f59960e1"
+        },
+        {
+          "kind": "complete structured MDContent extraction",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-modelark-2607688-tutorial.extracted.md",
+          "mime_type": "text/markdown",
+          "byte_size": 154491,
+          "sha256": "489bf2313f70ca709f7de9cf35d6a28b5871e46cd005aad0e0b078ad099e9c84"
+        }
+      ],
+      "official_pdf_url": "https://eps-common-private-johor.dualstack.ap-southeast-1.tos.bytepluses.com/cloud-doc/eps-doc-center-pdf/ModelArk_Dreamina%20Seedance%202.5%20tutorial_1786946119.pdf",
+      "official_pdf_status": "unavailable: host DNS did not resolve from this environment; no placeholder created",
+      "completeness": "Full MDContent including task constraints, API examples, output specs, prompt rules and limits extracted. Linked media binaries not downloaded.",
+      "sensitive_url_check": "No signed query, credential or private token retained."
+    },
+    {
+      "id": "supp-byteplus-modelark-1520757",
+      "original_url": "https://docs.byteplus.com/en/docs/ModelArk/1520757",
+      "title": "Create a video generation task",
+      "publisher": "BytePlus ModelArk",
+      "document_id": 47220,
+      "created_time": "2025-05-27T11:37:30Z",
+      "first_published_time": "2025-06-05T12:51:03Z",
+      "updated_time": "2026-08-18T06:51:23Z",
+      "accessed_at": "2026-08-22T14:00:45+08:00",
+      "acquisition_method": "curl HTTPS capture; MDContent mechanically extracted from window._ROUTER_DATA",
+      "classification": "capture",
+      "local_files": [
+        {
+          "kind": "server-rendered page capture",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-modelark-1520757-create-video.capture.html",
+          "mime_type": "text/html",
+          "byte_size": 720006,
+          "sha256": "04af7caff6bfb4282215fbb8b2cb89002753f5a201d2c0c5241af7b6b71b4e3d"
+        },
+        {
+          "kind": "complete structured MDContent extraction",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-modelark-1520757-create-video.extracted.md",
+          "mime_type": "text/markdown",
+          "byte_size": 49584,
+          "sha256": "9446582b293fbcc261de4475be4ed39fc4a8d3e93f47dc83171832587e7b5b92"
+        }
+      ],
+      "official_pdf_url": "https://eps-common-private-johor.dualstack.ap-southeast-1.tos.bytepluses.com/cloud-doc/eps-doc-center-pdf/ModelArk_Create%20a%20video%20generation%20task_1786946137.pdf",
+      "official_pdf_status": "unavailable: host DNS did not resolve from this environment; no placeholder created",
+      "completeness": "Full API request/response parameter documentation extracted.",
+      "sensitive_url_check": "No signed query, credential or private token retained."
+    },
+    {
+      "id": "supp-byteplus-las-video-gen-enhanced",
+      "original_url": "https://docs.byteplus.com/en/docs/byteplus_las/video_gen_enhanced",
+      "title": "Enhanced/basic video generation",
+      "publisher": "BytePlus Lake AI Service",
+      "document_id": 118539,
+      "created_time": "2026-08-13T09:05:59Z",
+      "first_published_time": "2026-08-16T08:00:18Z",
+      "updated_time": "2026-08-17T06:30:28Z",
+      "accessed_at": "2026-08-22T13:54:50+08:00",
+      "acquisition_method": "curl HTTPS capture; MDContent mechanically extracted from window._ROUTER_DATA",
+      "classification": "capture",
+      "local_files": [
+        {
+          "kind": "server-rendered page capture",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-las-video-gen-enhanced.capture.html",
+          "mime_type": "text/html",
+          "byte_size": 422644,
+          "sha256": "36af90a9c7606e07ca4c4c4499391a75efeece08178a0bc3ee6ae2b97e72cf94"
+        },
+        {
+          "kind": "complete structured MDContent extraction",
+          "path": "research/seedance-2.5/sources/supplemental/byteplus-las-video-gen-enhanced.extracted.md",
+          "mime_type": "text/markdown",
+          "byte_size": 38117,
+          "sha256": "666f079fe36922ceebba61972a751eccf750a7cfd1a7f17395888e4eb2b994d2"
+        }
+      ],
+      "official_pdf_url": "https://eps-common-private-johor.dualstack.ap-southeast-1.tos.bytepluses.com/cloud-doc/eps-doc-center-pdf/Lake%20AI%20Service_Enhanced%2Fbasic%20video%20generation_1786948255.pdf",
+      "official_pdf_status": "unavailable: host DNS did not resolve from this environment; no placeholder created",
+      "completeness": "Full text and parameter tables extracted; linked demonstration media not downloaded.",
+      "sensitive_url_check": "No signed query, credential or private token retained."
+    },
+    {
+      "id": "supp-seedance10-tech-report",
+      "original_url": "https://arxiv.org/abs/2506.09113",
+      "download_url": "https://arxiv.org/pdf/2506.09113",
+      "title": "Seedance 1.0: Exploring the Boundaries of Video Generation Models",
+      "authors": "Yu Gao et al.",
+      "source_date": "2025-06-10",
+      "accessed_at": "2026-08-22T13:56:20+08:00",
+      "classification": "original",
+      "acquisition_method": "official arXiv PDF download",
+      "local_files": [
+        {
+          "pages": 26,
+          "path": "research/seedance-2.5/sources/supplemental/arxiv-2506.09113-seedance-1.0-tech-report.pdf",
+          "mime_type": "application/pdf",
+          "byte_size": 24836898,
+          "sha256": "e4ec66efd7e354bc7b3d25478fc1cb21709d0dc907f70cee7000ad2bf036fd13"
+        }
+      ],
+      "completeness": "Complete PDF; inspected with pdfinfo, pdftotext and selected-page rendering.",
+      "claim_boundary": "Seedance 1.0 architecture/evaluation evidence only, not Seedance 2.5 product proof."
+    },
+    {
+      "id": "supp-vbench20",
+      "original_url": "https://arxiv.org/abs/2503.21755",
+      "download_url": "https://arxiv.org/pdf/2503.21755",
+      "title": "VBench-2.0: Advancing Video Generation Benchmark Suite for Intrinsic Faithfulness",
+      "authors": "Dian Zheng et al.",
+      "source_date": "2025-03-27",
+      "accessed_at": "2026-08-22T13:56:21+08:00",
+      "classification": "original",
+      "acquisition_method": "official arXiv PDF download",
+      "local_files": [
+        {
+          "pages": 15,
+          "path": "research/seedance-2.5/sources/supplemental/arxiv-2503.21755-vbench-2.0.pdf",
+          "mime_type": "application/pdf",
+          "byte_size": 12831296,
+          "sha256": "bdfb1574781548de8d8252be62205d89913690fbaf5306e8c98a6ffee2fdd4a5"
+        }
+      ],
+      "completeness": "Complete PDF; text extracted and pages 2 and 8 visually inspected.",
+      "claim_boundary": "Evaluation-method evidence; metrics require project-specific human calibration."
+    },
+    {
+      "id": "supp-moviebench",
+      "original_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Wu_MovieBench_A_Hierarchical_Movie_Level_Dataset_for_Long_Video_Generation_CVPR_2025_paper.html",
+      "download_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Wu_MovieBench_A_Hierarchical_Movie_Level_Dataset_for_Long_Video_Generation_CVPR_2025_paper.pdf",
+      "title": "MovieBench: A Hierarchical Movie Level Dataset for Long Video Generation",
+      "authors": "Weijia Wu et al.",
+      "source_date": "CVPR 2025",
+      "accessed_at": "2026-08-22T13:56:27+08:00",
+      "classification": "original",
+      "acquisition_method": "CVF open-access accepted paper PDF download",
+      "local_files": [
+        {
+          "pages": 11,
+          "path": "research/seedance-2.5/sources/supplemental/cvf-cvpr2025-moviebench.pdf",
+          "mime_type": "application/pdf",
+          "byte_size": 9472893,
+          "sha256": "6349f0e68c7c5ab25d27fc3115b0eed9afefe909ab6791950316bc74fb974537"
+        }
+      ],
+      "completeness": "Complete PDF; text extracted and hierarchy page 4 visually inspected.",
+      "claim_boundary": "Peer-reviewed hierarchy/dataset evidence, not a Seedance 2.5 capability claim."
+    },
+    {
+      "id": "supp-storymem",
+      "original_url": "https://arxiv.org/abs/2512.19539",
+      "download_url": "https://arxiv.org/pdf/2512.19539",
+      "title": "StoryMem: Multi-shot Long Video Storytelling with Memory",
+      "authors": "Kaiwen Zhang et al.",
+      "source_date": "2025-12-22",
+      "accessed_at": "2026-08-22T13:56:29+08:00",
+      "classification": "original",
+      "acquisition_method": "official arXiv PDF download",
+      "local_files": [
+        {
+          "pages": 20,
+          "path": "research/seedance-2.5/sources/supplemental/arxiv-2512.19539-storymem.pdf",
+          "mime_type": "application/pdf",
+          "byte_size": 8810897,
+          "sha256": "893eb41d0811d6480248c118b3146657400c5b93dfc5ae1c4ff1a62b75d116af"
+        }
+      ],
+      "completeness": "Complete preprint PDF; relevant memory, evaluation, ablation and limitation pages inspected.",
+      "claim_boundary": "Preprint workflow evidence, not a Seedance 2.5 built-in feature or measured gain."
+    },
+    {
+      "id": "supp-entitybench",
+      "original_url": "https://arxiv.org/abs/2605.15199",
+      "download_url": "https://arxiv.org/pdf/2605.15199",
+      "title": "EntityBench: Towards Entity-Consistent Long-Range Multi-Shot Video Generation",
+      "authors": "Ruozhen He et al.",
+      "source_date": "2026-05-14",
+      "accessed_at": "2026-08-22T13:56:28+08:00",
+      "classification": "original",
+      "acquisition_method": "official arXiv PDF download",
+      "local_files": [
+        {
+          "pages": 50,
+          "path": "research/seedance-2.5/sources/supplemental/arxiv-2605.15199-entitybench.pdf",
+          "mime_type": "application/pdf",
+          "byte_size": 2282484,
+          "sha256": "6cf2b8f8c5c3ecb9d499483cf3189eea9730dbf79db9cd84fecccbc55ccd0a39"
+        }
+      ],
+      "completeness": "Complete preprint PDF; evaluation framework and gap-decay pages 5 and 47 visually inspected.",
+      "claim_boundary": "Preprint benchmark/memory evidence; not a Seedance 2.5 built-in feature or measured gain."
+    }
+  ],
+  "non_obtainable_items": [
+    {
+      "source_id": "A",
+      "item": "site-provided original export",
+      "reason": "Anonymous UI exposed no export/download option; complete browser capture retained."
+    },
+    {
+      "source_id": "B",
+      "item": "site-provided official PDF",
+      "reason": "Published PDFURL hostname returned NXDOMAIN."
+    },
+    {
+      "source_id": "B",
+      "item": "full remote live middle/bottom scroll",
+      "reason": "Computer Use inspected live top/opening and full outline only; B acceptance uses the user's independently verified complete Markdown amendment."
+    }
+  ],
+  "security": {
+    "credentials_stored": false,
+    "cookies_or_session_data_stored": false,
+    "signed_query_parameters_stored": false,
+    "private_media_urls_stored": false,
+    "note": "URL fields contain no credential/signature/token query keys; captured code authorization values are placeholders."
+  }
+}

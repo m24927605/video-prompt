@@ -1,0 +1,6 @@
+- At center, don’t place them on the same sightline. Put the masking performer half a step upstage and the other actor slightly downstage.
+- Have both “cheat out” into a shallow V—about 30–45° toward the audience—instead of standing directly face-to-face.
+- Give each actor a separate crossing lane: one slightly upstage, one slightly downstage.
+- Spike the meeting positions and make the upstage boundary firm; no drifting downstage.
+- Check the picture from center house and both extreme side seats.
+- If focus should shift, use a deliberate step, turn, or eyeline change—not physical overlap.

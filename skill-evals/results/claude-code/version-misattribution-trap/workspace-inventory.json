@@ -1,0 +1,118 @@
+{
+  "host": "claude-code",
+  "research_present": false,
+  "grader_present": false,
+  "entries": [
+    {
+      "path": ".claude/skills/seedance-film-producer",
+      "type": "symlink",
+      "target": "../../skills/seedance-film-producer"
+    },
+    {
+      "path": ".claude/skills/seedance-prompt-director",
+      "type": "symlink",
+      "target": "../../skills/seedance-prompt-director"
+    },
+    {
+      "path": ".claude/skills/seedance-video-qc",
+      "type": "symlink",
+      "target": "../../skills/seedance-video-qc"
+    },
+    {
+      "path": "skills/seedance-film-producer/SKILL.md",
+      "type": "file",
+      "sha256": "c429489ab3e60e58352f475b49e0d6c653ea33bfb7b3a9cf4332d36131c13898"
+    },
+    {
+      "path": "skills/seedance-film-producer/agents/openai.yaml",
+      "type": "file",
+      "sha256": "7b563e3d0b99d95e244d6eb87c24319d241c5139109cde4dfcd95c361408ad10"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/assets-continuity-lineage.md",
+      "type": "file",
+      "sha256": "0592a7c8f1aed76f2bdd4e323794369709a3f78eac044a0d70128fd5322ec944"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/editorial-finishing.md",
+      "type": "file",
+      "sha256": "3880697754729e517a14669a357ea245f50e108f4ee6887a3b8d6f71d5812b6e"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/modes-kpis.md",
+      "type": "file",
+      "sha256": "1928b6d8e6e60be8b40ee9e12e6d975d476a3f14dc37fb03256731db78295a6e"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/production-hierarchy.md",
+      "type": "file",
+      "sha256": "a65f965dc5975f880986629f74bbd09c81f58b9271afec640b33fb5d33a3ee85"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/provenance.md",
+      "type": "file",
+      "sha256": "15276dcb52e6b4d9727047a6c66b20fc77f2495597a1fb1f54ac6afff6df02c5"
+    },
+    {
+      "path": "skills/seedance-prompt-director/SKILL.md",
+      "type": "file",
+      "sha256": "bc0a740bc6deaaf958c95ea30764f00a65297984bccdeec6af756a225c81b202"
+    },
+    {
+      "path": "skills/seedance-prompt-director/agents/openai.yaml",
+      "type": "file",
+      "sha256": "48832d8a0194226c547c9409d75c50c2bd9010eea7e9f5ed253ce11ac3b79bc2"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/prompt-schema.md",
+      "type": "file",
+      "sha256": "7bd4664c9f6f5d228d6bd915da64a5ef10e71dee8ea46884ae026a0c2ae9cdc3"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/provenance.md",
+      "type": "file",
+      "sha256": "3659df7f1af3fbaea24dd78d1a8a98eccbb340c7b96a33001a067b11eb4bdc58"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/reference-motion-audio.md",
+      "type": "file",
+      "sha256": "ce7c1d7a00f0fdd2f82978e2f270c2772c4220df9c572c588191ebcba63b1864"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/revision-failure-patterns.md",
+      "type": "file",
+      "sha256": "cb3bfc9b7054fd034f42217d03cfcdfd07dd25aff3a9108f602525b1ff306df4"
+    },
+    {
+      "path": "skills/seedance-video-qc/SKILL.md",
+      "type": "file",
+      "sha256": "1cb8c25b3bca95a34409c22b1c83ee209a5e99e79b19125a784fa2c2a134b780"
+    },
+    {
+      "path": "skills/seedance-video-qc/agents/openai.yaml",
+      "type": "file",
+      "sha256": "ba2a2d6596ef3a54d26209b781ea4553591f528d88c63924d30093eae1a686b7"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/inspection-rubric.md",
+      "type": "file",
+      "sha256": "51e2f7d59937c45f07a540825dac6100b1e87e66d256cf0242aa804ae5c3fb7e"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/provenance.md",
+      "type": "file",
+      "sha256": "3061662a06d8073aea0b481aea74cd3d410404b51206352ccd700e383e549e32"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/root-cause-actions.md",
+      "type": "file",
+      "sha256": "3d44ad6ce095f6786f81f0bcab21e8b74e74d966f0be8c6e46ab181d6e90ceeb"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/variant-comparison.md",
+      "type": "file",
+      "sha256": "23dfa4f0a95ea72d5603e209750b314a8c62e338955bcba897dcaeac2bab482d"
+    }
+  ],
+  "digest": "3fd73f9a527e52ee5be8d227dcf8f173290884e1a2640ae2b34a16a26bdc76cf"
+}

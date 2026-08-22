@@ -1,0 +1,8 @@
+{
+  "id": "cantonese-dialogue-audio",
+  "title": "Cantonese dialogue and audio contract",
+  "expected_skill": "seedance-prompt-director",
+  "invocation_mode": "implicit",
+  "locale": "zh-Hant",
+  "prompt": "請把這個 10 秒雙人鏡頭寫成 production-ready AI 影片 prompt：香港舊茶餐廳打烊後，阿晴在畫面左邊擦桌，阿朗站在右邊門口。阿晴用自然香港粵語說「你仲返嚟做乜？」；阿朗停一拍後說「攞返我未講完嗰句。」只有兩人，不能交換台詞，不要字幕，不要 BGM，只保留雨聲、抹布摩擦與門鈴。最後阿晴停下手但不回頭，阿朗仍站在門內。平台尚未指定。"
+}

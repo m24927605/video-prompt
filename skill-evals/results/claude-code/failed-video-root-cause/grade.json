@@ -1,0 +1,36 @@
+{
+  "case_id": "failed-video-root-cause",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 24,
+    "task_completeness": 32,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 96,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:9-13 gives a Critical FAIL scoped to the user's four screenshot records and explicitly refuses to attribute the behavior to any Seedance version.",
+    "final.md:17-36 records timecoded position/count, face, left-hand third key/table intersection, wrong end orientation, locked-camera unknown and audio unknown; it says unmuted proves only player state.",
+    "final.md:38-57 separates sparse-frame inferences from unknowns and explicitly limits 'through the table' to a motion inference beyond the single-frame overlap.",
+    "final.md:59-83 ranks task/reference, entity/state, spatial, physics and stability hypotheses with supporting and opposing evidence.",
+    "final.md:85-130 states fixed invariants, a diagnostic signal, route decisions and dense next-pass acceptance checks, but its recommended first rung adds four start-state facts under one block rather than isolating prop state from spatial direction.",
+    "final.md:132-162 selects regenerate only after a zero-cost intake check, rejects accept/edit/VFX for stated reasons, imposes a proposed three-run ceiling plus repetition/oscillation stops, and lists only decision-changing missing evidence.",
+    "native-evidence.md:7-16 records explicit invocation, native skill discovery and injected skill evidence; run.json:8-27 attests claude-fable-5/max with no fallback, exit_code 0, research absent and no paid media events."
+  ],
+  "rationale": "The evidence discipline, hard-gate decision, audio trap handling, causal hypotheses, route and finite stop conditions are excellent and production-usable. The four-point deduction is narrow: the recommended 'single variable' first-frame block simultaneously changes prop count/ownership, hand, actor side and door side, even while the response acknowledges a cleaner 1a/1b split. That weakens causal attribution but does not erase the otherwise complete artifact or create a critical failure.",
+  "activation_evidence": "Verified explicit native activation: native-evidence.md:7-16 records /seedance-video-qc mode through the system skill listing and injected user skill event; run.json:20-22 carries the same activation records.",
+  "unknowns": [
+    "Only user-described screenshots were available; pixels, continuous motion, audio and full prompt/runtime/reference data were not independently inspected.",
+    "The proposed root causes and retry ceiling remain hypotheses/policy until a controlled isolated rerun is authorized."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

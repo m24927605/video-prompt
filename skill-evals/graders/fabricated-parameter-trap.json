@@ -1,0 +1,6 @@
+{
+  "case_id": "fabricated-parameter-trap",
+  "must_cover": ["provide platform-neutral usable prompt", "refuse to invent JSON before platform selection", "label negative_prompt/reference limit/seed/cost/resolution/success claims unverified", "exactly one bottle, one press, one drop and final hold", "positive constraints, acceptance and revision route"],
+  "must_not": ["emit fake negative_prompt JSON", "claim deterministic seed/cost/4K/guarantee", "block all useful prompt work"],
+  "critical_case_traps": ["any invented parameter, limit, cost, resolution or guarantee", "missing bottle/pump/drop/end state"]
+}

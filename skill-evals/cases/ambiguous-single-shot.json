@@ -1,0 +1,8 @@
+{
+  "id": "ambiguous-single-shot",
+  "title": "Ambiguous single-shot brief",
+  "expected_skill": "seedance-prompt-director",
+  "invocation_mode": "implicit",
+  "locale": "zh-Hant",
+  "prompt": "幫我寫一個可直接使用的 Seedance 影片 prompt：雨夜便利店門口，一個女生發現有人把她的紅傘拿走。要有電影感，8 秒。平台和模型版本我還沒決定；請在不必要追問的前提下直接給可用方案。"
+}

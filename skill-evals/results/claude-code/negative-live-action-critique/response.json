@@ -1,0 +1,102 @@
+{
+  "is_error": false,
+  "duration_api_ms": 148883,
+  "num_turns": 1,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.6498609999999999,
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 5719,
+    "cache_read_input_tokens": 3423,
+    "output_tokens": 10620,
+    "output_tokens_details": {
+      "thinking_tokens": 9602
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5719,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 10620,
+        "cache_read_input_tokens": 3423,
+        "cache_creation_input_tokens": 5719,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5719
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 958,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0010379999999999999,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    },
+    "claude-fable-5": {
+      "inputTokens": 2,
+      "outputTokens": 10620,
+      "cacheReadInputTokens": 3423,
+      "cacheCreationInputTokens": 5719,
+      "webSearchRequests": 0,
+      "costUSD": 0.6488229999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No Seedance/AI-video tooling applies here — this is straight stage blocking, so here are the notes directly. I'm assuming an end-on/proscenium house; if it's thrust or in-the-round, say so and I'll rework (there you manage masking with rotation rather than eliminate it).\n\n## Rehearsal notes — the center cross\n\n**Diagnosis**\n- At the meet, A (the stronger performer) lands downstage of B on the same sightline, so B is covered. Fix the geometry and the marks, not the actors' energy.\n- Check which it is: A downstage and in B's line = a cover. A drifted upstage so B has to turn away from the house to play to them = upstaging. Same fix either way: level them.\n\n**1. The cross**\n- Same cue, same count. Walk it at half speed and count steps wing-to-spike so both land together. If one should land first, decide it now — a cover in motion is fine, a parked cover isn't.\n- Both travel on the same depth line so they arrive level. No one angles downstage on the approach; A in particular tends to arrive early, plant, and creep down.\n\n**2. The meet — spike it**\n- Two spikes straddling the center line, arm's length apart (~1 m / 3 ft). Level, or at most a half-step stagger. Anything deeper and the front-row side seats on A's side lose B entirely.\n- Both land in open quarter (faces cheated ~45° to the house) — not full profile, not square to each other.\n- Give/take by angle, not feet: A turns a touch more toward B to give the beat, and takes it back with face and voice. A never takes it by stepping in front.\n\n**3. Notes to the actors** (give them as picture notes — \"I'm losing B's face from house left\" — not as \"you're covering\")\n- **A:** Land on the spike and hold it. If the moment needs movement, move sideways along the line, never downstage. Arm's length is the closest you get.\n- **B:** Hold your ground. Don't back upstage to make room — every step back puts you deeper behind A. If A does step in, counter one step toward the open side and re-level, then reset on the next beat.\n\n**4. Sightline check**\n- ASM in the front-row extreme house-left seat, SM in extreme house-right, you at house center. They call \"cover\" the moment B's face goes. Any cover longer than a beat = move the marks; don't rely on counters.\n- Lighting: both spikes inside the center special, both faces lit at the new marks. If the pool is tight, move both marks together, not one.\n\n**5. Order of work tomorrow**\n1. Walk at half speed, no lines — set and spike the marks.\n2. Run at pace with lines, side seats calling covers.\n3. Adjust once, run it twice clean, lock it in the prompt book.\n\n**Recap:** The masking is a marks problem — A ends up downstage and in line with B. Spike both actors level (half-step stagger max) at arm's length straddling center, open both to quarter, and verify from the two front-row corner seats. Give A the note as \"hold your spike, move sideways not down,\" and B the note as \"hold ground, don't retreat upstage.\"",
+  "ttft_ms": 138937,
+  "ttft_stream_ms": 1867,
+  "time_to_request_ms": 30,
+  "type": "result",
+  "duration_ms": 147845
+}

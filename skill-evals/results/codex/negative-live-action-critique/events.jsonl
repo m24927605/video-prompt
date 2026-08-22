@@ -1,0 +1,4 @@
+{"type": "thread.started"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"type": "agent_message", "text": "- At center, don’t place them on the same sightline. Put the masking performer half a step upstage and the other actor slightly downstage.\n- Have both “cheat out” into a shallow V—about 30–45° toward the audience—instead of standing directly face-to-face.\n- Give each actor a separate crossing lane: one slightly upstage, one slightly downstage.\n- Spike the meeting positions and make the upstage boundary firm; no drifting downstage.\n- Check the picture from center house and both extreme side seats.\n- If focus should shift, use a deliberate step, turn, or eyeline change—not physical overlap."}}
+{"type": "turn.completed", "usage": {"input_tokens": 12044, "cached_input_tokens": 8960, "cache_write_input_tokens": 0, "output_tokens": 399, "reasoning_output_tokens": 260}}

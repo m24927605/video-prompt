@@ -1,0 +1,35 @@
+{
+  "case_id": "cantonese-dialogue-audio",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:3-6 classifies the shot and leaves the platform/model, resolution, aspect and seed unknown instead of inventing runtime facts.",
+    "final.md:16-25 locks exactly two people, A-Qing frame-left and A-Long frame-right inside the doorway, with no position exchange or reflected duplicates.",
+    "final.md:31-49 preserves both Cantonese lines verbatim, assigns them in the required order, explicitly keeps the listener silent, includes the intervening pause, and holds the required final state.",
+    "final.md:51-60 permits only rain, cloth friction and one door-bell sound, while explicitly excluding BGM, subtitles and extra audio; final.md:63-70 turns the contract into acceptance gates.",
+    "final.md:72-80 treats Cantonese/lip-sync as a failure risk rather than a guarantee and gives a finite, one-change ladder ending in ADR or a position diagram route.",
+    "native-evidence.md:5-10 records an implicit invocation and Codex reading .agents/skills/seedance-prompt-director/SKILL.md; run.json:9-18 records a successful isolated run with no research and no paid media events."
+  ],
+  "rationale": "The response is a paste-ready Traditional Chinese production contract that preserves the exact Hong Kong Cantonese wording and cultural setting. Speaker order, silent behavior, two-person count, left/right blocking, sound exclusions, and the final non-turning/inside-door state are all explicit. Capability-dependent lip-sync is requested as an acceptance target but never guaranteed; the fallback is bounded and production-realistic. No critical trap is present.",
+  "activation_evidence": "Verified implicit activation: native-evidence.md:5-10 identifies implicit routing to seedance-prompt-director and the SKILL.md read; run.json:11-13 repeats the same native evidence.",
+  "unknowns": [
+    "The platform's native Cantonese voice and lip-sync performance remains untested and is correctly routed to post if it fails.",
+    "No generated audio or video was available for outcome validation."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

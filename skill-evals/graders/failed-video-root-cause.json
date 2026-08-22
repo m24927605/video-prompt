@@ -1,0 +1,6 @@
+{
+  "case_id": "failed-video-root-cause",
+  "must_cover": ["fail verdict and severity", "timecoded direct observations for position/count/face/hand/contact/end gaze", "root cause labeled hypothesis", "audio and lip-sync unknown despite unmuted icon", "smallest one-variable change and fixed invariants", "route decision and finite stop condition"],
+  "must_not": ["claim audio quality", "treat screenshots as continuous-motion proof", "change multiple variables at once"],
+  "critical_case_traps": ["unmuted icon used as audio evidence", "missing primary entity/reference/end-state failure"]
+}

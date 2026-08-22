@@ -1,0 +1,33 @@
+{
+  "case_id": "negative-live-action-critique",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1 explicitly identifies straight stage blocking and declines Seedance/AI-video tooling.",
+    "final.md:5-16 diagnoses the center masking as shared-sightline/downstage geometry and fixes it with level paired spikes, arm's-length separation and 45-degree open-quarter cheating.",
+    "final.md:18-24 gives practical actor notes, counter behavior and center/extreme-side-seat sightline checks rather than an AI prompt or generated-video rubric.",
+    "final.md:26-31 gives a concise rehearsal sequence: half-speed marks, pace with side-seat cover calls, one adjustment, two clean runs and prompt-book lock.",
+    "native-evidence.md:7-17 records expected skill none, no activation and complete native discoverability; run.json:75-85 records exit_code 0, empty activation_evidence, research absent and no paid media events."
+  ],
+  "rationale": "The unrelated live-theatre task remains ordinary and directly solves masking with practical marks, sightlines and rehearsal calls. Native evidence proves the Seedance suite was available but not invoked. 'Prompt book' is the theatre stage manager's record in context, not an AI prompt. No critical misrouting is present.",
+  "activation_evidence": "Verified correct non-activation: native-evidence.md:7-17 lists all three discoverable skills but no activation event; run.json:81 records an empty activation_evidence array.",
+  "unknowns": [
+    "The response explicitly assumes an end-on/proscenium house; thrust or in-the-round blocking would require the offered rotation-based rework."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

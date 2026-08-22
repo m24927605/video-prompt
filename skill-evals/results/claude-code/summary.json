@@ -1,0 +1,25 @@
+{
+  "host": "claude-code",
+  "case_count": 14,
+  "graded_count": 14,
+  "score_percent": 98.14,
+  "critical_failures": [],
+  "negative_activation_failures": [],
+  "explicit_skill_coverage": [
+    "seedance-film-producer",
+    "seedance-prompt-director",
+    "seedance-video-qc"
+  ],
+  "implicit_skill_coverage": [
+    "seedance-film-producer",
+    "seedance-prompt-director",
+    "seedance-video-qc"
+  ],
+  "run_failures": [],
+  "digest_failures": [],
+  "paid_media_tool_event_cases": [],
+  "verdict_failures": [],
+  "grade_validation_failures": [],
+  "rubric_sha256": "0d245f00fad973dd0960e2d0f9d8ba7941ec54fa1df15e21161b8920ef44e3fc",
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+{
+  "case_id": "failed-video-root-cause",
+  "case_sha256": "22fafdad582c444b8b5309634579664a6bc12449a6514973c1c7e79601d2995a",
+  "rubric_sha256": "0d245f00fad973dd0960e2d0f9d8ba7941ec54fa1df15e21161b8920ef44e3fc",
+  "host": "codex",
+  "invocation_mode": "explicit",
+  "expected_skill": "seedance-video-qc",
+  "base_prompt": "請診斷一支已失敗的生成影片。原 prompt 要求一名穿藍外套的女子從畫面左側走到桌前，用右手把唯一一把黃鑰匙放在桌中央，鏡頭鎖定，最後她看向右側門口。觀察紀錄：00:00 女子在右側，桌上已有兩把鑰匙；00:03 她走向左側，臉短暫變形；00:05 左手出現第三把鑰匙並穿過桌面；00:08 最後她背對門口。只有四張截圖，播放器顯示 unmuted，但沒有音訊檔、waveform 或聽評。請輸出 pass/fail、severity、直接證據、推論、unknown、root-cause hypothesis、最小單變因修改、regenerate/repair/edit/VFX/accept 決策和停止條件。",
+  "effective_prompt": "$seedance-video-qc\n\n請診斷一支已失敗的生成影片。原 prompt 要求一名穿藍外套的女子從畫面左側走到桌前，用右手把唯一一把黃鑰匙放在桌中央，鏡頭鎖定，最後她看向右側門口。觀察紀錄：00:00 女子在右側，桌上已有兩把鑰匙；00:03 她走向左側，臉短暫變形；00:05 左手出現第三把鑰匙並穿過桌面；00:08 最後她背對門口。只有四張截圖，播放器顯示 unmuted，但沒有音訊檔、waveform 或聽評。請輸出 pass/fail、severity、直接證據、推論、unknown、root-cause hypothesis、最小單變因修改、regenerate/repair/edit/VFX/accept 決策和停止條件。",
+  "execution": "direct approved host CLI; no shell pipeline; output persisted by host CLI or sanitized collector"
+}

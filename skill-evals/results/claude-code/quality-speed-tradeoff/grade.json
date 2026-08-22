@@ -1,0 +1,39 @@
+{
+  "case_id": "quality-speed-tradeoff",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 24,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 99,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-9 establishes that no benchmark/ledger exists, treats every number as policy, lists runtime/delivery/rights/team/budget unknowns and denies generation authorization.",
+    "final.md:11-24 distinctly compares quality-max, speed-max-with-floor and the recommended hybrid, with the recommendation based on A/B/C risk allocation rather than a claimed measured winner.",
+    "final.md:26-46 defines common non-relaxable hard gates plus dialogue, crash, low-risk and delivery floors.",
+    "final.md:48-74 allocates hero dialogue/crash to A/B coverage and establishing/inserts to C, supplies crash edit/VFX/3D routes, and builds immutable passports/reference/lineage policy.",
+    "final.md:76-92 clearly separates parallel C/independent scene lanes from serial crash/state/promotion/handoff chains.",
+    "final.md:94-107 gives finite tier ceilings, repeated-defect/oscillation stops, edit/VFX/ADR/redesign routes, approved-parent rollback and immutable checkpoints.",
+    "final.md:109-138 assigns a ten-day degrade-gracefully schedule and explicit editorial/VFX/sound/color/subtitle/master/archive ownership without weakening identity/story/rights/delivery floors.",
+    "final.md:140-157 defines actual-ledger first-pass, retries, usable seconds/hour, billed cost per approved second, human correction, queue and waste KPIs with denominator/reporting boundaries.",
+    "final.md:159-183 labels the mini-benchmark prospective and ends with a claim register that explicitly records no costs, times, success rates or proven mode winner.",
+    "native-evidence.md:7-21 records implicit native discovery/activation and complete three-skill listing; run.json:8-91 attests claude-fable-5/max, no fallback, exit_code 0, research absent, no paid media and current sanitization."
+  ],
+  "rationale": "All evaluator-only requirements are met coherently: three distinct modes share hard floors, A/B/C risk is allocated sensibly, dependencies and routes are explicit and finite, post ownership is complete, and every KPI is ledger-defined. No unrun policy is presented as a controlled winner. The one-point deduction is only for unnecessary host/tool commentary and answer length, not a production or evidence gap.",
+  "activation_evidence": "Verified implicit native activation: native-evidence.md:7-21 records automatic seedance-film-producer events, complete native listing and discovery_complete true; run.json:81-86 gives exact event indices.",
+  "unknowns": [
+    "Actual platform/model/concurrency, delivery spec, rights, team capacity, daily budget, costs, approval rates and throughput remain unknown until Day 0 and ledger collection.",
+    "The mode comparison, tier ratios, retry ceilings and ten-day schedule remain policy rather than proven performance."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

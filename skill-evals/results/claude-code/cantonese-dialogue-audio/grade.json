@@ -1,0 +1,37 @@
+{
+  "case_id": "cantonese-dialogue-audio",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 24,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 9
+  },
+  "total": 98,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:11-16 classifies a platform-neutral text-generated shot, preserves Traditional Chinese/Hong Kong Cantonese and leaves all platform/audio/lip-sync/runtime capabilities unknown.",
+    "final.md:21-30 and 37-49 lock exactly two people, A-Qing frame-left wiping the table, A-Long frame-right one step inside the closed door, with no third/reflected person and no position exchange.",
+    "final.md:59-64 preserves both Cantonese lines verbatim, assigns the first only to A-Qing and the second only to A-Long after a silent beat, and holds A-Qing's no-turn stop plus A-Long's inside-door endpoint.",
+    "final.md:82-93 permits only the two spoken lines plus rain, cloth friction and one opening bell residual, explicitly excluding BGM, subtitles and every extra voice/effect.",
+    "final.md:98-107 repeats the exact two-person/speaker/sound/end constraints and a cut-ready final state; final.md:110-140 turns them into yes/no acceptance gates.",
+    "final.md:142-167 treats Cantonese, speaker, lip-sync and unwanted-audio behavior as risks rather than guarantees and gives bounded one-variable routes to ADR, split shots, runtime checks or post.",
+    "native-evidence.md:7-19 records implicit native discovery/activation and complete three-skill listing; run.json:8-89 attests claude-fable-5/max with no fallback, exit_code 0, research absent, no paid media and current path/session sanitization.",
+    "final.md:3 now contains only <REDACTED_PRIVATE_PATH>; a targeted scan found no retained user-home, temp workspace, Claude plan/project path, message/tool ID or thinking signature in the persisted case artifacts."
+  ],
+  "rationale": "The production core fully satisfies the case: exact Cantonese wording, speaker/silence order, two-person left/right blocking, constrained sound field and required endpoint are explicit and independently checkable, while platform support remains unknown. The two-point deduction is for unnecessary plan-mode/tool commentary and substantial excess length, not a behavioral omission. The initially observed private-path persistence was corrected by evidence-only sanitization before grading, so no privacy critical remains.",
+  "activation_evidence": "Verified implicit native activation: native-evidence.md:7-19 records seedance-prompt-director automatic events and discovery_complete true; run.json:81-84 lists the exact activation indices.",
+  "unknowns": [
+    "Native Cantonese pronunciation, voice naturalness, exact dialogue and lip-sync remain untested until actual audio/video exists.",
+    "The current platform/model and audio/subtitle defaults remain unknown and are correctly deferred."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

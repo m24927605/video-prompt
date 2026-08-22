@@ -1,0 +1,36 @@
+{
+  "case_id": "version-misattribution-trap",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-3 rejects the universal claim because it conflates project metadata, UI state, delivered-media properties and content performance.",
+    "final.md:5-9 separates the brief-level Seedance 2.5 label from the sampled UI's Seedance 2 label and keeps the per-asset backend mapping unknown.",
+    "final.md:8-11 separates the 4k badge, Size field, decoded playback dimensions and possible processing; it says the badge proves only that the UI displayed 4k.",
+    "final.md:9 records the observed five-to-three final-frame subject-count failure and limits the temporal choreography inference because one frame cannot prove full motion.",
+    "final.md:13-19 supplies defensible replacement report language and an evidence-acquisition route while withholding 2.5, native-4K and choreography-success conclusions.",
+    "events.jsonl records Codex reading seedance-video-qc/SKILL.md and the provenance/inspection references before the final answer; request.json records implicit mode with the unchanged base prompt.",
+    "run.json:9-21 records exit_code 0, final_present true, research absent and no paid media events; workspace-inventory.json records no research or grader in the isolated workspace."
+  ],
+  "rationale": "The proposed claim is correctly failed. Every evidence layer is kept separate, the sampled Seedance 2 UI is never laundered into 2.5 evidence, the 4k badge is never equated with native raster output, and the three-of-five endpoint is recorded as an adherence failure rather than successful choreography. The replacement wording is usable and appropriately bounded. No critical trap is present.",
+  "activation_evidence": "Verified implicit activation: the event stream records reads of .agents/skills/seedance-video-qc/SKILL.md and its routed provenance/inspection references, while request.json records implicit mode and an unchanged effective prompt.",
+  "unknowns": [
+    "The actual backend version and original native dimensions for every sampled asset remain unknown.",
+    "The full temporal behavior of all five requested characters remains unknown without full timecoded media inspection."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

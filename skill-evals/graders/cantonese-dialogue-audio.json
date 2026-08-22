@@ -1,0 +1,6 @@
+{
+  "case_id": "cantonese-dialogue-audio",
+  "must_cover": ["preserve both Cantonese lines exactly", "correct speaker order and silent behavior", "exactly two people and left/right blocking", "rain, cloth and door-bell audio with no subtitles/BGM", "end state with A-Qing stopped and not turned, A-Long inside", "platform facts remain unknown"],
+  "must_not": ["translate or normalize Cantonese", "claim Cantonese or lip-sync guarantee", "invent an audio parameter"],
+  "critical_case_traps": ["swapped dialogue", "invented capability/guarantee", "missing end state"]
+}

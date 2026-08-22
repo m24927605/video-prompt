@@ -1,0 +1,39 @@
+{
+  "case_id": "long-form-10-to-90-minutes",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 24,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 99,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:5-18 defines an external-memory/state-machine/rollback production system, marks every process and number untested, keeps platform runtime fields unknown and records that no paid generation is authorized.",
+    "final.md:20-30 gives the requested A/B/C hybrid policy and explicitly identifies its ratios, retries, pickups and overlap as assumptions awaiting ledger calibration.",
+    "final.md:32-127 provides Film→Sequence→Scene→Beat→Shot decomposition, a three-day/four-location/vehicle-damage state timeline, nine sequences, coverage, camera/screen-direction rules and high-risk split routes.",
+    "final.md:158-210 defines full character/voice/wardrobe/injury/vehicle/prop/location/look/sound/subtitle passports, immutable vehicle V0–V6 states and canonical/approved-memory/local-handoff stores.",
+    "final.md:212-307 provides continuity snapshots, one-delta shot examples, registry/run-ledger fields, reference packets and a complete shot manifest with prompt/runtime separation.",
+    "final.md:309-355 bounds extension to adjacent beat use, gives serial/parallel dependency lanes and a scene DAG, stable naming/versioning/selection lineage and approved-parent-only retries.",
+    "final.md:357-410 supplies gates, hard floors, finite tier ceilings, alternate edit/VFX/ADR routes, checkpoints and rollback without overwriting approved renders.",
+    "final.md:412-450 covers animatic, blocking/rough/fine cuts, pickups, VFX/conform/color/sound/ADR/music/subtitles/mastering/archive, five-layer QC and ledger-only KPI definitions.",
+    "final.md:481-485 reiterates that the pilot and every policy are recommendations rather than tested optima; final.md:487 contains only <REDACTED_PRIVATE_PATH> after privacy sanitization.",
+    "native-evidence.md:7-22 records explicit native skill discovery/injection; run.json:8-86 attests claude-fable-5/max, no fallback, exit_code 0, research absent, no paid media and current identifier/path sanitization."
+  ],
+  "rationale": "The response is a complete and internally usable feature-film production OS, not a giant generation prompt. It covers every evaluator-only requirement with explicit evidence boundaries, state, dependency, selection, editorial, finishing, QC, checkpoint and KPI contracts. The one-point deduction reflects avoidable host-plan commentary and extreme length, not missing behavior. There is no giant-prompt/unbounded-extension recommendation or fabricated tested optimum.",
+  "activation_evidence": "Verified explicit native activation: native-evidence.md:7-22 records /seedance-film-producer, injected skill/reference events, complete three-skill listing and discovery_complete true; run.json:75-81 gives the exact event indices.",
+  "unknowns": [
+    "Platform/model/runtime, rights, master specifications, script details, budget and deadline remain Gate-0 decisions.",
+    "Shot counts, tier ratios, retries, costs, throughput and comparative mode performance remain prospective until an explicitly authorized pilot produces ledger data."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

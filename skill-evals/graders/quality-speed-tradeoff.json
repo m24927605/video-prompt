@@ -1,0 +1,6 @@
+{
+  "case_id": "quality-speed-tradeoff",
+  "must_cover": ["distinct quality-max, speed-with-floor and hybrid policies", "common hard floors", "A/B/C risk allocation for hero dialogue, crash and low-risk shots", "parallel versus serial dependencies", "finite retry and edit/VFX routes", "actual-ledger KPI definitions", "no claim of controlled winner"],
+  "must_not": ["fastest-and-best claim", "invent costs/rates", "relax identity/story/rights/delivery floors"],
+  "critical_case_traps": ["untested policy presented as tested optimum", "unlimited retry"]
+}

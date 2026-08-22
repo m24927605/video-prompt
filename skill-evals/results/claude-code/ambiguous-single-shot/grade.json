@@ -1,0 +1,37 @@
+{
+  "case_id": "ambiguous-single-shot",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 24,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 9
+  },
+  "total": 98,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:5-9 classifies text-to-video/no-reference input, keeps platform/model/runtime support unknown, and labels 16:9, no dialogue and the distant passer-by as assumptions.",
+    "final.md:14-35 supplies an executable eight-second shot with exactly one woman, exactly one red umbrella, occupied first frame, one causal discovery chain, a single camera move, motivated light/audio and a visible held end frame.",
+    "final.md:65-71 separates platform settings from prompt text, calls the timecode semantic, leaves resolution/audio/seed unknown and refuses to assume a negative-prompt field.",
+    "final.md:73-86 turns entity count, unique red umbrella, spatial axis, action, acting, camera, light, audio and endpoint into observable acceptance checks.",
+    "final.md:88-110 states concrete failure risks, supplies a finite one-variable ladder and routes a repeated hard defect to split shots or a supported first-frame workflow rather than endless prose.",
+    "events.jsonl begins with a system/init record listing all three native project skills; the subsequent Skill tool call launches seedance-prompt-director and returns its .claude/skills base directory and full instructions.",
+    "request.json:6-9 records implicit mode and identical base/effective prompts; run.json:8-34 attests actual primary model claude-fable-5 with no fallback, exit_code 0, research absent and no paid media events."
+  ],
+  "rationale": "Semantically, this fully passes the case: it proceeds without a blocking question, leaves all platform facts bounded, and creates a production-usable single-shot prompt with exact entities, first frame, causal action, camera/light/audio, end state, acceptance and bounded recovery. The one-point usability and scope deductions are for unnecessary host-tool commentary at final.md:1 and a redundant full English duplicate, not for missing production behavior. No critical trap is present.",
+  "activation_evidence": "Verified implicit native activation: events.jsonl system/init lists seedance-prompt-director; a later native Skill tool call launches it and injects the .claude/skills/seedance-prompt-director contract. request.json:6-9 proves the outer prompt had no explicit slash command.",
+  "unknowns": [
+    "The selected platform's exact duration, aspect, audio and first-frame support remains unknown and is correctly disclosed.",
+    "No media was generated, so adherence and audiovisual quality are unobserved.",
+    "The auxiliary Haiku model reported by Claude Code is host infrastructure; run.json attests claude-fable-5 as the actual primary with no fallback."
+  ],
+  "grader": {
+    "role": "Independent Staff+ Adversarial Evaluator",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "independent": true
+  }
+}

@@ -1,0 +1,31 @@
+# Provenance — Seedance Film Producer
+
+Archived knowledge date: **2026-08-22**. Source identifiers do not need to exist in an installed skill.
+
+| Rule | Distilled rule | Primary source and exact section | Evidence / boundary | Limitation or counterexample | Confidence |
+|---|---|---|---|---|---|
+| FP-01 | Decompose Film→Sequence→Scene→Beat→Shot; no giant prompt. | `research-report.md` §5; `long-form-film-workflow.md` §0/§3; `creative-bible-analysis.md` page 14 | Official clip duration plus peer-reviewed MovieBench hierarchy and team design. | Hierarchy is not a Seedance built-in. | High architecture |
+| FP-02 | External production system is dependable cross-shot memory. | `long-form-film-workflow.md` §0/§4; `creative-bible-analysis.md` page 9 | Production simplification and research synthesis. | Does not deny platform reference/session conditioning. | High operational |
+| FP-03 | Gate charter by version, platform, rights and delivery. | `long-form-film-workflow.md` §1/Gate 0; `additional-findings.md` F-13/F-14/F-22 | Official ModelArk restrictions/retention plus author rights practice. | P06 contracts were not legally audited. | High boundary |
+| FP-04 | Use versioned passports; every state has its own immutable asset. | `long-form-film-workflow.md` §2; `creative-bible-analysis.md` pages 4–9 | Repeated production self-report and synthesis. | Improvement size unmeasured. | Medium-high |
+| FP-05 | Keep canonical, approved memory and local handoff separate. | `long-form-film-workflow.md` §4; `additional-findings.md` F-11 | StoryMem/EntityBench-inspired policy; return-last-frame official capability. | Not a Seedance internal; frame must pass fidelity before promotion. | High policy / unknown effect |
+| FP-06 | Maintain scene state and per-shot entity schedule/delta. | `long-form-film-workflow.md` §5; `future-evaluation-plan.md` §5.4/§9.3 | EntityBench preprint method inspiration. | Seedance-specific gain untested. | Medium-high |
+| FP-07 | Require complete shot contracts and provenance. | `long-form-film-workflow.md` §6; `research-report.md` §5.2 | Production framework. | Not an API-required schema. | High operational |
+| FP-08 | Plan coverage and split high-risk interaction. | `long-form-film-workflow.md` §3.1/Gate 2; `research-report.md` §8 | Official model limitations plus production practice. | Splitting can add edit complexity. | High practical |
+| FP-09 | Use only problem-relevant previz/anchors. | `long-form-film-workflow.md` §7/Gate 3; official guide storyboard/keyframe/clay; `additional-findings.md` F-07/F-18 | Storyboard/keyframe distinction is official; diagram/blockout benefit is partly self-report. | Keyframes are relatively strict, never pixel lock. | High distinction / medium effect |
+| FP-10 | Build blocking rough cut early; let edit request pickups. | `long-form-film-workflow.md` Gates 4/7; `additional-findings.md` F-20; Higgsfield P03/P05/P06/P08 | Four project briefs. | No controlled causality or ideal overlap. | Medium-high |
+| FP-11 | Raw generation requires finishing layers. | `long-form-film-workflow.md` Gates 8–10; `creative-bible-analysis.md` pages 14–15; Higgsfield cross-case | Repeated author workflows and mature production practice. | Tool choices and exact thresholds are project-specific. | High |
+| FP-12 | Parallelize by dependency; serialize state/handoff chains. | `long-form-film-workflow.md` §9 | Team production design. | Concurrency caps/platform behavior must be current. | High practical |
+| FP-13 | Stable IDs, lineage, hashes, checkpoints and rollback. | `long-form-film-workflow.md` §12/§17; `additional-findings.md` F-14 | Production control plus official retention risk. | Never retain signed URLs or credentials. | High |
+| FP-14 | Change one variable and route after a project-specific ceiling. | `long-form-film-workflow.md` §10; `prompt-playbook.md` §9; `creative-bible-analysis.md` page 11 | Experimental hygiene plus production self-report. | 10–15 or 15–20 are project heuristics, not model averages. | High principle |
+| FP-15 | Use extension for short adjacent continuity, not long drift chains. | `research-report.md` §4.2–4.3; `additional-findings.md` F-11 | Official extension capability plus team inference. | Long-chain 2.5 drift magnitude untested. | Medium-high |
+| FP-16 | Provide quality, speed-with-floor and hybrid without claiming optimum. | `research-report.md` §6; `long-form-film-workflow.md` §14; `future-evaluation-plan.md` RQ5/§5.5 | Evidence-supported but untested production policy. | Hybrid may have coordination overhead; no paid validation. | High boundary |
+| FP-17 | KPI comes from actual run ledger, not marketing counters. | `research-report.md` §7; `long-form-film-workflow.md` §13; `additional-findings.md` F-19 | Direct UI counter boundary plus metric design. | Cross-project costs need normalized dates/discounts/human time. | High |
+| FP-18 | Apply quality floors, then compare Pareto frontier. | `long-form-film-workflow.md` §15; `future-evaluation-plan.md` §13.3–14 | Preregistered-method design, not executed result. | Cannot claim fastest/best without representative controlled evidence. | High method |
+
+## Source-class cautions
+
+- MovieBench is peer reviewed; StoryMem, EntityBench and VBench-2.0 were used as method evidence, not Seedance 2.5 internals.
+- Higgsfield project briefs are author self-reports. Costs, schedules, claimed fixes, festival history and huge counters are not controlled efficiency evidence.
+- The Creative Bible's 3.5 words/s, prompt word counts, retry counts, 16-frame sample and 10/10 stress test are heuristics.
+- The research source manifest proves archive integrity, not production causality or optimality.

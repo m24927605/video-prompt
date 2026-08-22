@@ -1,0 +1,102 @@
+{
+  "is_error": false,
+  "duration_api_ms": 54173,
+  "num_turns": 2,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.3806510000000001,
+  "usage": {
+    "input_tokens": 58,
+    "cache_creation_input_tokens": 8568,
+    "cache_read_input_tokens": 12543,
+    "output_tokens": 3902,
+    "output_tokens_details": {
+      "thinking_tokens": 2771
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8568,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 56,
+        "output_tokens": 1467,
+        "cache_read_input_tokens": 9120,
+        "cache_creation_input_tokens": 2871,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2871
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 983,
+      "outputTokens": 17,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.001068,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty"
+    },
+    "claude-fable-5": {
+      "inputTokens": 58,
+      "outputTokens": 3902,
+      "cacheReadInputTokens": 12543,
+      "cacheCreationInputTokens": 8568,
+      "webSearchRequests": 0,
+      "costUSD": 0.37958300000000006,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "目錄裡只有三個 Seedance **影片** skill，沒有靜態圖的範本。你的需求明確是靜態海報、排除運鏡/聲音/時間軸，所以我不套用那些 skill（它們會硬塞 camera、blocking、audio、end state 等影片欄位），直接給你圖片生成 prompt。\n\n## 主 Prompt（英文，適用 Midjourney / Flux / SD / Ideogram / DALL·E）\n\n```\nMinimalist Swiss International Typographic Style poster, square 1:1 format.\nPure flat white background (#FFFFFF).\nOne single large solid orange circle (#FF5A1F), perfectly round, flat color, no gradient, no shadow, no outline, positioned off-center in the upper-right area on a strict modular grid.\nThe word \"MONDAY\" in bold black Helvetica-style grotesque sans-serif, all uppercase, tight letter-spacing, flush-left aligned in the lower-left of the grid, crisp vector edges.\nGenerous negative space, asymmetric balance, exactly three colors: white, black, orange.\nClean, precise, geometric, print-quality flat graphic design, vector illustration look.\nNo other text, no textures, no gradients, no shadows, no 3D, no noise, no watermark.\n```\n\n## Negative Prompt（支援的模型用）\n\n```\ngradient, shadow, 3D, texture, paper grain, photo, photorealistic, extra text, misspelled text, watermark, logo, border, frame, multiple circles, extra shapes, decorative elements, noise, blur, low quality\n```\n\n## 參數建議\n\n- **比例**：`1:1`（例如 1024×1024 或 2048×2048）\n- **Midjourney**：結尾加 `--ar 1:1 --style raw --stylize 50 --no gradient shadow texture`\n- **Ideogram / Flux**：文字渲染較穩，保留 `\"MONDAY\"` 的雙引號並加 `text: MONDAY`；若字拼錯，加一句 `the only text in the image is the word MONDAY`\n- **SD / Flux**：CFG 5–7，避免過度風格化把圓形畫出立體感\n\n## 可調的地方\n\n- **佈局**：把「upper-right / lower-left」換成 `circle centered, title below` 就變成對稱置中版\n- **橘色**：`#FF5A1F` 偏暖；想要更 Swiss 經典感可用 `#FF6600`\n- **字體**：`Helvetica-style` 可改成 `Akzidenz-Grotesk-style` 或 `Neue Haas Grotesk-style`\n\n---\n\n**小結**：我檢查過目錄，只有影片用的 Seedance skill，跟靜態海報無關，所以沒套用。上面是一組完整可直接貼用的靜態圖 prompt：主 prompt + negative prompt + 1:1 參數與各模型微調建議。如果你告訴我要用哪個模型，我可以幫你把 prompt 收斂成該模型的最佳長度與語法。",
+  "ttft_ms": 30430,
+  "ttft_stream_ms": 1389,
+  "time_to_request_ms": 22,
+  "type": "result",
+  "duration_ms": 53154
+}

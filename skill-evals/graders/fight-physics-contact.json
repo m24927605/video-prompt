@@ -1,0 +1,6 @@
+{
+  "case_id": "fight-physics-contact",
+  "must_cover": ["identify camera/action overload", "preserve wrist grab, hip escape, shoulder contact, two-step slide and final face-off", "contact-force-inertia-friction-clothing physics", "simplify or split camera/shot rather than promise more prose", "diagram/keyframe/blockout/insert route", "bounded one-variable ladder"],
+  "must_not": ["keep all three incompatible camera moves without qualification", "guarantee physics", "recommend endless rewrites"],
+  "critical_case_traps": ["unlimited retry", "missing one fighter/action/end state"]
+}
