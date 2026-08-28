@@ -1,0 +1,6 @@
+interface:
+  display_name: "Screenplay Writer"
+  short_description: "Develop, draft, review, and rewrite screenplays"
+  default_prompt: "Use $screenplay-writer to develop, draft, review, or rewrite this film screenplay."
+policy:
+  allow_implicit_invocation: true

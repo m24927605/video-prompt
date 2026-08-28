@@ -6,6 +6,7 @@ All notable changes to this project are documented here.
 
 ### Added
 
+- Added the `screenplay-writer` skill for film-native development, outlining, Fountain drafting, continuation, evidence-backed review, bounded rewrites, style variation, and continuity tracking.
 - Added the `photography-aesthetics` skill with 72 composable photography and film-style techniques, model-specific prompt guidance, and native Codex and Claude Code entry points.
 
 ### Changed
@@ -13,6 +14,7 @@ All notable changes to this project are documented here.
 - Separated packaged-skill checks from the archived three-skill Seedance behavioral baseline.
 - Kept downloaded source charts outside the public package while retaining the complete text reference library.
 - Reconciled prompt-dialect, aspect-ratio, taxonomy, and weather-counting guidance after an independent forward test.
+- Synthesized screenplay-specific methods from audited MIT upstream repositories and official screenplay/Fountain sources without packaging upstream copies or detector-evasion claims.
 
 ## [0.1.0.0] - 2026-08-23
 

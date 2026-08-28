@@ -1,9 +1,10 @@
 # video-prompt
 
-Cross-agent skills for photographic aesthetics, cinematic prompting, Seedance production, and generated-video QC in Codex CLI and Claude Code.
+Cross-agent skills for screenwriting, photographic aesthetics, cinematic prompting, Seedance production, and generated-video QC in Codex CLI and Claude Code.
 
 ## Skills
 
+- `screenplay-writer` develops, drafts, reviews, and rewrites original short- and feature-film screenplays in Fountain.
 - `photography-aesthetics` turns visual intent into precise image/video prompt aesthetics and critiques existing photography.
 - `seedance-prompt-director` turns shot briefs into controllable, testable video prompts.
 - `seedance-film-producer` plans multi-shot continuity, assets, queues, lineage, editing, and finishing.
@@ -24,10 +25,10 @@ On Windows, enable Git symlink support (and the required OS permissions or Devel
 
 ## Package validation
 
-- Packaged skills: 4, each with native Codex and Claude Code entry points
-- Skill quick validation: 4/4 PASS
-- Deterministic tests: 36/36 PASS
-- SHA-256 public-artifact manifest: 337 entries, check PASS
+- Packaged skills: 5, each with native Codex and Claude Code entry points
+- Skill quick validation: 5/5 PASS
+- Deterministic tests: 37/37 PASS
+- SHA-256 public-artifact manifest: 349 entries, check PASS
 - Secret and signed-query scans: 0 findings
 
 The archived behavioral evaluation covers the three Seedance skills only:
@@ -44,6 +45,6 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skill-evals/tests -v
 
 ## Public-source boundary
 
-This repository includes project-authored research reports, text reference libraries, and sanitized evaluation evidence. Third-party source captures, downloaded media, browser/session evidence, copyrighted PDF/source copies, and temporary extraction files are intentionally excluded from the public repository. Accordingly, `photography-aesthetics` packages its complete text transcription but not the downloaded source charts.
+This repository includes project-authored research reports, text reference libraries, and sanitized evaluation evidence. Third-party source captures, downloaded repositories/media, browser/session evidence, copyrighted PDF/source copies, and temporary extraction files are intentionally excluded from the public repository. Accordingly, `photography-aesthetics` packages its complete text transcription but not the downloaded source charts, and `screenplay-writer` packages newly written film-specific guidance plus source provenance rather than upstream repository copies.
 
-Archived knowledge date: 2026-08-22. Current model capabilities, pricing, limits, and policies must be checked against the relevant platform's official documentation.
+Seedance archived knowledge date: 2026-08-22. Screenplay methodology audit date: 2026-08-29. Current model capabilities, pricing, limits, and policies must be checked against the relevant platform's official documentation.

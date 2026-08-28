@@ -1,6 +1,6 @@
 {
   "command": "PYTHONDONTWRITEBYTECODE=1 python3 skill-evals/scripts/build_manifest.py --check",
-  "entries": 337,
+  "entries": 349,
   "status": "PASS",
-  "date": "2026-08-28"
+  "date": "2026-08-29"
 }

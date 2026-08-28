@@ -16,6 +16,12 @@
       "resolved_tree_sha256": "c45e1967f32c6d7819a5168e43a0b09a8375ea53110c77ce19bb11dd6e8c3ed8"
     },
     {
+      "path": ".agents/skills/screenplay-writer",
+      "type": "symlink",
+      "target": "../../skills/screenplay-writer",
+      "resolved_tree_sha256": "cf3258e4fbb7ebe830b1a3f0fb1721d34dac9a2624825d39759283b8b2dfdf1c"
+    },
+    {
       "path": ".agents/skills/seedance-film-producer",
       "type": "symlink",
       "target": "../../skills/seedance-film-producer",
@@ -38,6 +44,12 @@
       "type": "symlink",
       "target": "../../skills/photography-aesthetics",
       "resolved_tree_sha256": "c45e1967f32c6d7819a5168e43a0b09a8375ea53110c77ce19bb11dd6e8c3ed8"
+    },
+    {
+      "path": ".claude/skills/screenplay-writer",
+      "type": "symlink",
+      "target": "../../skills/screenplay-writer",
+      "resolved_tree_sha256": "cf3258e4fbb7ebe830b1a3f0fb1721d34dac9a2624825d39759283b8b2dfdf1c"
     },
     {
       "path": ".claude/skills/seedance-film-producer",
@@ -66,14 +78,14 @@
     {
       "path": "CHANGELOG.md",
       "type": "file",
-      "bytes": 1290,
-      "sha256": "11c661e0fef5972daf1634a2bd0f18025e88d3e57a1af5f85c9bf3a6469d7a02"
+      "bytes": 1669,
+      "sha256": "3d24990db0d7da2ca0f35da46d8b764892fc1b8167a4d96b4c2ee5edc6699576"
     },
     {
       "path": "README.md",
       "type": "file",
-      "bytes": 2352,
-      "sha256": "09d4965f17f69df21ecef7efc160bc729833592bc4af2e60a8481e711025ba39"
+      "bytes": 2689,
+      "sha256": "8ed595a5203f11bfe703ace318ffc16e59fcbe479e955b0ed69b9079764f6093"
     },
     {
       "path": "SEEDANCE_CROSS_AGENT_SKILLS_GOAL.md",
@@ -84,8 +96,8 @@
     {
       "path": "SKILLS.md",
       "type": "file",
-      "bytes": 1756,
-      "sha256": "fcc3a3c6662ea12198a2df1570b6ecf0cd1ae3a1e3d856bf71991da40895272a"
+      "bytes": 2216,
+      "sha256": "00de3ad0983c3ca69460cfe97e542692f69ac74eb2d0cbab1733c9b50bf0f787"
     },
     {
       "path": "SKILLS_PROGRESS.md",
@@ -1746,8 +1758,8 @@
     {
       "path": "skill-evals/results/validation/quick-validate.json",
       "type": "file",
-      "bytes": 539,
-      "sha256": "989721a4a60691f793de7d00b1c877cd9565b37c8895c4cd10bd7a3472e5ea2f"
+      "bytes": 621,
+      "sha256": "8d0968029146025412c619cd203fddb85d9471d222299cdb4fe9ad8470b99e06"
     },
     {
       "path": "skill-evals/rubric.md",
@@ -1836,8 +1848,8 @@
     {
       "path": "skill-evals/tests/test_skill_suite_structure.py",
       "type": "file",
-      "bytes": 13547,
-      "sha256": "249748c30c05c3fd51568a1372292a9e9214b57d5748d12fa6c35d497b90ff5b"
+      "bytes": 14169,
+      "sha256": "8eb3fd35fd344905109bf78ee1d3389dd13253c2e1ed8c5e8d5d88464723f620"
     },
     {
       "path": "skills/photography-aesthetics/SKILL.md",
@@ -1916,6 +1928,66 @@
       "type": "file",
       "bytes": 52213,
       "sha256": "c83ac60fe76762352ea7e319b047dc2f2d0ca0278583acca72c93e6b70e1e9f4"
+    },
+    {
+      "path": "skills/screenplay-writer/SKILL.md",
+      "type": "file",
+      "bytes": 9394,
+      "sha256": "85a76d3a9f9906e8e576fcffcf0b4ca2a6d0b6539bf01dd5c70ee0eda6515dff"
+    },
+    {
+      "path": "skills/screenplay-writer/agents/openai.yaml",
+      "type": "file",
+      "bytes": 263,
+      "sha256": "0c6f7d713b3d0d417e365898e2dd9540c9565b4472ec1fb55ab8ea747c42012c"
+    },
+    {
+      "path": "skills/screenplay-writer/references/continuity.md",
+      "type": "file",
+      "bytes": 5766,
+      "sha256": "433bdcf51a47621871b6ec790d2a6602e6b2d26226c90dd24ddd7a7d7e509d85"
+    },
+    {
+      "path": "skills/screenplay-writer/references/development.md",
+      "type": "file",
+      "bytes": 6400,
+      "sha256": "8b14ff6090fb4e430c54e22022798862615a49a91450da38dcf16fcbd9ce145c"
+    },
+    {
+      "path": "skills/screenplay-writer/references/dialogue-and-voice.md",
+      "type": "file",
+      "bytes": 6452,
+      "sha256": "598879d37bb7c37455b9e3a467b8334f5644af7e1ec444d2990992e94f248337"
+    },
+    {
+      "path": "skills/screenplay-writer/references/formatting.md",
+      "type": "file",
+      "bytes": 5482,
+      "sha256": "39892cc2abd5a97d4de96b657250cbc0868ddb31bb6205655bd92ef29f521282"
+    },
+    {
+      "path": "skills/screenplay-writer/references/provenance.md",
+      "type": "file",
+      "bytes": 5959,
+      "sha256": "42d01dfdbf3f53e8cf0662494e73fa77bff1f6cff145ff2be465f52a9827086c"
+    },
+    {
+      "path": "skills/screenplay-writer/references/rewrite-and-qc.md",
+      "type": "file",
+      "bytes": 7668,
+      "sha256": "69be5a9c6653bfc3d919d16cae9f974591c74c326283827882f26a48192fd423"
+    },
+    {
+      "path": "skills/screenplay-writer/references/scene-writing.md",
+      "type": "file",
+      "bytes": 6471,
+      "sha256": "ba69985a6a555cb9780d13d1b86db763bf55b2a8b665640cbd09001ee40329a1"
+    },
+    {
+      "path": "skills/screenplay-writer/references/style-variation.md",
+      "type": "file",
+      "bytes": 7299,
+      "sha256": "b0c2da15a34276d36957b628f3a695847ae3cf1d7f167de38dc681e3eee5e038"
     },
     {
       "path": "skills/seedance-film-producer/SKILL.md",

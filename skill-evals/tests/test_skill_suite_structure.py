@@ -24,6 +24,7 @@ SEEDANCE_SKILL_NAMES = (
 PACKAGED_SKILL_NAMES = (
     *SEEDANCE_SKILL_NAMES,
     "photography-aesthetics",
+    "screenplay-writer",
 )
 PHOTOGRAPHY_TEXT_REFERENCE_FILES = {
     "01-lighting.md",
@@ -37,6 +38,16 @@ PHOTOGRAPHY_TEXT_REFERENCE_FILES = {
     "09-model-dialects.md",
     "10-zh-lexicon.md",
     "11-image-input.md",
+}
+SCREENPLAY_REFERENCE_FILES = {
+    "continuity.md",
+    "development.md",
+    "dialogue-and-voice.md",
+    "formatting.md",
+    "provenance.md",
+    "rewrite-and-qc.md",
+    "scene-writing.md",
+    "style-variation.md",
 }
 REQUIRED_DOCS = (
     "SKILLS.md",
@@ -167,6 +178,12 @@ class SkillSuiteStructureTests(unittest.TestCase):
         self.assertTrue(reference_root.is_dir(), reference_root)
         actual = {path.name for path in reference_root.iterdir() if path.is_file()}
         self.assertEqual(PHOTOGRAPHY_TEXT_REFERENCE_FILES, actual)
+
+    def test_screenplay_writer_packages_the_complete_reference_library(self) -> None:
+        reference_root = ROOT / "skills" / "screenplay-writer" / "references"
+        self.assertTrue(reference_root.is_dir(), reference_root)
+        actual = {path.name for path in reference_root.iterdir() if path.is_file()}
+        self.assertEqual(SCREENPLAY_REFERENCE_FILES, actual)
 
     def test_all_local_skill_links_resolve(self) -> None:
         skill_files = sorted((ROOT / "skills").glob("**/*.md"))
