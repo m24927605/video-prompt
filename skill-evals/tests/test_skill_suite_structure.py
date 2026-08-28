@@ -16,11 +16,28 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SKILL_NAMES = (
+SEEDANCE_SKILL_NAMES = (
     "seedance-prompt-director",
     "seedance-film-producer",
     "seedance-video-qc",
 )
+PACKAGED_SKILL_NAMES = (
+    *SEEDANCE_SKILL_NAMES,
+    "photography-aesthetics",
+)
+PHOTOGRAPHY_TEXT_REFERENCE_FILES = {
+    "01-lighting.md",
+    "02-tone-color.md",
+    "03-framing.md",
+    "04-film-styles.md",
+    "05-recipes.md",
+    "06-analysis.md",
+    "07-beyond-the-charts.md",
+    "08-motion.md",
+    "09-model-dialects.md",
+    "10-zh-lexicon.md",
+    "11-image-input.md",
+}
 REQUIRED_DOCS = (
     "SKILLS.md",
     "SKILLS_SOURCE_MAP.md",
@@ -110,8 +127,8 @@ class SkillSuiteStructureTests(unittest.TestCase):
             self.assertTrue(result_dir.is_dir(), result_dir)
             self.assertTrue(any(result_dir.iterdir()), f"empty results: {result_dir}")
 
-    def test_three_canonical_skills_have_minimal_shared_frontmatter(self) -> None:
-        for name in SKILL_NAMES:
+    def test_packaged_skills_have_minimal_shared_frontmatter(self) -> None:
+        for name in PACKAGED_SKILL_NAMES:
             skill_md = ROOT / "skills" / name / "SKILL.md"
             self.assertTrue(skill_md.is_file(), skill_md)
             frontmatter = parse_frontmatter(skill_md)
@@ -126,7 +143,7 @@ class SkillSuiteStructureTests(unittest.TestCase):
 
     def test_host_entries_are_relative_symlinks_to_canonical_skills(self) -> None:
         for host_root in (ROOT / ".agents" / "skills", ROOT / ".claude" / "skills"):
-            for name in SKILL_NAMES:
+            for name in PACKAGED_SKILL_NAMES:
                 entry = host_root / name
                 self.assertTrue(entry.is_symlink(), entry)
                 target = Path(os.readlink(entry))
@@ -136,7 +153,7 @@ class SkillSuiteStructureTests(unittest.TestCase):
         self.assertFalse((ROOT / ".claude" / "commands").exists())
 
     def test_openai_metadata_is_consistent_and_allows_implicit_invocation(self) -> None:
-        for name in SKILL_NAMES:
+        for name in PACKAGED_SKILL_NAMES:
             path = ROOT / "skills" / name / "agents" / "openai.yaml"
             self.assertTrue(path.is_file(), path)
             text = path.read_text(encoding="utf-8")
@@ -144,6 +161,12 @@ class SkillSuiteStructureTests(unittest.TestCase):
             self.assertIn("default_prompt:", text, path)
             self.assertIn(f"${name}", text, path)
             self.assertIn("allow_implicit_invocation: true", text, path)
+
+    def test_photography_aesthetics_packages_the_complete_text_reference_library(self) -> None:
+        reference_root = ROOT / "skills" / "photography-aesthetics" / "references"
+        self.assertTrue(reference_root.is_dir(), reference_root)
+        actual = {path.name for path in reference_root.iterdir() if path.is_file()}
+        self.assertEqual(PHOTOGRAPHY_TEXT_REFERENCE_FILES, actual)
 
     def test_all_local_skill_links_resolve(self) -> None:
         skill_files = sorted((ROOT / "skills").glob("**/*.md"))
@@ -230,8 +253,8 @@ class SkillSuiteStructureTests(unittest.TestCase):
             self.assertEqual([], summary["paid_media_tool_event_cases"], path)
             self.assertEqual([], summary["verdict_failures"], path)
             self.assertEqual([], summary["grade_validation_failures"], path)
-            self.assertEqual(set(SKILL_NAMES), set(summary["explicit_skill_coverage"]), path)
-            self.assertEqual(set(SKILL_NAMES), set(summary["implicit_skill_coverage"]), path)
+            self.assertEqual(set(SEEDANCE_SKILL_NAMES), set(summary["explicit_skill_coverage"]), path)
+            self.assertEqual(set(SEEDANCE_SKILL_NAMES), set(summary["implicit_skill_coverage"]), path)
 
     def test_manifest_hashes_regular_files_and_records_symlinks(self) -> None:
         manifest_path = ROOT / "skills-manifest.json"
@@ -259,7 +282,7 @@ class SkillSuiteStructureTests(unittest.TestCase):
             self.assertEqual(digest, by_path[relative].get("sha256"), relative)
 
         for host in (".agents", ".claude"):
-            for name in SKILL_NAMES:
+            for name in PACKAGED_SKILL_NAMES:
                 relative = f"{host}/skills/{name}"
                 self.assertEqual("symlink", by_path[relative]["type"])
                 self.assertEqual(os.readlink(ROOT / relative), by_path[relative]["target"])

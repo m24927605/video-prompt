@@ -1,11 +1,12 @@
 {
   "validator": "skill-creator/scripts/quick_validate.py",
-  "validated_at": "2026-08-22T20:37:28+08:00",
-  "scope": "post-fabricated-parameter behavioral fix",
+  "validated_at": "2026-08-28T13:37:13+08:00",
+  "scope": "four packaged cross-agent skills",
   "results": [
     {"skill": "seedance-prompt-director", "exit_code": 0, "message": "Skill is valid!"},
     {"skill": "seedance-film-producer", "exit_code": 0, "message": "Skill is valid!"},
-    {"skill": "seedance-video-qc", "exit_code": 0, "message": "Skill is valid!"}
+    {"skill": "seedance-video-qc", "exit_code": 0, "message": "Skill is valid!"},
+    {"skill": "photography-aesthetics", "exit_code": 0, "message": "Skill is valid!"}
   ],
   "status": "PASS"
 }

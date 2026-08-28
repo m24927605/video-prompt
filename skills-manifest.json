@@ -10,6 +10,12 @@
   ],
   "entries": [
     {
+      "path": ".agents/skills/photography-aesthetics",
+      "type": "symlink",
+      "target": "../../skills/photography-aesthetics",
+      "resolved_tree_sha256": "c45e1967f32c6d7819a5168e43a0b09a8375ea53110c77ce19bb11dd6e8c3ed8"
+    },
+    {
       "path": ".agents/skills/seedance-film-producer",
       "type": "symlink",
       "target": "../../skills/seedance-film-producer",
@@ -26,6 +32,12 @@
       "type": "symlink",
       "target": "../../skills/seedance-video-qc",
       "resolved_tree_sha256": "275ad41749df1cdcfcc8963a2df3c5e00560be2c5f1896e1c29085476c268dc2"
+    },
+    {
+      "path": ".claude/skills/photography-aesthetics",
+      "type": "symlink",
+      "target": "../../skills/photography-aesthetics",
+      "resolved_tree_sha256": "c45e1967f32c6d7819a5168e43a0b09a8375ea53110c77ce19bb11dd6e8c3ed8"
     },
     {
       "path": ".claude/skills/seedance-film-producer",
@@ -54,14 +66,14 @@
     {
       "path": "CHANGELOG.md",
       "type": "file",
-      "bytes": 743,
-      "sha256": "6adf0b108334d5bd455bc17cefbc784e9d1ed39faf1a622360b36fe14e532be7"
+      "bytes": 1290,
+      "sha256": "11c661e0fef5972daf1634a2bd0f18025e88d3e57a1af5f85c9bf3a6469d7a02"
     },
     {
       "path": "README.md",
       "type": "file",
-      "bytes": 1814,
-      "sha256": "f4505dd182f3cfff910bfbcc9199cfbc590a8b8edb79b578599ffc5ce2c2226b"
+      "bytes": 2352,
+      "sha256": "09d4965f17f69df21ecef7efc160bc729833592bc4af2e60a8481e711025ba39"
     },
     {
       "path": "SEEDANCE_CROSS_AGENT_SKILLS_GOAL.md",
@@ -72,8 +84,8 @@
     {
       "path": "SKILLS.md",
       "type": "file",
-      "bytes": 1313,
-      "sha256": "fe2d9a32a4a77b190d5cdf41c48bd2e0ec95df4905ec968f0f452f295edeca29"
+      "bytes": 1756,
+      "sha256": "fcc3a3c6662ea12198a2df1570b6ecf0cd1ae3a1e3d856bf71991da40895272a"
     },
     {
       "path": "SKILLS_PROGRESS.md",
@@ -1734,8 +1746,8 @@
     {
       "path": "skill-evals/results/validation/quick-validate.json",
       "type": "file",
-      "bytes": 460,
-      "sha256": "934e5713d68ec2b23af5bbd53cf78d4b1043d3048b5d1c1924ae1c1bfa252d4c"
+      "bytes": 539,
+      "sha256": "989721a4a60691f793de7d00b1c877cd9565b37c8895c4cd10bd7a3472e5ea2f"
     },
     {
       "path": "skill-evals/rubric.md",
@@ -1824,8 +1836,86 @@
     {
       "path": "skill-evals/tests/test_skill_suite_structure.py",
       "type": "file",
-      "bytes": 12709,
-      "sha256": "38ae7666c56a4bb8705b5e6218b6e8afcf92efe754a4da103469fed606de3e8b"
+      "bytes": 13547,
+      "sha256": "249748c30c05c3fd51568a1372292a9e9214b57d5748d12fa6c35d497b90ff5b"
+    },
+    {
+      "path": "skills/photography-aesthetics/SKILL.md",
+      "type": "file",
+      "bytes": 12871,
+      "sha256": "a211d2031428c37f63846f20e04179752ed22b7681f88a1219412417d72c1cc8"
+    },
+    {
+      "path": "skills/photography-aesthetics/agents/openai.yaml",
+      "type": "file",
+      "bytes": 280,
+      "sha256": "0310a98e747dee17aa482715105026362d172df7a7e441bcd0663217d0689309"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/01-lighting.md",
+      "type": "file",
+      "bytes": 39243,
+      "sha256": "1483d1532971780986b007ef6171be11b73397e6f72f2f16145b1caea0f36590"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/02-tone-color.md",
+      "type": "file",
+      "bytes": 45290,
+      "sha256": "f5a58de146a94d5cf5f649ea480243015b6fbf3a5ef2e608e1337b81ff1df3a1"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/03-framing.md",
+      "type": "file",
+      "bytes": 79889,
+      "sha256": "7924b4b04dbb9740e127607d0259cca4198a4f4354b510844858607a33359e32"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/04-film-styles.md",
+      "type": "file",
+      "bytes": 62944,
+      "sha256": "03a26b838964e52dd9ccd717b76c2414cf09ac3995c39da463c700475d49f69e"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/05-recipes.md",
+      "type": "file",
+      "bytes": 93611,
+      "sha256": "8ed55510b6c817708d83132994031a1f484f78ae18e29f6e84ae5635aa3642a4"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/06-analysis.md",
+      "type": "file",
+      "bytes": 30709,
+      "sha256": "f4f40942b2a0fd103cc700f30d5ac7534afc23c5ec5744c7841a74cc3c9046ab"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/07-beyond-the-charts.md",
+      "type": "file",
+      "bytes": 49482,
+      "sha256": "9d87145014959fa6a535008b366a41b149029bf8641c4339c4b88f3e809e6adf"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/08-motion.md",
+      "type": "file",
+      "bytes": 42580,
+      "sha256": "43d45a2ea084480b8c0401cbce2a3b5e93e7260a027558f7d543eb12651272ab"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/09-model-dialects.md",
+      "type": "file",
+      "bytes": 30350,
+      "sha256": "1862b5ab6dee4ef010f5786fab1442cbef75b9955af8bc8092d6db40fc856ef2"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/10-zh-lexicon.md",
+      "type": "file",
+      "bytes": 57954,
+      "sha256": "fb5e21622a8377da78df462e05c17bee4b62562bcf47fc32a4c64dae5592ebee"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/11-image-input.md",
+      "type": "file",
+      "bytes": 52213,
+      "sha256": "c83ac60fe76762352ea7e319b047dc2f2d0ca0278583acca72c93e6b70e1e9f4"
     },
     {
       "path": "skills/seedance-film-producer/SKILL.md",

@@ -1,8 +1,8 @@
 {
   "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skill-evals/tests -v",
-  "tests_run": 35,
+  "tests_run": 36,
   "failures": 0,
   "errors": 0,
   "status": "PASS",
-  "date": "2026-08-23"
+  "date": "2026-08-28"
 }

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Photography Aesthetics"
+  short_description: "Design cinematic image and video prompt aesthetics"
+  default_prompt: "Use $photography-aesthetics to turn this visual brief into a precise image or video prompt."
+policy:
+  allow_implicit_invocation: true

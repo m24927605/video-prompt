@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented here.
 
+## [Unreleased]
+
+### Added
+
+- Added the `photography-aesthetics` skill with 72 composable photography and film-style techniques, model-specific prompt guidance, and native Codex and Claude Code entry points.
+
+### Changed
+
+- Separated packaged-skill checks from the archived three-skill Seedance behavioral baseline.
+- Kept downloaded source charts outside the public package while retaining the complete text reference library.
+- Reconciled prompt-dialect, aspect-ratio, taxonomy, and weather-counting guidance after an independent forward test.
+
 ## [0.1.0.0] - 2026-08-23
 
 ### Added
