@@ -1,0 +1,9 @@
+{
+  "id": "marked-edit-scope",
+  "title": "Marked edit remains local and provider-neutral",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "implicit",
+  "locale": "zh-Hant",
+  "prompt": "請寫一份平台中立的影片局部編輯 prompt。@Video 1 是唯一 master；只在 4–7 秒修改紅色方框內、藍色箭頭指向的藍色馬克杯，把它替換成同位置、同尺度的白色陶瓷花瓶。人物、手部動作、桌上其他物品、背景、透視、遮擋、接觸陰影、反射、機位、光線、調色與全部聲音保持不變；4 秒前與 7 秒後不得改動。平台尚未指定，不要假設 UI 能讀取標記。"
+}

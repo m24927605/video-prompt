@@ -1,0 +1,243 @@
+{
+  "host": "claude-code",
+  "research_present": false,
+  "grader_present": false,
+  "entries": [
+    {
+      "path": ".claude/skills/photography-aesthetics",
+      "type": "symlink",
+      "target": "../../skills/photography-aesthetics"
+    },
+    {
+      "path": ".claude/skills/screenplay-writer",
+      "type": "symlink",
+      "target": "../../skills/screenplay-writer"
+    },
+    {
+      "path": ".claude/skills/seedance-film-producer",
+      "type": "symlink",
+      "target": "../../skills/seedance-film-producer"
+    },
+    {
+      "path": ".claude/skills/seedance-prompt-director",
+      "type": "symlink",
+      "target": "../../skills/seedance-prompt-director"
+    },
+    {
+      "path": ".claude/skills/seedance-video-qc",
+      "type": "symlink",
+      "target": "../../skills/seedance-video-qc"
+    },
+    {
+      "path": "skills/photography-aesthetics/SKILL.md",
+      "type": "file",
+      "sha256": "13dbf84b451645998b1d0ef2eb3f4758a71833e6a76c301ac8a37420865ca66e"
+    },
+    {
+      "path": "skills/photography-aesthetics/agents/openai.yaml",
+      "type": "file",
+      "sha256": "10e38ffa4b0253610e0eefdb480bdaaadc4de2371e33c40e95403eb2db43d44c"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/01-lighting.md",
+      "type": "file",
+      "sha256": "79f0af248834b7b2a0dc1bfa90378dd3b18a2b213c4a78a67bf062ee6429a05f"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/02-tone-color.md",
+      "type": "file",
+      "sha256": "f5a58de146a94d5cf5f649ea480243015b6fbf3a5ef2e608e1337b81ff1df3a1"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/03-framing.md",
+      "type": "file",
+      "sha256": "7924b4b04dbb9740e127607d0259cca4198a4f4354b510844858607a33359e32"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/04-film-styles.md",
+      "type": "file",
+      "sha256": "03a26b838964e52dd9ccd717b76c2414cf09ac3995c39da463c700475d49f69e"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/05-recipes.md",
+      "type": "file",
+      "sha256": "8ed55510b6c817708d83132994031a1f484f78ae18e29f6e84ae5635aa3642a4"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/06-analysis.md",
+      "type": "file",
+      "sha256": "f4f40942b2a0fd103cc700f30d5ac7534afc23c5ec5744c7841a74cc3c9046ab"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/07-beyond-the-charts.md",
+      "type": "file",
+      "sha256": "9d87145014959fa6a535008b366a41b149029bf8641c4339c4b88f3e809e6adf"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/08-motion.md",
+      "type": "file",
+      "sha256": "3e7ef22510b72c2118103ca7c70f59248b5fdbd7142587ceda79ef1b5565ead5"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/09-model-dialects.md",
+      "type": "file",
+      "sha256": "c6517dc4e98918d2a137a68136fb9ee0e8c1d6a71a7727312b850ae583ed3eb5"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/10-zh-lexicon.md",
+      "type": "file",
+      "sha256": "fb5e21622a8377da78df462e05c17bee4b62562bcf47fc32a4c64dae5592ebee"
+    },
+    {
+      "path": "skills/photography-aesthetics/references/11-image-input.md",
+      "type": "file",
+      "sha256": "c83ac60fe76762352ea7e319b047dc2f2d0ca0278583acca72c93e6b70e1e9f4"
+    },
+    {
+      "path": "skills/screenplay-writer/SKILL.md",
+      "type": "file",
+      "sha256": "85a76d3a9f9906e8e576fcffcf0b4ca2a6d0b6539bf01dd5c70ee0eda6515dff"
+    },
+    {
+      "path": "skills/screenplay-writer/agents/openai.yaml",
+      "type": "file",
+      "sha256": "0c6f7d713b3d0d417e365898e2dd9540c9565b4472ec1fb55ab8ea747c42012c"
+    },
+    {
+      "path": "skills/screenplay-writer/references/continuity.md",
+      "type": "file",
+      "sha256": "433bdcf51a47621871b6ec790d2a6602e6b2d26226c90dd24ddd7a7d7e509d85"
+    },
+    {
+      "path": "skills/screenplay-writer/references/development.md",
+      "type": "file",
+      "sha256": "8b14ff6090fb4e430c54e22022798862615a49a91450da38dcf16fcbd9ce145c"
+    },
+    {
+      "path": "skills/screenplay-writer/references/dialogue-and-voice.md",
+      "type": "file",
+      "sha256": "598879d37bb7c37455b9e3a467b8334f5644af7e1ec444d2990992e94f248337"
+    },
+    {
+      "path": "skills/screenplay-writer/references/formatting.md",
+      "type": "file",
+      "sha256": "39892cc2abd5a97d4de96b657250cbc0868ddb31bb6205655bd92ef29f521282"
+    },
+    {
+      "path": "skills/screenplay-writer/references/provenance.md",
+      "type": "file",
+      "sha256": "42d01dfdbf3f53e8cf0662494e73fa77bff1f6cff145ff2be465f52a9827086c"
+    },
+    {
+      "path": "skills/screenplay-writer/references/rewrite-and-qc.md",
+      "type": "file",
+      "sha256": "69be5a9c6653bfc3d919d16cae9f974591c74c326283827882f26a48192fd423"
+    },
+    {
+      "path": "skills/screenplay-writer/references/scene-writing.md",
+      "type": "file",
+      "sha256": "ba69985a6a555cb9780d13d1b86db763bf55b2a8b665640cbd09001ee40329a1"
+    },
+    {
+      "path": "skills/screenplay-writer/references/style-variation.md",
+      "type": "file",
+      "sha256": "b0c2da15a34276d36957b628f3a695847ae3cf1d7f167de38dc681e3eee5e038"
+    },
+    {
+      "path": "skills/seedance-film-producer/SKILL.md",
+      "type": "file",
+      "sha256": "c429489ab3e60e58352f475b49e0d6c653ea33bfb7b3a9cf4332d36131c13898"
+    },
+    {
+      "path": "skills/seedance-film-producer/agents/openai.yaml",
+      "type": "file",
+      "sha256": "7b563e3d0b99d95e244d6eb87c24319d241c5139109cde4dfcd95c361408ad10"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/assets-continuity-lineage.md",
+      "type": "file",
+      "sha256": "94632af2400a9b9b22d27400b74defde740dc2db03027d13f24e8130d108e756"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/editorial-finishing.md",
+      "type": "file",
+      "sha256": "3880697754729e517a14669a357ea245f50e108f4ee6887a3b8d6f71d5812b6e"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/modes-kpis.md",
+      "type": "file",
+      "sha256": "1928b6d8e6e60be8b40ee9e12e6d975d476a3f14dc37fb03256731db78295a6e"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/production-hierarchy.md",
+      "type": "file",
+      "sha256": "b0518e70c7b95e1b0ec7bdefc0c15eb3f95e0a91e160a64e035b03fefeef2c68"
+    },
+    {
+      "path": "skills/seedance-film-producer/references/provenance.md",
+      "type": "file",
+      "sha256": "2cf52fb106ad90daa9f800f3bb54846998012e8210fb6094ff644e39a66c7964"
+    },
+    {
+      "path": "skills/seedance-prompt-director/SKILL.md",
+      "type": "file",
+      "sha256": "956cc126a914964a9bdbd638a76c239efdd22fd0beaa2ba62d73ebc4d60ec31e"
+    },
+    {
+      "path": "skills/seedance-prompt-director/agents/openai.yaml",
+      "type": "file",
+      "sha256": "48832d8a0194226c547c9409d75c50c2bd9010eea7e9f5ed253ce11ac3b79bc2"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/prompt-schema.md",
+      "type": "file",
+      "sha256": "44de81e205efc0637950951918d18b06b08cef5678ef45fd3c3349203705caeb"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/provenance.md",
+      "type": "file",
+      "sha256": "96e3135c5f0c31a42ea4a488290ac6a7ccadda74c19bab65e7f1ebfec82facee"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/reference-motion-audio.md",
+      "type": "file",
+      "sha256": "2357cc0b3aa9f7d79b9834c2abb3db00cdfd9fb5128aee389c3015c49ba5a2f2"
+    },
+    {
+      "path": "skills/seedance-prompt-director/references/revision-failure-patterns.md",
+      "type": "file",
+      "sha256": "bbc6f5e516ec9c2968df3de7f6855b17e92d7722d4a8d4e110e0142c57d32386"
+    },
+    {
+      "path": "skills/seedance-video-qc/SKILL.md",
+      "type": "file",
+      "sha256": "1cb8c25b3bca95a34409c22b1c83ee209a5e99e79b19125a784fa2c2a134b780"
+    },
+    {
+      "path": "skills/seedance-video-qc/agents/openai.yaml",
+      "type": "file",
+      "sha256": "ba2a2d6596ef3a54d26209b781ea4553591f528d88c63924d30093eae1a686b7"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/inspection-rubric.md",
+      "type": "file",
+      "sha256": "51e2f7d59937c45f07a540825dac6100b1e87e66d256cf0242aa804ae5c3fb7e"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/provenance.md",
+      "type": "file",
+      "sha256": "3061662a06d8073aea0b481aea74cd3d410404b51206352ccd700e383e549e32"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/root-cause-actions.md",
+      "type": "file",
+      "sha256": "3d44ad6ce095f6786f81f0bcab21e8b74e74d966f0be8c6e46ab181d6e90ceeb"
+    },
+    {
+      "path": "skills/seedance-video-qc/references/variant-comparison.md",
+      "type": "file",
+      "sha256": "23dfa4f0a95ea72d5603e209750b314a8c62e338955bcba897dcaeac2bab482d"
+    }
+  ],
+  "digest": "8d565fd08998ee25d92648cc3d48e79261075b430aa081e8b7b8e655745505b7"
+}

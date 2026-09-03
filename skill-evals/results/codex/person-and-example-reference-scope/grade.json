@@ -1,0 +1,31 @@
+{
+  "case_id": "person-and-example-reference-scope",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:19-32 maps Image 1 to the full visible woman including coat/boots/pendant with exclusions, Image 2 to face/identity only with the red rescue uniform, and Video 1 only to hierarchy/control depth/detail density while excluding narrative/camera/style/people/assets/dialogue/sound/ending.",
+    "final.md:34-109 locks exactly two people and one letter and ends with the letter solely in the man's right hand.",
+    "final.md:112-133 adds acceptance and bounded revision/input/split routes; native evidence verifies Prompt Director activation."
+  ],
+  "rationale": "All reference-scope boundaries and the right-hand ownership endpoint remain complete with no wardrobe, identity, or example-narrative leakage.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
+  "unknowns": [
+    "Actual platform binding method remains unknown."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

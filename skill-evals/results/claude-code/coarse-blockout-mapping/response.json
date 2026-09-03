@@ -1,0 +1,107 @@
+{
+  "duration_api_ms": 126746,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.809551,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 19245,
+    "cache_read_input_tokens": 27455,
+    "output_tokens": 7919,
+    "output_tokens_details": {
+      "thinking_tokens": 4445
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 19245,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 6316,
+        "cache_read_input_tokens": 14384,
+        "cache_creation_input_tokens": 8288,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 8288
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 1101,
+      "outputTokens": 17,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.001186,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-fable-5": {
+      "inputTokens": 6,
+      "outputTokens": 7919,
+      "cacheReadInputTokens": 27455,
+      "cacheCreationInputTokens": 19245,
+      "webSearchRequests": 0,
+      "costUSD": 0.808365,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 4445,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "我已載入 seedance-prompt-director 技能並確認 schema 中的「coarse blockout」封包規則(映射每個簡模到最終實體、只繼承路徑/blocking/尺度/攝影機/cut、排除灰模與 viewport overlay)。這個交付物是純文字 prompt,不需要改動任何檔案,以下直接給出完整成品。\n\n---\n\n## 輸入基礎\n\n- **任務**:reference-generate,單一 clip。**平台/模型:未指定**,因此不寫任何長寬比、解析度、幀率、任務參數;這些留待選定平台後補上。\n- **參考素材**:`@Video 1`(粗粒度 blockout)、`@Image 1`(信使)、`@Image 2`(守衛)、`@Image 3`(石門/市集/黃昏)。我無法直接檢視素材內容,prompt 中所有 blockout 細節(路徑、機位、cut 時點、畫面左右配置)一律委派給 `@Video 1` 本身承載,不憑空杜撰具體數值。\n- **標註假設**:無對白、無字幕、無 BGM,僅保留黃昏市集環境聲與動作音效;信使以右手持信。若不符請告知,只需改動對應區塊。\n\n## 最終 Prompt(平台中立,可直接貼用)\n\n```text\n[任務與意圖]\n以參考素材生成單一 clip:黃昏時分,一名信使穿過石門走進市集,把唯一一封信滑到守衛面前的桌面中央;守衛全程留在桌後。@Video 1 是粗粒度 blockout,只作為動作與攝影機的結構藍圖,不作為畫面外觀來源。\n\n[精確實體]\n恰好兩個人物:一名信使、一名守衛。恰好一封信(封好的信封),開場由信使右手持有。一座石門、一張桌子。全片不得出現第三個人物、第二封信或任何重複分身。\n\n[參考映射]\n@Video 1 = 動作/攝影機/剪輯 blockout,作用於整個 clip。\n  繼承:紅色簡模的移動路徑與時間節奏 → 信使;藍色簡模的位置與朝向 → 守衛;兩者的相對尺度;石門、桌子與人物的相對位置和畫面左右配置;攝影機的機位、運動、速度;每個 cut 的順序與節奏。\n  不繼承:灰色/單色材質、簡模的原始幾何外觀、guide lines、座標軸、camera cone、viewport 背景與網格、任何製作 overlay。\n\n@Image 1 = 信使的完整人物參考,作用於整個 clip。\n  繼承:臉部、髮型、身形比例、可見服裝、鞋履與隨身配件。\n  不繼承:該圖的姿勢、背景、構圖、裁切、光線、圖中其他人物。\n\n@Image 2 = 守衛的完整人物參考,作用於整個 clip。\n  繼承:臉部、髮型、身形比例、可見服裝、鞋履與隨身配件。\n  不繼承:該圖的姿勢、背景、構圖、裁切、光線、圖中其他人物。\n\n@Image 3 = 場景材質與光線參考,作用於整個 clip。\n  繼承:石門的造型與石材質感、市集攤位與地面的材質、黃昏光線氛圍。\n  不繼承:該圖的構圖與取景、圖中任何人物、任何會覆蓋 blockout 空間配置的場景布局。\n\n[首幀與 blocking]\n依 @Video 1 首幀:信使位於紅色簡模的起始位置(石門外/門口一側),右手持一封信;守衛位於藍色簡模的位置,站在桌後,雙手置於桌面附近。空間配置、朝向與畫面左右完全依 blockout。\n\n[動作]\n起:信使沿紅色簡模路徑穿過石門,步行節奏跟隨 blockout 時間節奏,走向桌子。\n主要事件:信使抵達桌前,以指尖把手中唯一一封信沿桌面推出;信封平貼桌面滑行,受摩擦減速,停在桌面中央。\n守衛:全程留在桌後,不伸手接信、不繞出桌子;視線跟隨信封滑行至停下。\n\n[物理]\n信封與桌面持續接觸,滑行時不彈起、不翻面、不變形;停下後靜置於桌面中央。信使放手後手中無物。\n\n[可觀察表演]\n信使:放信前視線先落在桌面中央目標點,信停下後抬眼與守衛短暫對視一次,呼吸平穩,任務是送達而非交談。\n守衛:雙手保持在桌後,信封滑近時手指微收但不抬手,眉頭不動,只以視線追蹤。兩人皆無對白。\n\n[攝影機]\n機位、運動、速度與 cut 節奏完全繼承 @Video 1,不新增 blockout 中不存在的運鏡或剪接點。\n\n[光線、色彩、材質]\n黃昏低角度暖光為主光,方向與 @Image 3 一致;石門與市集材質響應依 @Image 3(粗糙石面、暖色反射、長影)。人物膚色與衣料質感依各自人物參考。全片光線狀態穩定,不發生日夜變化。\n\n[音訊]\n無對白、無字幕、無 BGM。僅黃昏市集的低密度環境聲、信使腳步聲、信封滑過桌面的摩擦聲。\n\n[正向約束]\n恰好兩人、恰好一封信;畫面中不得出現灰色簡模、guide lines、座標軸、camera cone、viewport 網格或任何製作標註。\n\n[結束狀態]\n信封靜止於桌面中央,信使的手已離開信封;守衛仍在桌後,視線停在信封或信使;信使處於 blockout 紅色簡模的結尾位置;攝影機停在 @Video 1 最後一個 cut 的結束機位,畫面可直接接下一顆鏡頭。\n```\n\n## 驗收檢查(可逐條 yes/no)\n\n- 畫面恰好兩人、一封信、一座石門、一張桌子,無多餘人物或重複道具。\n- 信使外觀與 `@Image 1` 一致、守衛與 `@Image 2` 一致;兩人未互換身分。\n- 人物路徑、相對尺度、機位運動與 cut 時點跟得上 `@Video 1`;畫面中無任何灰模、guide lines、座標軸或 viewport 痕跡。\n- 信封全程貼桌滑行並停在桌面中央;守衛未離開桌後、未接信。\n- 光線為黃昏暖光且與 `@Image 3` 材質語彙一致;無對白、無字幕、無 BGM。\n\n## 失敗風險\n\n- **blockout 外觀滲漏**:灰色材質或簡模輪廓混入成片,是 coarse blockout 最常見的失敗。\n- **身分互換或第三人**:紅/藍映射錯置,或市集背景自行生成路人。\n- **cut 節奏不被尊重**:平台把多 cut blockout 平滑成一鏡到底。\n- **滑信物理失真**:信封彈跳、翻面或直接瞬移到桌面中央。\n\n## 修訂階梯(每次只動一個變數)\n\n1. 若灰模滲漏 → 在「不繼承」清單加強對應排除語句(其餘不動);仍失敗則改用首幀圖鎖定開場外觀。\n2. 若身分錯置 → 在實體區塊補「紅=信使、藍=守衛」的一句重申。\n3. 若 cut 被抹平 → 在攝影機區塊逐一列出 cut 的語意順序(仍不寫死秒數)。\n4. 若滑信物理失敗 → 把「滑信」拆成獨立近景插入鏡頭,主 clip 只保留放信動作。\n5. 同一缺陷在單變數修訂後仍存在 → 停止加長 prompt,改走拆鏡或後製路線。\n\n唯一的待決事項:當你選定實際平台/模型後,再補上長寬比、時長與參考上傳方式等執行參數;目前依「平台中立」要求全部留空。若音訊假設(無對白、僅環境聲)不符合你的意圖,告訴我要改成什麼,我只會改動音訊區塊。",
+  "ttft_ms": 10155,
+  "type": "result",
+  "duration_ms": 125970,
+  "ttft_stream_ms": 1833,
+  "time_to_request_ms": 57,
+  "queued_turn_count": 0
+}

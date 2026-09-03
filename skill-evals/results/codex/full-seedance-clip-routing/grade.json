@@ -1,0 +1,29 @@
+{
+  "case_id": "full-seedance-clip-routing",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:2-27 defines the complete task, Image 1 inheritance/exclusions, first-frame blocking, and locked camera.",
+    "final.md:29-61 supplies observable acting, rain/footstep/material physics, photographic light, audio, and a stable end state; final.md:63-75 supplies ten observable acceptance gates.",
+    "native-evidence.md:11-12 records Prompt Director as sole activated owner; run.json records paid_media_tool_events=[]."
+  ],
+  "rationale": "This is a complete clip contract, not a visual-only subcontract, and every required production/acceptance dimension is present.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected implicit activation.",
+  "unknowns": [],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

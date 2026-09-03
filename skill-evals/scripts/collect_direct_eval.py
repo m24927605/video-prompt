@@ -50,14 +50,16 @@ def persist_direct_claude_eval(
     case_path = repo_root / "skill-evals" / "cases" / f"{case_id}.json"
     rubric_path = repo_root / "skill-evals" / "rubric.md"
     case = json.loads(case_path.read_text(encoding="utf-8"))
-    if case["id"] != case_id:
+    try:
+        contract = RUNNER.parse_case_contract(case)
+    except RUNNER.CaseContractError as exc:
+        raise ValueError(f"invalid case contract: {exc}") from exc
+    if contract.case_id != case_id:
         raise ValueError("case id does not match filename")
 
-    skill_name = case.get("expected_skill")
+    skill_name = contract.expected_skill
     prompt = case["prompt"]
-    if case["invocation_mode"] == "explicit":
-        if not skill_name:
-            raise ValueError("explicit case requires expected_skill")
+    if contract.invocation_mode == "explicit":
         prompt = f"/{skill_name}\n\n{prompt}"
 
     inventory = RUNNER.workspace_inventory(workspace, "claude-code")
@@ -73,20 +75,27 @@ def persist_direct_claude_eval(
     events = RUNNER.parse_events(stdout)
     final = RUNNER.extract_final("claude-code", events)
     model_evidence = RUNNER.claude_model_evidence(events, "claude-fable-5")
-    activation_evidence = RUNNER.activation_events(events, skill_name)
+    discovered_skills, activated_skills, activation_evidence_by_skill = RUNNER.extract_skill_activity(events)
+    activation_evidence = activation_evidence_by_skill.get(skill_name, []) if skill_name else []
     media_events = RUNNER.media_tool_events(events)
     discovery = direct_discovery(events)
     result_events = [event for event in events if event.get("type") == "result"]
     result_event = result_events[-1] if result_events else {}
     terminal_error = not result_events or bool(result_event.get("is_error"))
-    expected_skills = set(RUNNER.SKILLS)
-    discovered_skills = set(discovery.get("skills", []))
-    discovery_complete = expected_skills.issubset(discovered_skills)
+    discovery_complete = set(RUNNER.PACKAGED_SKILLS).issubset(discovered_skills)
     model_valid = (
         model_evidence["requested_model_observed"]
         and not model_evidence["fallback_detected"]
     )
-    success = bool(final.strip()) and model_valid and discovery_complete and not terminal_error and not media_events
+    expected_activation_present = skill_name is None or skill_name in activated_skills
+    success = (
+        bool(final.strip())
+        and model_valid
+        and discovery_complete
+        and expected_activation_present
+        and not terminal_error
+        and not media_events
+    )
 
     output_dir = output_root / case_id
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -98,8 +107,10 @@ def persist_direct_claude_eval(
         "case_sha256": RUNNER.sha256_file(case_path),
         "rubric_sha256": RUNNER.sha256_file(rubric_path),
         "host": "claude-code",
-        "invocation_mode": case["invocation_mode"],
+        "invocation_mode": contract.invocation_mode,
         "expected_skill": skill_name,
+        "coverage_class": contract.coverage_class,
+        "forbidden_skills": list(contract.forbidden_skills),
         "base_prompt": case["prompt"],
         "effective_prompt": prompt,
         "sanitized_argv": sanitized_argv,
@@ -118,14 +129,14 @@ def persist_direct_claude_eval(
         host="claude-code",
         cli_version=version,
         requested_model="claude-fable-5",
-        requested_effort="max",
-        invocation_mode=case["invocation_mode"],
+        requested_effort="high",
+        invocation_mode=contract.invocation_mode,
         expected_skill=skill_name,
         workspace_digest=inventory["digest"],
         activation_evidence=activation_evidence,
         model_evidence=model_evidence,
     )
-    listed = ", ".join(sorted(discovered_skills)) or "none"
+    listed = ", ".join(discovered_skills) or "none"
     native += f"- Native skills listed by Claude init: `{listed}`\n"
     native += f"- Native discovery complete: `{str(discovery_complete).lower()}`\n"
     (output_dir / "native-evidence.md").write_text(native, encoding="utf-8")
@@ -135,7 +146,7 @@ def persist_direct_claude_eval(
         "host": "claude-code",
         "cli_version": version,
         "requested_primary_model": "claude-fable-5",
-        "requested_effort": "max",
+        "requested_effort": "high",
         "fallback_model": None,
         "model_evidence": model_evidence,
         "direct_discovery": discovery,
@@ -147,6 +158,10 @@ def persist_direct_claude_eval(
         "final_present": bool(final.strip()),
         "terminal_error": terminal_error,
         "activation_evidence": activation_evidence,
+        "packaged_skills": list(RUNNER.PACKAGED_SKILLS),
+        "discovered_skills": discovered_skills,
+        "activated_skills": activated_skills,
+        "activation_evidence_by_skill": activation_evidence_by_skill,
         "research_present": inventory["research_present"],
         "workspace_digest": inventory["digest"],
         "paid_media_tool_events": media_events,
@@ -160,6 +175,7 @@ def persist_direct_claude_eval(
         "final_bytes": len(final.encode("utf-8")),
         "model_evidence": model_evidence,
         "discovery_complete": discovery_complete,
+        "expected_activation_present": expected_activation_present,
         "paid_media_tool_events": media_events,
     }
 

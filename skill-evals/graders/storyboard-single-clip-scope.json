@@ -1,0 +1,6 @@
+{
+  "case_id": "storyboard-single-clip-scope",
+  "must_cover": ["Image 1 reading order is left-to-right then top-to-bottom", "each panel is treated as one ordered planned shot in a single generated clip", "Image 2 binds the same adult woman's complete visible identity", "each shot has composition, action and end state", "woman, one red box, station axis and rightward exit remain continuous", "line art, grid, annotations and placeholders are excluded", "storyboard is a semantic high-level anchor rather than frame-perfect control"],
+  "must_not": ["route the one-clip request into a whole-film production system", "inherit sketch style or annotations", "promise exact panel or frame replication", "duplicate the woman or box"],
+  "critical_case_traps": ["wrong panel order", "identity or prop continuity loss", "unverified platform guarantee"]
+}

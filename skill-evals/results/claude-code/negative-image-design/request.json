@@ -1,22 +1,26 @@
 {
   "case_id": "negative-image-design",
-  "case_sha256": "f249f785d9af8fa22b09c772365fc66c8d592aaf439332ec230ab0960c8ba4f9",
+  "case_sha256": "dbdbd124f90d89832e50d0a295867ea5e85384891eeeacfb02ca1430d936c1f2",
   "rubric_sha256": "0d245f00fad973dd0960e2d0f9d8ba7941ec54fa1df15e21161b8920ef44e3fc",
   "host": "claude-code",
   "invocation_mode": "implicit",
-  "expected_skill": null,
-  "base_prompt": "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。",
-  "effective_prompt": "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。",
+  "expected_skill": "photography-aesthetics",
+  "coverage_class": "collision",
+  "forbidden_skills": [
+    "seedance-prompt-director"
+  ],
+  "base_prompt": "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。目標模型尚未決定，請保持 provider-neutral；不要列出模型名稱、跨模型相容性、negative prompt 欄位或平台參數建議。",
+  "effective_prompt": "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。目標模型尚未決定，請保持 provider-neutral；不要列出模型名稱、跨模型相容性、negative prompt 欄位或平台參數建議。",
   "sanitized_argv": [
     "claude",
     "-p",
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
-    "plan",
+    "dontAsk",
     "--setting-sources",
     "project",
     "--settings",
@@ -32,7 +36,7 @@
     "--output-format",
     "stream-json",
     "--verbose",
-    "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。"
+    "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。目標模型尚未決定，請保持 provider-neutral；不要列出模型名稱、跨模型相容性、negative prompt 欄位或平台參數建議。"
   ],
-  "execution": "direct claude -p stream-json piped to sanitizer; collector does not invoke host"
+  "disabled_personal_skills": 0
 }

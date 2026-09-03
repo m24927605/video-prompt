@@ -5,31 +5,28 @@
     "activation_routing": 10,
     "production_usability": 25,
     "task_completeness": 35,
-    "evidence_discipline": 20,
+    "evidence_discipline": 18,
     "language_scope": 10
   },
-  "total": 100,
+  "total": 98,
   "verdict": "PASS",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:14-36 binds Images 1-4, Video 1 and Audio 1-2 by upload order, names each allowed inheritance, excludes identity/background/wardrobe/composition/audio leakage, and explicitly forbids role blending.",
-    "final.md:38-48 locks exactly Mara, Ivo and one closed brass case, frame-left/frame-right blocking, the centered bench, Mara's right-hand ownership and all four visible starting hands.",
-    "final.md:50-57 assigns each exact line to the correct voice and silent listener, then describes the right-hand-to-left-hand grip overlap, release, weighted lowering and bench placement on the required left-to-right path.",
-    "final.md:59-76 defines rigid-case/contact physics, keeps the camera readable, separates generated ambience from reference audio, and ends with one closed case on the bench plus all four empty hands visible.",
-    "final.md:79-89 provides observable reference, dialogue, physics, camera and endpoint acceptance gates; final.md:98-105 gives bounded single-variable routes to wider framing, isolated assets/composite, diagram/insert/VFX, or ADR.",
-    "native-evidence.md:5-10 records explicit $seedance-prompt-director invocation and relevant reads; run.json:9-18 records successful isolated execution with research absent and no paid media events."
+    "final.md:16-44 binds all seven image/video/audio references with allowed and excluded roles; final.md:46-107 fixes two identities/wardrobes/voices, one brass case, left/right blocking, right-hand-origin transfer physics, bench end state, and all four hands visible.",
+    "final.md:110-128 supplies acceptance, failure risks, and bounded single-variable/post routes.",
+    "final.md:6 and 22-24 introduce Image 1 as authoritative over Image 2 for overlapping Mara dimensions even though the user supplied two co-equal views and did not assign upload-order priority.",
+    "native-evidence.md:11-12 verifies Prompt Director; run.json records no paid generation."
   ],
-  "rationale": "Every active reference receives an exact, non-leaking contract. The prompt preserves both identities, wardrobes and voices, keeps Image 4 out of composition control, and realizes the requested two-person right-hand case transfer with readable contact physics and an exact bench/all-hands endpoint. The artifact is directly usable, platform-neutral and bounded in recovery. No material reference role, entity or end state is missing.",
-  "activation_evidence": "Verified explicit activation: native-evidence.md:5-10 and run.json:11-13 record native $seedance-prompt-director invocation and reads of the skill plus routed references.",
+  "rationale": "The case grader's reference, entity, dialogue, physics, and end-state contract is fully met. A two-point evidence-discipline deduction records a generic dimension-authority regression: overlap priority is guessed from ordering instead of kept co-equal or marked unresolved.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
   "unknowns": [
-    "The unspecified platform's reference binding syntax, duration support, multi-audio behavior and lip-sync performance remain unknown; the artifact does not convert them into claimed capabilities.",
-    "No generated media was inspected."
+    "Authority between conflicting overlapping Mara details in Images 1 and 2 was not specified by the user."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

@@ -5,6 +5,8 @@
   "host": "claude-code",
   "invocation_mode": "explicit",
   "expected_skill": "seedance-film-producer",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "我要規劃一部 75 分鐘的 AI 科幻公路電影：兩名主角、四個主要場景、一台會逐步損壞的車、跨三天的天候與服裝變化。請給可以落地的製作系統，涵蓋 creative bible、sequence/scene/beat/shot、資產與 continuity state、shot manifest、依賴佇列、版本與 selection lineage、rough cut/pickups、VFX/color/sound/ADR/music/subtitles/mastering、QC、checkpoint/rollback 與 KPI。不要用一個超長 prompt 或無限 extension 當長片方案，也不要假稱任何流程已被這個專案實測為最優。",
   "effective_prompt": "/seedance-film-producer\n\n我要規劃一部 75 分鐘的 AI 科幻公路電影：兩名主角、四個主要場景、一台會逐步損壞的車、跨三天的天候與服裝變化。請給可以落地的製作系統，涵蓋 creative bible、sequence/scene/beat/shot、資產與 continuity state、shot manifest、依賴佇列、版本與 selection lineage、rough cut/pickups、VFX/color/sound/ADR/music/subtitles/mastering、QC、checkpoint/rollback 與 KPI。不要用一個超長 prompt 或無限 extension 當長片方案，也不要假稱任何流程已被這個專案實測為最優。",
   "sanitized_argv": [
@@ -13,7 +15,7 @@
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
     "plan",
@@ -34,5 +36,5 @@
     "--verbose",
     "/seedance-film-producer\n\n我要規劃一部 75 分鐘的 AI 科幻公路電影：兩名主角、四個主要場景、一台會逐步損壞的車、跨三天的天候與服裝變化。請給可以落地的製作系統，涵蓋 creative bible、sequence/scene/beat/shot、資產與 continuity state、shot manifest、依賴佇列、版本與 selection lineage、rough cut/pickups、VFX/color/sound/ADR/music/subtitles/mastering、QC、checkpoint/rollback 與 KPI。不要用一個超長 prompt 或無限 extension 當長片方案，也不要假稱任何流程已被這個專案實測為最優。"
   ],
-  "execution": "direct claude -p stream-json piped to sanitizer; collector does not invoke host"
+  "disabled_personal_skills": 0
 }

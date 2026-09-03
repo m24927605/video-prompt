@@ -1,0 +1,32 @@
+{
+  "case_id": "sequential-edit-then-extend",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-8 separates the two platform-neutral operations and keeps uninspected source boundary facts inherited rather than guessed.",
+    "final.md:12-34 is a sole-master blue-to-red edit with full preservation; final.md:36-63 uses only approved Step 1 output, appends only four new seconds, and continues the same adult/red umbrella across the doorway.",
+    "final.md:65-88 supplies acceptance and bounded isolated revisions without claiming a combined provider request.",
+    "native-evidence.md:11-12 verifies Prompt Director; run.json records no paid generation."
+  ],
+  "rationale": "Edit and extension remain separate, ordered, correctly parented artifacts with complete preservation and continuity.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
+  "unknowns": [
+    "Exact source boundary motion/camera/audio facts remain dependent on inspecting approved Step 1 output."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

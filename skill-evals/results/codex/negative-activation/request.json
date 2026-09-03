@@ -5,6 +5,8 @@
   "host": "codex",
   "invocation_mode": "implicit",
   "expected_skill": null,
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "Write a small pure Python function that parses a non-drop-frame SMPTE timecode string in HH:MM:SS:FF form into an integer frame count for a supplied integer fps. Include input validation and three concise examples. Do not create files.",
   "effective_prompt": "Write a small pure Python function that parses a non-drop-frame SMPTE timecode string in HH:MM:SS:FF form into an integer frame count for a supplied integer fps. Include input validation and three concise examples. Do not create files.",
   "sanitized_argv": [
@@ -28,15 +30,15 @@
     "-m",
     "gpt-5.6-sol",
     "-c",
-    "model_reasoning_effort=ultra",
+    "model_reasoning_effort=high",
     "-c",
     "approval_policy=never",
     "-c",
-    "<PERSONAL_SKILLS_DISABLED:50>",
+    "<PERSONAL_SKILLS_DISABLED:73>",
     "--json",
     "-C",
     "<REDACTED_WORKSPACE>",
     "Write a small pure Python function that parses a non-drop-frame SMPTE timecode string in HH:MM:SS:FF form into an integer frame count for a supplied integer fps. Include input validation and three concise examples. Do not create files."
   ],
-  "disabled_personal_skills": 50
+  "disabled_personal_skills": 73
 }

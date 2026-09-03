@@ -1,0 +1,93 @@
+{
+  "duration_api_ms": 76775,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.627247,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 17720,
+    "cache_read_input_tokens": 15857,
+    "output_tokens": 5139,
+    "output_tokens_details": {
+      "thinking_tokens": 1878
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17720,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 4024,
+        "cache_read_input_tokens": 12430,
+        "cache_creation_input_tokens": 8717,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 8717
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-fable-5": {
+      "inputTokens": 4,
+      "outputTokens": 5139,
+      "cacheReadInputTokens": 15857,
+      "cacheCreationInputTokens": 17720,
+      "webSearchRequests": 0,
+      "costUSD": 0.627247,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 1878,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 3,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The two prompt artifacts are ready below. Per the skill's routing rules, the edit and the extend are delivered as two separate ordered artifacts — Artifact 1 edits `@Video 1` only, and Artifact 2 extends only Artifact 1's verified output, so the original source is never edited and extended in one operation, exactly as you required.\n\nA note on constraints: no platform/model was named and I cannot inspect `@Video 1` itself, so both prompts are platform-neutral, the video's described contents (blue umbrella, central adult, doorway) are treated as user-reported facts, and the extend prompt contains bracketed boundary fields to be filled from the actual final frame of the edited output before submission.\n\n---\n\n## 1. Input basis\n\n- **Task chain:** Artifact 1 = **edit** (sole primary operation); Artifact 2 = **extend, appended after the source** (sole primary operation). Artifact 2's declared source is Artifact 1's output, not `@Video 1`.\n- **Platform / model / runtime:** unknown — not specified. Prompts are platform-neutral; no aspect ratio, resolution, frame rate, task-hint flag, or endpoint field is asserted. (Archived ModelArk evidence dated 2026-08-22 documented `edit`/`extend` task hints and `-1` duration for edit on that surface only; recheck current docs for whichever runtime you choose — this is not a current or cross-platform claim.)\n- **Source observation:** I could not inspect `@Video 1`. Its contents — one blue umbrella held by a central adult, other people, a doorway, existing sound — are user-reported, low confidence. The extend prompt's boundary block must be completed from the edited output's real final frame.\n- **Duration:** \"+4 seconds\" is duration intent; frame-exact length depends on the runtime and must be verified on output.\n- **Assumption (labeled):** the umbrella stays open and held throughout `@Video 1`, and the doorway the adult enters is visible or plausibly adjacent in the final frame. Correct the prompts if either is false.\n\n---\n\n## 2. Artifact 1 — Edit prompt (run first, alone)\n\n```text\n[TASK AND INTENT]\nEdit @Video 1. @Video 1 is the sole master video. This is a color/prop\nreplacement edit only; no extension, no new events.\n\n[CHANGE]\nOnly change: the blue umbrella held by the central adult becomes a red\numbrella. The change applies for the entire duration of the source, from\nfirst frame to last frame. Canopy fabric and any originally blue umbrella\nparts become red; handle and frame shape, size, open/closed state, tilt,\nand the hand holding it remain exactly as in the source.\n\n[INHERITANCE OF THE CHANGED ELEMENT]\nThe red umbrella inherits the original umbrella's exact position, motion\npath, and timing in every frame, plus its occlusion order with people and\nscenery, its contact with the holder's hand, and its shadows, reflections,\nand wet/dry material behavior — now rendered in red.\n\n[PRESERVE — NO OTHER CHANGES]\nPreserve unchanged: every person and their exact count, identities,\nwardrobe, and actions; all action timing; every camera position and move;\nthe full background and environment; lighting, color grade, and weather;\nand the complete original audio track (dialogue, ambience, SFX, and any\nmusic) untouched. No umbrella owned by anyone else changes color. No\nframes are added, removed, retimed, or cropped.\n\n[END STATE / ACCEPTANCE]\nThe output is frame-for-frame the same video as @Video 1 except that the\ncentral adult's umbrella is red in every frame where it is visible.\n```\n\n**Handoff:** after this runs, verify the output (checks below), then use that verified output — call it **Edited Video 1** — as the one and only source for Artifact 2. Do not submit Artifact 2 against `@Video 1`.\n\n---\n\n## 3. Artifact 2 — Extend prompt (run second, on Edited Video 1 only)\n\nFill the three bracketed boundary fields from the actual final frame of Edited Video 1 before submitting.\n\n```text\n[TASK AND INTENT]\nExtend the supplied source video (the edited result with the red\numbrella; this is the sole source). Append approximately 4 seconds of\nnew material after the source's final frame. Do not modify, replay, or\nretime any existing source frame.\n\n[BOUNDARY STATE — must match the source's final frame exactly]\nThe new material begins in the exact state of the source's final frame:\nthe same central adult, identical face, hair, wardrobe, and build, holding\nthe same open red umbrella in the same hand, at [POSITION IN FRAME AND\nDISTANCE FROM THE DOORWAY], moving [DIRECTION/SPEED, OR STATIONARY].\nCamera continues from [FINAL CAMERA POSITION AND MOTION — static or\ncompleting its move at the same height and side]. Lighting, weather,\ncolor grade, background, and ambient sound continue seamlessly from the\nsource with no visible or audible cut.\n\n[NEW EVENT — one causal beat]\nOver the added ~4 seconds: the adult reaches the doorway, slows, and\nlowers the red umbrella — tilting it forward and down, the canopy closing\nas their free hand steadies it — then steps through the doorway. The\numbrella tip clears the door frame; the umbrella never changes back to\nblue and never leaves the adult's possession.\n\n[PRESERVE]\nExactly the same adult as the source; no new people enter frame unless\nalready present in the source's final frame, and any others present\ncontinue their existing motion naturally. Background, light, grade, and\nambience remain continuous with the source. Ambient sound continues at\nthe same level; footsteps and the soft rustle of the closing canopy are\nthe only new SFX; no added music, no dialogue, no subtitles.\n\n[END STATE / ACCEPTANCE]\nFinal frame: the adult is inside or crossing the doorway threshold, red\numbrella lowered and closed at their side, back or profile to camera;\nthe camera holds its final position; ambience continues, cut-ready.\n```\n\n---\n\n## 4. Acceptance checks\n\n**Artifact 1 (edit):** umbrella is red in every frame it appears, including under occlusion and in any reflections/shadows; no other umbrella or garment changed color; person count, actions, and timing identical to source; camera moves identical; audio waveform/content unchanged; output duration equals source duration.\n\n**Artifact 2 (extend):** first new frame is visually and audibly continuous with Edited Video 1's last frame (no jump in position, pose, light, or ambience); umbrella is red throughout the new material; one continuous beat — approach, lower/close, enter doorway — with plausible hand contact and canopy physics; no new characters or camera style change; added length ≈4 s; source frames untouched.\n\n## 5. Failure risks\n\n- **Edit scope bleed:** other blue elements (clothing, signage, a second umbrella) may shift red, or the grade may warm globally. The preserve list targets this but is intent, not a guarantee — inspect frames before proceeding.\n- **Boundary drift on extend:** if the edited output's tail drifted (color flicker, pose glitch), extending canonizes it. Verify the tail first; if drifted, re-run Artifact 1 rather than extending.\n- **Umbrella reverting to blue** in the extension if the boundary block understates it — it is stated twice deliberately.\n- **Doorway geometry:** if no doorway is near the adult in the final frame, 4 seconds may force a teleport or rushed walk; if so, the entry beat needs relocating or more added time.\n- No success guarantee on any of the above; duration and audio continuity must be checked on actual output.\n\n## 6. Revision ladder (one variable per step, keep everything else fixed)\n\n1. **Edit bleeds to other objects** → add one precise ban naming the specific wrongly-changed object (\"the [object] remains its original color\"). Stop if it survives two attempts → route to `seedance-video-qc` / post-production color isolation.\n2. **Extend boundary jump** → tighten only the `[BOUNDARY STATE]` block with more exact final-frame facts (pose, hand, camera). Stop after two attempts → supply the final frame as a strict first-frame input if the chosen runtime documents that role.\n3. **Lower-and-enter beat overloaded in 4 s** → change only duration intent (e.g., ~5–6 s) or split entering the doorway into a second extend. Stop if physics still fails → diagram/keyframe route.\n\n**One blocking question:** which platform/model will run these? Once named, I can verify its current edit/extend parameters and convert both artifacts into that runtime's exact submission format — until then no endpoint fields are asserted.",
+  "ttft_ms": 14360,
+  "type": "result",
+  "duration_ms": 76878,
+  "ttft_stream_ms": 2529,
+  "time_to_request_ms": 55,
+  "queued_turn_count": 0
+}

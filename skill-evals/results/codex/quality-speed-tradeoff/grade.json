@@ -13,24 +13,20 @@
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1-10 recommends the hybrid while explicitly calling it policy rather than a proven optimum and records all performance/cost values as N/A (n=0).",
-    "final.md:12-32 defines A/B/C risk tiers and distinct quality-max, speed-max-with-floor and hybrid treatment for hero dialogue, the crash and replaceable establishing/insert coverage.",
-    "final.md:34-51 establishes common rights/story/identity/editorial/dialogue/performance/crash/provenance/master hard floors and does not relax them for speed.",
-    "final.md:53-90 separates the serial dependency spine from safe parallel queues and decomposes the crash rather than using one long prompt or extension chain.",
-    "final.md:92-120 defines finite per-tier ceilings, repeated-defect and oscillation stops, one-variable retries, non-resetting lineage, and edit/VFX/ADR/3D/redesign routes.",
-    "final.md:122-146 assigns a ten-day hybrid schedule and post-production responsibilities through final QC; final.md:148-197 defines actual-ledger KPI numerators/denominators and refuses to infer comparative causality.",
-    "native-evidence.md:5-10 records implicit routing and the read of .agents/skills/seedance-film-producer/SKILL.md; run.json:9-18 records successful isolation with no research or paid media events."
+    "final.md:1-33 compares three distinct policies, marks every ceiling untested, and denies a controlled fastest/best winner.",
+    "final.md:35-102 defines A/B/C allocation, dialogue/crash coverage, parallel/serial dependencies, and common rights/story/identity/dialogue/crash/edit/delivery hard floors.",
+    "final.md:104-151 gives finite user-requested retry/route ceilings, VFX/editorial alternatives, approved-only lineage, and rollback; final.md:153-192 defines post ownership and actual-ledger KPIs without invented rates/costs.",
+    "native-evidence.md:11-12 verifies Film Producer; run.json records no paid generation."
   ],
-  "rationale": "The response makes a coherent mode decision while still comparing all three requested policies. It gives common hard floors, risk-based A/B/C allocation, serial/parallel dependencies, finite failure routing, complete post ownership and measurable ledger KPIs. The absence of a controlled benchmark is carried through every performance and cost claim. No critical trap is present.",
-  "activation_evidence": "Verified implicit activation: native-evidence.md:5-10 and run.json:11-13 show automatic routing to and reading of seedance-film-producer.",
+  "rationale": "Every requested workflow, floor, tier, dependency, ceiling, recovery route, post responsibility, KPI, and untested-policy boundary is operationally complete.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected implicit activation.",
   "unknowns": [
-    "Actual host capacity, billed cost, approval rates and comparative workflow performance remain unknown until the production ledger has observations.",
-    "The proposed day gates are management policy, not a tested completion forecast."
+    "Platform, team capacity, actual costs/rates, and festival delivery requirements remain correctly unknown."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

@@ -1,0 +1,9 @@
+{
+  "id": "reference-dimension-authority",
+  "title": "Reference tokens and per-dimension authority remain explicit",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "explicit",
+  "locale": "zh-Hant",
+  "prompt": "為單一影片 clip 寫平台中立 prompt。保留使用者提供的參考 token `@@Hero-A/台北#03` 與 `vid:route_B?cut=2` 完全不變，不可改寫。第一個 token 只控制主角臉與髮型；第二個 token 只控制左到右的行走節奏。使用者明確指定紅色雨衣與雨夜巷口，兩個參考都沒有資格覆蓋它們。若某個維度沒有明確來源，不要從上傳順序或媒體類型猜測。"
+}

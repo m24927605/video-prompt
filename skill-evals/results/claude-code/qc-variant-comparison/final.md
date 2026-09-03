@@ -1,121 +1,54 @@
-I now have everything needed: the full QC methodology (rubric, root-cause routing, variant-comparison rules, prompt-repair patterns, ceiling policy) plus confirmation that the workspace holds **no clips, frames, prompt, run ledger, or project ceiling** — only the three skill folders. Nothing further to read, so here is the comparison.
+**Verdict: Select Variant A (conditional pass). Variant B fails three hard gates and is not a tie candidate regardless of its camera work.**
 
-Two framing notes first:
-- **Evidence modality = user-reported symptoms only.** Nothing below is my direct observation. I label your statements *reported* (treated as the reviewer's observation, uncorroborated by me) and keep my *inferences* and the *unknowns* separate, per QC-02.
-- Plan mode: this request is an assessment, not a code change, and this session exposes no Write/ExitPlanMode tools, so the deliverable is inline. I took read-only actions only.
+One caveat up front on evidence modality: I have no video files or frames in this session — everything below is graded from your reported symptoms. Where I say "direct observation," I mean "as observed in your review notes"; none of it is independently frame-verified by me yet, which is why the missing-evidence list matters.
 
----
+## Hard-gate results
 
-## 1. Verdict and selection
-
-| | Verdict | Blocking severity |
+| Gate | Variant A | Variant B |
 |---|---|---|
-| **Variant A** | **CONDITIONAL PASS** (scope: reported evidence) | None blocking. Two non-gating residuals: push-in slower than requested (Minor–Moderate, pending the requested spec); 4-frame reflection flicker (Minor, locally repairable). Conditions: corroborate the reported passes on actual frames, decide camera tolerance, approve the flicker repair. |
-| **Variant B** | **FAIL** | **Critical (end state)**. Three independent continuity-critical failures reported: case open from 00:06, case in left hand, green door. Any one alone fails the gate. |
+| Correct entity: one courier, red coat | Pass | Pass |
+| Prop count/state: one **sealed** silver case | Pass | **Fail** — case open at 00:06 |
+| Direction: left-to-right | Pass | Pass |
+| End state: blue door | Pass | **Fail** — door is green |
+| End state: case in **right** hand | Pass | **Fail** — shifts to left hand |
+| No uneditable structural failure | Pass (flicker is local, 4 frames) | Pass |
 
-**Selection: A. Not a tie.** Per the comparison scoring order (hard gates → adherence → intra-shot quality → continuity → usability → aesthetics), B is eliminated at step 1, so its camera and no-flicker advantages never enter the weighing. A is correct-but-under-spec; B is beautiful-but-wrong. Caveat: this comparison was not blind and generation order is unknown; the final approval should come from someone other than whoever generated the takes.
+A's two defects — slower-than-requested push-in and a four-frame reflection flicker — are adherence and temporal-stability deviations, not gate failures. Neither breaks entity, story beat, or end state. B's defects are exactly the continuity-critical prop-state, hand-ownership, and location facts the contract names, so they cannot be averaged away by camera quality.
 
-## 2. Contract reconstructed
+## Direct observations vs. hypotheses
 
-Required: exactly 1 courier (she/her), red coat; exactly 1 silver case, **sealed for the whole shot**; travels frame-left → frame-right; camera push-in at the requested rate; end state: stopped at a **blue** door, case **closed** and **in her right hand**. Forbidden: case opening, hand change, extra people/cases, any other door color, and (implicitly) door interaction.
-Unknown contract terms: platform/model/version, aspect/duration/fps, audio, the concrete definition of the requested push-in (rate, start→end framing, or reference), and the next shot's handoff requirements.
+Reported observations (treat as direct pending frame verification):
+- A: push-in speed below the requested rate; reflection flicker lasting 4 frames (timecode not yet recorded); all contract facts held.
+- B: case transitions sealed → open around 00:06; case ends in left hand; final door green.
 
-## 3. Hard gates
+Hypotheses (not demonstrated):
+- B's open case + hand switch likely share one upstream cause: the prompt's case-state and hand-ownership constraints were under-specified for the mid-clip beat, letting the model "animate" the prop. The green door is plausibly a separate color-binding drift (red coat competing with blue door in the color palette). These are inferences about cause, not observed facts.
+- A's flicker is likely a reflection/specular instability, which is usually local and paintable; whether it's visible at delivery frame rate is unknown until viewed at speed.
+- A's slow push-in is plausibly a camera-speed phrasing issue in the prompt, but it could also be duration/pacing interaction. Unknown until the prompt and spec are compared.
 
-| Gate | A | B |
-|---|---|---|
-| 1 Rights / safety / delivery spec | Unknown (no platform/spec data; not reported failing) | Unknown |
-| 2 Correct entities / identity / no extra entity | **Pass** (reported: correct courier, red coat, one case) | Not reported failing → **unverified** (courier/coat/count never stated for B) |
-| 3 Required beat & causal result (sealed case delivered to blue door) | **Pass** (reported) | **FAIL** (reported: case opens 00:06; wrong door) |
-| 4 Continuity-critical prop / location / direction / end state | **Pass** (reported: direction, end state) | **FAIL ×3** (prop state, prop hand/owner, door color). Direction unreported. |
-| 5 No uneditable structural failure / severe artifact / broken audio | **Pass with repair** (4-frame reflection flicker is local and editable). Audio unknown. | Pass as reported (no flicker) — sampling density unknown. Audio unknown. |
-| 6 Usable interval or approved repair route | **Pass pending repair approval** | **FAIL** — tail/end state unusable; no cheap repair for open case + hand switch |
+## Selection
 
-## 4. Findings — reported observation vs inference vs unknown
+**Variant A**, not a tie. Scoring order puts hard gates and prompt adherence above camera aesthetics; B fails three gates (prop state, hand, door color) that would each require repair, and fixing three coupled facts means a full regenerate — at which point B's advantage evaporates. A is editorially usable as-is or with a small repair.
 
-**A-1 · Camera/optics + prompt adherence · Minor–Moderate · non-gating**
-- Reported: push-in slower than requested. No timecode given.
-- Inference: speed described adverbially ("slow push-in") or without an endpoint framing leaves the rate to the model; or the camera yielded to the subject's L→R traversal; or the requested push magnitude doesn't fit duration/distance.
-- Unknown: the requested spec, actual start/end framing, whether the neighbor cut needs a camera-velocity match, decoded vs delivery resolution (post-push headroom).
+## Minimal repair route for A
 
-**A-2 · Temporal stability (reflection) · Minor (provisional) · non-gating**
-- Reported: small reflection flicker, 4 frames. No timecode. 4 frames ≈ 0.17 s at 24 fps / 0.13 s at 30 fps — fps unknown.
-- Inference: specular instability on a glossy surface; the silver case is the likeliest candidate. Cause is a hypothesis only.
-- Unknown: which surface, where in frame, whether it falls in the end-state frames/handles, whether the rest of A was frame-stepped.
+1. **Flicker (4 frames): edit/repair route.** Paint-out or clone the reflection region from adjacent stable frames. At 24 fps this is ~0.17 s in a static region — low-cost VFX, no regeneration. Do this first; it may be the only fix needed.
+2. **Slow push-in: decide by acceptance criteria, don't auto-regenerate.**
+   - If camera speed is *not* a hard requirement, **accept** A with the flicker repair.
+   - If it is, the cheapest edit-side option is a modest digital push (scale animation) to augment the move — costs some resolution, doesn't touch any passing gate. A retime is riskier because it also speeds up the courier's walk.
+   - Only if edit-side fixes are rejected: **regenerate with exactly one changed variable** — explicit camera-speed language (e.g., a concrete push-in rate or "reaches MCU by 00:0X") — holding courier, coat, case, direction, door color, and hand as stated invariants. Route the wording change through prompt revision.
+   - **Stop condition:** cap at 2 regeneration attempts for camera speed. If speed oscillates or a new gate fact breaks, fall back to A + edit repair.
 
-**B-1 · Prop state · Critical (end state) · blocking**
-- Reported: case becomes open at 00:06.
-- Inference: un-requested mid-shot state change → the "sealed" invariant was not held through the duration.
-- Unknown: clip duration (is 00:06 the arrival beat?), whether it re-closes, whether opening involves both hands (ties to B-2).
+Do not attempt to repair B; three coupled gate failures make it a regenerate-or-discard, and A already exists.
 
-**B-2 · Prop ownership/hand · Critical (end state) · blocking**
-- Reported: case shifts to her left hand. No timecode (before/during/after 00:06?).
-- Inference: likely coupled to B-1 (opening a case forces a re-grip) or to anticipated door interaction (freeing the right hand for a handle).
-- Unknown: timecode and order relative to 00:06.
+## Evidence still needed
 
-**B-3 · Location/end state · Critical (end state) · blocking**
-- Reported: final door is green.
-- Inference: color drift on a late-resolving landmark (the door only fully resolves at the end of the push-in), a reference conflict, or blue rendered as teal — a frame is needed to tell.
-- Unknown: whether the door is visible and blue at 00:00; whether any reference shows a green/teal door.
+- **Frame verification of both clips**: opening, middle, and final frames of A and B; the exact timecode + 4 frames of A's flicker; B's 00:05–00:07 window (to confirm the case-opening moment and whether the hand switch happens there too or later).
+- **Dense sampling of A's case state** across the full duration — "sealed throughout" needs more than start/end frames, since B shows this model can drift mid-clip.
+- **The quantitative camera spec**: what push-in speed was requested and how far A falls short, plus whether camera speed is a hard gate in this project's acceptance criteria.
+- **A's flicker viewed at delivery frame rate and compression** — it may be invisible in playback, changing the repair from "do it" to "skip it."
+- **Platform/model/version, parameters, and seed documentation** for both runs, needed if a regeneration is attempted and for comparability claims.
+- **Neighbor-shot requirements**: does the next cut depend on the final framing size the faster push-in would have produced? If yes, the digital-push option becomes more attractive.
+- **Audio**: the contract as stated says nothing about audio; if there is an audio requirement, neither variant has been evaluated on it — currently unknown.
 
-**B-4 · Camera / artifacts · positive, non-decisive**
-- Reported: "beautiful" movement, no flicker. Inference: aesthetic judgment ranks last; "no flicker" is only as strong as the sampling density (unknown); whether B's move actually matches the *requested* push-in type/speed was not reported.
-
-**B-5 · Unreported for B:** courier identity, coat, case count, screen direction → unknown.
-**Both:** audio (if required) unknown; delivery spec unknown.
-
-## 5. Root-cause hypotheses (ranked, upstream order)
-
-**B's end-state cluster**
-1. **Entity/state invariants and end state not locked** (entity/state rung). For: all three defects are invariant/end-state failures clustering at/after 00:06 — the model "continued the story past the contract." Against: if A came from the same prompt, the prompt is demonstrably sufficient under sampling, so B may be variance rather than a prompt defect.
-2. **Implicit next-event continuation** — "arrive at door" played forward into "open door / deliver case" (space/action rung). For: hand switch + open case are both delivery-completion behaviors and this explains B-1 and B-2 together. Against: no hand-switch timecode; unknown whether opening coincides with arrival.
-3. **Reference or camera-revision interaction** — a camera-emphasizing prompt revision (if B's prompt differs) or a reference with a green door/open case. For: B nails camera while state fails — the classic camera-vs-state oscillation. Against: nothing known about B's inputs.
-   Resolving 1–3 needs the prompt(s), references, and whether A/B share them.
-
-**A-1 camera speed:** (1) speed under-specified / no endpoints → task/parameter rung; (2) camera–subject competition; (3) duration/distance mismatch.
-**A-2 flicker:** model temporal inconsistency on a specular surface — hypothesis; not worth a regeneration to diagnose.
-
-## 6. Minimal repair route
-
-**Route: accept A as checkpoint → edit/repair. No regeneration as first action.**
-
-**Step 1 — flicker (edit/repair)**
-- Change only: the 4 flicker frames (+2-frame handles) — paint/clone the reflection region from adjacent stable frames, or optical-flow/frame-blend across the interval.
-- Hold fixed: everything else; A stays the sole master.
-- Expected signal: frame-step and 1× playback show no luminance/shape pop in that region; no smear on case edge or hand.
-- If failed: tracked VFX patch (still local). Never regenerate for this.
-
-**Step 2 — camera speed (decision fork, one variable)**
-- (a) Within director tolerance and no neighbor velocity match required → **accept as is**. Recommended default, since A already holds the contract.
-- (b) Outside tolerance → **post digital push** (scale animation to the requested end framing). Needs resolution headroom (unknown). A scale push has no parallax — zoom feel, not dolly feel — so it's a partial fix if lens feel is contractual.
-- (c) Only if (a) and (b) are rejected → **one regeneration from A's prompt changing exactly one line**: define the push-in by endpoints ("starts [shot size] at 00:00, ends [shot size] framing the blue door on the final beat") instead of an adverb. Hold fixed: all entity/state/end-state wording, references, duration, aspect, platform, seed policy. Expected signal: end framing reached on the final beat with end state intact. Pass: camera spec met **and** all A gates still pass. If camera passes but state breaks → oscillation → stop, revert to A + (b).
-
-**Do not:** adopt B's prompt (if different) to chase its camera; touch entity/state wording on the A path (it's proven); bundle camera + state + reference changes.
-
-**B salvage — not recommended:** B's 00:00–00:06 head is only joinable to A's tail via an insert/cutaway (a continuous push-in can't be cut invisibly). That's a redesign/split with neighbor-mismatch risk; consider only after the ceiling.
-
-**For future shots (prompt-director handoff, test as its own single variable):** add positive constraints + END STATE: "Exactly one silver case, latched closed for the entire shot; it never opens. It stays in her right hand the entire shot; no hand change, no reaching for the door. End state: she stops at the blue door, case closed in her right hand, push-in complete, no door interaction."
-
-## 7. Stop condition
-
-No project ceiling is on file here — set it from budget/clock/risk; I'm not inventing one. Structural stops regardless of number:
-1. A is already an approved checkpoint, so marginal value of regens is low — I recommend (for you to confirm) **at most one** camera-endpoint regen before falling back to A + post push.
-2. Stop immediately if a regen fixes camera but breaks end state (oscillation).
-3. Stop if the flicker recurs on the case across regens → VFX route.
-4. Stop if a rejected/drifted frame would have to be promoted as a reference.
-Preserve A, the run ledger, and tested hypotheses as the checkpoint.
-
-## 8. Evidence still needed (only what resolves material unknowns)
-
-1. **A frames + fps:** 00:00, the last ~12 frames (door color, hand, latch), the 4 flicker frames ±2 with timecode, one mid-clip frame. → Converts A's passes into direct observation; fixes A-2 severity.
-2. **A's start/end framing vs the requested push-in spec, director tolerance, and whether the next shot needs a velocity match.** → Decides A-1 severity and whether Step 2 is needed at all.
-3. **Prompt(s)/references/parameters for A and B, and whether they're identical** (same run, different samples vs a revision). → Decides whether B's failure is variance or prompt-induced; determines the regen variable.
-4. **Platform/model/version and decoded vs delivery resolution.** → Makes the post-push option viable/non-viable; don't assume edit/extend capabilities.
-5. **Audio requirement and, if any, the actual audio** (not a player icon). → Gate 5 audio, currently unknown for both.
-6. **For B, only if diagnosing for future shots:** frame at 00:00 (door visible? blue?), frames around 00:06 (opening + hand order), final frame. Not needed for the selection — any one of B's three reported defects already fails the gate.
-
-Not needed: a 1–5 score sheet (no timecoded evidence to cite), further aesthetic evaluation of B.
-
----
-
-**Recap:** Select **Variant A** — conditional pass, not a tie; B fails the end-state hard gate three ways (open case at 00:06, left hand, green door) and its camera quality cannot offset that. Every finding here rests on your report, not my inspection, since the workspace holds no media or prompt. Route: keep A as the checkpoint, paint out the 4-frame reflection flicker locally, then decide the camera deviation by tolerance → post digital push → at most one single-variable regen (push-in defined by endpoints). To firm this up, send A's first/last/flicker frames with fps, the requested camera spec, and whether A and B share the same prompt/references.
+Note: I'm in plan mode with read-only tools, so this is the assessment deliverable; no files were changed. If you want, next step I can turn the camera-speed fix into a bounded prompt revision via the prompt-director workflow once you confirm whether push-in speed is a hard requirement.

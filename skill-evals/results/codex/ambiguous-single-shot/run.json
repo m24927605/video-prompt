@@ -1,20 +1,68 @@
 {
   "case_id": "ambiguous-single-shot",
   "host": "codex",
-  "cli_version": "codex-cli 0.149.0",
+  "cli_version": "codex-cli 0.151.0",
   "requested_primary_model": "gpt-5.6-sol",
-  "requested_effort": "ultra",
+  "requested_effort": "high",
   "fallback_model": null,
+  "model_evidence": null,
   "exit_code": 0,
-  "elapsed_seconds": 351.619,
-  "event_count": 21,
+  "timed_out": false,
+  "elapsed_seconds": 204.715,
+  "event_count": 51,
   "final_present": true,
   "activation_evidence": [
-    "event[3] item.started",
-    "event[4] item.completed"
+    "event[4] command_execution",
+    "event[7] command_execution",
+    "event[9] command_execution"
   ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [],
+  "activated_skills": [
+    "seedance-prompt-director",
+    "photography-aesthetics"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [
+      "event[4] command_execution",
+      "event[7] command_execution",
+      "event[9] command_execution"
+    ],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [],
+    "photography-aesthetics": [
+      "event[4] command_execution",
+      "event[7] command_execution",
+      "event[11] command_execution",
+      "event[14] command_execution",
+      "event[15] command_execution",
+      "event[17] command_execution",
+      "event[20] command_execution",
+      "event[21] command_execution",
+      "event[25] command_execution",
+      "event[26] command_execution",
+      "event[27] command_execution",
+      "event[29] command_execution",
+      "event[32] command_execution",
+      "event[33] command_execution",
+      "event[36] command_execution",
+      "event[37] command_execution",
+      "event[40] command_execution",
+      "event[42] command_execution",
+      "event[44] command_execution",
+      "event[46] command_execution",
+      "event[48] command_execution"
+    ],
+    "screenplay-writer": []
+  },
   "research_present": false,
-  "workspace_digest": "5256622eb4afef523245b2df5f83c8b92070c24fb0abbda1ff041148b7b01019",
+  "workspace_digest": "c31871ba8d01ceb1228f3d10a75067fdc642b4318ec2256c8158e0e0af4deda4",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
 }

@@ -1,0 +1,6 @@
+{
+  "case_id": "coarse-blockout-mapping",
+  "must_cover": ["Video 1 is scoped as a coarse blockout rather than an edit master", "red and blue models map independently to courier and guard", "inherit only paths, blocking, scale, camera and cut rhythm", "Image 3 supplies only gate, market materials and sunset light", "exclude gray/primitive appearance, guides, axes, camera cone and viewport", "one letter ends at table center while guard remains behind the table"],
+  "must_not": ["inherit blockout identities or render style", "swap the red and blue mappings", "claim the runtime supports a named clay UI mode", "duplicate the letter"],
+  "critical_case_traps": ["wrong entity mapping", "blockout production markers appear in the target", "blockout misrouted as source-video edit"]
+}

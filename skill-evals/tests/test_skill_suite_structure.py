@@ -59,6 +59,9 @@ REQUIRED_DOCS = (
 )
 REQUIRED_CASE_IDS = {
     "ambiguous-single-shot",
+    "ambiguous-extension-boundary",
+    "append-extension-boundary",
+    "coarse-blockout-mapping",
     "multi-character-reference-mapping",
     "cantonese-dialogue-audio",
     "fight-physics-contact",
@@ -72,6 +75,18 @@ REQUIRED_CASE_IDS = {
     "qc-variant-comparison",
     "negative-image-design",
     "negative-live-action-critique",
+    "full-seedance-clip-routing",
+    "marked-edit-scope",
+    "person-and-example-reference-scope",
+    "prompt-only-output-fidelity",
+    "sequential-edit-then-extend",
+    "storyboard-single-clip-scope",
+    "transition-bridge-scope",
+    "video-visual-look-subcontract",
+    "reference-dimension-authority",
+    "continuation-observation-boundary",
+    "accepted-deviation-beat-firewall",
+    "seedance20-to-25-version-isolation",
 }
 REQUIRED_SCRIPTS = (
     "skill-evals/scripts/run_host_eval.py",

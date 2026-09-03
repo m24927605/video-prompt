@@ -1,0 +1,6 @@
+{
+  "case_id": "person-and-example-reference-scope",
+  "must_cover": ["Image 1 maps to the complete visible woman including coat, boots and pendant while excluding background, pose, composition, crop and light", "Image 2 maps only to the man's face and identity and does not override the red rescue uniform", "Video 1 transfers only hierarchy, control depth and detail density", "the example's story, POV, camera, style, people, assets, dialogue and ending are excluded", "exactly two people and one letter", "final letter ownership is only the man's right hand"],
+  "must_not": ["reduce the complete-person reference to face only", "inherit Image 2 wardrobe", "copy the example story or camera grammar", "merge identities or duplicate the letter"],
+  "critical_case_traps": ["reference-scope leakage changes wardrobe or identity", "structure-only example imports narrative content", "missing letter handoff end state"]
+}

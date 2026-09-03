@@ -1,0 +1,63 @@
+{
+  "case_id": "marked-edit-scope",
+  "host": "claude-code",
+  "cli_version": "2.1.258 (Claude Code)",
+  "requested_primary_model": "claude-fable-5",
+  "requested_effort": "high",
+  "fallback_model": null,
+  "model_evidence": {
+    "requested_model_observed": true,
+    "actual_primary_model": "claude-fable-5",
+    "actual_primary_provider": "firstParty",
+    "auxiliary_models": [
+      {
+        "reported_model": "claude-haiku-4-5-20251001",
+        "canonical_model": "claude-haiku-4-5",
+        "provider": "firstParty"
+      }
+    ],
+    "fallback_detected": false
+  },
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 119.028,
+  "event_count": 49,
+  "final_present": true,
+  "activation_evidence": [
+    "event[7] Skill",
+    "event[17] Read",
+    "event[19] Read"
+  ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "activated_skills": [
+    "seedance-prompt-director"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [
+      "event[7] Skill",
+      "event[17] Read",
+      "event[19] Read"
+    ],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [],
+    "photography-aesthetics": [],
+    "screenplay-writer": []
+  },
+  "research_present": false,
+  "workspace_digest": "e4f11f76a80dc6d16f66455824b4113c57be6efd3747ee46c9f596751acab74e",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

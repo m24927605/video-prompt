@@ -1,9 +1,9 @@
 {
   "case_id": "version-misattribution-trap",
   "host": "claude-code",
-  "cli_version": "2.1.239 (Claude Code)",
+  "cli_version": "2.1.258 (Claude Code)",
   "requested_primary_model": "claude-fable-5",
-  "requested_effort": "max",
+  "requested_effort": "high",
   "fallback_model": null,
   "model_evidence": {
     "requested_model_observed": true,
@@ -18,73 +18,46 @@
     ],
     "fallback_detected": false
   },
-  "direct_discovery": {
-    "model": "claude-fable-5",
-    "skills": [
-      "seedance-film-producer",
-      "seedance-prompt-director",
-      "seedance-video-qc"
-    ],
-    "slash_commands": [
-      "seedance-film-producer",
-      "seedance-prompt-director",
-      "seedance-video-qc",
-      "agents",
-      "auto-mode-setup",
-      "autocompact",
-      "clear",
-      "color",
-      "compact",
-      "config",
-      "context",
-      "effort",
-      "fast",
-      "heapdump",
-      "init",
-      "mcp",
-      "import",
-      "model",
-      "__remote-workflow",
-      "workflow-launch-exec",
-      "reload-skills",
-      "rename",
-      "ultrareview",
-      "security-review",
-      "usage-credits",
-      "extra-usage",
-      "usage",
-      "insights",
-      "recap",
-      "goal",
-      "design",
-      "design-consent",
-      "design-revoke",
-      "list-agents",
-      "team-onboarding"
-    ],
-    "tools": [
-      "Glob",
-      "Grep",
-      "Read",
-      "Skill"
-    ],
-    "mcp_servers": [],
-    "plugins": []
-  },
-  "discovery_complete": true,
   "exit_code": 0,
   "timed_out": false,
-  "elapsed_seconds": 118.768,
-  "event_count": 70,
+  "elapsed_seconds": 67.551,
+  "event_count": 48,
   "final_present": true,
-  "terminal_error": false,
   "activation_evidence": [
-    "event[0] system/init native skill listing",
-    "event[12] user",
-    "event[13] assistant"
+    "event[6] Skill",
+    "event[14] Read",
+    "event[16] Read"
   ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "activated_skills": [
+    "seedance-video-qc"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [
+      "event[6] Skill",
+      "event[14] Read",
+      "event[16] Read"
+    ],
+    "photography-aesthetics": [],
+    "screenplay-writer": []
+  },
   "research_present": false,
-  "workspace_digest": "3fd73f9a527e52ee5be8d227dcf8f173290884e1a2640ae2b34a16a26bdc76cf",
+  "workspace_digest": "e4f11f76a80dc6d16f66455824b4113c57be6efd3747ee46c9f596751acab74e",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
 }

@@ -1,0 +1,60 @@
+規劃完成。這是純製作系統設計（不觸發任何付費生成），依據 skill 的 beat 防火牆 [FP-06] 與接續關係/accepted-state 防火牆 [FP-15][FP-05] 規則處理。以下為完整結論。
+
+## 摘要
+
+已接受的 shot 1 是一個「接受的偏差」：它把原定 beat 2（打開信封）和 beat 3 的前半（讀完信）提前完成了。依 [FP-06]，這些 beat 必須從下游工作移除、重新計算下一個 delta——**下一鏡的唯一 delta 只剩「把攤開的信折起來」**，絕不能再重演開信或閱讀。被拒絕的撕信版本只能當診斷證據，任何形式都不得入 canon。
+
+## 1. Beat 防火牆更新（completed / current / reserved）
+
+| 區位 | 內容 | 依據 |
+|---|---|---|
+| **Completed（已成立的可見事實）** | beat 1（原 shot 1 目標）＋ beat 2「信封已打開」＋ beat 3a「信已讀完」 | 全部由已接受的 shot 1 畫面證實 |
+| **Current（下一個必要 delta）** | beat 3b：「角色把攤開的信折起來」——僅此一個主要 delta | 原 beat 3 拆成 3a（讀完，已完成）與 3b（折信，待做） |
+| **Reserved（未來工作，不得順手提前完成）** | 折信之後的動作（收進口袋／放上桌／反應／離場等第三鏡內容） | 若下一鏡又意外完成它，再次套用同樣的移除與重算程序 |
+
+關鍵動作：從排程中**刪除原 beat 2 的鏡頭工單**；改寫 beat 3 工單，start state 直接繼承 shot 1 的結尾狀態。
+
+## 2. 下一鏡（shot 2）的 delta 與合約要點
+
+Prompt 只描述已接受狀態**之後**的增量，不重播來源合約 [FP-05]：
+
+```yaml
+start_state: 角色右手（依 shot 1 實際結尾為準）持攤開、已讀完的信
+primary_delta: 角色將信對折收合（僅折信這一件事）
+end_state: 信呈折疊狀態，仍在角色手中；角色未離開位置
+required: [CHAR-001, PROP-014-letter-open, 該場景 LOC/LIGHT 狀態版本]
+forbidden: [PROP-014-letter-sealed（未拆封信封）, PROP-014-letter-torn（撕破狀態）, 重演開信動作]
+```
+
+`forbidden` 明列撕破狀態不是形式——被拒版本已證明模型在此鏡有「紙張破壞」的失敗傾向，這是它作為診斷證據的唯一正當用途。手部＋紙張接觸屬高風險類別，應預先規劃替代覆蓋（見下）。
+
+## 3. 接續關係選擇（五選一）與第三鏡
+
+**Shot 1 → Shot 2**，依 shot 1 已接受結尾的 QC 結果二擇一：
+
+- **首選：同鏡無縫續接（same-shot seamless）**——僅當同場景、地理與動作真正延續，且結尾幀通過 QC（身分、手部姿勢、信呈攤開狀、無停滯或畸變）。以該幀為 local handoff 來源，prompt 只給折信 delta。
+- **降級路線：橋接既知狀態（bridge known states）＋刻意新鏡頭**——若結尾幀有微小不匹配或手部風險高，改切一顆**手部折信的插入鏡（insert）**：這是標準剪接語言，只需故事連續、不承諾逐幀連續，天然吸收微差，也正是高風險手部動作建議的覆蓋拆分方式。
+- **修復尾端（repair tail）**：只有當 shot 1 整體已接受、但最後幾秒有瑕疵時使用——優先在剪接中修剪尾端，而不是重生成整鏡。
+- **重新錨定（reanchor drift）**：目前不需要。Shot 1 的偏差是「劇情提前」而非「資產漂移」（服裝／光線／道具外觀未失真的前提下）。若 QC 發現信的外觀或角色狀態相對 canonical bank 有漂移，才回到場景起點 checkpoint 重放已核准的 delta。
+
+**Shot 2 → Shot 3（刻意新鏡頭）**：第三鏡承接 reserved beat（例如收信入袋＋角色反應），一律用**刻意新鏡頭**（intentional next shot）而非再度無縫延伸——避免無界延伸鏈，且換景別（如從手部 insert 切回中景）給剪接留餘地。其 start state 依賴 shot 2 核准後的「信已折疊」道具狀態，因此**必須序列化**：shot 2 核准前不得排入生成佇列。
+
+## 4. Accepted state 與 canon 規則
+
+**可以進入的：**
+- 已接受的 shot 1 → 進 accepted state；其結尾狀態（信已開、已讀）寫入場景 continuity state 與 local handoff。
+- Shot 1 中通過 QC 的高資訊幀（身分正確、無失格瑕疵、跨鏡相容）→ 可**人工核准後**晉升 approved memory，並記錄來源鏡頭／時碼／裁切／使用邊界。
+- 道具護照更新：以**新增狀態版本**方式登記 `PROP-014-letter-open-read`（人工核准），不覆寫原有 sealed／open 基礎狀態。
+
+**絕對不得進 canon 的：**
+- **被拒絕的撕信版本**：不得成為 canonical、不得晉升 approved memory、不得作為 handoff／延伸來源、不得當參考輸入。即使某幾幀看起來可用也一樣——被拒輸出只能推進診斷，不能推進進度表 [FP-06]。重試一律從已核准的父 run 出發，永不從被拒子代出發。
+- 任何生成結果都不得自動覆寫 canonical bank；shot 2、shot 3 的輸出先進 incoming，經評審才可能晉升 [FP-05][FP-13]。
+
+## 5. 執行順序
+
+1. 對 shot 1 結尾段做 QC（可用 `seedance-video-qc`），決定無縫續接 vs. 手部插入鏡。
+2. 更新場景 continuity state YAML 與 beat 防火牆（如上表），對 shot 1 建立 approved-shot checkpoint。
+3. 改寫 shot 2 合約（僅折信 delta、forbidden 含撕破態），shot 3 合約排在 shot 2 核准之後。
+4. 重試上限沿用專案既有值；專案若未定義，保持未知，不虛構數字 [FP-14]。
+
+一點前提聲明：以上是平台無關的製作系統設計；skill 的 Seedance 封存知識日期為 2026-08-22，實際生成前的模型／參數／配額請以當時官方文件為準，且生成本身需另行明確授權。

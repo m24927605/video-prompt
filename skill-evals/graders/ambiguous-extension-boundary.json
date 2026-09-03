@@ -1,0 +1,6 @@
+{
+  "case_id": "ambiguous-extension-boundary",
+  "must_cover": ["one compact question asking whether the new interval belongs before or after the source", "recognize that bare directional wording does not establish a source boundary", "wait for the boundary answer before drafting"],
+  "must_not": ["infer placement from the plot", "provide a provisional extension prompt", "ask unrelated duration, style or platform questions", "invent source-video content"],
+  "critical_case_traps": ["silently choose prepend or append", "draft an extension against an unconfirmed boundary"]
+}

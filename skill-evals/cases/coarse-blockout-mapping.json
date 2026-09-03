@@ -1,0 +1,9 @@
+{
+  "id": "coarse-blockout-mapping",
+  "title": "Coarse blockout maps geometry without inheriting its render",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "implicit",
+  "locale": "zh-Hant",
+  "prompt": "把 @Video 1 當成粗粒度 blockout 參考，寫成一份平台中立的單一 clip prompt。紅色簡模映射為 @Image 1 的信使，藍色簡模映射為 @Image 2 的守衛，@Image 3 只提供石門、市集材質與黃昏光線。只繼承 blockout 的人物路徑、blocking、相對尺度、攝影機位置與移動、cut 節奏；不要繼承灰色材質、原始幾何外觀、guide lines、座標軸、camera cone 或 viewport 背景。信使穿過石門並把唯一一封信滑到桌面中央，守衛留在桌後。"
+}

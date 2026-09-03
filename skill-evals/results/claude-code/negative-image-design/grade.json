@@ -3,31 +3,30 @@
   "host": "claude-code",
   "lane_scores": {
     "activation_routing": 10,
-    "production_usability": 22,
-    "task_completeness": 35,
-    "evidence_discipline": 18,
-    "language_scope": 9
+    "production_usability": 23,
+    "task_completeness": 33,
+    "evidence_discipline": 12,
+    "language_scope": 10
   },
-  "total": 94,
-  "verdict": "PASS",
+  "total": 88,
+  "verdict": "FAIL",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1 explicitly recognizes a static-image task and declines all Seedance video skills because camera, blocking, audio and endpoint machinery would be inappropriate.",
-    "final.md:3-13 gives a directly usable square Swiss-minimal image prompt with a white field, one solid orange circle and exact black sans-serif MONDAY title, with no timeline or motion.",
-    "final.md:15-19 keeps exclusions inside an optional static-image negative prompt; no Seedance video schema appears.",
-    "final.md:21-32 adds model-specific parameter and typography suggestions that were not requested and are not version/surface qualified; this is the basis for the six-point usability/evidence/scope deduction, not a routing failure.",
-    "native-evidence.md:7-17 records expected skill none, no activation and complete discoverability; run.json:75-85 records exit_code 0, empty activation_evidence, research absent and no paid media events."
+    "run.json: implicit collision routing correctly activated photography-aesthetics and did not activate seedance-prompt-director; paid_media_tool_events is empty.",
+    "final.md supplies a square Swiss-style static image prompt with one orange circle, white background, and exact black MONDAY text, with no video timeline/camera motion/audio workflow.",
+    "final.md claims its natural-language form is directly compatible with several named current image systems and gives platform-dependent negative-prompt advice without any source/runtime evidence in the case.",
+    "final.md adds model-specific usage claims and parameter suggestions beyond the requested provider-unspecified static prompt."
   ],
-  "rationale": "The core artifact fully satisfies the static poster case and native evidence proves correct non-activation. The answer loses points because its extra Midjourney/Ideogram/Flux/SD parameter advice goes beyond the requested prompt and is not tied to verified current model versions or surfaces. That extra material is non-critical and does not contaminate the core with video behavior.",
-  "activation_evidence": "Verified correct non-activation: native-evidence.md:7-17 shows no skill event despite all three Seedance skills being natively listed; run.json:81 records an empty activation_evidence array.",
+  "rationale": "The static-design artifact and ownership are correct, but the evidence lane is materially weakened by unsupported cross-model compatibility and platform-field guidance. Under the ≥90 rule, the otherwise usable answer fails.",
+  "activation_evidence": "native-evidence.md records photography-aesthetics activation at event[9] Skill and event[20] Read, with no forbidden Seedance activation.",
   "unknowns": [
-    "The cross-model parameter recommendations were not verified against current model documentation; the model-neutral main prompt remains usable without them."
+    "Target image model, exact text-rendering reliability, and negative-prompt-field availability are unknown."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "fresh-context adversarial reviewer",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

@@ -6,8 +6,21 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 from typing import Any
+
+
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+from case_contracts import (  # noqa: E402
+    ARCHIVED_BEHAVIORAL_SKILLS,
+    PACKAGED_SKILLS,
+    CaseContract,
+    CaseContractError,
+    parse_case_contract,
+)
 
 
 def read_json(path: Path) -> Any:
@@ -24,6 +37,33 @@ def digest(path: Path) -> str:
 
 def _is_integer(value: Any) -> bool:
     return isinstance(value, int) and not isinstance(value, bool)
+
+
+def run_activity_errors(run: Any) -> list[str]:
+    if not isinstance(run, dict):
+        return ["run must be an object"]
+    errors: list[str] = []
+    if run.get("packaged_skills") != list(PACKAGED_SKILLS):
+        errors.append("packaged_skills must exactly match the packaged suite")
+    for field in ("discovered_skills", "activated_skills"):
+        value = run.get(field)
+        if not isinstance(value, list) or any(not isinstance(skill, str) for skill in value):
+            errors.append(f"{field} must be a list of skill names")
+        elif len(value) != len(set(value)) or any(skill not in PACKAGED_SKILLS for skill in value):
+            errors.append(f"{field} must contain unique packaged skills")
+    evidence = run.get("activation_evidence_by_skill")
+    if not isinstance(evidence, dict) or set(evidence) != set(PACKAGED_SKILLS):
+        errors.append("activation_evidence_by_skill must contain every packaged skill")
+    else:
+        for skill in PACKAGED_SKILLS:
+            rows = evidence[skill]
+            if not isinstance(rows, list) or any(not isinstance(row, str) or not row for row in rows):
+                errors.append(f"activation evidence for {skill} must be strings")
+        if isinstance(run.get("activated_skills"), list):
+            evidenced = {skill for skill in PACKAGED_SKILLS if evidence[skill]}
+            if set(run["activated_skills"]) != evidenced:
+                errors.append("activated_skills must exactly match activation evidence")
+    return errors
 
 
 def grade_validation_errors(
@@ -124,10 +164,21 @@ def grade_validation_errors(
 
 def aggregate(root: Path) -> bool:
     root = root.resolve()
-    cases = {
+    raw_cases = {
         path.stem: read_json(path)
         for path in sorted((root / "skill-evals" / "cases").glob("*.json"))
     }
+    cases: dict[str, tuple[dict[str, Any], CaseContract]] = {}
+    illegal_case_failures: list[str] = []
+    for case_id, case in raw_cases.items():
+        try:
+            contract = parse_case_contract(case)
+            if contract.case_id != case_id:
+                raise CaseContractError("case id does not match filename")
+        except CaseContractError as exc:
+            illegal_case_failures.append(f"{case_id}: {exc}")
+        else:
+            cases[case_id] = (case, contract)
     grade_schema = read_json(root / "skill-evals" / "schemas" / "grade.schema.json")
     rubric_digest = digest(root / "skill-evals" / "rubric.md")
     host_summaries: dict[str, Any] = {}
@@ -145,9 +196,12 @@ def aggregate(root: Path) -> bool:
         media_events: list[str] = []
         verdict_failures: list[str] = []
         grade_validation_failures: list[str] = []
+        expected_activation_failures: list[str] = []
+        forbidden_activation_failures: list[str] = []
+        collision_activation_failures: list[str] = []
         validated_grades: list[dict[str, Any]] = []
 
-        for case_id, case in cases.items():
+        for case_id, (case, contract) in cases.items():
             case_root = result_root / case_id
             grade_path = case_root / "grade.json"
             run_path = case_root / "run.json"
@@ -181,36 +235,67 @@ def aggregate(root: Path) -> bool:
             if request.get("rubric_sha256") != rubric_digest or request.get("case_sha256") != digest(root / "skill-evals" / "cases" / f"{case_id}.json"):
                 digest_failures.append(case_id)
 
-            skill = case.get("expected_skill")
+            activity_errors = run_activity_errors(run)
+            if activity_errors:
+                run_failures.extend(f"{case_id}: {error}" for error in activity_errors)
+                continue
+            activated = set(run["activated_skills"])
+            evidence = run["activation_evidence_by_skill"]
+            skill = contract.expected_skill
+            if skill and skill not in activated:
+                expected_activation_failures.append(case_id)
+            for forbidden_skill in contract.forbidden_skills:
+                if forbidden_skill in activated:
+                    forbidden_activation_failures.append(f"{case_id}: {forbidden_skill}")
+            if contract.coverage_class == "collision" and skill and not evidence[skill]:
+                collision_activation_failures.append(case_id)
             activation_verified = bool(grade.get("activation_verified", False))
-            if skill and activation_verified:
-                if case["invocation_mode"] == "explicit":
+            if (
+                contract.coverage_class == "archived"
+                and skill in ARCHIVED_BEHAVIORAL_SKILLS
+                and skill in activated
+                and activation_verified
+            ):
+                if contract.invocation_mode == "explicit":
                     explicit_coverage.add(skill)
                 else:
                     implicit_coverage.add(skill)
-            if not skill and (grade["lane_scores"]["activation_routing"] < 10 or grade.get("critical_failures")):
+            if not skill and (
+                activated
+                or grade["lane_scores"]["activation_routing"] < 10
+                or grade.get("critical_failures")
+            ):
                 negative_failures.append(case_id)
 
-        possible = len(cases) * 100
+        possible = len(raw_cases) * 100
         points = sum(grade["total"] for grade in validated_grades)
         percent = round(points / possible * 100, 2) if possible else 0.0
-        all_skills = {case["expected_skill"] for case in cases.values() if case.get("expected_skill")}
+        archived_skills = {
+            contract.expected_skill
+            for _, contract in cases.values()
+            if contract.coverage_class == "archived"
+            and contract.expected_skill in ARCHIVED_BEHAVIORAL_SKILLS
+        }
         host_pass = all((
-            len(grades) == len(cases),
+            len(grades) == len(raw_cases),
             percent >= 90.0,
             not critical,
             not negative_failures,
-            explicit_coverage == all_skills,
-            implicit_coverage == all_skills,
+            explicit_coverage == archived_skills,
+            implicit_coverage == archived_skills,
             not run_failures,
             not digest_failures,
             not media_events,
             not verdict_failures,
             not grade_validation_failures,
+            not expected_activation_failures,
+            not forbidden_activation_failures,
+            not collision_activation_failures,
+            not illegal_case_failures,
         ))
         summary = {
             "host": host,
-            "case_count": len(cases),
+            "case_count": len(raw_cases),
             "graded_count": len(grades),
             "score_percent": percent,
             "critical_failures": critical,
@@ -222,6 +307,10 @@ def aggregate(root: Path) -> bool:
             "paid_media_tool_event_cases": media_events,
             "verdict_failures": verdict_failures,
             "grade_validation_failures": grade_validation_failures,
+            "expected_activation_failures": expected_activation_failures,
+            "forbidden_activation_failures": forbidden_activation_failures,
+            "collision_activation_failures": collision_activation_failures,
+            "illegal_case_failures": illegal_case_failures,
             "rubric_sha256": rubric_digest,
             "status": "PASS" if host_pass else "FAIL",
         }

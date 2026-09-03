@@ -3,35 +3,31 @@
   "host": "codex",
   "lane_scores": {
     "activation_routing": 10,
-    "production_usability": 25,
-    "task_completeness": 35,
-    "evidence_discipline": 20,
+    "production_usability": 24,
+    "task_completeness": 31,
+    "evidence_discipline": 19,
     "language_scope": 10
   },
-  "total": 100,
+  "total": 94,
   "verdict": "PASS",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:3-8 keeps the platform/model/endpoint unknown, rejects exactly-12, deterministic-seed, 4K, fixed-cost and success assumptions, and separates dated official facts from unknown selected-runtime behavior.",
-    "final.md:10-32 gives a platform-neutral usable prompt with exactly one unbranded bottle, one leaf, one hand, one complete downstroke, one gravity-driven drop and a static no-hand/no-text endpoint.",
-    "final.md:35-74 explicitly labels its JSON as a platform-neutral shot manifest rather than an endpoint request, sets submission_ready false/platform null, keeps runtime limit/cost/model ID null and marks 9-second/4K/seed/negative-field behavior unverified.",
-    "final.md:76-86 provides observable count, contact/trajectory, camera, reference, audio/text and final-hold acceptance gates.",
-    "final.md:88-101 disclaims guarantees and gives one-variable timing/geometry/start-state routes followed by a bounded insert/composite stop.",
-    "final.md:103 asks the sole endpoint-dependent blocking question only after delivering all non-dependent work.",
-    "native-evidence.md:5-10 records explicit $seedance-prompt-director invocation and reads of the post-patch skill/schema; workspace-inventory.json:56-68 proves patched hashes bc0a740b… and 7bd4664c… were installed.",
-    "run.json:9-19 records a successful isolated run with research absent and no paid media events."
+    "final.md:3-17 keeps the platform/model ID undecided, scopes candidate-provider facts by surface, and denies 4K universality, negative-field support, deterministic seed, fixed cost, and guaranteed success.",
+    "final.md:21-49 delivers the platform-neutral nine-second prompt with one bottle, one press, one drop, and final hold.",
+    "final.md:51-105 makes the JSON a platform-neutral manifest with null/unverified runtime decisions rather than an endpoint payload; final.md:107-116 supplies acceptance but no revision route.",
+    "events.jsonl:6-9 records official web searches; run.json records paid_media_tool_events=[]."
   ],
-  "rationale": "The post-patch rerun fully corrects the initial behavioral failure. It does not choose a convenient platform or emit fake endpoint JSON; instead it provides the complete platform-neutral production artifact and a clearly non-submittable decision manifest. Every baited capability/value is bounded and every material entity/action/end state is explicit. No critical trap is present.",
-  "activation_evidence": "Verified explicit post-patch activation: native-evidence.md:5-10 records $seedance-prompt-director and the skill/schema reads, while workspace-inventory.json:56-68 attests the corrected canonical files used by this isolated run.",
+  "rationale": "No fake endpoint payload or success/cost/resolution guarantee is emitted, and the prompt is usable. Deductions reflect unnecessary provider-specific material and the missing bounded revision route from a required combined acceptance/revision item.",
+  "activation_evidence": "native-evidence.md:11-12 and events.jsonl skill reads verify explicit Prompt Director activation.",
   "unknowns": [
-    "Endpoint JSON and runtime-specific duration, resolution, seed, reference, pricing and audio behavior remain blocked on the user's platform choice, as intended.",
-    "No media was generated, so adherence and first-pass outcome remain untested."
+    "Executable JSON remains blocked on runtime selection.",
+    "No bounded revision route is provided."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

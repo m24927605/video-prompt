@@ -1,0 +1,6 @@
+{
+  "case_id": "full-seedance-clip-routing",
+  "must_cover": ["seedance-prompt-director owns the complete clip contract", "Image 1 reference scope, first-frame blocking, camera, acting, rain and footstep physics, audio and end state", "observable acceptance conditions", "photographic look is integrated as one part of the complete contract"],
+  "must_not": ["route the deliverable to photography-aesthetics", "return only a visual-look subcontract", "omit task, references, action, audio or acceptance"],
+  "critical_case_traps": ["wrong skill ownership", "incomplete visual-only answer", "paid media generation"]
+}

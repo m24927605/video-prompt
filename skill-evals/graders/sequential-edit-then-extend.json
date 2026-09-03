@@ -1,0 +1,6 @@
+{
+  "case_id": "sequential-edit-then-extend",
+  "must_cover": ["two ordered and separately submittable artifacts", "step one has one sole edit master, blue-to-red umbrella scope and complete preserve list", "step two names the approved edited output as its extension source", "step two appends only new material from the edited final frame", "same adult and red umbrella remain continuous into the doorway"],
+  "must_not": ["mix edit and extend in one task contract", "extend the unedited source", "change people, actions, camera, background, light or sound in the edit", "claim both operations are one provider request without verified support"],
+  "critical_case_traps": ["single artifact combines incompatible edit and extension operations", "wrong parent source for the extension", "umbrella identity or color state is lost at handoff"]
+}

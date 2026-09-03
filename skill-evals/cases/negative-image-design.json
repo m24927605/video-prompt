@@ -1,8 +1,10 @@
 {
   "id": "negative-image-design",
   "title": "Static image design negative activation",
-  "expected_skill": null,
+  "expected_skill": "photography-aesthetics",
+  "forbidden_skills": ["seedance-prompt-director"],
+  "coverage_class": "collision",
   "invocation_mode": "implicit",
   "locale": "zh-Hant",
-  "prompt": "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。"
+  "prompt": "幫我寫一個靜態海報的圖片生成 prompt：方形構圖、極簡瑞士設計、一顆橘色圓形與黑色無襯線標題「MONDAY」，白底，沒有影片、分鏡、運鏡、聲音或時間軸需求。目標模型尚未決定，請保持 provider-neutral；不要列出模型名稱、跨模型相容性、negative prompt 欄位或平台參數建議。"
 }

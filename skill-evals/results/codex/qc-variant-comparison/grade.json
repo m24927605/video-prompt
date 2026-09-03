@@ -13,23 +13,20 @@
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1-15 selects Variant A and applies story/continuity hard gates before camera aesthetics; B fails its open-case, left-hand and green-door endpoint violations.",
-    "final.md:17-33 explicitly says there were no independent clip/frame observations, classifies the supplied facts as user-reported observations, and keeps flicker/drift/crop causes as hypotheses.",
-    "final.md:35-46 routes A to a four-frame local reflection repair, fixes all contract invariants, treats slower push-in as a separate optional local change, and imposes a one-pass-plus-one-camera-pass stop.",
-    "final.md:48-57 identifies the exact dense-frame, endpoint, delivery and runtime evidence still required for final approval or deeper causal diagnosis.",
-    "events.jsonl:3-8 records automatic routing to video QC, the read of .agents/skills/seedance-video-qc/SKILL.md and the variant-comparison reference; request.json records implicit mode with the unchanged prompt.",
-    "run.json:9-21 records exit_code 0, final_present true, research absent and no paid media events; workspace-inventory.json records no research or grader in the isolated workspace."
+    "final.md:3-15 selects A after hard-gate comparison and rejects B for open case, left-hand shift, and green-door end-state failures.",
+    "final.md:17-34 separates supplied observations from hypotheses and labels absent clip review.",
+    "final.md:36-50 routes A's slow push/reflection to bounded local repair and lists the missing full-media evidence.",
+    "events.jsonl:3-5 and native-evidence.md:11-12 verify seedance-video-qc; run.json records no paid generation."
   ],
-  "rationale": "The correct variant wins for the correct reason: identity/state/direction/end hard gates precede beauty. The response does not invent direct inspection, identifies A's slower push and flicker as bounded local candidates, rejects B's continuity blockers, and states precisely what full-media evidence remains missing. The repair and stop policy is production-usable and finite. No critical trap is present.",
-  "activation_evidence": "Verified implicit activation: events.jsonl:3-8 shows Codex announcing and reading the project-local seedance-video-qc skill plus its variant rubric before answering; request.json confirms implicit invocation.",
+  "rationale": "The response applies continuity hard gates before aesthetics, chooses the only production-eligible variant, and keeps causality and missing evidence disciplined.",
+  "activation_evidence": "events.jsonl:3-5 and native-evidence.md:11-12 directly verify expected implicit seedance-video-qc activation.",
   "unknowns": [
-    "No actual clips or frames were provided, so the reported hard-gate states and defects were not independently visualized.",
-    "Native dimensions/frame rates, dense flicker frames, camera-speed tolerance and platform/model provenance remain unknown until final approval evidence arrives."
+    "The clips were not independently inspected; the response correctly keeps supplied observations provisional."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

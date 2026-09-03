@@ -1,0 +1,6 @@
+{
+  "case_id": "transition-bridge-scope",
+  "must_cover": ["both source videos remain unchanged", "only a new bridge is generated", "Video 1 exit, full bridge state and Video 2 entry are explicit", "circle position, scale, clockwise direction, angular speed and camera vector remain continuous", "rain, light, traffic direction and ambience hand off into Video 2", "runtime support remains unverified"],
+  "must_not": ["rewrite either source", "invent a dedicated transition parameter or provider mode", "hard cut, black frame, text, logo, dialogue or subtitles"],
+  "critical_case_traps": ["source alteration", "wrong rotation or screen geometry", "invented current platform capability"]
+}

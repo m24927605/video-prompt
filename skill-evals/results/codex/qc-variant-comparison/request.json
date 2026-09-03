@@ -5,6 +5,8 @@
   "host": "codex",
   "invocation_mode": "implicit",
   "expected_skill": "seedance-video-qc",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "Choose between two generated variants using production evidence. Contract: one courier in a red coat carries one sealed silver case left-to-right and ends at a blue door with the case still in her right hand. Variant A keeps the correct courier, coat, case count, direction and end state, but the camera push-in is slower than requested and a small reflection flickers for four frames. Variant B has beautiful camera movement and no flicker, but the case becomes open at 00:06, shifts to her left hand, and the final door is green. Give hard-gate results, direct observations versus hypotheses, a selection or tie, minimal repair route, and what evidence is still needed.",
   "effective_prompt": "Choose between two generated variants using production evidence. Contract: one courier in a red coat carries one sealed silver case left-to-right and ends at a blue door with the case still in her right hand. Variant A keeps the correct courier, coat, case count, direction and end state, but the camera push-in is slower than requested and a small reflection flickers for four frames. Variant B has beautiful camera movement and no flicker, but the case becomes open at 00:06, shifts to her left hand, and the final door is green. Give hard-gate results, direct observations versus hypotheses, a selection or tie, minimal repair route, and what evidence is still needed.",
   "sanitized_argv": [
@@ -28,15 +30,15 @@
     "-m",
     "gpt-5.6-sol",
     "-c",
-    "model_reasoning_effort=ultra",
+    "model_reasoning_effort=high",
     "-c",
     "approval_policy=never",
     "-c",
-    "<PERSONAL_SKILLS_DISABLED:50>",
+    "<PERSONAL_SKILLS_DISABLED:73>",
     "--json",
     "-C",
     "<REDACTED_WORKSPACE>",
     "Choose between two generated variants using production evidence. Contract: one courier in a red coat carries one sealed silver case left-to-right and ends at a blue door with the case still in her right hand. Variant A keeps the correct courier, coat, case count, direction and end state, but the camera push-in is slower than requested and a small reflection flickers for four frames. Variant B has beautiful camera movement and no flicker, but the case becomes open at 00:06, shifts to her left hand, and the final door is green. Give hard-gate results, direct observations versus hypotheses, a selection or tie, minimal repair route, and what evidence is still needed."
   ],
-  "disabled_personal_skills": 50
+  "disabled_personal_skills": 73
 }

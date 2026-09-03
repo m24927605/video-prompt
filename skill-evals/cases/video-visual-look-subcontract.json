@@ -1,0 +1,10 @@
+{
+  "id": "video-visual-look-subcontract",
+  "title": "Video visual look routes to Photography Aesthetics",
+  "expected_skill": "photography-aesthetics",
+  "forbidden_skills": ["seedance-prompt-director"],
+  "coverage_class": "collision",
+  "invocation_mode": "implicit",
+  "locale": "zh-Hant",
+  "prompt": "只設計這支影片的 visual-look 子契約：雨夜便利店門口、冷暖混合光、濕地反射、35mm 手持感、低對比青橙色調與細雨質感。輸出 opening look、visible change、end look、camera、lighting、color 與 texture。不要寫完整 Seedance clip prompt，不要提供 blocking、時間軸、音訊、reference contract、驗收或生成參數。"
+}

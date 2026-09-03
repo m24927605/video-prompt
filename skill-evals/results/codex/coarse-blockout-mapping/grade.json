@@ -1,0 +1,29 @@
+{
+  "case_id": "coarse-blockout-mapping",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:6-16 treats Video 1 only as coarse path/blocking/scale/camera/cut control, maps red to messenger and blue to guard, limits Image 3 to gate/material/dusk light, and excludes primitive/gray/guide/axis/cone/viewport elements.",
+    "final.md:20-38 keeps exactly two people and one letter, ends the letter at table center, and leaves the guard behind the table.",
+    "run.json/native evidence verifies Prompt Director ownership with Photography Aesthetics only auxiliary and paid_media_tool_events=[]."
+  ],
+  "rationale": "Reference authority, proxy mapping, finished-render exclusions, and the exact letter/guard end state are complete with no edit-master misrouting.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected implicit owner activation.",
+  "unknowns": [],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

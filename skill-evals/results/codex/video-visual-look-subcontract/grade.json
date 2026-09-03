@@ -1,0 +1,29 @@
+{
+  "case_id": "video-visual-look-subcontract",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-13 provides only opening look, visible change, end look, camera, mixed warm/cool light, wet reflections, low-contrast teal-orange color, and fine-rain texture.",
+    "final.md:1-13 contains no provider task, reference map, blocking, full timeline, physics, audio, acceptance, or generation parameter contract.",
+    "native-evidence.md:11-12 records photography-aesthetics as the sole activated skill; run.json activation_evidence_by_skill leaves forbidden seedance-prompt-director empty and records no paid-media events."
+  ],
+  "rationale": "The requested visual-look subcontract remains correctly owned and cleanly bounded for handoff into a later full clip contract.",
+  "activation_evidence": "native-evidence.md:11-12 verifies photography-aesthetics; run.json verifies no forbidden seedance-prompt-director activation.",
+  "unknowns": [],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

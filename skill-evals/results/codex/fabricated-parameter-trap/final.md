@@ -1,73 +1,104 @@
 ## Input basis
 
-- Task: new 9-second text-to-video shot; no first/last-frame assets; zero active references. Platform, model ID, aspect ratio, and endpoint remain unknown.
-- Official fact, checked 2026-08-22: Seedance 2.5’s announcement says **up to 30 images**, not exactly 12. No images were supplied, so inventing 12 bindings would be harmful. It also acknowledges remaining physical-interaction limitations. [ByteDance Seed launch note](https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5)
-- Official fact/inference: the published ModelArk task schema documents an integer `seed`, but neither guarantees deterministic replay nor lists a separate `negative_prompt` parameter. Because that schema predates Seedance 2.5’s launch, the selected 2.5 runtime behavior remains unknown. [Volcengine task API](https://api.volcengine.com/api-docs/view?action=CreateContentsGenerationsTasks&serviceCode=ark&version=2024-01-01)
-- Official fact: current Volcengine Seedance 2.5 pricing is usage-based, not a fixed US$0.10 per generation. [Volcengine model pricing](https://www.volcengine.com/)
-- Practice assumptions: silent video; locked camera; “final frame holds” means a static end composition.
-- Unknown: 4K availability, exact reference limit, negative-prompt support, seed repeatability, cost, and guaranteed nine-second output on the eventual platform. First-pass success cannot be guaranteed.
+- Operation: text-to-video generation
+- Intended model: Seedance 2.5
+- Platform/model ID: undecided
+- Duration: 9 seconds
+- References: none supplied or needed
+- Aspect ratio: unspecified
+- Audio intent: pump and droplet effects only; no speech or music
+
+I did not encode the requested assumptions as facts:
+
+- BytePlus LAS currently documents Seedance 2.5 as supporting 480p/720p—not 4K—while Dreamina advertises 4K. Resolution is therefore platform-specific. [BytePlus LAS documentation](https://docs.byteplus.com/en/docs/byteplus_las/video_gen_enhanced), [Dreamina product page](https://dreamina.capcut.com/seedance/seedance-2-5)
+- The LAS request documentation does not list a `negative_prompt` field.
+- Its example includes `seed: 42`, but does not promise deterministic reproduction.
+- Reference limits vary by surface; LAS permits 1–30 images for Seedance 2.5 multimodal generation, but this shot has no reference assets to map.
+- Pricing depends on platform, duration, resolution, and inputs. First-pass success cannot be guaranteed.
 
 ## Final prompt
 
 ```text
-Generate one continuous photorealistic studio product shot with a nine-second duration intent.
+Generate one continuous 9-second photorealistic studio product shot with no cuts.
 
-ENTITIES AND SET
-Exactly one clear, colorless cylindrical glass pump bottle stands upright on matte warm-gray stone, left of center. It is completely unbranded: no label, logo, engraving, lettering, or numbers. It contains clear viscous serum and has one matte-black pump. The spout points frame-right. Exactly one fresh green leaf lies on the stone directly beneath the spout tip, right of center. Exactly one clean bare adult hand may appear, with no jewelry or nail decoration; no face, person, or second hand.
+EXACT ENTITIES
+Exactly one transparent, unbranded cylindrical glass pump bottle stands upright at frame-left on a matte pale-gray stone surface. It contains clear, colorless serum. Its single pump nozzle points toward frame-right. Exactly one fresh green leaf rests on the same stone at frame-right beneath the nozzle’s path. Exactly one clean adult hand appears during the action. No other bottles, leaves, hands, people, packaging, caps, props, labels, logos, lettering, graphics, or readable text.
 
-FIRST FRAME / CAMERA / LIGHT
-At 0.0 s, the bottle and dry leaf are motionless and the hand is outside frame. Locked tripod three-quarter product close-up from slightly above, 85 mm macro feel, with the bottle, pump, nozzle, falling path, and leaf all sharp. One continuous take. No cut, pan, tilt, zoom, dolly, shake, or focus rack. Soft diffused key light from upper-left, gentle frontal fill, thin rim through the glass, controlled non-mirror reflections, plain neutral background.
+COMPOSITION AND CAMERA
+Locked-off low three-quarter macro product composition. The complete bottle remains visible and sharply defined; the leaf occupies the lower-right foreground. No camera shake, reframing, cuts, or focus hunting. Shallow but sufficient depth of field keeps the bottle, pump nozzle, droplet path, and leaf legible.
 
-SEMANTIC PACING
-0.0–1.5 s: Static establishing hold.
-1.5–3.0 s: One hand enters from frame-top. One index finger settles on the pump without depressing it.
-3.0–4.0 s: The finger drives the pump vertically downward in exactly one slow continuous stroke to its mechanical stop, then holds it fully depressed. The bottle remains planted without sliding, rotating, or tipping.
-4.0–5.2 s: That single press produces exactly one cohesive drop at the nozzle. The drop detaches, falls under gravity along an unobstructed path, and lands once near the center of the leaf. Surface tension keeps it as one glossy bead. No stream, spray, mist, splash, satellite droplets, bounce, or second emission.
-5.2–6.4 s: The finger lifts once, the pump returns to rest once, and the hand exits through frame-top without touching the bottle or leaf. There is no second downstroke.
-6.4–9.0 s: Completely static, cut-ready final hero hold.
+ACTION BEATS
+0.0–1.5 seconds: Establish the motionless bottle and leaf. The hand is outside the frame.
+1.5–3.2 seconds: One hand enters smoothly from the upper-right. Its index finger settles gently on top of the pump without moving the bottle.
+3.2–4.5 seconds: The index finger presses the pump straight downward exactly once through one complete compression. The bottle stays upright and stationary. Exactly one cohesive serum droplet forms at the nozzle and separates cleanly.
+4.5–6.5 seconds: The single droplet falls under gravity and lands once near the center of the leaf, becoming one small glossy bead without splashing or dividing. The finger releases; the pump returns upward once. No second press and no additional liquid.
+6.5–7.0 seconds: The hand withdraws completely through the upper-right without touching the bottle or leaf.
+7.0–9.0 seconds: Hold a clean, motionless final product frame showing exactly the one bottle and the one leaf with the single visible serum bead. The hand remains fully outside the frame.
 
-AUDIO, TEXT, AND END STATE
-Silent: no dialogue, voice-over, ambience, music, or sound effects. No captions, subtitles, logos, labels, letters, numbers, watermarks, embossed marks, or UI. No reflected duplicate bottle, extra leaf, extra hand, additional pump action, extra liquid, liquid on the stone, or morphing.
+PHYSICS AND MATERIAL
+The glass has realistic thickness, restrained reflections, and no reflection shaped like a second bottle. The clear serum behaves as a slightly viscous liquid: one droplet forms, detaches, falls, contacts the leaf, and settles into one rounded bead. The leaf bends only imperceptibly at contact and does not slide. The stone remains dry everywhere except for the bead on the leaf.
 
-The final frame contains exactly one upright unbranded bottle and exactly one leaf bearing exactly one intact clear bead. The pump is at rest, the hand is fully outside frame, and nothing moves.
+LIGHT AND COLOR
+Soft diffused key light from upper-left, gentle neutral fill, subtle glass rim highlights, natural green leaf color, restrained warm-gray palette, clean premium skincare photography, realistic material response, no blown highlights.
+
+AUDIO
+No dialogue, voice-over, subtitles, or music. Only quiet studio ambience, one subtle pump click, and one delicate liquid-contact sound synchronized to the visible actions.
+
+FINAL STATE
+The final two seconds are stable and cut-ready: exactly one upright unbranded bottle at frame-left, exactly one leaf with exactly one serum bead at frame-right, no hand, no movement, and no visible text, logo, watermark-like mark, or graphic anywhere in the generated scene.
 ```
 
-Exact platform-neutral JSON—valid JSON, but intentionally not an endpoint request:
+## Exact platform-neutral JSON
+
+This is valid JSON and preserves unknown runtime fields without fabricating an endpoint payload:
 
 ```json
 {
-  "schema": "platform-neutral-shot-manifest",
-  "submission_ready": false,
-  "blocking_decision": "platform_and_surface",
-  "task": "generate",
-  "input_mode": "text_to_video",
+  "artifact_type": "platform_neutral_video_generation_manifest",
+  "primary_operation": "generate",
   "platform": null,
-  "model": {
-    "display_name": "Seedance 2.5",
-    "model_id": null
+  "displayed_model": "Seedance 2.5",
+  "model_id": null,
+  "input_mode": "text_to_video",
+  "duration_seconds": 9,
+  "aspect_ratio": null,
+  "prompt": "Generate one continuous 9-second photorealistic studio product shot with no cuts. Exactly one transparent, unbranded cylindrical glass pump bottle stands upright at frame-left on a matte pale-gray stone surface. It contains clear, colorless serum, and its single pump nozzle points toward frame-right. Exactly one fresh green leaf rests at frame-right beneath the nozzle's path. Exactly one clean adult hand appears during the action. Use a locked-off low three-quarter macro product composition with no camera shake, reframing, cuts, or focus hunting. From 0.0–1.5 seconds, establish the motionless bottle and leaf with the hand outside frame. From 1.5–3.2 seconds, one hand enters from upper-right and places its index finger on the pump without moving the bottle. From 3.2–4.5 seconds, the finger presses the pump straight downward exactly once through one complete compression; exactly one cohesive serum droplet forms and separates from the nozzle. From 4.5–6.5 seconds, the single droplet falls under gravity, lands once near the center of the leaf, and settles as one small glossy bead without splashing or dividing; the finger releases and the pump returns upward once. From 6.5–7.0 seconds, the hand withdraws completely through upper-right. From 7.0–9.0 seconds, hold a stable final frame containing exactly the one upright bottle and the one leaf with the single visible serum bead. Use soft diffused upper-left key light, gentle neutral fill, subtle glass rim highlights, natural green and warm-gray color, realistic glass thickness, restrained reflections, and premium skincare photography. No other bottles, leaves, hands, people, packaging, caps, props, labels, logos, lettering, readable text, duplicate reflections, extra liquid, second pump action, subtitles, dialogue, voice-over, or music. Use only quiet studio ambience, one subtle pump click, and one delicate synchronized liquid-contact sound. The final frame has no hand, movement, text, logo, watermark-like mark, or graphic.",
+  "references": [],
+  "audio_intent": {
+    "dialogue": false,
+    "subtitles": false,
+    "background_music": false,
+    "sound_effects": [
+      "one subtle pump click",
+      "one delicate liquid-contact sound"
+    ]
   },
-  "prompt": "Generate one continuous photorealistic studio product shot with a nine-second duration intent. Exactly one clear, colorless cylindrical glass pump bottle stands upright on matte warm-gray stone, left of center. It is completely unbranded: no label, logo, engraving, lettering, or numbers. It contains clear viscous serum and has one matte-black pump. The spout points frame-right. Exactly one fresh green leaf lies directly beneath the spout tip, right of center. Exactly one clean bare adult hand may appear; no face, person, or second hand. At 0.0 s the bottle and dry leaf are motionless and the hand is outside frame. Use a locked tripod three-quarter product close-up from slightly above, 85 mm macro feel, keeping the bottle, pump, nozzle, falling path, and leaf sharp. One continuous take with no camera movement, cut, or focus rack. 0.0–1.5 s: static hold. 1.5–3.0 s: one hand enters from frame-top and one index finger settles on the pump. 3.0–4.0 s: the finger makes exactly one slow complete downward stroke and holds the pump fully depressed; the bottle does not move. 4.0–5.2 s: exactly one cohesive clear drop forms, detaches, falls under gravity, and lands once near the center of the leaf, remaining as one glossy bead. No stream, spray, mist, splash, satellite droplets, bounce, or second emission. 5.2–6.4 s: the finger lifts once, the pump returns to rest once, and the hand exits without touching the bottle or leaf. 6.4–9.0 s: completely static final hero hold. Silent. No text, branding, UI, duplicate reflections, extra objects, extra pump actions, extra liquid, morphing, or camera movement. Final frame: exactly one upright unbranded bottle and exactly one leaf with exactly one intact clear bead; no hand and no text.",
-  "references": {
-    "active_images": [],
-    "active_image_count": 0,
-    "official_model_announcement_max_images": 30,
-    "selected_runtime_limit": null
-  },
-  "requested_delivery": {
-    "duration_seconds": 9,
-    "aspect_ratio": null,
-    "resolution_label": "4K",
-    "seed": 42,
-    "audio_intent": "silent",
-    "text_in_frame": false
-  },
-  "runtime_validation": {
-    "exact_nine_second_output": "unverified",
-    "resolution_4k_supported": "unverified",
-    "seed_parameter_supported": "unverified_for_selected_runtime",
-    "seed_determinism_guaranteed": false,
-    "separate_negative_prompt_field_supported": "unverified_and_intentionally_omitted",
-    "fixed_cost_usd": null,
+  "runtime_decisions": {
+    "resolution": {
+      "requested_value": "4k",
+      "submitted_value": null,
+      "status": "platform_dependent"
+    },
+    "negative_prompt": {
+      "requested_value": null,
+      "submitted_value": null,
+      "status": "field_unverified"
+    },
+    "seed": {
+      "requested_value": 42,
+      "submitted_value": null,
+      "status": "support_and_determinism_unverified"
+    },
+    "image_reference_count": {
+      "requested_value": 12,
+      "submitted_value": 0,
+      "status": "no_reference_assets_supplied_or_required"
+    },
+    "estimated_cost_usd": {
+      "requested_value": 0.1,
+      "submitted_value": null,
+      "status": "platform_and_usage_dependent"
+    },
     "first_pass_success_guaranteed": false
   }
 }
@@ -75,29 +106,11 @@ Exact platform-neutral JSON—valid JSON, but intentionally not an endpoint requ
 
 ## Acceptance checks
 
-- Delivered duration is 9.0 seconds.
-- Exactly one bottle and one leaf appear; at most one hand appears during the action.
-- One complete pump downstroke occurs—never two.
-- Exactly one cohesive drop leaves the nozzle and lands once on the sole leaf.
-- Bottle remains stationary; no spray, splash, extra drops, or duplicate reflection.
-- Camera remains locked; contact, trajectory, and landing stay visible and sharp.
-- Zero active references, since none were supplied.
-- Video is silent and contains no text or branding.
-- Final 2.6 seconds hold bottle, leaf, and one bead with no hand.
+- Exactly one bottle, one leaf, one hand, one pump compression, and one droplet.
+- Droplet visibly originates at the nozzle and lands on the leaf.
+- Bottle and leaf never shift or duplicate.
+- Hand is absent during the final two-second hold.
+- Final frame contains no text, label, logo, or graphic.
+- No second press, extra droplet, splash, cut, or camera movement.
 
-## Failure risks
-
-- Fine finger contact may produce malformed anatomy or an unintended second press.
-- Pump output may become a stream, split, or miss the leaf.
-- Glass reflections may resemble another bottle; random pseudo-branding may appear.
-- Timecoded beats are pacing instructions, not frame-accurate controls.
-- Platform-added watermarks and runtime delivery settings remain outside prompt control.
-
-## Revision ladder
-
-1. If the press repeats, change only the hand’s start state: begin with the finger already hovering above the pump. Keep all other variables fixed.
-2. If the drop splits or misses, change only the nozzle-to-leaf gap to an explicit short vertical distance. Keep camera, timing, bottle, and hand motion fixed.
-3. If the final hold drifts, change only temporal allocation by finishing the action earlier and lengthening the static hold.
-4. If the same press/drop defect survives the first two isolated tests, stop retrying and route the drop to a separate insert or controlled compositing pass.
-
-Blocking question: Which platform or API surface should the submission JSON target?
+The only blocker to executable endpoint JSON is the runtime choice: Dreamina UI, BytePlus LAS API, ModelArk API, or another provider.

@@ -1,22 +1,24 @@
 {
   "case_id": "negative-live-action-critique",
-  "case_sha256": "4d55c8e5bad163fd92b7939122143a9865cf87fddc7bd7c8eb0b08ea584e2622",
+  "case_sha256": "faff066fd0157ea5dff3deb1ed4ec987561e171f362189db2baa86b01cdea3ae",
   "rubric_sha256": "0d245f00fad973dd0960e2d0f9d8ba7941ec54fa1df15e21161b8920ef44e3fc",
   "host": "claude-code",
   "invocation_mode": "implicit",
   "expected_skill": null,
-  "base_prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings, meet at center, and the stronger performer keeps masking the other actor from the audience. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved.",
-  "effective_prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings, meet at center, and the stronger performer keeps masking the other actor from the audience. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved.",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
+  "base_prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings and meet at center, but the stronger performer accidentally blocks the other actor from the audience. Fix the masking and keep both actors visible. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved.",
+  "effective_prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings and meet at center, but the stronger performer accidentally blocks the other actor from the audience. Fix the masking and keep both actors visible. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved.",
   "sanitized_argv": [
     "claude",
     "-p",
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
-    "plan",
+    "dontAsk",
     "--setting-sources",
     "project",
     "--settings",
@@ -32,7 +34,7 @@
     "--output-format",
     "stream-json",
     "--verbose",
-    "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings, meet at center, and the stronger performer keeps masking the other actor from the audience. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved."
+    "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings and meet at center, but the stronger performer accidentally blocks the other actor from the audience. Fix the masking and keep both actors visible. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved."
   ],
-  "execution": "direct claude -p stream-json piped to sanitizer; collector does not invoke host"
+  "disabled_personal_skills": 0
 }

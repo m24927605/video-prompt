@@ -1,0 +1,9 @@
+{
+  "id": "person-and-example-reference-scope",
+  "title": "Person scope and structure-only example inheritance",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "explicit",
+  "locale": "zh-Hant",
+  "prompt": "建立一份 12 秒單一 clip 的 production-ready AI 影片 prompt。@Image 1 是女主完整人物參考，保留可見臉、髮型、身形、深綠長外套、黑靴與銀色墜飾，但不要繼承背景、姿勢、構圖、裁切或光線。@Image 2 只參考男主的臉與身份；男主在本片明確穿紅色救援制服，不要沿用圖片服裝。@Video 1 只參考提示詞的段落層級、控制深度與細節密度，不得繼承其故事、第一人稱 POV、鏡頭、風格、人物、素材、對白或結局。兩人在雨夜車站交換唯一一封信，最後信只在男主右手。"
+}

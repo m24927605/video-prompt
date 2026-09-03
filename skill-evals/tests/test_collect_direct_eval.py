@@ -28,13 +28,27 @@ class DirectCollectorTests(unittest.TestCase):
                     "seedance-film-producer",
                     "seedance-prompt-director",
                     "seedance-video-qc",
+                    "photography-aesthetics",
+                    "screenplay-writer",
                 ],
                 "skills": [
                     "seedance-film-producer",
                     "seedance-prompt-director",
                     "seedance-video-qc",
+                    "photography-aesthetics",
+                    "screenplay-writer",
                 ],
                 "model": "claude-fable-5",
+            }),
+            json.dumps({
+                "type": "assistant",
+                "message": {
+                    "content": [{
+                        "type": "tool_use",
+                        "name": "Read",
+                        "input": {"file_path": ".claude/skills/seedance-prompt-director/SKILL.md"},
+                    }],
+                },
             }),
             json.dumps({
                 "type": "assistant",
@@ -78,6 +92,14 @@ class DirectCollectorTests(unittest.TestCase):
             self.assertEqual((case_root / "final.md").read_text(encoding="utf-8"), "Production answer\n")
             self.assertEqual(run["model_evidence"]["actual_primary_model"], "claude-fable-5")
             self.assertEqual(run["workspace_digest"], inventory["digest"])
+            self.assertEqual(run["packaged_skills"], list(COLLECTOR.RUNNER.PACKAGED_SKILLS))
+            self.assertEqual(run["discovered_skills"], list(COLLECTOR.RUNNER.PACKAGED_SKILLS))
+            self.assertEqual(run["activated_skills"], ["seedance-prompt-director"])
+            self.assertEqual(
+                ["event[1] Read"],
+                run["activation_evidence_by_skill"]["seedance-prompt-director"],
+            )
+            self.assertEqual("high", run["requested_effort"])
             self.assertTrue((case_root / "native-evidence.md").is_file())
 
 

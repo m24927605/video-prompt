@@ -1,0 +1,9 @@
+{
+  "id": "continuation-observation-boundary",
+  "title": "Continuation distinguishes visible final-frame facts from unknown temporal state",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "implicit",
+  "locale": "en",
+  "prompt": "Draft a provider-neutral continuation prompt from a user-described final frame: an adult in a yellow coat stands frame left, holds a black umbrella, faces a glass door, and the wet pavement reflects blue light. The user did not provide the clip, audio, or playback metadata. Continue only after the source, preserve what the user actually reported, and state what cannot be known about motion, camera velocity, and sound phase. Do not invent a platform mode or turn the report into direct observation."
+}

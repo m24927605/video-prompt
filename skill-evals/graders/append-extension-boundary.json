@@ -1,0 +1,6 @@
+{
+  "case_id": "append-extension-boundary",
+  "must_cover": ["append after the source and describe only the added interval", "preserve the entire source interval", "reconstruct the last-frame action, orientation, camera, light and audio boundary", "same continuous person closes the door with the right hand", "end with the door shut and hand released", "one prompt only"],
+  "must_not": ["rewrite or edit the source", "replay the source ending as a new event", "describe a prepend", "add a full production packet"],
+  "critical_case_traps": ["wrong extension side", "source footage is modified", "missing final ownership/contact state"]
+}

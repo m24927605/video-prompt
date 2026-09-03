@@ -1,0 +1,107 @@
+{
+  "duration_api_ms": 45516,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.39368200000000003,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 12079,
+    "cache_read_input_tokens": 22211,
+    "output_tokens": 2573,
+    "output_tokens_details": {
+      "thinking_tokens": 1557
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 12079,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2024,
+        "cache_read_input_tokens": 10971,
+        "cache_creation_input_tokens": 4535,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4535
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 1051,
+      "outputTokens": 26,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.001181,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-fable-5": {
+      "inputTokens": 6,
+      "outputTokens": 2573,
+      "cacheReadInputTokens": 22211,
+      "cacheCreationInputTokens": 12079,
+      "webSearchRequests": 0,
+      "costUSD": 0.392501,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 1557,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "生成一段8秒的寫實單鏡頭影片。雨夜的城市公車站:畫面左側,一名成年女子站在公車站牌旁,身穿深綠色連帽雨衣,雨衣表面被雨水打濕、微微反光;她手中持著全片中唯一的一把紅色雨傘。站牌立在她身旁靠畫面左側,背景是濕亮的柏油路與遠處失焦的街燈,雨絲在燈光中清晰可見,路面積水映出燈光倒影。\n\n鏡頭:固定中景,機位不動,整段不推拉、不搖攝、不變焦,焦點始終落在女子身上。\n\n動作節奏:0至3秒,女子低頭合攏紅傘,傘布收攏、雨水沿傘面滑落,她把收好的傘握進右手,傘尖朝下;3至5秒,畫面右側框外傳來公車引擎由遠而近的聲音,伴隨輪胎壓過積水聲,右側路面漸漸映上車頭燈的光;5至8秒,她聽見聲音後抬起頭,視線轉向畫面右側框外的來車方向,肩膀微微轉正,身體仍留在站牌旁,不移步。\n\n物理:雨持續落下,打在雨衣帽沿與傘面上濺起細小水花;收傘時傘骨帶動傘布自然垂落,殘留水珠因慣性甩落。\n\n聲音:持續的雨聲與夜間城市環境音,公車引擎聲從畫面右側由弱漸強;無對白、無旁白、無背景音樂、無字幕。\n\n全片自始至終只有這一名女子與這一把紅傘;公車不進入畫面,不出現其他行人、車輛或雨傘。\n\n結束畫面:女子仍站在站牌旁原位,右手握著收攏的紅傘、傘尖朝下,頭部抬起、目光望向畫面右側,雨仍在下,鏡頭維持原機位中景。",
+  "ttft_ms": 2844,
+  "type": "result",
+  "duration_ms": 44545,
+  "ttft_stream_ms": 1746,
+  "time_to_request_ms": 34,
+  "queued_turn_count": 0
+}

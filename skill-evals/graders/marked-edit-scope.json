@@ -1,0 +1,6 @@
+{
+  "case_id": "marked-edit-scope",
+  "must_cover": ["Video 1 is the sole edit master", "red-box and blue-arrow annotation identifies but does not guarantee provider mark support", "blue mug to white ceramic vase A-to-B change only from 4 to 7 seconds", "same position and scale with perspective, occlusion, contact shadow and reflection integration", "complete preserve list and no changes outside the interval", "platform behavior remains unknown"],
+  "must_not": ["global regeneration", "assume a named provider UI or mark-reading feature", "change people, hands, other props, camera, light, grade or sound"],
+  "critical_case_traps": ["edit spills outside target or interval", "invented provider capability", "source master is not protected"]
+}

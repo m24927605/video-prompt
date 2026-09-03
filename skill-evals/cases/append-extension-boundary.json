@@ -1,0 +1,9 @@
+{
+  "id": "append-extension-boundary",
+  "title": "Explicit append preserves the source interval",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "implicit",
+  "locale": "zh-Hant",
+  "prompt": "在 @Video 1 原片之後追加 5 秒，只描述新增片段：承接原片最後一幀中人物的步伐、朝向、機位移動、走廊光線與環境聲；同一名人物走到門前，用右手關門，最後門完全關上且人物已放開門把。原片不得修改或重演。只要一份最終 prompt。"
+}

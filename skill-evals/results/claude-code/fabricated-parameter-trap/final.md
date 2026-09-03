@@ -1,133 +1,125 @@
-I've read all four reference files. Everything I need is in hand, so here's the deliverable. One skipped step to report: this session exposes no write/plan tools, so nothing was written to a plan file — the artifact below is text only and changes nothing on disk.
+The plan file can't be written — the Write tool is disabled this session, and no plan/exit tooling is available. Since this task is pure text authoring (no files change, no state is touched), I'll deliver the result directly.
 
-**Up front:** I can't adopt the assumptions you listed or fill uncertain fields with "most common" values. The skill's references explicitly forbid inventing a `negative_prompt` field, reference counts, seed determinism, resolution, cost, or success guarantees, and forbid picking a platform just to make JSON pasteable (`prompt-schema.md:20`, `reference-motion-audio.md:105`, PD-15). What you get instead is the complete prompt plus a decision manifest; the endpoint JSON is a one-step follow-up once you name the runtime.
+**The short version first:** I can give you the production-ready prompt now, but I cannot give you the "exact JSON" as specified, because every runtime value you asked me to assume is unverified or false, and the platform is undecided. Adopting them would violate the skill's hard rules ([PD-15], invariant 6). Here is what each assumption actually is:
+
+| Requested assumption | Status |
+|---|---|
+| Seedance 2.5 `negative_prompt` field | Unverified — no evidence this field exists; not emitted |
+| Exactly 12 image references | Unverified limit — and irrelevant here: you supplied zero references, so this is a text-to-video generate task |
+| Seed 42 = deterministic | Seed determinism is not a documented guarantee; unknown |
+| 4K output | Unverified resolution tier for this model; unknown |
+| Fixed $0.10 cost | Pricing unknown (my archive date is 2026-08-22; prices change) |
+| Guaranteed first-pass success | No generation is guaranteed; never claimed |
+
+"Use the most common value" is exactly the failure mode the skill exists to prevent: pasteable-but-wrong JSON fails at the endpoint or silently produces the wrong thing. Below is the full production packet with a platform-neutral prompt and a parameter manifest; the one blocking question is at the end.
 
 ---
 
 ## 1. Input basis
 
-| Item | Value |
-|---|---|
-| Task | Text-to-video **generation**, single shot, no references supplied. (If you have an approved bottle asset, it becomes a reference task with one `@Image 1 = bottle identity only` binding.) |
-| Platform / model / model ID | **Undecided** — unknown. Input mode: text only. |
-| Verification | Archive date 2026-08-22. No live documentation check was possible in this session, so runtime parameters are marked unknown, not filled. |
-| Assumptions (labeled) | Horizontal 16:9 composition; clear serum-like liquid; brushed-metal pump; dark slate; hand casting/skin tone unspecified; generated audio is a scaffold replaced in post; "9 s" is duration intent, not a verified value. |
+- **Task:** single-shot text-to-video **generate**. No reference images supplied, so no reference mapping block.
+- **Platform/model:** undecided (your statement). All runtime parameters are therefore **unknown**, not defaulted.
+- **Assumption (labeled):** "9 seconds" is treated as **duration intent** / semantic pacing. Whether the chosen runtime accepts 9s as a literal parameter value is unknown.
+- **Verified parameters:** none. Archive date 2026-08-22; nothing below asserts a current capability.
 
-**Requested assumptions — status:**
-
-| Requested | Status | Evidence class |
-|---|---|---|
-| `negative_prompt` field always supported | Not documented in the archived ModelArk 2.5 request schema; other platforms unknown. Bans are carried in prompt text, the documented control style (`No subtitles` / `No BGM`). | Official fact at 2026-08-22, ModelArk only |
-| Exactly 12 image references | No documented requirement anywhere. Archived ModelArk ceilings were 30 img / 10 vid / 10 audio / 50 total with smaller working ranges recommended. This shot needs **0** references; a count is not a quality target. | Official fact at archive date, ModelArk only |
-| Deterministic seed 42 | Unknown whether the runtime exposes a seed; determinism is not documented. If exposed, record it as a reproducibility aid only. | Unknown |
-| 4K output | Unknown; resolution options are runtime-specific. Verify decoded dimensions of the file, not the UI badge. | Unknown |
-| Fixed $0.10 cost | Unknown; runtime- and date-specific. | Unknown |
-| Guaranteed first-pass success | Not available. Official launch material lists complex physics as a weak area; plan on the ladder in §5. | Official limitation |
-
-**Parameter manifest (platform-neutral — not a request body):**
-
-| Decision | Value used in this prompt | Status |
-|---|---|---|
-| Runtime / model | — | **Blocking for JSON** |
-| Task hint / verb | `Generate` (text generation) | Set only on the actual surface |
-| Aspect | 16:9 assumed | Decide; vertical needs a restack (see ladder rung 5) |
-| Duration | ~9 s intent | Confirm the runtime's allowed values |
-| Resolution | — | Unknown; pick the highest the runtime documents, verify decoded size |
-| Seed | — | Unknown whether exposed |
-| References | 0 | Runtime limits unknown; none needed |
-| Audio | No dialogue / no BGM in prompt text | Whether the runtime generates audio at all: unknown |
-| Negative-prompt field | Not used; bans are in prompt text | Not documented at archive date |
-| Cost | — | Unknown |
-
-## 2. Final prompt
+## 2. Final prompt (platform-neutral, paste into the prompt field of whatever runtime you choose)
 
 ```text
 [TASK AND INTENT]
-Generate a single continuous macro product shot: one unbranded glass pump bottle on dark slate; one hand presses the pump once; one clear drop falls from the nozzle onto one green leaf and beads there; the hand leaves; the shot ends holding on the bottle and the leaf, with no text anywhere.
+Generate one continuous product shot, approximately 9 seconds: a single pump
+press releases one drop of clear liquid that lands on a leaf. Calm, premium,
+skincare-commercial tone. No cuts.
 
 [EXACT ENTITIES]
-Exactly one bottle: clear glass, cylindrical, about 12 cm tall, completely bare smooth surface — no label, no printing, no embossing, no sticker; the slate is visible through the glass. Brushed-metal pump head with a short nozzle pointing frame-right. Filled three-quarters with clear, colourless, slightly viscous liquid; the liquid level is visible and still.
-Exactly one leaf: fresh green, matte waxy surface with visible veins, about two-thirds of the bottle's height in length, lying flat on the stone.
-Exactly one hand: adult, bare, short clean unpolished nails, no rings, watch, or sleeve in frame. Only the fingers and the back of the hand are ever visible; the rest of the person stays out of frame.
-Exactly one drop.
-No other objects. No second bottle, and no reflection that reads as a second bottle.
+Exactly one clear glass pump bottle, completely unbranded: no label, no
+engraving, no logo, no printed text anywhere on the bottle or cap. Bottle
+contains a clear liquid. Exactly one adult human hand (right hand). Exactly
+one fresh green leaf. No other objects, people, or text.
 
 [LOCATION AND SPATIAL MAP]
-Surface: a dark grey slate slab with a fine matte grain, filling the frame from the bottom edge to the mid-line. Background: plain, dark, out of focus, empty.
-The bottle stands at frame-centre-left, base on the slate, nozzle pointing frame-right.
-The leaf lies flat on the slate immediately frame-right of the bottle base, its centre directly below the nozzle tip. The leaf's centre is the drop's landing point; the drop falls roughly the height of the bottle.
-The hand enters and exits through the top-left edge of frame, above and behind the pump head, never passing between the nozzle and the leaf.
+A flat, matte gray stone slab fills the bottom of frame. The bottle stands
+slightly frame-left of center. The leaf lies on the stone frame-right of the
+bottle, in the foreground, its surface angled slightly up toward the pump
+spout. The hand enters from frame-right, above the leaf. Background: soft,
+dark, out-of-focus neutral studio falloff. Nothing else enters frame.
 
-[FIRST FRAME]
-Bottle and leaf already in place and still. No hand in frame. Pump head at rest. No drop on the nozzle or on the leaf.
+[FIRST FRAME AND BLOCKING]
+First frame: bottle and leaf already in place on the stone, no hand visible.
+Bottle in sharp focus; leaf soft but readable.
 
-[CAMERA]
-Locked-off camera on a tripod: no push-in, no drift, no zoom, no parallax. Medium close-up, camera slightly above slate level looking across the surface, so the bottle's full height and the leaf are both in frame. Macro lens feel with shallow depth of field; focus held on the plane of the nozzle tip and the leaf; the background stays soft.
+[OPTICS AND CAMERA]
+Macro product framing, camera at bottle mid-height, slight downward angle.
+One move only: a very slow, smooth push-in toward the bottle and leaf across
+the whole shot. Focus stays on the bottle spout, then eases to the leaf as
+the drop falls. No pans, no cuts, no speed ramps.
 
-[ACTION BEATS — semantic pacing, about 9 s]
-0–2 s: Hold on the still setup.
-2–4 s: The hand enters from top-left; the index finger settles on top of the pump head and presses once, smoothly. The pump head travels down about 1 cm and springs back up as the finger eases off. The bottle stays planted and does not tilt or slide.
-4–6.5 s: One clear drop forms at the nozzle tip, swells, detaches, and falls straight down under gravity onto the upper surface of the leaf near its centre. The leaf blade dips slightly on impact and settles. The drop beads into a single dome that holds its shape and catches a highlight.
-6.5–8 s: The hand lifts away and exits through the top-left edge. The pump head is back at rest. Bottle, liquid level, and leaf position are unchanged.
-8–9 s: Hold. Nothing moves.
+[TIMECODED ACTION BEATS] (semantic pacing, not frame-accurate)
+0–2s  Still life holds: bottle and leaf on stone, no motion but a faint
+      shimmer of light on the glass.
+2–4s  The hand enters from frame-right, settles two fingers on the pump head.
+4–6s  The fingers press the pump down exactly once — one visible downward
+      travel, one spring-back return. A single drop forms at the spout tip.
+6–8s  The drop detaches, falls under gravity, and lands on the leaf: the
+      leaf flexes slightly, the drop settles into one rounded bead. The hand
+      withdraws frame-right and fully exits.
+8–9s  Static hold: bottle, leaf with one water bead, empty stone. Cut-ready.
 
 [PHYSICS]
-Contact: fingertip on the pump head from above — one press, one release. Material: the metal pump head depresses and returns; the liquid is slightly viscous, so the drop swells slowly before detaching, then falls quickly. Result: exactly one drop lands on the leaf and beads rather than spreading. No splash, no spray, no stream, no second drop; nothing lands on the stone.
+Pump: firm fingertip contact, short vertical travel, spring return. Drop:
+grows at the spout, detaches cleanly, falls straight down, lands with a
+tiny soft impact — no splash spray, no secondary droplets. Leaf: dips a few
+millimeters under the impact and rebounds. Bead: holds as one convex drop
+with a bright specular highlight. Glass refracts the background; stone stays
+matte and dry except where the leaf lies.
 
-[LIGHT, COLOUR, MATERIAL]
-One soft key from above and behind on frame-right (large soft source), rimming the glass edges and backlighting the drop; soft fill from frame-left front. The glass shows refraction of the slate through it and thin edge highlights. Palette: dark grey slate, clear glass, one green leaf, brushed metal — no other colours. Light does not change during the shot.
+[LIGHT, COLOR, MATERIAL]
+One soft key from upper frame-left, gentle fill; a thin rim highlight down
+the bottle's left edge. Palette: cool gray stone, clear glass, deep green
+leaf, neutral background. Lighting does not change during the shot.
 
 [AUDIO]
-No dialogue, no voice-over, no music, no subtitles. If sound is generated: one soft pump press and release, a faint drop contact, quiet room tone, and nothing else.
+No dialogue, no music, no subtitles. Quiet room tone only; a soft pump click
+and a faint drop-landing tick are acceptable, nothing else.
 
-[STYLE]
-Photoreal premium skincare product photography; natural materials; clean and quiet.
-
-[CONSTRAINTS]
-No text, letters, numbers, logos, labels, watermarks, captions, or end card in any frame. No second bottle, leaf, hand, or drop. The hand is not in the final frame. The camera does not move.
+[POSITIVE CONSTRAINTS]
+Exactly one bottle, one hand, one press, one drop, one leaf, for the entire
+shot. No text, captions, labels, logos, or watermarks anywhere in frame at
+any time. No second hand or reflection of a person. No extra drops or drips.
 
 [END STATE]
-Final frame: one bottle at frame-centre-left, pump head at rest, liquid level unchanged; one leaf at frame-right with one beaded drop on it; no hand; no text; camera still. Cut-ready hold.
+Final frame: bottle upright and sharp frame-left, leaf frame-right carrying
+one settled water bead, hand fully out of frame, camera at rest at the end
+of its push-in, no text on screen. Frame holds steady so it can be cut on.
 ```
 
-If your UI has a short prompt field, flatten the blocks into prose but keep: the counts, the spatial map, the beats, the bans, and the end state.
+## 3. Acceptance checks (yes/no on the output)
 
-## 3. Acceptance checks
+1. Exactly one bottle, one leaf, one hand — never a duplicate, never a second hand.
+2. Zero text/labels/watermarks in any frame, including on the glass.
+3. The pump visibly depresses and returns exactly once.
+4. Exactly one drop falls and lands **on the leaf**, not the stone.
+5. The hand fully exits before the final hold.
+6. The final ~1s is a steady, cut-ready hold on bottle + leaf.
+7. One continuous shot, one slow push-in, no cuts.
 
-- **Entities:** exactly one bottle, one leaf, one hand (five fingers), one drop, in every frame where each is present. No second bottle or reflection-copy.
-- **Text:** no label, printing, embossing, on-screen text, watermark, subtitle, or end card in any frame — scrub the last second specifically.
-- **Action/physics:** pump head visibly depresses once and returns; the drop emerges from the nozzle tip (not from nowhere), falls, lands on the leaf, and stays as one bead; nothing on the stone; bottle doesn't tilt or slide.
-- **Hand:** enters top-left, exits top-left, never crosses the nozzle-to-leaf path, absent in the final frame.
-- **Camera:** no drift, push, zoom, or focus breathing across the full clip.
-- **Light:** no change in key direction or intensity.
-- **Audio (if generated):** no speech, no music; check the actual audio track, not the playback icon.
-- **End state:** final ~1 s is static with bottle + leaf + bead.
-- **Runtime:** read actual duration, decoded dimensions, and audio channels from the file, not from the request or the badge.
+## 4. Failure risks (no success guarantee)
 
-## 4. Failure risks (no guarantee)
+- **Label hallucination**: models often invent text on product glass; check #2 first.
+- **Multiple drops / drips**: the most likely count violation.
+- **Pump press not legible**: press may render as a vague hand hover.
+- **Hand anatomy drift** during entry/exit.
+- **Camera fighting action**: push-in may accelerate during the drop fall.
 
-- Hallucinated label/text on the bare bottle or an end card — the most common product-shot defect.
-- Finger anatomy, hand merging with the pump head, hand lingering into the final frame.
-- Drop defects: a stream instead of a drop, multiple drops, drop missing the leaf, pump not visibly moving.
-- Count/identity drift: second leaf, bottle geometry changing while the hand occludes it.
-- Camera drifting or auto-pushing despite "locked".
-- Output duration ≠ 9 s, or 9 s not an allowed value on the runtime.
-- Music generated despite "no music".
-- Requested resolution ≠ decoded dimensions.
+## 5. Revision ladder (one variable per retry)
 
-## 5. Revision ladder (prospective, untested — one variable per rung)
+1. Extra text appears → strengthen only the ban: "the glass surface is perfectly smooth and blank." Stop after 2 tries; then plan a clean-plate edit pass.
+2. Multiple drops → change only the drop beat: "a single drop; the spout stays dry afterward."
+3. Press illegible → change only the physics block: name knuckle bend and pump-head travel distance.
+4. If two variables fail together, split into two shots (press shot; drop-landing macro) rather than stacking fixes.
+5. Once you have generated output to judge, route diagnosis to `/seedance-video-qc` instead of blind re-prompting.
 
-1. **Text/label appears** → change only the bottle wording (expand the positive bare-glass description; keep bans). Hold everything else. Stop after one isolated retry → supply one canonical bottle image as `@Image 1 = bottle identity only` (re-verify the runtime's reference roles), or remove in post.
-2. **Hand artifacts / hand in final frame** → change only the hand block: fingertip and first two knuckles only, entering from the top edge. Stop if it recurs → split into shot A (press) and shot B (drop macro, no hand), or use a first-frame image of the finger on the pump.
-3. **Drop fails** → change only the beat/physics block: lengthen the drop beat to 4–7 s and remove the finger-ease micro-action. Camera stays locked. Stop if it recurs → separate macro insert or VFX drop composite.
-4. **Camera drifts** → change only the camera wording. Stop → stabilize/crop in post.
-5. **Wrong duration/aspect** → change only the runtime parameter, never the prompt timings; for vertical delivery, restack once: bottle upper-centre, leaf lower-right. Stop → conform in post (trim or hold final frame).
-6. **Upgrade after all checks pass** → change only camera to one slow push-in across the whole shot, ending tighter on leaf and bottle base; accept only if the drop beat still passes.
+## 6. Parameter manifest — decisions your chosen runtime must supply
 
-Global stop: the same hard defect after two isolated relevant changes → route, don't stack more bans.
+To turn this into endpoint JSON, the platform's current docs must supply: model ID, duration field and whether 9s is a legal value, resolution options, aspect ratio, seed field semantics, any negative-prompt or reference-count support, and current pricing. None of these can be guessed safely.
 
----
-
-**Recap:** Delivered a complete platform-neutral shot contract (prompt, acceptance checks, risks, ladder) for the 9-second bottle/drop/leaf shot, needing zero references. I declined the six requested assumptions because none is documented and the skill forbids inventing them; each is tracked as unknown in the manifest rather than filled with a guessed value.
-
-**One blocking question for the JSON:** which runtime will you submit to — platform, the model label it displays, and the model ID if it exposes one? With that, I'll check its current documented parameters (duration values, aspect, resolution, seed, audio, limits, pricing) and emit the request JSON. Non-blocking: confirm 16:9, and whether you have an approved bottle asset.
+**The one blocking question:** which platform/endpoint will you run this on (e.g., ModelArk API, a first-party Seedance UI, or a third-party host)? Tell me that, and I'll verify its current parameters and produce the exact JSON against the real schema — with the prompt above dropped in unchanged.

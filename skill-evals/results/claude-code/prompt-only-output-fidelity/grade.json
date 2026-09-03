@@ -1,0 +1,32 @@
+{
+  "case_id": "prompt-only-output-fidelity",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 21,
+    "task_completeness": 29,
+    "evidence_discipline": 18,
+    "language_scope": 6
+  },
+  "total": 84,
+  "verdict": "FAIL",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "run.json: implicit seedance-prompt-director activation is verified; paid_media_tool_events is empty.",
+    "final.md's central prompt correctly includes one woman, one red umbrella, frame-left bus-stop blocking, fixed medium camera, right-side bus audio trigger, and the required final right-hand ownership.",
+    "final.md does not invent resolution/aspect settings and keeps the platform unspecified.",
+    "final.md nevertheless adds a preface, horizontal separators, and a post-prompt supplemental paragraph even though the user explicitly requested only one final prompt and prohibited analysis/preface/extras."
+  ],
+  "rationale": "The embedded prompt is strong, but output-shape fidelity is a material requirement in this case. The explicit preface and supplement violate the narrow one-artifact contract, putting the case below the 90 threshold.",
+  "activation_evidence": "native-evidence.md records seedance-prompt-director activation at event[7] Skill and event[18] Read.",
+  "unknowns": [
+    "Selected platform/runtime parameters remain intentionally unknown."
+  ],
+  "grader": {
+    "role": "fresh-context adversarial reviewer",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

@@ -3,31 +3,30 @@
   "host": "claude-code",
   "lane_scores": {
     "activation_routing": 10,
-    "production_usability": 25,
-    "task_completeness": 35,
-    "evidence_discipline": 20,
+    "production_usability": 7,
+    "task_completeness": 10,
+    "evidence_discipline": 18,
     "language_scope": 10
   },
-  "total": 100,
-  "verdict": "PASS",
+  "total": 55,
+  "verdict": "FAIL",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1 explicitly identifies straight stage blocking and declines Seedance/AI-video tooling.",
-    "final.md:5-16 diagnoses the center masking as shared-sightline/downstage geometry and fixes it with level paired spikes, arm's-length separation and 45-degree open-quarter cheating.",
-    "final.md:18-24 gives practical actor notes, counter behavior and center/extreme-side-seat sightline checks rather than an AI prompt or generated-video rubric.",
-    "final.md:26-31 gives a concise rehearsal sequence: half-speed marks, pace with side-seat cover calls, one adjustment, two clean runs and prompt-book lock.",
-    "native-evidence.md:7-17 records expected skill none, no activation and complete native discoverability; run.json:75-85 records exit_code 0, empty activation_evidence, research absent and no paid media events."
+    "run.json and native-evidence.md: no packaged skill activated, so the live-theatre task was not misrouted to Seedance; paid_media_tool_events is empty.",
+    "grader.json requires solving the center-stage masking problem and giving practical sightline fixes.",
+    "final.md instead reframes the problem as 'center-stage cross with deliberate masking' and instructs the stronger actor to take downstage position while the other actor hides directly behind them.",
+    "final.md's sightline checks optimize concealment rather than restoring audience visibility to the masked actor."
   ],
-  "rationale": "The unrelated live-theatre task remains ordinary and directly solves masking with practical marks, sightlines and rehearsal calls. Native evidence proves the Seedance suite was available but not invoked. 'Prompt book' is the theatre stage manager's record in context, not an AI prompt. No critical misrouting is present.",
-  "activation_evidence": "Verified correct non-activation: native-evidence.md:7-17 lists all three discoverable skills but no activation event; run.json:81 records an empty activation_evidence array.",
+  "rationale": "Routing is correct, but the response reverses the core directing problem: it teaches how to intensify the masking that the prompt asked to fix. The polished rehearsal notes are therefore not production-usable for the intended task.",
+  "activation_evidence": "native-evidence.md records expected skill none and activated packaged skills none.",
   "unknowns": [
-    "The response explicitly assumes an end-on/proscenium house; thrust or in-the-round blocking would require the offered rotation-based rework."
+    "The intended staging may permit momentary masking, but the grader contract explicitly requires solving masking at center, which this answer does not do."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "fresh-context adversarial reviewer",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

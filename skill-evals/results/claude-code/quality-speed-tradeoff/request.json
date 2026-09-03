@@ -5,6 +5,8 @@
   "host": "claude-code",
   "invocation_mode": "implicit",
   "expected_skill": "seedance-film-producer",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "We have ten days to deliver a 12-minute AI-film festival pilot. It has two hero dialogue scenes, one difficult vehicle crash, and many low-risk establishing and insert shots. Compare a quality-max workflow, a speed-max-with-quality-floor workflow, and a recommended hybrid. Give hard floors, which shots run in parallel or serially, retry/route ceilings, post-production responsibilities, and measurable KPIs. We have not run a controlled benchmark, so distinguish policy from proven performance and do not invent costs or success rates.",
   "effective_prompt": "We have ten days to deliver a 12-minute AI-film festival pilot. It has two hero dialogue scenes, one difficult vehicle crash, and many low-risk establishing and insert shots. Compare a quality-max workflow, a speed-max-with-quality-floor workflow, and a recommended hybrid. Give hard floors, which shots run in parallel or serially, retry/route ceilings, post-production responsibilities, and measurable KPIs. We have not run a controlled benchmark, so distinguish policy from proven performance and do not invent costs or success rates.",
   "sanitized_argv": [
@@ -13,7 +15,7 @@
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
     "plan",
@@ -34,5 +36,5 @@
     "--verbose",
     "We have ten days to deliver a 12-minute AI-film festival pilot. It has two hero dialogue scenes, one difficult vehicle crash, and many low-risk establishing and insert shots. Compare a quality-max workflow, a speed-max-with-quality-floor workflow, and a recommended hybrid. Give hard floors, which shots run in parallel or serially, retry/route ceilings, post-production responsibilities, and measurable KPIs. We have not run a controlled benchmark, so distinguish policy from proven performance and do not invent costs or success rates."
   ],
-  "execution": "direct claude -p stream-json piped to sanitizer; collector does not invoke host"
+  "disabled_personal_skills": 0
 }

@@ -13,23 +13,18 @@
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1 explicitly diagnoses the competing 360-degree orbit, push-in and crane move as action-visibility overload and selects a fixed-camera action master.",
-    "final.md:17-29 preserves exactly two fighters and the complete causal chain: wrist grab, hip-led escape, hand separation, one shoulder contact, exactly two recovery slides without falling, and a held face-off.",
-    "final.md:23-31 describes grip escape, ground impulse, contact-before-response, wet-cloth compression/rebound, inertia, friction recovery and final balance as observable physics rather than a success promise.",
-    "final.md:38-47 supplies acceptance gates for entity count, exact limbs/contact order, two-step count, wet materials, camera readability, audio contingency and final state.",
-    "final.md:56-66 gives a bounded one-change ladder and explicitly routes persistent failures to a diagram, isolated full-body shot, insert/VFX, or three-shot edit instead of longer prose.",
-    "native-evidence.md:5-10 records explicit $seedance-prompt-director invocation and routed-reference reads; run.json:9-18 records a successful isolated run with research absent and no paid media events."
+    "final.md:3-11 labels runtime unknown, identifies overload, and removes 360/push/overhead competition in favor of one small arc.",
+    "final.md:15-52 preserves both fighters, wrist grab, hip escape, shoulder contact, exactly two slides, final face-off, and contact/force/inertia/friction/heavy-clothing physics.",
+    "final.md:55-83 supplies observable checks and bounded locked-camera, diagram/keyframe, post-freeze, or split routes without guarantees.",
+    "native-evidence.md:11-12 verifies Prompt Director; run.json records no paid generation."
   ],
-  "rationale": "The response actively resolves rather than preserves the overloaded camera request. Its final prompt keeps every required combat beat and endpoint while making contact, force, inertia, friction and clothing response testable. The recovery ladder isolates variables and has clear route/stop behavior; no physical success is guaranteed. It is production-usable Simplified Chinese and contains no critical trap.",
-  "activation_evidence": "Verified explicit activation: native-evidence.md:5-10 and run.json:11-13 record $seedance-prompt-director and the corresponding skill/reference reads.",
-  "unknowns": [
-    "The platform/model and its audio support remain unknown, as the artifact explicitly states.",
-    "The proposed shot architecture is ungenerated and therefore not claimed as a validated success."
-  ],
+  "rationale": "The action remains complete while camera overload is simplified, physics is causal, and revisions are bounded and input/post-aware.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
+  "unknowns": [],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

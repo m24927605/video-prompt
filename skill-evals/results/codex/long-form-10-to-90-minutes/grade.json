@@ -13,26 +13,21 @@
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1-3 explicitly makes external bible/state/manifest/ledger/editorial lineage the memory system and rejects both a giant prompt and extension as the feature-film backbone.",
-    "final.md:37-90 provides Film/Sequence/Scene/Beat/Shot decomposition, eight sequences, a scene-to-beat-to-shot example and risk-based coverage rather than claiming a 75-minute generation.",
-    "final.md:92-158 defines identity/voice/behavior/wardrobe/injury/vehicle/location/prop/look/sound/rights passports, immutable weather/clothing/damage versions, three continuity stores and approved-only state commits.",
-    "final.md:160-303 defines a full shot manifest, exact-version/hash dependency queue, serial versus parallel work, naming, parent runs, one-change retry lineage, select in/out, post transforms and model-change branches.",
-    "final.md:305-335 declares hybrid/A-B-C ratios and retry ceilings as untested initial policy, imposes finite repeated-defect stops, keeps extension depth bounded and gives edit/VFX/3D/ADR/HOLD routes.",
-    "final.md:337-375 supplies gates/checkpoints through archive plus dependency-aware rollback that never overwrites earlier checkpoints.",
-    "final.md:377-430 starts with animatic/blocking/rough-cut evidence, derives pickup tickets from edit gaps, and covers VFX, conform, color, dialogue/ADR, foley/SFX, music, mix, subtitles, mastering, archive and independent final QC.",
-    "final.md:432-468 defines actual-ledger first-pass approval, retries, usable seconds/hour, cost per approved/in-cut second, human correction, continuity, pickup and master KPIs, and reiterates that no media generation or proven optimum exists.",
-    "native-evidence.md:5-10 records explicit $seedance-film-producer invocation plus all routed reference reads; run.json:8-18 records a successful isolated run with research absent and no paid media events."
+    "final.md:26-68 scopes current 2.5 official claims as conditional, gates actual surface facts, and marks Hybrid/retry allocation untested pending a pilot.",
+    "final.md:70-170 provides Film/Sequence/Scene/Beat/Shot decomposition, bible/passports, state arcs, continuity stores, and rejects rejected-frame promotion.",
+    "final.md:172-340 defines manifest, dependencies, versions, selection/retry lineage, pilot, unknown numeric generation ceiling, bounded extension, and failure routes.",
+    "final.md:345-481 covers rough cut/pickups, VFX/color/sound/ADR/music/subtitles/mastering, QC, checkpoints/rollback, and ledger-only KPIs.",
+    "native-evidence.md:11-12 verifies Film Producer; run.json records no paid generation."
   ],
-  "rationale": "This is a complete production operating system, not a request to render a 75-minute film. It covers every evaluator-only requirement with mutually consistent state, dependency, lineage, editorial, finishing, QC, checkpoint and KPI contracts. The giant-prompt/extension traps are explicitly rejected and every proposed ratio or ceiling is labeled prospective policy. No critical failure is present.",
-  "activation_evidence": "Verified explicit activation: native-evidence.md:5-10 and run.json:11-13 record native $seedance-film-producer invocation and reads of SKILL.md plus all four routed references.",
+  "rationale": "The full long-form system is layered, recoverable, explicitly untested, and avoids giant prompts, unlimited extensions, invented generation counts/budgets/success rates, or raw-generation-equals-film claims.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
   "unknowns": [
-    "Actual platform/model capabilities, budget, schedule, delivery spec and rights remain Gate-0 unknowns.",
-    "Shot counts, A/B/C allocation, ceilings, throughput, cost and success rates are provisional until an explicitly authorized pilot produces ledger evidence."
+    "Actual platform, model ID, rights, delivery, budget, and numeric generation ceilings remain correctly blocked pending preflight/pilot."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

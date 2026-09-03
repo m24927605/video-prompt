@@ -1,0 +1,107 @@
+{
+  "duration_api_ms": 118605,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.850892,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 21921,
+    "cache_read_input_tokens": 70735,
+    "output_tokens": 6809,
+    "output_tokens_details": {
+      "thinking_tokens": 1970
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 21921,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2568,
+        "cache_read_input_tokens": 23441,
+        "cache_creation_input_tokens": 1907,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1907
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 1082,
+      "outputTokens": 21,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0011870000000000001,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-fable-5": {
+      "inputTokens": 10,
+      "outputTokens": 6809,
+      "cacheReadInputTokens": 70735,
+      "cacheCreationInputTokens": 21921,
+      "webSearchRequests": 0,
+      "costUSD": 0.8497049999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 1970,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Write 工具在本次 session 被停用,無法建立計畫檔;由於這份交付是純文字(不修改任何檔案或系統狀態),我直接在此依 seedance-prompt-director 規範交付完整成果。\n\n以下是平台中立的影片局部編輯 prompt 完整包(production packet)。\n\n---\n\n## 1. Input basis(輸入依據)\n\n- **任務類型**:edit(單一主操作;唯一 master 為 @Video 1)。\n- **平台/模型**:未指定 → 本 prompt 為平台中立。所有 runtime 參數(長寬比、解析度、時長欄位、任務提示欄位、遮罩上傳方式等)一律**不填寫、不發明**,待選定平台後依其現行官方文件補上。\n- **標記假設**:紅色方框與藍色箭頭僅是「向人類說明意圖區域」的註記;**不假設任何平台能讀取畫面上的標記**,因此 prompt 內同時以語言完整描述目標物。若所選平台支援標註式編輯(marked edit),此 prompt 可直接沿用;若不支援,語言描述本身已足以定位目標。\n- **未知項**:原片是否在 4 秒前或 7 秒後也出現該馬克杯(未提供影片內容細節);以使用者規格為準——僅 4–7 秒替換。\n\n## 2. Final prompt(可直接貼用)\n\n```text\n[任務]\n編輯 @Video 1。@Video 1 是唯一 master 影片。只執行一項修改:在第 4 秒至第 7 秒之間,\n把桌面上那一個藍色馬克杯替換為一個白色陶瓷花瓶。除此之外不做任何其他修改。\n\n[目標物定位]\n目標物是畫面中唯一的藍色馬克杯,位於桌面上(即參考標註中紅色方框框選、藍色箭頭\n指向的那一個物件)。紅框與箭頭僅用於說明編輯區域,不是畫面內容;最終輸出畫面中\n不得出現紅色方框、藍色箭頭或任何標註圖形。\n\n[替換規格 A→B]\n白色陶瓷花瓶精確佔據藍色馬克杯原本的位置:相同的桌面接觸點、相同的畫面尺度、\n相同的透視角度與朝向。花瓶為素面白色陶瓷,表面帶釉面光澤;瓶內不加花、不加水,\n不新增任何其他物件,花瓶在整段期間不移動。\n\n[繼承項]\n花瓶完整承接原馬克杯在畫面中的一切空間關係:被手部或其他物件遮擋時,遮擋邊界\n與時間點不變;桌面上的接觸陰影位置、形狀、柔硬度不變;場景中對該物件的反射\n(如桌面或鄰近光滑表面)改為反射白色陶瓷花瓶,反射位置與強度邏輯不變;\n光照方向與強度不變,僅材質反應改為白色釉面陶瓷的可見高光。\n\n[保留清單 — 全片逐項不變]\n人物的身分、數量、姿態與表演;手部動作的軌跡與時間節奏;桌上其他所有物品的\n位置與狀態;背景;透視;所有遮擋關係;接觸陰影;反射;機位與運鏡;光線;調色。\n全部聲音原樣保留:對白、環境音、動作音效、背景音樂一律與 @Video 1 完全一致,\n不重配、不靜音、不改變音量。\n\n[時間範圍]\n替換僅發生在第 4 秒至第 7 秒之間。第 4 秒之前與第 7 秒之後,畫面與聲音\n與 @Video 1 逐幀一致,不得有任何改動。\n\n[結束狀態]\n第 7 秒之後,影片與原始 @Video 1 完全相同;整段輸出的時長與 @Video 1 相同。\n```\n\n## 3. Acceptance checks(可觀察驗收)\n\n- 0–4 秒與 7 秒–片尾:逐幀與原片一致(抽查首幀、3.9s、7.1s、末幀)。\n- 4–7 秒:藍色馬克杯不出現;白色陶瓷花瓶出現在同一桌面接觸點、同尺度、同透視。\n- 手部經過該物件時,遮擋邊界與時間點與原片相同;接觸陰影與反射跟隨花瓶而非殘留馬克杯形狀。\n- 桌上其他物品、人物、背景、機位、光線、調色無任何漂移。\n- 音軌與原片完全相同(波形/聽感比對),無重配或斷點。\n- 輸出畫面中無紅框、箭頭或任何標註圖形。\n- 4s 與 7s 邊界幀:物件切換即為規格所定,確認切換發生在指定時刻附近且無其他區域連帶變化。\n\n## 4. Failure risks(不保證成功)\n\n- **邊界可見切換**:依規格物件只在 4–7 秒替換,4s/7s 處會有馬克杯↔花瓶的可見跳變;若原片在該區間外也拍到馬克杯,這是規格內結果,不是缺陷。若實際上希望全片替換,需改規格。\n- **保留措辭非硬保證**:編輯模型常見未觸及區域漂移(人物臉部、調色、音軌被重生成);需靠驗收抽查,而非假設 preserve 必然生效。\n- **時間精度**:4–7 秒是語意區間,多數模型不承諾逐幀精確的時間定位。\n- **反射/陰影一致性**:複雜反射面上的物件替換是常見弱項,可能殘留藍色色偏。\n\n## 5. Revision ladder(每次只改一個變數)\n\n1. 若標記圖形滲入輸出 → 僅強化「輸出中不得出現任何標註圖形」一條,其餘不動。\n2. 若花瓶尺度或位置漂移 → 僅在替換規格中加入相對地標描述(如「瓶口高度與原杯口一致、底部貼合原杯底接觸點」)。\n3. 若音軌被改動 → 僅把聲音保留條款提到 prompt 最前段;若仍失敗,改走後製:取原片音軌回貼(路由至剪輯,停止改 prompt)。\n4. 若 4 秒前/7 秒後出現漂移 → 停止用單次全片編輯,改為只送 4–7 秒片段編輯後與原片段落剪接合成(路由至剪輯流程)。\n5. 任一缺陷在兩次單變數修正後仍存在 → 停止重試,轉入 QC 診斷(seedance-video-qc)。\n\n---\n\n一個待決事項:平台選定後,再回來把該平台的實際欄位(遮罩/標註支援、時間範圍參數、時長欄位)依其現行文件補上即可;本 prompt 文字本身不需改動。",
+  "ttft_ms": 5615,
+  "type": "result",
+  "duration_ms": 117629,
+  "ttft_stream_ms": 1745,
+  "time_to_request_ms": 143,
+  "queued_turn_count": 0
+}

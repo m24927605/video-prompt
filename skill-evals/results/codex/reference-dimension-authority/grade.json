@@ -1,0 +1,32 @@
+{
+  "case_id": "reference-dimension-authority",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:3-6 labels platform/token semantics unknown and refuses to infer unmapped dimensions from upload order or media type.",
+    "final.md:18 and 24 preserve `@@Hero-A/台北#03` and `vid:route_B?cut=2` byte-for-byte; final.md:18-28 assigns face/hair and walking rhythm to distinct dimensions with explicit exclusions.",
+    "final.md:14, 22, 28, and 31 keep the user-locked red raincoat and rainy-night alley authoritative; final.md:33 leaves unmapped dimensions inactive.",
+    "events.jsonl:4-5 and native-evidence.md:11-12 verify explicit seedance-prompt-director activation; run.json records paid_media_tool_events=[]."
+  ],
+  "rationale": "Both opaque tokens are unchanged, their authority is dimension-specific, explicit user wardrobe/location wins, and no token syntax or unassigned dimension is guessed.",
+  "activation_evidence": "events.jsonl:4-5 and native-evidence.md:11-12 directly verify the expected explicit activation.",
+  "unknowns": [
+    "Whether the selected runtime recognizes either opaque token syntax remains correctly unknown."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

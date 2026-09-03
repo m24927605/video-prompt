@@ -1,11 +1,12 @@
 # Native host evidence
 
 - Host: `codex`
-- CLI version: `codex-cli 0.149.0`
+- CLI version: `codex-cli 0.151.0`
 - Requested primary model: `gpt-5.6-sol`
-- Requested effort: `ultra`
+- Requested effort: `high`
 - Invocation: `implicit`
 - Expected skill: `seedance-video-qc`
-- Isolated workspace digest: `5256622eb4afef523245b2df5f83c8b92070c24fb0abbda1ff041148b7b01019`
-- Activation/discovery evidence: event[3] item.started
-- Activation/discovery evidence: event[4] item.completed
+- Isolated workspace digest: `08d7d71ec658a6cdbd35f4df81069efc1d803032d6d915d9a7ff04cd46b6c31b`
+- Discovered packaged skills: `none`
+- Activated packaged skills: `seedance-video-qc`
+- Activation evidence for expected skill: `event[4] command_execution, event[7] command_execution, event[8] command_execution`

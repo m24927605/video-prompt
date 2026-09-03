@@ -1,36 +1,28 @@
-目錄裡只有三個 Seedance **影片** skill，沒有靜態圖的範本。你的需求明確是靜態海報、排除運鏡/聲音/時間軸，所以我不套用那些 skill（它們會硬塞 camera、blocking、audio、end state 等影片欄位），直接給你圖片生成 prompt。
+完成。這是平面設計海報而非攝影場景,所以我沒有套用光位、景深等攝影軸,而是以「平面正面構圖 + 亮調」的邏輯組裝:平塗、無陰影、無縱深,讓白底讀成一整塊乾淨色面。
 
-## 主 Prompt（英文，適用 Midjourney / Flux / SD / Ideogram / DALL·E）
-
-```
-Minimalist Swiss International Typographic Style poster, square 1:1 format.
-Pure flat white background (#FFFFFF).
-One single large solid orange circle (#FF5A1F), perfectly round, flat color, no gradient, no shadow, no outline, positioned off-center in the upper-right area on a strict modular grid.
-The word "MONDAY" in bold black Helvetica-style grotesque sans-serif, all uppercase, tight letter-spacing, flush-left aligned in the lower-left of the grid, crisp vector edges.
-Generous negative space, asymmetric balance, exactly three colors: white, black, orange.
-Clean, precise, geometric, print-quality flat graphic design, vector illustration look.
-No other text, no textures, no gradients, no shadows, no 3D, no noise, no watermark.
-```
-
-## Negative Prompt（支援的模型用）
+## Prompt(直接可用)
 
 ```
-gradient, shadow, 3D, texture, paper grain, photo, photorealistic, extra text, misspelled text, watermark, logo, border, frame, multiple circles, extra shapes, decorative elements, noise, blur, low quality
+A minimalist Swiss-design graphic poster, square format, on a pure flat white
+background. A single solid orange circle, flat color with no gradient, no
+shadow and no outline, placed slightly above the center of the composition.
+Below the circle, the word "MONDAY" in black, set in a bold geometric
+sans-serif typeface, all uppercase, wide even letter-spacing, horizontally
+centered. Strict grid alignment, generous white negative space, only two
+colors on white: vivid orange and pure black. Flat vector-style rendering
+with crisp clean edges, International Typographic Style, print poster
+aesthetic, no texture, no depth, no additional elements.
 ```
 
-## 參數建議
+## 各段在控制什麼
 
-- **比例**：`1:1`（例如 1024×1024 或 2048×2048）
-- **Midjourney**：結尾加 `--ar 1:1 --style raw --stylize 50 --no gradient shadow texture`
-- **Ideogram / Flux**：文字渲染較穩，保留 `"MONDAY"` 的雙引號並加 `text: MONDAY`；若字拼錯，加一句 `the only text in the image is the word MONDAY`
-- **SD / Flux**：CFG 5–7，避免過度風格化把圓形畫出立體感
+- **開頭三句**先鎖定主體與版面:方形、白底、橘圓在中心偏上、標題在下方置中。生成模型對排版的服從度靠這種明確的相對位置描述,不靠風格詞。
+- **字體描述**用 `bold geometric sans-serif, all uppercase, wide even letter-spacing` 展開「無襯線標題」,比只寫 sans-serif 更接近瑞士風格的 Helvetica/Akzidenz 氣質(依本 skill 規則,不寫特定字體或設計師名,展開成技術描述)。英文單字 MONDAY 入畫的成功率不錯,但字距與筆畫偶爾仍會歪,多抽幾張挑字最正的。
+- **`flat color / no gradient / no shadow / no texture / no depth`** 是這張圖的關鍵防線:模型很容易自作主張幫圓形加漸層、投影或紙張紋理,必須在正文裡明講排除,才能得到真正的平塗色面。
+- **`International Typographic Style` + `print poster aesthetic`** 收尾當風格總結,把前面的具體指令歸攏到瑞士國際主義排版傳統。
 
-## 可調的地方
+## 可調的旋鈕(一次只改一項)
 
-- **佈局**：把「upper-right / lower-left」換成 `circle centered, title below` 就變成對稱置中版
-- **橘色**：`#FF5A1F` 偏暖；想要更 Swiss 經典感可用 `#FF6600`
-- **字體**：`Helvetica-style` 可改成 `Akzidenz-Grotesk-style` 或 `Neue Haas Grotesk-style`
-
----
-
-**小結**：我檢查過目錄，只有影片用的 Seedance skill，跟靜態海報無關，所以沒套用。上面是一組完整可直接貼用的靜態圖 prompt：主 prompt + negative prompt + 1:1 參數與各模型微調建議。如果你告訴我要用哪個模型，我可以幫你把 prompt 收斂成該模型的最佳長度與語法。
+- 想要更典型的瑞士不對稱版面:把 `horizontally centered` 改成 `left-aligned on the grid, in the lower third`,圓形改 `in the upper right quadrant`。
+- 想指定橘色色感:把 `vivid orange` 換成 `warm red-orange` 或 `bright tangerine orange`。
+- 想加一行小字副標:在 MONDAY 句後加一句描述其位置與相對大小,但極簡風格下建議維持單一元素層級。

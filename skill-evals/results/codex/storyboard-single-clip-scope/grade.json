@@ -1,0 +1,32 @@
+{
+  "case_id": "storyboard-single-clip-scope",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:3-6 labels runtime unknown and scopes Image 1 as semantic/high-level rather than frame-perfect and Image 2 as full visible identity.",
+    "final.md:11-31 fixes left-to-right/top-to-bottom order, one planned shot per panel in one clip, one woman/one red box, station axis, and excludes line art/grid/annotations/placeholders.",
+    "final.md:33-69 gives every shot composition/action/end state; final.md:72-89 supplies acceptance and bounded separate-shot routing.",
+    "native-evidence.md:11-12 verifies Prompt Director; run.json records no paid generation."
+  ],
+  "rationale": "The storyboard remains a one-clip semantic anchor with correct order, identity, prop, axis, and rightward exit continuity and no replication guarantee.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
+  "unknowns": [
+    "Actual multi-shot-in-one-clip and audio support remain runtime-dependent."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

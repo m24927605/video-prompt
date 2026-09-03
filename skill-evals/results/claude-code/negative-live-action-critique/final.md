@@ -1,31 +1,19 @@
-No Seedance/AI-video tooling applies here — this is straight stage blocking, so here are the notes directly. I'm assuming an end-on/proscenium house; if it's thrust or in-the-round, say so and I'll rework (there you manage masking with rotation rather than eliminate it).
+No skill needed here — this is live theatre blocking, so here are practical notes for tomorrow's rehearsal.
 
-## Rehearsal notes — the center cross
+**Directing notes — center-stage meeting, masking fix**
 
-**Diagnosis**
-- At the meet, A (the stronger performer) lands downstage of B on the same sightline, so B is covered. Fix the geometry and the marks, not the actors' energy.
-- Check which it is: A downstage and in B's line = a cover. A drifted upstage so B has to turn away from the house to play to them = upstaging. Same fix either way: level them.
+1. **Open up the meeting point.** Don't let them meet flat, face-to-face on the center line — that guarantees one body eclipses the other. Cheat the meeting spot slightly upstage-right or upstage-left of dead center and have them stand at a shallow angle to each other (roughly quarter-open to the house), shoulders angled downstage.
 
-**1. The cross**
-- Same cue, same count. Walk it at half speed and count steps wing-to-spike so both land together. If one should land first, decide it now — a cover in motion is fine, a parked cover isn't.
-- Both travel on the same depth line so they arrive level. No one angles downstage on the approach; A in particular tends to arrive early, plant, and creep down.
+2. **Fix the stronger performer's stop mark.** The masking is happening because they're planting downstage of their partner. Spike a mark that puts them *level with or a half-step upstage* of the other actor. Rule of thumb: whoever is upstage naturally pulls focus when facing out, so putting the stronger actor slightly upstage also rebalances focus toward the weaker performer at the moment of meeting.
 
-**2. The meet — spike it**
-- Two spikes straddling the center line, arm's length apart (~1 m / 3 ft). Level, or at most a half-step stagger. Anything deeper and the front-row side seats on A's side lose B entirely.
-- Both land in open quarter (faces cheated ~45° to the house) — not full profile, not square to each other.
-- Give/take by angle, not feet: A turns a touch more toward B to give the beat, and takes it back with face and voice. A never takes it by stepping in front.
+3. **Stagger the arrival.** Have the weaker actor land on their mark first; the stronger actor adjusts to them, not the other way around. The last person to arrive owns the responsibility of not masking.
 
-**3. Notes to the actors** (give them as picture notes — "I'm losing B's face from house left" — not as "you're covering")
-- **A:** Land on the spike and hold it. If the moment needs movement, move sideways along the line, never downstage. Arm's length is the closest you get.
-- **B:** Hold your ground. Don't back upstage to make room — every step back puts you deeper behind A. If A does step in, counter one step toward the open side and re-level, then reset on the next beat.
+4. **Give lateral separation.** Keep at least an arm's length between them on the meeting unless the scene demands contact. If they must embrace or get close, angle the clinch so both faces stay open — profile-to-profile on the diagonal, not one back to the house.
 
-**4. Sightline check**
-- ASM in the front-row extreme house-left seat, SM in extreme house-right, you at house center. They call "cover" the moment B's face goes. Any cover longer than a beat = move the marks; don't rely on counters.
-- Lighting: both spikes inside the center special, both faces lit at the new marks. If the pool is tight, move both marks together, not one.
+5. **Check the extreme seats.** During the run, sit house left and house right (front rows and far ends), not just center. Masking that's invisible from the director's table is often obvious from the side sections. If your house is wide, tighten the actors' angle toward center accordingly.
 
-**5. Order of work tomorrow**
-1. Walk at half speed, no lines — set and spike the marks.
-2. Run at pace with lines, side seats calling covers.
-3. Adjust once, run it twice clean, lock it in the prompt book.
+6. **Teach the self-check.** Give both actors the standard note: "If you can't see the audience's faces, they can't see yours." Ask them to feel for light on their face and open their downstage shoulder whenever they speak.
 
-**Recap:** The masking is a marks problem — A ends up downstage and in line with B. Spike both actors level (half-step stagger max) at arm's length straddling center, open both to quarter, and verify from the two front-row corner seats. Give A the note as "hold your spike, move sideways not down," and B the note as "hold ground, don't retreat upstage."
+7. **Spike everything once it works.** Tape both final marks and the crossing paths so the fix survives into the next run.
+
+**One-line version for the stronger performer:** "Stop half a step upstage and a half-step off center, open your downstage shoulder, and let your partner take the downstage position — you'll both read from every seat."

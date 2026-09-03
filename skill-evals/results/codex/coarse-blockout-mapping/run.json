@@ -1,0 +1,58 @@
+{
+  "case_id": "coarse-blockout-mapping",
+  "host": "codex",
+  "cli_version": "codex-cli 0.151.0",
+  "requested_primary_model": "gpt-5.6-sol",
+  "requested_effort": "high",
+  "fallback_model": null,
+  "model_evidence": null,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 155.978,
+  "event_count": 27,
+  "final_present": true,
+  "activation_evidence": [
+    "event[6] command_execution",
+    "event[8] command_execution",
+    "event[10] command_execution",
+    "event[12] command_execution"
+  ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [],
+  "activated_skills": [
+    "seedance-prompt-director",
+    "photography-aesthetics"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [
+      "event[6] command_execution",
+      "event[8] command_execution",
+      "event[10] command_execution",
+      "event[12] command_execution"
+    ],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [],
+    "photography-aesthetics": [
+      "event[6] command_execution",
+      "event[8] command_execution",
+      "event[10] command_execution",
+      "event[14] command_execution",
+      "event[16] command_execution",
+      "event[18] command_execution",
+      "event[20] command_execution",
+      "event[22] command_execution",
+      "event[24] command_execution"
+    ],
+    "screenplay-writer": []
+  },
+  "research_present": false,
+  "workspace_digest": "c31871ba8d01ceb1228f3d10a75067fdc642b4318ec2256c8158e0e0af4deda4",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

@@ -1,0 +1,107 @@
+{
+  "duration_api_ms": 100034,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.851274,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 22763,
+    "cache_read_input_tokens": 71688,
+    "output_tokens": 6463,
+    "output_tokens_details": {
+      "thinking_tokens": 1945
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22763,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2471,
+        "cache_read_input_tokens": 24543,
+        "cache_creation_input_tokens": 1647,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1647
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 996,
+      "outputTokens": 16,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.001076,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-fable-5": {
+      "inputTokens": 10,
+      "outputTokens": 6463,
+      "cacheReadInputTokens": 71688,
+      "cacheCreationInputTokens": 22763,
+      "webSearchRequests": 0,
+      "costUSD": 0.8501980000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 1945,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The Write tool is disabled in this session, so I can't create the plan file — but the deliverable here is pure text, so I'll present the drafted continuation prompt packet directly. It follows the loaded seedance-prompt-director skill's extension rules: boundary facts stay at user-report confidence, the new material sits strictly after the source, and unverifiable dimensions are declared unknown rather than filled in.\n\n---\n\n## Input basis\n\n- **Task:** extend — new material appended **after the supplied source**. The source itself is not replayed, restated, or altered.\n- **Platform / model / mode:** none selected, none known. This artifact is provider-neutral; no task hint, endpoint field, aspect ratio, resolution, duration value, or format is asserted.\n- **Evidence class of every boundary fact:** *author self-report* (the user's description), low confidence. I have not inspected the clip, its audio, or any playback metadata; nothing below is direct observation.\n- **What the report can establish (if accurate):** visible pose class, frame position, wardrobe, one held prop, one environmental surface state, one lighting/color note, one facing direction.\n- **What cannot be known from any final frame, and doubly not from a report of one:**\n  - **Subject motion:** whether the adult is stationary, mid-step, turning, or decelerating at the cut; umbrella hand and grip; breathing/posture dynamics.\n  - **Camera:** position, height, lens feel, shot size, and above all **velocity** — a still description cannot distinguish a locked-off frame from a move caught mid-travel.\n  - **Sound phase:** whether audio exists, its ambience content, level, any rain/traffic/BGM/dialogue, and where any periodic sound (footsteps, dripping) sits in its cycle at the boundary.\n  - Also unknown: grade, exact framing beyond \"adult at frame left,\" distance to the door, door state (closed/ajar), other entities in frame, weather at the moment of the cut.\n- **Assumption (labeled, replaceable):** the user gave no continuation event, so the draft supplies one minimal causal event — the adult enters through the glass door. Swap it freely; everything else stands.\n\n## Final prompt (provider-neutral)\n\n```text\n[TASK]\nExtend: append a new interval strictly after the supplied source clip. Do not\nreplay, re-render, or alter any part of the source. The boundary state below is\nreconstructed from a secondhand description of the source's final frame, not\nfrom inspection; treat it as approximate and prioritize seamless continuity\nwith the source's actual last frame over this description wherever they differ.\n\n[BOUNDARY STATE — as reported, low confidence]\nExactly one adult, wearing a yellow coat, positioned at frame left, holding a\nblack umbrella, body and gaze oriented toward a glass door. The pavement is wet\nand reflects blue light. Reported facts end here. Not established by the\nreport: which hand holds the umbrella, distance to the door, whether the adult\nis stationary or mid-motion, the camera's position or whether it is moving, and\nwhat if anything is audible. Inherit all of those from the source's actual\nending; do not introduce a new camera move, a new sound event, or a change of\nsubject momentum at the join.\n\n[NEW EVENT — assumed continuation, single causal delta]\nAfter the join settles, the adult closes the distance to the glass door, pulls\nor pushes it open with the free hand while keeping the black umbrella in the\nother, and steps through. The door swings back and settles shut behind them.\n\n[PHYSICS]\nThe umbrella stays open and in hand until the doorway if raised, or is lowered\nnaturally at the threshold; no umbrella duplication or hand-swap mid-action.\nThe glass door shows the street's blue-lit reflection until it opens; the wet\npavement keeps its reflective sheen, with the adult's reflection moving\nconsistently with their steps.\n\n[CAMERA]\nContinue whatever camera state the source ends with; if that state cannot be\nmatched, hold a neutral static frame from the join onward rather than invent a\nmove. One camera intention only: keep the door interaction in frame.\n\n[AUDIO]\nSource audio phase is unknown. For the new interval only: self-consistent\nexterior ambience appropriate to wet pavement (light rain or post-rain street\ntone), footsteps and one door sound matched to the visible action. No dialogue,\nno BGM, no subtitles. Expect the ambience join to need replacement in post\nonce the source audio is available.\n\n[END STATE]\nThe glass door is fully settled shut; the adult is no longer visible on the\nstreet side (visible through the glass is acceptable); the wet pavement still\nreflects blue light; camera at rest; ambience continuing steadily — cut-ready.\n```\n\n## Acceptance checks\n\n- Exactly one adult; yellow coat and black umbrella persist without color, count, or ownership drift.\n- The new interval begins after the source with no replayed or re-rendered source frames.\n- One causal chain is visible: approach → hand contact with door → door opens → step through → door settles shut.\n- Pavement reflectivity and the blue light quality persist across the interval.\n- No new camera move, new character, dialogue, BGM, or subtitles appears.\n- End frame matches the stated end state.\n\n## Failure risks\n\n- **Undetectable boundary mismatch (highest):** because the source was never inspected, pose, momentum, camera velocity, and sound phase at the join cannot be matched or even verified — only the actual clip can resolve this. Any output should be treated as unvalidated at the seam.\n- **Extension drift:** the model may reinterpret the reported frame (wrong umbrella hand, different door position) and the report gives no authority to overrule it.\n- **Wet-surface/reflection physics:** moving reflections on pavement and glass are a known weak area; check for reflection duplicates or static reflections under a moving subject.\n\n## Revision ladder (one variable per rung, untested)\n\n1. **Obtain the source clip or its true final frame** and re-verify every boundary fact against it; promote or correct the report before any other change. Stop here if any reported fact fails — redraft the boundary block only.\n2. If the join looks wrong with a verified frame: change only the camera instruction (static hold ↔ matched move); hold entities, event, and audio fixed.\n3. If the seam still fails after isolated changes: route to a hard-cut independent shot instead of a seamless extension.\n\n**Smallest blocking gap:** the assumed door-entry event. If the intended continuation differs (e.g., the adult turns away, someone exits the door toward them), tell me the one event and I'll swap only the `[NEW EVENT]`, `[PHYSICS]`, and `[END STATE]` blocks.",
+  "ttft_ms": 5554,
+  "type": "result",
+  "duration_ms": 99781,
+  "ttft_stream_ms": 1624,
+  "time_to_request_ms": 50,
+  "queued_turn_count": 0
+}

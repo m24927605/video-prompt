@@ -1,0 +1,6 @@
+{
+  "case_id": "seedance20-to-25-version-isolation",
+  "must_cover": ["give a platform-neutral clip prompt", "retain transferable blocking, camera and causal craft", "label older numeric mode, model ID, API field and tag unavailable for the unknown surface", "ask for selected runtime only if JSON remains required"],
+  "must_not": ["copy 2.0 identifiers or parameters into a 2.5 request", "claim 2.5 or generic runtime support", "invent JSON fields"],
+  "critical_case_traps": ["version/surface leakage", "fabricated runtime capability"]
+}

@@ -1,66 +1,83 @@
-推荐先做“固定机位动作母版”：删除 360°、快速推近和升俯拍。三种运镜分别会遮挡抓腕、裁掉脚步、削弱肩撞方向；末尾采用人物停住而雨水继续运动的“活定格”，真正冻结画面留给剪辑。
+## 输入依据
 
-## 1. Input basis
+- **主操作**：文生视频，生成单个 8 秒动作镜头；无参考素材。
+- **平台/模型**：未指定，因此采用平台中立写法。画幅、分辨率、帧率、种子及接口字段均保持未知，不虚构参数。
+- **动作归属假设**：A 穿暗黄色雨衣，B 穿深蓝色雨衣；A 用左手抓 B 的右手腕。
+- **声音假设**：仅现场雨声、鞋底摩擦、湿衣摆动、撞击和呼吸；无对白、无配乐、无字幕。
+- **实践建议——过载处理**：
+  - 保留完整的抓腕、挣脱、肩撞、后滑两步和对峙结果。
+  - 删除 360° 环绕、快速推近、升至俯拍的组合。
+  - 镜头只做约 30° 的平缓侧向弧移，全程保持两人全身可见。
+  - “定格”改为人物停住约 1 秒、雨水继续运动。若需要真正静帧，应在后期冻结最后一个合格画面。
 
-- 任务：8 秒、纯文本生成、连续单镜头。
-- 平台/模型：未知；“Seedance/AI”不足以确认具体版本、入口或模型 ID。
-- 输入模式：假定无参考素材、无首尾帧锁定。
-- 构图假定：横屏；A 深蓝雨衣、B 土黄雨衣用于防止角色混淆，可替换。
-- 已核验运行参数：无。资料基准日为 2026-08-22，因此不虚构负面提示词字段、参考上限或音频能力。
-- 实践建议：如界面提供时长控件，在运行参数中设为 8 秒；下列时间码只是语义节奏，并非逐帧保证。
-
-## 2. Final prompt
+## 最终 Prompt
 
 ```text
-生成一段横向构图、8 秒、写实正常速度、连续单镜头的动作母版。
+[TASK]
+Generate one continuous 8-second action shot on a rain-soaked rooftop. Exactly two adult people are present: A wears a heavy dark-yellow hooded raincoat; B wears a heavy dark-navy hooded raincoat. No other people, reflections shaped like extra people, weapons, punches, or kicks.
 
-阴雨天的湿滑混凝土天台，浅积水，灰色自然天光。画面中始终只有两名成年人：A 位于画面左侧，穿吸饱雨水的深蓝色厚雨衣；B 位于画面右侧，穿土黄色厚雨衣。两人面对面。A 右脚在前、左脚在后；B 左脚在前、右脚在后，均屈膝保持低重心。
+[SPACE AND FIRST FRAME]
+A stands frame-left and B stands frame-right, facing each other on a clear horizontal action axis. Both full bodies and both pairs of feet remain visible. Leave open wet rooftop space behind A toward frame-left for two recovery steps. Low parapet walls, shallow puddles, steady wind-driven rain, overcast blue-gray daylight.
 
-固定机位，胸口高度，从人物近侧拍摄三分之四侧面中全景；A 的左手和 B 的右手位于靠近镜头的一侧。两人全身、手部接触和鞋底下方地面始终清楚入画。保持 A 在左、B 在右，固定高度、距离和焦段，不切镜、不绕拍、不推近、不升降、不俯拍、不变速。
+At the first frame they are already at close range. A’s left hand clearly encloses B’s right wrist. A’s other hand and B’s left hand remain separately visible. Their feet are planted in guarded staggered stances; neither person is already falling or moving backward.
 
-0.0–1.0 秒：A 用左手清楚抓住 B 的右手腕，抓握位于胸口高度。B 先看向被抓的手腕，随即下沉重心。
+[CAMERA]
+A stable medium-wide full-body two-shot from waist-to-chest camera height. The camera performs one slow, smooth lateral arc of about 30 degrees around the pair during the shot, maintaining the same distance and keeping both complete bodies in frame. Track the midpoint between their torsos. No fast push-in, no crane rise, no overhead view, no full 360-degree orbit, no cuts, no slow motion, and no handheld shaking. The camera settles before the final face-off.
 
-1.0–3.0 秒：B 不向后硬拽。B 右肘下沉贴近肋部，把右拇指旋向 A 左手拇指与食指之间的开口；右脚沿自身右侧轨道向 A 短踏，前脚掌在湿地上轻微枢转，髋部和胸廓向自身左侧同步转动。B 的右腕从握持开口完整脱出，A 左手明确张开；两只手完全分离后才进入下一动作。
+[ACTION — semantic pacing]
+0.0–1.2 seconds:
+Clearly establish A gripping B’s right wrist. B looks first at the grip, then at A’s upper chest. Both brace against the rain. The grip and correct hand ownership must be readable.
 
-3.0–4.2 秒：B 借同一次转髋和后脚蹬地产生的水平冲量，把右肩短促撞入 A 的上胸中央一次，不撞头颈。两件湿重雨衣在接触点先受压起皱，再延迟回弹；接触处甩出少量雨水。A 在肩部接触后才开始后移，不提前自行退步。
+1.2–3.2 seconds:
+B bends both knees slightly and lowers the center of gravity. B keeps the right elbow close to the right ribs, rotates the captured right hand toward the opening beside A’s thumb, and steps the left foot half a step inward toward A. B turns the hips and torso together toward A, using the hip rotation and elbow retraction to pull the right wrist cleanly out of A’s left hand. The wrist separates before the shoulder impact; no twisted joint, teleporting hand, or fused fingers.
 
-4.2–6.3 秒：A 向画面左侧做恰好两个清楚可数的后滑恢复步。第一步，左后脚短滑并重新咬住地面；第二步，右前脚随后短滑回收。两脚不交叉，没有第三次碎步。鞋底只发生短促可控的打滑和溅水，不像冰面连续漂移。A 屈膝、双臂稍微张开恢复平衡，身体轻微后仰但始终不摔倒，手和膝盖不触地。B 撞完即停，不继续追击。
+3.2–4.6 seconds:
+Continuing the same forward transfer of body weight, B plants the feet and drives the left shoulder once into A’s upper chest and shoulder line. It is one compact shoulder check, not a headbutt or tackle. Show brief raincoat compression at the contact point, then separation. A reacts only after visible shoulder contact.
 
-6.3–8.0 秒：A 完全站稳，B 收回右手，两人隔开约一步半，胸口和视线重新互相对准，面对面对峙。人物姿态保持稳定，只有呼吸、雨水、滴水和湿重衣摆的延迟落定继续运动，形成可剪辑的“活定格”。
+4.6–6.9 seconds:
+The impact sends A backward toward frame-left. A stays upright and recovers through exactly two distinct sliding steps: the rear foot skids through a shallow film of water and regains grip, then the other foot slides back and plants. Small water sprays outward from each sole. A’s knees flex, torso lags behind the hips from inertia, arms spread briefly for balance, then return to guard. A does not fall, kneel, spin, or take a third step. B does not chase or strike again.
 
-写实物理：湿雨衣有明显重量、黏附褶皱和运动滞后；鞋底摩擦在短滑后恢复；肩撞、身体后移和两步恢复之间具有清楚的因果顺序。
+6.9–8.0 seconds:
+Both people finish upright, separated by roughly one arm’s length plus one step, facing each other with direct eyelines. A is balanced after exactly two backward steps; B remains planted after the shoulder check. They hold the face-off pose until the cut while breathing visibly. Their bodies stop advancing, but rain, dripping sleeves, and settling raincoat hems continue moving naturally.
 
-如支持音频：只有雨点击打雨衣与水泥地、湿衣拉扯、一次低沉肩撞声，以及与两个后滑步严格同步的鞋底刮擦和溅水声。无对白、无背景音乐、无字幕。
+[PHYSICS AND MATERIAL]
+The rooftop is wet and slippery but not frictionless. Rubber soles alternately lose and regain traction; feet do not glide like ice skates. B’s planted foot must visibly support the hip turn and shoulder drive. A’s backward motion begins at the shoulder contact and travels through the torso into the legs.
 
-动作中只有两次接触：A 左手抓 B 右腕；完全脱手后，B 右肩撞 A 上胸。没有拳击、踢击、头槌、第二次抓握或倒地。
+Both raincoats are saturated and heavy: fabric clings around shoulders and torso, folds compress during the grab and impact, and coat hems lag behind the hip turn before swinging and settling from inertia. Do not make the coats float like thin capes. Rain splashes from shoulders and boots; puddles ripple under steps. Keep wind direction and rainfall direction consistent throughout.
+
+[AUDIO]
+Only natural location sound: steady rooftop rain, water striking raincoat fabric, two distinct wet rubber sole scrapes during A’s recovery, one muted cloth-covered shoulder impact, fabric strain, and restrained breathing. No dialogue, no music, no subtitles.
+
+[END STATE]
+Exactly two people remain visible. A and B are upright, separated, and facing each other. A has completed exactly two backward sliding steps without falling. B’s right wrist is free. There is no continuing body contact. The camera is steady; only rain, dripping water, breathing, and the last settling motion of the heavy raincoats continue.
 ```
 
-## 3. Acceptance checks
+## 验收检查
 
-- 实体：始终恰好两人；A 左、B 右，雨衣颜色不交换；无参考素材角色。
-- 动作：A 左手抓 B 右腕；手腕完全脱离后，B 才以右肩撞击一次。
-- 物理：A 只在肩撞后移动；左脚、右脚依次形成恰好两个后滑恢复步，不连续漂移、不摔倒。
-- 材质：湿雨衣受压、滞后摆动并落定；鞋底短滑后重新获得摩擦。
-- 表演：B 先看手腕再看 A；A 不预演后退；撞击后双方重新锁定视线。
-- 镜头：全程固定，手和脚均不出画，无环绕、推近、升降或切镜。
-- 音频：若平台支持，四类动作声与接触同步；无对白、音乐、字幕。
-- 结尾：两人稳定面对面，人物停住而雨水仍动。
+- A 左手抓住的是 B 右腕，挣脱前后归属不交换。
+- 顺序清楚：先脱腕，后肩部接触，再出现 A 的位移。
+- 肩撞只有一次，不变成推掌、头槌、擒抱或连续攻击。
+- A 恰好后退两步，每一步都有失去摩擦、滑动、重新着地的过程。
+- A 全程没有倒地、跪地、转圈或滑出画面。
+- B 的支撑脚、降重心和转髋能解释冲量来源。
+- 湿雨衣有重量、压缩、延迟摆动和逐渐停止的表现。
+- 镜头只有一次小幅弧移，没有推近、升高、俯拍或 360° 环绕。
+- 最后一秒人物对峙停住，但雨水和衣摆不被错误地完全冻结。
 
-## 4. Failure risks
+## 主要失败风险
 
-- 左右手可能被交换、粘连，或肩撞发生时抓握尚未解除。
-- 两个恢复步可能变成一次长滑、三次碎步或直接摔倒。
-- 湿地可能被夸张成冰面；雨衣也可能过轻、遮住接触点。
-- 时间码只控制节奏倾向，不能保证逐帧落点。
+- 抓腕处可能出现手指融合、左右手互换或脱腕过程被跳过。
+- “湿滑”可能被夸张成无摩擦滑冰，导致 A 连续漂移。
+- 肩撞可能被模型改写成双手推搡或头部碰撞。
+- 即使只是小幅弧移，也可能与复杂接触动作争夺稳定性。
+- 生成式“定格”可能让雨水一起停住；真正冻结画面更适合后期完成。
 
-## 5. Revision ladder
+## 有限修订阶梯
 
-每级只做一次对照测试，其他内容全部固定：
+1. **若身体接触或脚步物理失败**：只把相机改为完全固定，其余 prompt、时长和动作不变。若动作因此通过，说明主要冲突来自镜头运动。
 
-1. 若抓腕阶段失败，只把第一帧改为“A 已经稳定抓住 B 右腕”，删除抓握形成过程。若脱腕与肩撞仍粘连，停止继续堆文字，改用动作示意图或拆镜。
+2. **若抓腕归属仍错误**：保持固定镜头和全部动作，只增加一张简洁动作几何图或首帧姿势参考——如果所选平台明确支持该输入角色。参考只控制人物位置、左右手和接触点，不继承人物外观。
 
-2. 若只有两步计数失败，只加强脚步节拍为“左脚滑停——短暂停顿——右脚滑停”，其余不变。若仍漂移或出现第三步，转为肩撞后退的独立全身镜头。
+3. **若动作合格但最终停驻失败**：不重新生成主体动作，直接在后期选取最后一个清晰对峙帧做短暂静帧，并叠接连续雨声。
 
-3. 动作母版全部通过后，才把固定机位单独替换为：“在动作轴同侧做不超过 45° 的恒速浅弧移动，固定高度、距离和焦段。”若手或脚被遮挡，立即回退固定机位，不再增加运镜。
-
-4. 如果 360°、快速推近和升俯拍都必须保留，停止单镜头路线，改为分别生成动作母版、撞击推近和对峙高角度三个镜头后剪辑；不要继续扩写这个 8 秒 prompt。
+若在锁定相机和明确接触几何后，仍反复出现同一种手腕或肩部拓扑错误，应停止继续加长 prompt，改为两个镜头或动作预演参考路线。

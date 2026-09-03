@@ -1,19 +1,41 @@
 {
   "case_id": "failed-video-root-cause",
   "host": "codex",
-  "cli_version": "codex-cli 0.149.0",
+  "cli_version": "codex-cli 0.151.0",
   "requested_primary_model": "gpt-5.6-sol",
-  "requested_effort": "ultra",
+  "requested_effort": "high",
   "fallback_model": null,
+  "model_evidence": null,
   "exit_code": 0,
   "timed_out": false,
+  "elapsed_seconds": 69.034,
+  "event_count": 7,
   "final_present": true,
   "activation_evidence": [
-    "explicit $seedance-video-qc invocation",
-    "Codex event item_1 read skills/seedance-video-qc/SKILL.md and QC references"
+    "event[4] command_execution"
   ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [],
+  "activated_skills": [
+    "seedance-video-qc"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [
+      "event[4] command_execution"
+    ],
+    "photography-aesthetics": [],
+    "screenplay-writer": []
+  },
   "research_present": false,
-  "workspace_digest": "51011d9c80308dea251d35ac0376801bf731d8960058cdeeb3f5c90a5b3d6e0f",
+  "workspace_digest": "08d7d71ec658a6cdbd35f4df81069efc1d803032d6d915d9a7ff04cd46b6c31b",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
 }

@@ -5,6 +5,8 @@
   "host": "codex",
   "invocation_mode": "implicit",
   "expected_skill": null,
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings, meet at center, and the stronger performer keeps masking the other actor from the audience. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved.",
   "effective_prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings, meet at center, and the stronger performer keeps masking the other actor from the audience. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved.",
   "sanitized_argv": [
@@ -28,15 +30,15 @@
     "-m",
     "gpt-5.6-sol",
     "-c",
-    "model_reasoning_effort=ultra",
+    "model_reasoning_effort=high",
     "-c",
     "approval_policy=never",
     "-c",
-    "<PERSONAL_SKILLS_DISABLED:50>",
+    "<PERSONAL_SKILLS_DISABLED:73>",
     "--json",
     "-C",
     "<REDACTED_WORKSPACE>",
     "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings, meet at center, and the stronger performer keeps masking the other actor from the audience. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved."
   ],
-  "disabled_personal_skills": 50
+  "disabled_personal_skills": 73
 }

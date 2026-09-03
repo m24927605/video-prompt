@@ -5,6 +5,8 @@
   "host": "claude-code",
   "invocation_mode": "explicit",
   "expected_skill": "seedance-prompt-director",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "把这个 8 秒动作要求变成可执行的 Seedance/AI 视频方案和最终 prompt：两个穿雨衣的人在湿滑天台近身交手，A 抓住 B 的右手腕，B 转髋挣脱并用肩撞开 A，A 向后滑两步但不摔倒；雨水、鞋底摩擦、衣料重量和惯性要可信。镜头原本想同时 360 度绕拍、快速推近、升到俯拍，最后还要两人面对面定格。请主动处理过载，不要假装一个更长 prompt 就能保证成功。",
   "effective_prompt": "/seedance-prompt-director\n\n把这个 8 秒动作要求变成可执行的 Seedance/AI 视频方案和最终 prompt：两个穿雨衣的人在湿滑天台近身交手，A 抓住 B 的右手腕，B 转髋挣脱并用肩撞开 A，A 向后滑两步但不摔倒；雨水、鞋底摩擦、衣料重量和惯性要可信。镜头原本想同时 360 度绕拍、快速推近、升到俯拍，最后还要两人面对面定格。请主动处理过载，不要假装一个更长 prompt 就能保证成功。",
   "sanitized_argv": [
@@ -13,7 +15,7 @@
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
     "plan",

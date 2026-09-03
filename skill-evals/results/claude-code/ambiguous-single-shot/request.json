@@ -5,6 +5,8 @@
   "host": "claude-code",
   "invocation_mode": "implicit",
   "expected_skill": "seedance-prompt-director",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "幫我寫一個可直接使用的 Seedance 影片 prompt：雨夜便利店門口，一個女生發現有人把她的紅傘拿走。要有電影感，8 秒。平台和模型版本我還沒決定；請在不必要追問的前提下直接給可用方案。",
   "effective_prompt": "幫我寫一個可直接使用的 Seedance 影片 prompt：雨夜便利店門口，一個女生發現有人把她的紅傘拿走。要有電影感，8 秒。平台和模型版本我還沒決定；請在不必要追問的前提下直接給可用方案。",
   "sanitized_argv": [
@@ -13,7 +15,7 @@
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
     "plan",

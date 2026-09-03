@@ -1,53 +1,33 @@
-以下可直接貼入文字生成影片欄。為了讓 8 秒內的故事清楚，我把核心收斂為「伸手撲空 → 看見紅傘遠去」，不另外演出偷傘過程。
+以下採「平台中立、自然語言」格式；可直接貼入 Seedance 類影片模型。若介面有獨立時長欄，設定為 8 秒；畫幅、解析度與模型專屬參數先不指定。
 
-### 輸入基礎
-
-- 任務：純文字生成、無參考素材、8 秒、單一連續鏡頭。
-- 假設：16:9 橫幅、寫實電影風格、無台詞。
-- 平台／模型：未知，因此不使用特定模型參數。若介面提供設定，選擇「8 秒、16:9、音訊開啟」；若不支援音訊，聲音段落可作為後製指示。
-- 時間碼代表節奏意圖，不保證逐幀精準。
+技法：中景、四分之三側面、側逆光、店面窗光、暗色調、高對比、雨夜環境、緩慢實體推鏡。
 
 ### 最終 Prompt
 
 ```text
-生成一支 8 秒、16:9、寫實電影感的影片。全片為一個連續鏡頭，不切鏡、不變焦、不使用慢動作。
+Generate one continuous 8-second cinematic shot outside a convenience store on a rainy night.
 
-雨夜，一間無品牌、沒有可讀文字的便利商店門口。畫面恰好只有兩個人：一名 20 多歲女子，以及遠處一名看不清面孔、穿深色外套的陌生人。全畫面只有一把紅傘，正由遠處陌生人撐著；不可出現第二把紅傘。
+Exactly two people and exactly one red umbrella. A young East Asian woman in her mid-twenties stands under the store awning beside a narrow umbrella rack. She has chin-length black hair damp at the ends, a charcoal raincoat, and a cream canvas tote over her left shoulder. Her left hand grips the tote strap; her right hand is already reaching toward an empty slot in the rack. In the mid-background at frame right, an indistinct adult figure is already walking away from camera through the rain, seen only from behind, carrying the single open red umbrella.
 
-空間構圖：鏡頭位於便利商店雨棚下，成人視線高度，35mm 電影鏡頭感，中廣景。畫面左側是發光的玻璃自動門，右側前景是金屬傘架；傘架內有兩把深色傘，以及一個明顯空著、仍在滴水的傘位。女子位於中景，陌生人位於街道中後景，正背對鏡頭離去。女子、空傘位和遠處紅傘始終保持在同一畫面內。玻璃只反射燈光與雨水，不產生人物倒影。
+Camera at chest height, positioned slightly to the woman’s right for a three-quarter view of her face. Begin in a medium-wide composition and make one slow physical dolly push forward about sixty centimetres over the entire shot, with visible perspective change, ending in a waist-up medium shot. Keep the umbrella rack and the departing red umbrella legible throughout.
 
-0.0–2.0 秒：自動門打開，女子提著一小袋商品走到雨棚下。她還沒注意街道上的陌生人。鏡頭開始極慢、平穩地向前推近。
+0–2 seconds: her reaching hand stops abruptly a few centimetres above the empty slot.
+2–5 seconds: her eyes move from the empty rack to the red umbrella receding at frame right; her head follows only slightly, her lips part, and her breath catches.
+5–8 seconds: she remains frozen, right hand still suspended, gaze fixed on the departing umbrella as it approaches the right edge but remains visible.
 
-2.0–4.2 秒：女子像平常一樣伸出右手，準確伸向傘架上的空傘位。她的手抓空，指尖碰到濕冷的金屬孔緣後突然停住。動作自然，有清楚的接觸與停止感。
+The broad convenience-store window behind and to frame left provides the only key light: cool green-white fluorescent spill creates a soft bright edge along her damp hair, cheekbone, and shoulder, while the front of her face remains readable about three stops darker through weak reflection from the wet pavement. Low-key, high-contrast night exposure; most of the street falls into deep charcoal shadow. The red umbrella is the only saturated red object. Preserve natural skin tone. Rain falls steadily through the storefront light, water drips from the awning, and reflections tremble across the asphalt.
 
-4.2–6.3 秒：她先低頭看空傘位，短暫愣住；接著眼睛先移向街道，頭才跟著轉過去。她看見遠處陌生人撐著那把鮮紅色長傘離開，立刻認出那是自己的傘。
+Audio: steady rain striking the awning, distant tires on wet pavement, low refrigerator hum from inside the store, and a fading door chime during the first second. No dialogue, no music, no subtitles.
 
-6.3–8.0 秒：她停在雨棚邊緣，沒有追進雨中。左手慢慢捏緊購物袋，呼吸短暫停頓，眉心輕微收緊，表情從困惑轉為克制的不敢置信。陌生人繼續走遠，但紅傘在結尾仍清楚可見。最後停留約半秒：女子的右手仍搭在空傘架上，視線定在遠去的紅傘。
-
-光線與色彩：便利商店的冷白偏綠燈光從女子身後照出輪廓，街道右側有柔和暖黃路燈；大雨落在傘面與柏油路上，水花、積水和倒影符合真實物理。濕柏油反射青藍與暖黃色光，紅傘是全片唯一高飽和色。自然膚色、柔和高光、細緻底片顆粒、克制的夜景對比。
-
-聲音：連續而有空間感的雨聲、一次便利商店開門提示音、遠處車輪壓過積水的聲音、陌生人逐漸遠去的濺水腳步，以及購物袋被捏緊的輕微塑膠聲。無對白、無旁白、無背景音樂、無字幕。
-
-保持寫實克制的表演。不可增加路人、人物倒影、額外肢體或額外紅傘；陌生人不回頭；物件不可自行移動；結尾必須同時看見女子、空傘位與遠去的紅傘。
+Single unbroken take. No cuts, no optical zoom, no extra people, no additional umbrellas, no readable signs or logos. End with her suspended hand, stunned gaze, and the red umbrella still visible near frame right.
 ```
 
-### 驗收檢查
+### 驗收重點
 
-- 恰好兩個人、一把紅傘；沒有倒影分身。
-- 動作順序清楚：伸手抓空 → 看空傘位 → 眼睛移動 → 轉頭看見紅傘。
-- 女子、空傘位、遠去紅傘在結尾仍同框。
-- 全程單鏡到底，只有極慢推近。
-- 表演克制，沒有誇張驚叫或追逐。
-- 雨、水花、傘面晃動與腳步具有真實重量感。
+- 全程只有兩人、一把紅傘。
+- 女生先碰到「空位」，再看見遠去的紅傘。
+- 拿傘者第一幀已在畫面內，始終背對鏡頭。
+- 推鏡有透視變化，不是數位放大。
+- 結尾保留女生懸停的手與尚未出框的紅傘。
 
-### 失敗風險
-
-- 遠處紅傘太小，導致「她認出自己的傘」不夠明確。
-- 玻璃反射可能生成額外人物，或模型增加其他紅傘。
-- 開門、伸手與反應可能擠壓最後的情緒停留。
-
-### 修訂階梯
-
-1. 若紅傘不夠清楚：只把陌生人移到中景，其餘全部固定；測試是否純粹是畫面尺度問題。
-2. 若人物或傘重複：只移除慢推鏡頭，改成完全固定機位；若仍重複，改用平台支援的首幀構圖參考。
-3. 若節奏過趕：只刪除「開門走出」，第一幀直接從女子伸手拿傘開始，將多出的時間留給結尾反應。
+若第一輪看不懂「那是她的傘」，只改一項：把拿傘者的位置從六公尺縮至四公尺；其餘提示詞不動。

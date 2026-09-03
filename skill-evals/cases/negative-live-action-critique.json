@@ -4,5 +4,5 @@
   "expected_skill": null,
   "invocation_mode": "implicit",
   "locale": "en",
-  "prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings, meet at center, and the stronger performer keeps masking the other actor from the audience. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved."
+  "prompt": "Give concise directing notes for tomorrow's live stage rehearsal: two actors cross from opposite wings and meet at center, but the stronger performer accidentally blocks the other actor from the audience. Fix the masking and keep both actors visible. Focus on practical theatre blocking and sightlines. There is no generated video, AI model, prompt, or post-production workflow involved."
 }

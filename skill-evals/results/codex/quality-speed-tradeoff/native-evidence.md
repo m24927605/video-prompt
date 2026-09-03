@@ -1,10 +1,12 @@
 # Native host evidence
 
 - Host: `codex`
-- Model/effort: `gpt-5.6-sol` / `ultra`
+- CLI version: `codex-cli 0.151.0`
+- Requested primary model: `gpt-5.6-sol`
+- Requested effort: `high`
 - Invocation: `implicit`
 - Expected skill: `seedance-film-producer`
-- Isolated workspace: `<REDACTED_WORKSPACE>
-- Research present: `false`
-- Activation evidence: implicit routing to seedance-film-producer
-- Activation evidence: Codex event item_1 read .agents/skills/seedance-film-producer/SKILL.md
+- Isolated workspace digest: `c31871ba8d01ceb1228f3d10a75067fdc642b4318ec2256c8158e0e0af4deda4`
+- Discovered packaged skills: `none`
+- Activated packaged skills: `seedance-film-producer`
+- Activation evidence for expected skill: `event[4] command_execution, event[10] command_execution, event[11] command_execution, event[12] command_execution, event[13] command_execution`

@@ -1,0 +1,32 @@
+{
+  "case_id": "transition-bridge-scope",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 4,
+    "task_completeness": 18,
+    "evidence_discipline": 18,
+    "language_scope": 7
+  },
+  "total": 57,
+  "verdict": "FAIL",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "run.json: explicit seedance-prompt-director activation is verified; paid_media_tool_events is empty.",
+    "final.md's plan correctly preserves both sources, limits generation to a bridge, and enumerates the Video 1 exit, morph invariants, Video 2 entry, clockwise speed/camera/rain/light/traffic/ambience handoff, and unverified runtime.",
+    "final.md plans bans on hard cut/black/text/logo/dialogue/subtitle and avoids inventing a transition parameter.",
+    "final.md does not deliver any transition-bridge prompt; it asks for approval to draft the promised production packet later."
+  ],
+  "rationale": "Correct conceptual planning does not satisfy 'write a prompt.' With no separately usable bridge artifact, production usability is near zero and the case fails.",
+  "activation_evidence": "native-evidence.md records seedance-prompt-director activation at event[11] Read, event[13] Read, and event[28] Read.",
+  "unknowns": [
+    "Actual source boundary frames/audio and runtime support are unknown, but the brief already supplied enough information for a provider-neutral prompt."
+  ],
+  "grader": {
+    "role": "fresh-context adversarial reviewer",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

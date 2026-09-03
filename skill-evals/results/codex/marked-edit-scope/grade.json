@@ -1,0 +1,32 @@
+{
+  "case_id": "marked-edit-scope",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1 labels platform/model/mask capability unknown and treats the box/arrow only as production annotation.",
+    "final.md:6-24 protects Video 1 as sole master, confines mug-to-vase replacement to 4-7 seconds, preserves position/scale/perspective/occlusion/shadow/reflection plus people/hands/other props/camera/light/grade/audio, and forbids outside-interval changes.",
+    "final.md:27 makes any provider mask/range field conditional and does not assume mark-reading support.",
+    "native-evidence.md:11-12 verifies Prompt Director; run.json records no paid generation."
+  ],
+  "rationale": "The provider-neutral local edit, complete preserve list, temporal boundary, and annotation limitation are explicit with no spill or capability invention.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected implicit activation.",
+  "unknowns": [
+    "Actual temporal-mask/tracking support remains unknown."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

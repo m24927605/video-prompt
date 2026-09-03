@@ -1,0 +1,107 @@
+{
+  "duration_api_ms": 74522,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 2.034356,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 87322,
+    "cache_read_input_tokens": 75002,
+    "output_tokens": 4234,
+    "output_tokens_details": {
+      "thinking_tokens": 2128
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 87322,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 3235,
+        "cache_read_input_tokens": 48840,
+        "cache_creation_input_tokens": 41909,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 41909
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 1019,
+      "outputTokens": 23,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.001134,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-fable-5": {
+      "inputTokens": 8,
+      "outputTokens": 4234,
+      "cacheReadInputTokens": 75002,
+      "cacheCreationInputTokens": 87322,
+      "webSearchRequests": 0,
+      "costUSD": 2.0332220000000003,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 2128,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "子契約已完成。依 scope lock,visible change 只寫環境與光學層的變化(車燈掃過、雨絲可見度、反射演變),不含任何 blocking、主體動作、時間軸或生成參數;數值只保留你指定的 35mm。雨絲要被看見必須逆光,所以整體光位設計成「店內暖光外溢當逆光/側逆光,冷色街光當環境底」,同時完成冷暖混合與雨的可見性兩件事。\n\n---\n\n## Visual-look Subcontract|雨夜便利店門口\n\n**Opening look**\n`Night exterior at a convenience-store entrance, the frame held at standing eye level on a 35mm lens with a faint handheld float; warm light spilling out through the glass storefront as the brightest zone of the frame, the wet pavement in the lower frame holding stretched reflections of the signage, fine drizzle visible only where it crosses the spill light against the dark street beyond, lifted soft blacks and rolled-off highlights throughout.`\n\n**Visible change**\n`The drizzle stays steady while a pair of headlights from a passing vehicle sweeps across the wet asphalt, its reflection smearing through the standing water and fading back out of frame; the storefront's warm spill and the cool street ambience hold their positions, the rain streaks brightening momentarily as the moving light crosses behind them.`\n(唯一的變化來源是「光源本身在動」——這是模型最穩定的環境動態,不需任何主體動作。)\n\n**End look**\n`Same framing and camera height, the faint handheld float continuing without ever snapping back; the passing light gone, the frame settled again on the warm doorway glow against the cool wet street, reflections in the asphalt holding as vertical smears, drizzle still crossing the backlit spill, the low-contrast tonality unchanged.`\n\n**Camera**\n`35mm lens, near-static frame with a faint handheld float — barely perceptible low-frequency drift, no high-frequency shake, the frame never snapping back to a locked position.`\n(手持感用「微手持」寫法而非高頻晃動;這是失敗率最低的手持表達,也保住 35mm 的透視。)\n\n**Lighting**\n`Mixed uncorrected color temperatures as the core of the look: warm interior and signage light spilling forward through the storefront glass, acting as the back/side-backlight that catches the rain; cool bluish street ambience filling the exterior and the shadows; the two never corrected toward each other, the doorway spill clearly the brighter pool with the street falling away darker around it. Rain streaks read only against the dark background where they cross the warm spill.`\n\n**Color**\n`Low-contrast orange-and-teal split grade: warm amber held in the highlights and the storefront spill, teal pushed into the shadows and the wet street, highlights rolled off below pure white and blacks lifted to soft charcoal that never reaches zero; the amber confined to the doorway and its reflections, the teal carried by the asphalt and the night air; preserve natural skin tone with its warm undertone intact for anyone in frame.`\n(色偏分影調段下:暖給高光、青給陰影,各綁在具體表面上,不做全域蒙色——這是低對比青橙不變髒的關鍵。)\n\n**Texture**\n`Wet asphalt reflections stretching every light into a vertical smear; fine drizzle as thin bright streaks against the dark street, never as fog; condensation beading on the storefront glass with a few drops already running; subtle film grain over the whole frame; a gentle bloom around the brightest signage lifted by the moist air.`\n\n---\n\n**Handoff**:provider operation、timeline、blocking、references、audio 與驗收由 `seedance-prompt-director` 決定;此子契約只交付 look 層,組裝完整 clip prompt 時不要重寫已鎖定的光位方向、青橙分配與低對比黑白位。",
+  "ttft_ms": 2582,
+  "type": "result",
+  "duration_ms": 73888,
+  "ttft_stream_ms": 1545,
+  "time_to_request_ms": 60,
+  "queued_turn_count": 0
+}

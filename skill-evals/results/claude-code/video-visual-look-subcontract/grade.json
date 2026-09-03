@@ -1,0 +1,32 @@
+{
+  "case_id": "video-visual-look-subcontract",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 21,
+    "task_completeness": 28,
+    "evidence_discipline": 16,
+    "language_scope": 9
+  },
+  "total": 84,
+  "verdict": "FAIL",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "run.json: implicit collision routing correctly activated photography-aesthetics and not seedance-prompt-director; paid_media_tool_events is empty.",
+    "final.md covers opening look, visible change, end look, camera, mixed cold/warm light, wet reflections, low-contrast teal-orange color, fine-rain texture, and a handoff to a full clip contract.",
+    "final.md goes beyond the requested visual-look scope by inventing subject blocking/pose and a two-second head-turn action even though the user explicitly prohibited blocking and timeline content.",
+    "final.md also supplies numerous unsourced exact numeric design values (6500K, 2000K, 1.5 stops, f/2, two meters, one-percent drift, 70/30 color split) not derived from the brief."
+  ],
+  "rationale": "Skill ownership is correct and the look design is rich, but the answer violates explicit scope exclusions and over-specifies unsupported numeric choices. Under the strict ≥90 gate, this is a failure despite a usable visual core.",
+  "activation_evidence": "native-evidence.md records photography-aesthetics activation at event[8] Skill, event[16] Read, event[18] Read, event[20] Read, event[22] Read, event[49] Read, and event[81] Read, with no forbidden Seedance activation.",
+  "unknowns": [
+    "Subject/blocking, actual camera exposure, physical light temperatures/ratios, runtime, and source references were not specified."
+  ],
+  "grader": {
+    "role": "fresh-context adversarial reviewer",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

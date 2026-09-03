@@ -1,0 +1,6 @@
+{
+  "case_id": "prompt-only-output-fidelity",
+  "must_cover": ["exactly one directly pasteable prompt and no surrounding production packet", "woman, one red umbrella, frame-left blocking, fixed medium camera and bus-triggered action", "final state beside the stop with umbrella in her right hand", "platform-specific parameters remain unknown rather than invented"],
+  "must_not": ["input-basis preface", "acceptance checklist", "failure-risk section", "revision ladder", "multiple prompt variants", "paid generation action"],
+  "critical_case_traps": ["default five-part packet overrides prompt-only request", "invented current platform or endpoint parameters", "missing entity or end state"]
+}

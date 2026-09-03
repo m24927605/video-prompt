@@ -1,19 +1,14 @@
-## Verdict: FAIL
+Verdict: **FAIL — critical provenance overclaim.** The evidence does not support either “Seedance 2.5 generated every sampled output,” “native 4K,” or “solved five-character choreography.”
 
-The sentence should not appear in the report. It conflates project metadata, UI state, delivered-media properties, and content performance. “Proves” and “every” are unsupported.
-
-| Claim | Direct observation | Inference | Unknown |
+| Claim | What is directly supported | Inference only | Unknown |
 |---|---|---|---|
-| Seedance 2.5 generated every sample | The project brief says **Seedance 2.5**. One inspected generation UI says **Seedance 2**. | The brief may describe the intended or reported project model. | The actual backend version for each asset; whether “Seedance 2” maps to 2.5; provenance of the other samples. |
-| Every output was native 4K | The UI shows a **4k** badge and Size field. The decoded playback dimensions differ. | The badge may represent a requested quality tier or export setting. The mismatch indicates these are not interchangeable measurements. | Native generation dimensions; whether the playback is a proxy; whether upscaling, cropping, or transcoding occurred; resolution of every sample. |
-| Five-character choreography was solved | Only three of the five requested characters appear in the final frame. | This suggests entity loss or an unmet endpoint if all five were required there. | Whether all five appeared earlier, maintained distinct identities, and completed the required choreography. One frame cannot prove temporal performance. |
+| Seedance 2.5 attribution | The **project brief** names Seedance 2.5. The opened asset UI displays **“Seedance 2.”** | The brief may describe the intended workflow or project-level setup. “Seedance 2” might be a family label—but treating it as 2.5 would be unsupported. | The actual backend model/version used for this asset and all other sampled outputs. |
+| Native 4K | The UI shows a **4k quality badge** and a Size field. The decoded playback has different dimensions. | The badge may represent a request, preset, quality tier, upscale, or processed delivery setting. None establishes native-generation resolution. | Native render resolution, whether upscaling or post-processing occurred, and why the UI and decoded dimensions differ. |
+| Five-character choreography | Five characters were requested; only three appear in the final frame. | The other two may have disappeared, exited frame, or been omitted—but the cause cannot be determined from that frame alone. | Whether all five appear and move correctly throughout the clip, whether their interactions follow the requested choreography, and whether any interval is usable. |
+| “Every sampled output” | Evidence is described for one opened generation. | None safely extends that observation to other outputs. | The model/version, resolution provenance, and adherence of each sampled asset. |
 
-The decoded dimensions are evidence about that playback representation—not necessarily the original generator output. Likewise, a `4k` badge proves only that the UI displayed `4k`; it does not prove native generation resolution.
+A defensible report statement would be:
 
-A defensible replacement is:
+> “The ZEPHYR: Special project brief identifies Seedance 2.5, but the inspected generation UI labels the sampled asset ‘Seedance 2’; therefore asset-level 2.5 attribution is unverified. The UI displays a 4k quality badge, but the decoded playback dimensions do not match the displayed resolution evidence, so native 4K generation is not established. The sampled final frame contains three of the five requested characters, and the available evidence does not demonstrate successful five-character choreography.”
 
-> The project brief labels ZEPHYR: Special as Seedance 2.5. In the inspected generation record, however, the interface displayed “Seedance 2” and a “4k” badge, while the decoded playback dimensions differed from the displayed Size information. The final inspected frame contained three of the five requested characters. Consequently, the available evidence does not verify per-asset Seedance 2.5 provenance, native-4K generation, or successful five-character choreography.
-
-The likely reporting error is provenance laundering: treating a project-level label as per-asset runtime evidence, a UI badge as native raster evidence, and a sampled frame as proof of choreography.
-
-Before making the stronger claim, obtain per-output backend/version records, original unprocessed files with pipeline lineage, and full timecoded inspection of all five characters. Until then, route this as a report edit/repair and stop short of any 2.5, native-4K, or choreography-success conclusion.
+To resolve the material unknowns, obtain per-asset generation metadata or provenance tying each output to an exact backend version, original pre-processing file dimensions and pipeline history, and full-video inspection with timecoded presence and action tracking for all five characters. Until then, neither project metadata nor UI badges should be promoted into asset-level capability claims.

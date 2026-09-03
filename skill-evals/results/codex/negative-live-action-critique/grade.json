@@ -13,19 +13,17 @@
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1-4 gives practical stage blocking: separate center sightlines, stronger performer half a step upstage, the other downstage, shallow-V cheat-out, separate crossing lanes and spiked marks.",
-    "final.md:5-6 adds center/side-seat sightline checks and deliberate focus-shift actions that avoid renewed physical masking.",
-    "The complete final.md is concise live-theatre rehearsal direction and contains no AI-generation prompt, Seedance continuity system or generated-video QC workflow.",
-    "events.jsonl:1-4 records only the ordinary answer and turn boundaries; no command or skill-read event occurred.",
-    "request.json records invocation_mode implicit and expected_skill null; run.json:9-17 records an empty activation_evidence list, no research and no paid media events."
+    "final.md:1-7 gives concise practical stage blocking, fixes center masking with offset/diagonal/downstage placement, and asks for side-seat sightline checks.",
+    "events.jsonl:1-4 has no command or packaged-skill read; native-evidence.md:11 records activated packaged skills as none.",
+    "run.json records paid_media_tool_events=[] and research_present=false."
   ],
-  "rationale": "The response directly solves center-stage masking with observable rehearsal adjustments and house-angle verification. It remains entirely within live-theatre blocking and sightlines. Native event evidence confirms no Seedance skill activation, so the negative-routing behavior passes without relying on prose resemblance alone.",
-  "activation_evidence": "Verified correct non-activation: events.jsonl has no skill/tool read, request.json expects no skill in implicit mode, and run.json:14 records no activation evidence.",
+  "rationale": "The response stays entirely in live-stage blocking and sightlines with no AI-generation, Seedance continuity, or rendered-video QC misrouting.",
+  "activation_evidence": "native-evidence.md:11 and the absence of command/skill events in events.jsonl verify correct negative activation.",
   "unknowns": [],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

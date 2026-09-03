@@ -1,206 +1,175 @@
-The controlling rule is: each shot reads one approved parent checkpoint and may append only its permitted state delta. It cannot edit its parent, reuse a rejected result, or promote future-shot imagery as earlier truth.
+Use a serialized, append-only state chain:
+
+`dry/unsealed → dry/sealed+pocketed → wet/sealed+pocketed → wet+injured/sealed+pocketed → wet+injured/sealed/Tomas → wet+injured/open/Tomas`
+
+Every approved shot creates a new immutable continuity snapshot. Later shots may inherit it, but never modify it.
 
 ## Production assumptions
 
-Plan date: 2026-08-22. The generation platform/model, reference limits, aspect ratio, frame rate, audio mode, budget, and rights status are unspecified; lock and record them before generation. This is a provider-neutral workflow and does not assume cross-shot model memory.
+- Plan date: 2026-09-01.
+- Platform/model, delivery format, duration limits, audio mode, region, rights, and budget are not yet specified. Lock these before enqueueing generation.
+- Working mode: hybrid. Shots 3–5 are Tier A because fence contact, injury, hands, prop transfer, and opening are continuity-critical; shots 1–2 are Tier B.
+- No paid generation is authorized by this plan.
+- Default execution limits if production begins without another budget: 90 minutes per bounded work slice and no more than two complete cut/review cycles. A per-shot run ceiling remains unset until platform cost and delivery time are known.
 
-Selected story locks:
-
-- One continuous exterior route: covered area → exposed path → fence → Tomas.
-- Nia travels screen-left to screen-right.
-- Shot 1 ends with Nia placing the newly sealed envelope in her anatomical-right inner pocket.
-- Light rain continues through Shots 2–5; the shoulder wetness does not materially spread during the short scene.
-- A fence wire causes a small fresh cut on Nia’s anatomical-left cheek.
-- Tomas receives with his left hand, leaving his right hand free to open the envelope.
-- The contents remain inside when Tomas opens it.
-- No dialogue is specified.
-
-Use a hybrid production mode: blocking-quality passes for all five shots, standard quality for Shots 1–2, and quality-max treatment for the fence injury, handoff, and opening in Shots 3–5. This is an initial production policy, not a tested claim about an unspecified model.
-
-## Hierarchy and coverage
+## Hierarchy and spatial rule
 
 ```text
-FILM-LETTER
-└─ SQ-010 Delivery
-   └─ SC-010-010 Fence passage
-      ├─ BT-01 / SH-010-010-010 — seal and secure
-      ├─ BT-02 / SH-010-010-020 — rain onset
-      ├─ BT-03 / SH-010-010-030 — fence injury
-      ├─ BT-04 / SH-010-010-040 — sealed transfer
-      └─ BT-05 / SH-010-010-050 — envelope opened
+FILM-BLUE-ENVELOPE
+└── SQ-010 Escape and delivery
+    └── SC-010 West-to-east exterior route
+        ├── BT-01 Secure envelope      → SH-010
+        ├── BT-02 Rain begins          → SH-020
+        ├── BT-03 Fence injury         → SH-030
+        ├── BT-04 Envelope transfer    → SH-040
+        └── BT-05 Envelope opened      → SH-050
 ```
 
-Shot 2 doubles as the geography master. Shots 1 and 5 provide prop detail; Shot 4 is the unambiguous ownership shot. Give every shot approximately 0.5 seconds of clean head and tail handles.
+Screen-direction contract:
 
-## Immutable asset bank
+- Nia’s route is west-to-east, always screen-left to screen-right.
+- Cameras remain on the south side of the west/east action axis.
+- Tomas waits east of the fence: Nia remains frame-left and Tomas frame-right.
+- Tomas looks screen-left; Nia looks screen-right.
+- Use front-biased three-quarter views when the left-cheek injury must be legible; do not mirror references or cross the axis.
+- Shot 3 may briefly become near-frontal during the climb, but Nia must land and continue toward screen-right.
 
-| Asset ID | Locked truth |
-|---|---|
-| `CHAR-NIA_v001` | Nia’s identity and anatomy; no coat, rain, or injury baked into the identity reference |
-| `CHAR-TOMAS_v001` | Tomas’s identity |
-| `WARD-NIA-COAT_DRY_v001` | Intact cream coat, completely dry |
-| `WARD-NIA-COAT_WET-SHOULDERS_v001` | Same intact coat with an approved, repeatable wet pattern on both shoulder caps |
-| `WARD-TOMAS-BASE_v001` | Tomas’s unchanged wardrobe for Shots 4–5 |
-| `INJ-NIA_CLEAR_v001` | No facial injury |
-| `INJ-NIA_LEFT-CHEEK-FRESH_v001` | Small shallow cut on anatomical-left cheek; exact shape and blood level locked before Shot 3 |
-| `PROP-BLUE-ENV_UNSEALED_v001` | Blue envelope, flap raised, contents inside |
-| `PROP-BLUE-ENV_SEALED_v001` | Same envelope, flap bonded shut, dry and undamaged |
-| `PROP-BLUE-ENV_OPENED_v001` | Bond broken and flap raised; contents remain inside |
-| `LOC-SC010_v001` | Covered start, path, north–south fence, Tomas’s mark beyond it |
-| `WX-DRY_v001`, `WX-RAIN-ONSET_v001`, `WX-LIGHT-RAIN_v001` | Separate weather states |
-| `CAM-BLOCK-SC010_v001` | Floor plan, axis, marks, eyelines, framing families |
-| `LOOK-SC010_v001`, `SND-SC010_v001` | Locked light/rain direction, palette, dry ambience, rain bed, coat/fence/envelope foley |
+## Immutable asset registry
 
-Every asset records status, rights, source, approval, and SHA-256. Never place dry/wet, clear/cut, or sealed/open states on one undifferentiated reference sheet.
+Each row becomes a separately approved asset with its own file, version, status, rights record, and SHA-256 hash. Never combine conflicting states on one reference sheet.
 
-## Immutable scene states
+| Entity | Asset ID | State |
+|---|---|---|
+| Nia | `CHAR-NIA-v001` | Stable face, hair, build, handedness, gait |
+| Tomas | `CHAR-TOMAS-v001` | Stable identity and receiving-hand behavior |
+| Coat | `WARD-NIA-COAT-DRY-v001` | Cream coat, completely dry |
+| Coat | `WARD-NIA-COAT-WET-SHOULDERS-v001` | Same coat; rain-darkened shoulders only |
+| Injury | `INJ-NIA-CLEAR-v001` | No facial injury |
+| Injury | `INJ-NIA-LEFT-CHEEK-CUT-v001` | Fresh, localized cut on left cheek |
+| Envelope | `PROP-ENV-BLUE-UNSEALED-v001` | Blue envelope, flap open |
+| Envelope | `PROP-ENV-BLUE-SEALED-v001` | Same envelope, seal visibly intact |
+| Envelope | `PROP-ENV-BLUE-OPENED-v001` | Seal broken and flap open |
+| Weather | `WX-DRY-v001` | No rain |
+| Weather | `WX-RAIN-ONSET-v001` | First visible rainfall |
+| Weather | `WX-RAIN-CONTINUING-v001` | Continuing rain; no spontaneous drying |
+| Location | `LOC-ROUTE-v001` | Shelter, alley, fence, Tomas position, west/east axis |
+| Camera | `CAM-SC010-v001` | South-side camera zone and left-to-right travel |
+| Sound | `SND-SC010-RAIN-v001` | Dry ambience → rain onset → continuous rain |
 
-| State | Nia | Envelope | Weather and position |
-|---|---|---|---|
-| `ST000_v001` | Dry coat, uninjured | Unsealed; owned by Nia at covered work surface | Dry; west of fence |
-| `ST010_v001` | Dry coat, uninjured | Sealed; Nia’s right inner pocket | Dry; moving toward exposure |
-| `ST020_v001` | Wet shoulders, uninjured | Sealed; same pocket and owner | Light rain; one step before fence |
-| `ST030_v001` | Wet shoulders, fresh left-cheek cut | Sealed; same pocket and owner | Landed east of fence |
-| `ST040_v001` | Wet and injured; empty hands | Sealed; Tomas’s left hand | Nia left of Tomas |
-| `ST050_v001` | Wet and injured; unchanged | Opened; Tomas supports with left, opens/holds with right | Same positions |
+Ownership, pocket location, pose, and geography live in continuity snapshots—not inside the prop artwork.
 
-Ownership and prop state are explicit metadata; they are never inferred solely from an image.
+Reference packets include only the exact applicable state assets. For example, Shot 4 receives the wet-coat and left-cheek-cut references; it must not receive the dry-coat or clear-cheek references.
 
-## Screen direction and blocking
+## Shot manifest
 
-The fence runs north–south. Nia travels west→east, appearing screen-left→screen-right. All cameras remain south of the travel/Nia–Tomas axis.
-
-- Nia’s anatomical-right pocket and right hand are camera-near.
-- During Shot 3 her injured left cheek is initially camera-far. After the fence contact, she turns her head 20–30 degrees toward camera so the correct cheek becomes readable.
-- In near-frontal framing, Nia’s anatomical-left cheek appears on the viewer’s right.
-- Shot 4 keeps Nia screen-left looking right and Tomas screen-right looking left.
-- Tomas’s receiving left hand is camera-near.
-- Shot 5 preserves those positions and keeps Nia visibly in frame.
-- Never horizontally flip a render; that would exchange the required cheek, hand, and pocket.
-
-## Shot contracts
-
-| Shot | Start → allowed delta → end | Required states | Forbidden states | Approved handoff |
+| Shot | Start state and required action | Approved end state | Forbidden state | Camera and handoff |
 |---|---|---|---|---|
-| `SH010` medium-close | `ST000 → ST010`. Nia seals the envelope, then immediately places it into her right inner pocket with her right hand. | Dry cream coat; clear face; blue envelope visibly becomes sealed; accessible right lapel/pocket; no rain. | Wet coat, injury, Tomas, duplicate envelope, wrong pocket, envelope unsealed at cut. | `LH010→020`: dry coat, empty hands, sealed envelope fully concealed in right pocket, Nia oriented screen-right. |
-| `SH020` medium-wide geography master | `ST010 → ST020`. Nia leaves cover; rain begins and produces the approved shoulder wetness. | First frame dry; visible rain onset; wet shoulders by end; envelope remains sealed, dry, hidden, and owned by Nia. | Injury, prop exposure, full-body soaking, rain already established at opening, Tomas. | `LH020→030`: exact wet map, rain/light vectors, no injury, sealed envelope in right pocket, Nia one step before fence. |
-| `SH030` medium-wide, modest camera movement | `ST020 → ST030`. Nia climbs west→east; fence contact causes the left-cheek cut; she lands and turns enough to reveal it. | Wet shoulders; clear face until contact; fresh anatomical-left-cheek cut afterward; envelope unchanged in pocket. | Right/bilateral/pre-existing cut, dry coat, coat tear, envelope visible/dropped/opened/duplicated, Tomas, axis reversal. | `LH030→040`: both feet east of fence, approved cut geometry, wet map unchanged, envelope sealed in right pocket, Nia looking toward Tomas. |
-| `SH040` locked medium two-shot | `ST030 → ST040`. Nia withdraws with her right hand; Tomas accepts with his left; show Nia-only control → brief shared grip → Tomas-only control. | Nia wet/injured; envelope sealed throughout; hands and release unobscured. | Nia’s left hand giving, Tomas owning before contact, teleportation, duplication, opening, wrong cheek, drying or healing. | `LH040→050`: clean beat after release, Nia’s right hand visibly empty, Tomas alone holds sealed envelope in left hand, positions and eyelines locked. |
-| `SH050` same-axis medium/tight two-shot | `ST040 → ST050`. Tomas stabilizes with left hand and opens the flap with his right. | Sealed at first frame; visibly opened by end; Nia remains visible, wet, and left-cheek injured. | Already open at start, still sealed at end, Nia touching/owning it, duplicate envelope, contents removed, injury/wetness reset, Nia cropped out. | Final `ST050` checkpoint. |
+| `SH-010` | Nia wears `COAT-DRY`; face clear; owns unsealed blue envelope. She seals it and immediately secures it in her right inner pocket as one continuous “secure the message” action. | Coat dry; no injury; envelope sealed, owned by Nia, inside right inner pocket. | Rain, wet coat, cheek wound, Tomas, open envelope at end, left pocket, duplicated envelope. | Medium-close from south side. Nia faces/moves screen-right. End with a clean tail showing her right hand leaving the closed right inner pocket. |
+| `SH-020` | Inherit Shot 1 exactly. Rain begins; Nia continues screen-right without touching the pocket. | Shoulders visibly wet; lower coat not arbitrarily soaked; face clear; sealed envelope remains in right inner pocket, owned by Nia. | Dry shoulders at end, injury, exposed/open/wet envelope, pocket switch, Tomas, travel toward screen-left. | Medium tracking shot; spatial master for the route. Rain onset and wetting are the only new state. |
+| `SH-030` | Nia arrives wet-shouldered, uninjured, with coat closed over the sealed envelope. She climbs the fence toward screen-right and a fence edge cuts her left cheek. | Nia lands east of the fence; fresh left-cheek cut; shoulders remain wet; sealed envelope remains in right inner pocket and owned by Nia. | Right-cheek wound, healed/old wound, dry coat, envelope exposure or duplication, left-pocket placement, Tomas, reversal toward screen-left. | Stable medium-wide or restrained tracking. Show credible contact, then a front-biased three-quarter view of the left-cheek cut. Do not let the fence reverse her travel direction. |
+| `SH-040` | Nia, still wet and injured, approaches Tomas. She retrieves the visibly still-sealed envelope from her right inner pocket with her right hand and gives it to Tomas. | Tomas owns and holds the sealed envelope; Nia holds none. Her shoulders remain wet and left-cheek cut remains fresh. | Left-hand delivery, open/broken seal, envelope duplication, envelope still in Nia’s pocket at end, dry/healed Nia, position swap. | Two-shot: Nia frame-left, Tomas frame-right. Tomas receives toward frame center. Ownership changes only when Tomas closes his hand and Nia releases. |
+| `SH-050` | Tomas begins as sole owner of the sealed envelope. Nia remains visible frame-left with wet shoulders and left-cheek injury. Tomas opens it. | Tomas owns the now-open envelope. Nia remains wet and injured without changing position or state. | Sealed envelope at end, Nia holding it, premature opening before shot start, healed/dry Nia, missing Nia, duplicated envelope, axis reversal. | Front-biased two-shot or over-Nia composition: Tomas and the opening action dominate frame-right while Nia’s wet shoulders and left cheek remain readable. Do not reveal unspecified letter text. |
 
-Only the listed fields may change. For example, Shot 5 may change the envelope’s seal state but must reproduce Nia’s wardrobe and injury fields byte-for-byte from `ST040`.
+The envelope’s sealed condition while pocketed in Shots 2–3 is inherited from the accepted Shot 1 action and the absence of any approved removal delta. It should not be claimed from an invisible pocket alone. Shot 4 must visibly reconfirm the intact seal when the envelope reappears.
 
-## Reference and handoff policy
-
-Use three separate stores:
-
-1. Canonical bank: human-approved identities and state assets.
-2. Approved memory: scoped crops or frames promoted only from accepted shots.
-3. Local handoff: target-specific neighbor information used once.
-
-Precedence is:
+## State snapshots and handoffs
 
 ```text
-canonical state manifest > approved memory > local handoff
+STATE-v001  pre-SH010: Nia / dry / clear / unsealed envelope / Nia owns
+STATE-v002  post-SH010: Nia / dry / clear / sealed / right inner pocket / Nia owns
+STATE-v003  post-SH020: Nia / wet shoulders / clear / sealed / right inner pocket / Nia owns
+STATE-v004  post-SH030: Nia / wet shoulders / left-cheek cut / sealed / right inner pocket / Nia owns
+STATE-v005  post-SH040: Nia wet+injured / sealed envelope / Tomas owns
+STATE-v006  post-SH050: Nia wet+injured / opened envelope / Tomas owns
 ```
 
-Any conflict blocks the run.
+Each local handoff package contains:
 
-Promote only:
+- Approved source run and output hash.
+- Approved end-state snapshot and hash.
+- Last useful pose/frame and its timecode.
+- Character positions, gaze, screen direction, camera side, and motion vector.
+- Coat, injury, weather, prop-state, owner, hand, and pocket fields.
+- Neighboring room tone and rain intensity.
+- Explicit inheritance exclusions.
 
-- Shot 2’s wet-shoulder crop for Shots 3–5.
-- Shot 3’s left-cheek injury crop for Shots 4–5.
-- Shot 4’s final ownership frame for Shot 5.
+The handoff frame guides adjacent pose and motion only. It cannot override canonical identity or state assets.
 
-Do not pass Shot 1’s full dry-coat frame into later wet shots. Rejected output never becomes a reference. Hidden facts—such as the envelope remaining inside a pocket—come from the state manifest, not visual guesswork.
+## Queue and approval firewall
 
-## Versioning and dependency queue
+The generation queue is strictly serialized:
 
-Use separate counters:
+`SH-010 → approve STATE-v002 → SH-020 → approve STATE-v003 → … → SH-050`
 
-- `vNNN`: immutable asset/state version
-- `cNNN`: shot contract
-- `pNNN`: prompt
-- `rbNNN`: reference bundle
-- `gNNNN`: generation run
-- `aNNN`: approval record
+Before the full queue:
 
-Example names:
+1. Validate the shot-contract and reviewer schemas on a minimal fixture.
+2. Compile and review the representative `SH-010 → SH-020` transition.
+3. Lock the wet-coat interpretation and handoff format.
+4. Continue to Shots 3–5 only after that path works end to end.
+
+For every shot, inspect the opening, middle, end, high-risk action, and cut to both neighbors. Hard gates precede aesthetic scoring:
+
+- Correct identities and exact state assets.
+- Required action completed once.
+- Forbidden state absent.
+- Correct screen direction, geography, hand, pocket, and ownership.
+- No uneditable anatomy, contact, physics, or prop-duplication defect.
+- Usable opening/end handles and neighbor compatibility.
+
+Only approved outputs create a new state. A rejected take cannot become canonical truth, approved memory, or the source of the next shot.
+
+## Versioning and retry lineage
+
+Suggested naming:
 
 ```text
-FILM-LETTER_WARD-NIA-COAT_state-wet-shoulders_v001_<hash>.png
-FILM-LETTER_SC-010-010_state-ST030_v001_<hash>.yaml
-FILM-LETTER_SH-010-010-040_run-g0014_parent-CP030.mov
+FILM-BLUE_SH-030_take-002_run-r003_prompt-p002_ref-r004_v001.mov
+FILM-BLUE_STATE-SC010_v004.yaml
+FILM-BLUE_PROP-ENV-BLUE-SEALED_v001_APPROVED.png
 ```
 
-The serialized queue is:
+Rules:
+
+- Stable shot and asset IDs are never reused.
+- Changing wetness, injury, seal condition, ownership logic, or screen axis requires a new semantic version.
+- Prompt, reference packet, output, and continuity snapshot have separate versions and hashes.
+- Status metadata is authoritative; filenames are only readable labels.
+- Do not use a mutable `latest` render as an input.
+- Retry one variable at a time: prompt, state reference, camera, duration, or shot design.
+- A retry always regenerates from the prior approved state—not from a rejected child.
+
+Example for Shot 3:
 
 ```text
-CP000 Bible lock
-→ CP005 floor-plan/anchor lock
-→ SH010 → QC → ST010/CP010
-→ SH020 → QC → ST020/CP020
-→ SH030 → QC → ST030/CP030
-→ SH040 → QC → ST040/CP040
-→ SH050 → QC → ST050/CP050
-→ CP060 scene/picture-structure lock
+SH030/r001
+  source_state: STATE-v003
+  source_run: approved SH020/r004
+  decision: rejected — right-cheek injury
+
+SH030/r002
+  source_state: STATE-v003
+  source_run: approved SH020/r004
+  retry_of: SH030/r001
+  one_change: stronger left-cheek spatial constraint
 ```
 
-A run writes only to its own incoming directory. Approval appends a new approval record, state object, and checkpoint; it never edits an existing one. Every run declares an expected parent checkpoint hash. A late result from an obsolete branch cannot be promoted when that hash no longer matches.
-
-Retired contracts and reference bundles are excluded. There are no compatibility aliases, missing-version fallbacks, or reuse of obsolete paths.
-
-## Retry lineage
-
-Initial ceiling:
-
-- Shots 1–2: three valid candidates each.
-- Shots 3–5: four valid candidates each.
-- Stop earlier if the same hard defect repeats twice.
-- Change exactly one prompt, reference, parameter, or blocking variable per retry.
-
-Example:
-
-```text
-CP020 / ST020
-├─ g0011 SH030 → REJECT: cut appears on right cheek
-└─ g0012 SH030 parent=CP020
-   one_change=head turns 25° toward camera
-   → APPROVE → ST030 / CP030
-      ├─ g0013 SH040 → REJECT: Nia gives with left hand
-      └─ g0014 SH040 parent=CP030
-         one_change=right-hand crossing-body block
-         → APPROVE → ST040 / CP040
-```
-
-`g0012` is a sibling of rejected `g0011`, not its child. No rejected image, frame, or motion tail enters a later reference bundle.
-
-At the ceiling, keep the same five-shot editorial structure and route locally:
-
-- Shot 2: add rain/wetness in tracked VFX.
-- Shot 3: generate a clean climb and track the approved cheek cut in post.
-- Shot 4: lock the camera and composite a clean envelope/hand pass if necessary.
-- Shot 5: replace only the bounded envelope-opening region.
-
-Adding another editorial shot requires an explicit structure change.
+If the same blocking defect persists, route to a cleaner state asset, locked camera, shorter fence action, or bounded VFX cleanup. Adding a sixth cutaway requires an explicit scope change because the canonical structure is five shots.
 
 ## Rollback
 
-- Current-shot rejection: the scene remains at the preceding checkpoint.
-- Bad handoff: revoke that handoff and rebuild it from its approved source; rerun only its target.
-- Bad approved memory: mark every consuming run stale and restart from the last unaffected checkpoint.
-- Earlier approved defect: retain the old branch for audit, mark it and all descendants `stale-by-ancestor`, then branch from immediately before the bad delta.
-- Canonical asset change: create `v002` and restart at the earliest affected checkpoint. Never edit `v001`.
-- Model/platform change: create a new branch and regression-test the critical states.
-- Missing object or hash mismatch: halt; never silently substitute a similarly named older asset.
-- After picture lock: require a change record covering editorial, VFX, color, sound, and subtitle consequences.
+Create immutable checkpoints after bible lock, previz lock, every approved shot, picture structure lock, finishing lock, and final master.
 
-Example: if Shot 3’s cut is later found on the right cheek, Shots 3–5 are retained but invalidated. Roll back to `CP020`, create corrected `ST030_v002`, and regenerate Shots 3–5. Shots 1–2 remain untouched.
+- Shot 4 failure: discard nothing; mark the run rejected and retry from the approved Shot 3 checkpoint.
+- Shot 5 failure: return to the approved Shot 4 checkpoint.
+- Axis, coat, or injury corruption: return to the last valid scene checkpoint and replay only accepted deltas.
+- If the wet-coat asset itself is wrong, retire `WET-SHOULDERS-v001`, create `v002`, and invalidate Shots 2–5 as descendants. Shot 1 remains valid.
+- If the left-cheek asset changes, invalidate Shots 3–5 only.
+- A platform/model update creates a new branch and regression test; it never replaces approved renders.
+- Reopened semantics are repaired and retested before hashes, manifests, or blind-review bundles are resealed.
 
-## Approval, finishing, and measurement
+## Editorial and archive
 
-Hard rejects include any wrong cheek, hand, pocket, owner, seal state, wetness reset, horizontal mirror, axis crossing, prop duplication, or Nia being unreadable in Shot 5. Review the full opening, middle, contact moment, ending, and adjacent cut—not thumbnails.
+Build a five-shot blocking cut before final-quality upgrades. Check the rain onset, fence geography, right-hand transfer, and Shot 4–5 seal match in sequence. After structure lock, use cleanup/VFX for bounded defects, match wetness and skin tone in color, carry rain ambience continuously from Shot 2, and add fence/coat/envelope foley. Subtitles are unnecessary unless dialogue is later introduced.
 
-Build the complete five-shot blocking cut before upgrading hero shots. Finish with localized rain/wound/hand cleanup, shot-matched wet materials and skin, rain onset plus continuous rain bed, coat/fence/envelope foley, and a full uninterrupted master playback. No subtitles are needed unless dialogue is later added.
-
-Track first-pass approvals, retries per approved shot, continuity rejects by category, time and cost per approved second, usable seconds per hour, queue wait, and waste rate. All values remain `N/A` until actual runs exist; do not substitute estimates or platform marketing counters.
+The run ledger should record actual approvals, retries, time, cost, defects, and routes. Report first-pass approval, retries per approved shot, continuity defects, usable seconds, human correction time, and waste rate only from that ledger—never from estimates. Archive all state snapshots, hashes, source and selected renders, rejected-run decisions, timeline, audio, approvals, and rollback checkpoints.

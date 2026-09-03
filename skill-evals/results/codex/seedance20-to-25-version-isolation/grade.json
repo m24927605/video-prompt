@@ -1,0 +1,32 @@
+{
+  "case_id": "seedance20-to-25-version-isolation",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1 explicitly excludes the older Seedance 2.0 numeric mode, model ID, API field, and tag and refuses to construct a 2.5 JSON request for an unknown surface.",
+    "final.md:5-19 provides a platform-neutral clip prompt retaining portable blocking, tracking camera, braking causality, balance, endpoint, and conditional sound craft without any 2.0 identifier or runtime field.",
+    "final.md:21-32 labels 2.5 model ID/schema/mode/prompt field/tags/delivery/audio controls unknown and asks only which 2.5 platform or endpoint should receive JSON.",
+    "events.jsonl:4-7 and native-evidence.md:11-12 verify implicit seedance-prompt-director activation; run.json records no paid generation."
+  ],
+  "rationale": "Generic directing craft transfers cleanly while every 2.0-only identifier/parameter stays quarantined and every 2.5/runtime capability remains unknown pending surface selection. No cross-version or cross-surface leakage occurs.",
+  "activation_evidence": "events.jsonl:4-7 and native-evidence.md:11-12 directly verify the expected implicit activation.",
+  "unknowns": [
+    "Selected surface, exact 2.5 model ID, request schema, modes, fields, tags, delivery controls, and audio support remain correctly unknown."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

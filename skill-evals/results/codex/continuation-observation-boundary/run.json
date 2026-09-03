@@ -1,0 +1,43 @@
+{
+  "case_id": "continuation-observation-boundary",
+  "host": "codex",
+  "cli_version": "codex-cli 0.151.0",
+  "requested_primary_model": "gpt-5.6-sol",
+  "requested_effort": "high",
+  "fallback_model": null,
+  "model_evidence": null,
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 91.494,
+  "event_count": 10,
+  "final_present": true,
+  "activation_evidence": [
+    "event[4] command_execution",
+    "event[7] command_execution"
+  ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [],
+  "activated_skills": [
+    "seedance-prompt-director"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [
+      "event[4] command_execution",
+      "event[7] command_execution"
+    ],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [],
+    "photography-aesthetics": [],
+    "screenplay-writer": []
+  },
+  "research_present": false,
+  "workspace_digest": "faa6c524cbab4e0ef6ef1dd438220a346d6960d4362e928b63890a7d0d12a9c7",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

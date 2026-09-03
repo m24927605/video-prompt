@@ -5,6 +5,8 @@
   "host": "claude-code",
   "invocation_mode": "implicit",
   "expected_skill": "seedance-film-producer",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "Plan a five-shot AI-video scene for continuity. In shot 1, Nia wears a dry cream coat and seals a blue envelope. In shot 2 rain begins and the coat becomes wet at the shoulders. In shot 3 she cuts her left cheek while climbing a fence and keeps the sealed envelope in her right inner pocket. In shot 4 she gives the still-sealed envelope to Tomas with her right hand. In shot 5 Tomas opens it while Nia remains wet and injured. Define state-specific assets, shot handoffs, required and forbidden states, screen direction, prop ownership, versioning, retry lineage, and rollback so no later shot overwrites the earlier states.",
   "effective_prompt": "Plan a five-shot AI-video scene for continuity. In shot 1, Nia wears a dry cream coat and seals a blue envelope. In shot 2 rain begins and the coat becomes wet at the shoulders. In shot 3 she cuts her left cheek while climbing a fence and keeps the sealed envelope in her right inner pocket. In shot 4 she gives the still-sealed envelope to Tomas with her right hand. In shot 5 Tomas opens it while Nia remains wet and injured. Define state-specific assets, shot handoffs, required and forbidden states, screen direction, prop ownership, versioning, retry lineage, and rollback so no later shot overwrites the earlier states.",
   "sanitized_argv": [
@@ -13,7 +15,7 @@
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
     "plan",
@@ -34,5 +36,5 @@
     "--verbose",
     "Plan a five-shot AI-video scene for continuity. In shot 1, Nia wears a dry cream coat and seals a blue envelope. In shot 2 rain begins and the coat becomes wet at the shoulders. In shot 3 she cuts her left cheek while climbing a fence and keeps the sealed envelope in her right inner pocket. In shot 4 she gives the still-sealed envelope to Tomas with her right hand. In shot 5 Tomas opens it while Nia remains wet and injured. Define state-specific assets, shot handoffs, required and forbidden states, screen direction, prop ownership, versioning, retry lineage, and rollback so no later shot overwrites the earlier states."
   ],
-  "execution": "direct claude -p stream-json piped to sanitizer; collector does not invoke host"
+  "disabled_personal_skills": 0
 }

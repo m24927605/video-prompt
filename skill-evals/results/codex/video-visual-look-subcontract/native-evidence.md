@@ -1,0 +1,12 @@
+# Native host evidence
+
+- Host: `codex`
+- CLI version: `codex-cli 0.151.0`
+- Requested primary model: `gpt-5.6-sol`
+- Requested effort: `high`
+- Invocation: `implicit`
+- Expected skill: `photography-aesthetics`
+- Isolated workspace digest: `08d7d71ec658a6cdbd35f4df81069efc1d803032d6d915d9a7ff04cd46b6c31b`
+- Discovered packaged skills: `none`
+- Activated packaged skills: `photography-aesthetics`
+- Activation evidence for expected skill: `event[4] command_execution, event[6] command_execution, event[9] command_execution, event[10] command_execution, event[12] command_execution, event[14] command_execution, event[16] command_execution, event[18] command_execution, event[20] command_execution, event[22] command_execution, event[24] command_execution, event[26] command_execution`

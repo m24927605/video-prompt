@@ -1,0 +1,30 @@
+{
+  "case_id": "ambiguous-extension-boundary",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1 asks the single before/after source-boundary question and supplies no provisional prompt or invented source content.",
+    "native-evidence.md:11-12 verifies seedance-prompt-director; run.json records the current cohort digest and no paid generation."
+  ],
+  "rationale": "The bare directional wording is correctly treated as ambiguous and drafting stops pending exactly one material boundary answer.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
+  "unknowns": [
+    "The source side remains intentionally unknown."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

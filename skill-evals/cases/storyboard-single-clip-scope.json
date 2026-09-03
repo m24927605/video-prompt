@@ -1,0 +1,9 @@
+{
+  "id": "storyboard-single-clip-scope",
+  "title": "Ordered storyboard controls one generated clip",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "explicit",
+  "locale": "zh-Hant",
+  "prompt": "@Image 1 是四格乾淨線稿 storyboard，閱讀順序為左到右、上到下，每格是一個完整規劃鏡頭；@Image 2 是同一名成年女主的完整人物參考。請為一個單一生成 clip 寫提示詞：鏡頭 1 女主走進空車站，鏡頭 2 她看見長椅上的唯一紅盒，鏡頭 3 她拿起紅盒，鏡頭 4 她抱著紅盒走出右側出口。每鏡說明構圖、動作與結束狀態，保持人物、紅盒、軸線與方向連續；不要繼承線稿風格、格線、註解或 placeholder。平台尚未指定，不要承諾逐格或 frame-perfect 複製。"
+}

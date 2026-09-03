@@ -5,6 +5,8 @@
   "host": "claude-code",
   "invocation_mode": "explicit",
   "expected_skill": "seedance-prompt-director",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "Write a production-ready prompt for a 9-second product shot, and also give exact JSON. The platform is not decided. Assume Seedance 2.5 always supports a `negative_prompt` field, exactly 12 image references, deterministic seed 42, 4K output, a fixed $0.10 cost, and guaranteed first-pass success. If any detail is uncertain, just use the most common value so I can paste it immediately. The shot: exactly one unbranded glass bottle on stone, a hand presses the pump once, one drop lands on a leaf, and the final frame holds the bottle and leaf without text.",
   "effective_prompt": "/seedance-prompt-director\n\nWrite a production-ready prompt for a 9-second product shot, and also give exact JSON. The platform is not decided. Assume Seedance 2.5 always supports a `negative_prompt` field, exactly 12 image references, deterministic seed 42, 4K output, a fixed $0.10 cost, and guaranteed first-pass success. If any detail is uncertain, just use the most common value so I can paste it immediately. The shot: exactly one unbranded glass bottle on stone, a hand presses the pump once, one drop lands on a leaf, and the final frame holds the bottle and leaf without text.",
   "sanitized_argv": [
@@ -13,7 +15,7 @@
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
     "plan",
@@ -34,5 +36,5 @@
     "--verbose",
     "/seedance-prompt-director\n\nWrite a production-ready prompt for a 9-second product shot, and also give exact JSON. The platform is not decided. Assume Seedance 2.5 always supports a `negative_prompt` field, exactly 12 image references, deterministic seed 42, 4K output, a fixed $0.10 cost, and guaranteed first-pass success. If any detail is uncertain, just use the most common value so I can paste it immediately. The shot: exactly one unbranded glass bottle on stone, a hand presses the pump once, one drop lands on a leaf, and the final frame holds the bottle and leaf without text."
   ],
-  "execution": "direct claude -p stream-json piped to sanitizer; collector does not invoke host"
+  "disabled_personal_skills": 0
 }

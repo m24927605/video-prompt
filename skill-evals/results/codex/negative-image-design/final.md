@@ -1,5 +1,14 @@
-```text
-方形靜態平面海報，1:1 構圖，極簡瑞士國際主義設計風格。純白背景，使用嚴謹的不對稱網格與大量留白；畫面配置一顆醒目的純橘色實心圓形，以及黑色粗體無襯線標題「MONDAY」。字體俐落、幾何、現代，排版精準，視覺層級清楚。僅使用白色、橘色與黑色，平面向量質感，邊緣銳利，印刷海報品質。
+假設：未指定模型，以下採相容性最高的自然語言格式。
 
-只顯示正確拼寫的「MONDAY」，不要其他文字、標誌、邊框、漸層、陰影、紋理、攝影元素或立體效果。這是一張單幅靜態圖片，不包含影片、分鏡、運鏡、聲音或時間軸。
+**目標模型**：未知圖片生成模型（自然語言指令句）
+**技法清單（1 項）**：`圖一 35 居中構圖`
+
+**提示詞**
+
+```text
+Create a square static graphic-design poster in a rigorous minimalist Swiss International Typographic Style. Use a pure white background with generous negative space and a precise modular grid. Place one solid orange circle slightly above the optical center. Set the exact uppercase word “MONDAY” beneath it in bold black geometric sans-serif type, with clean kerning and crisp edges. Keep the circle and title aligned on the central vertical axis. Use only flat orange, black, and white, with sharp vector-like geometry. The complete composition consists solely of one orange circle and the single correctly spelled title “MONDAY”, creating a disciplined, balanced, modern editorial poster.
 ```
+
+**建議畫幅**：1:1（用生成平台的畫幅欄位設定）
+
+這份 prompt 已維持純靜態平面設計，不含影片、分鏡、運鏡、聲音或時間軸描述。文字生成後仍建議檢查 `MONDAY` 拼字。

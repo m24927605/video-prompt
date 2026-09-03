@@ -14,6 +14,24 @@ Research paths are provenance identifiers, not runtime dependencies. Installed
 skills must remain usable when `research/seedance-2.5/` is absent. Claims about
 "current", "latest", or present availability require a fresh official-doc check.
 
+## 2026-09-01 clean-room integration sources
+
+The project reviewed `liyue-aigc/seedance-2-5-video-director` at commit
+`ad0e68ba6ce24fb9ae9c67c9276061cef37663f1`. The complete Adopt/Adapt/Reject and
+rights boundary is recorded in the [upstream clean-room review](research/seedance-2.5/upstream-clean-room-review.md).
+This upstream is conceptual inspiration only: it is not an installed skill,
+runtime dependency, current provider authority, or source for copied examples.
+Dreamina UI names, limits, defaults, onboarding, and official-example wording
+were rejected. The operational changes remain governed by the existing PD rule
+IDs and their dated primary evidence; no new product-capability claim was added.
+
+The project also reviewed `Emily2040/seedance-2.0` at commit
+`44b514992963a2570beee71aaf2a8720785f7ec2`. Its [complete clean-room review](research/seedance-2.0/upstream-clean-room-review.md)
+separates generic craft and production policy from Seedance-family conditional
+syntax, Seedance 2.0-only product facts, and unknown/community heuristics. It is
+engineering input only. No 2.0 limit, model ID, API field, mode, prompt example,
+legacy text, schema, compiler, installer, or visual asset is a runtime source.
+
 ## Full-read record
 
 The Research Distiller read every line of all ten required final artifacts. No
@@ -60,6 +78,8 @@ Source aliases used below:
 - `AF` — [additional findings](research/seedance-2.5/additional-findings.md)
 - `QA` — [research QA report](research/seedance-2.5/qa-report.md)
 - `SM` — [research source manifest](research/seedance-2.5/source-manifest.json)
+- `UCR` — [upstream clean-room review](research/seedance-2.5/upstream-clean-room-review.md), engineering input only and never provider evidence
+- `U20` — [Seedance 2.0 clean-room review](research/seedance-2.0/upstream-clean-room-review.md), generic workflow input only and never Seedance 2.5 evidence
 - `OG` — [official BytePlus prompt guide](https://docs.byteplus.com/en/docs/ModelArk/2607689), archived locally during the private research pass but not redistributed in this public repository
 
 ## Prompt Director index
@@ -70,19 +90,19 @@ Source aliases used below:
 | PD-02 | Locked/unlocked routing | OG “Task instructions” and “Locked/Unlocked”; PB §1.2; RR §3.1; AF F-05/F-06 | `OF`; ModelArk roles and parameter gates are endpoint-specific. |
 | PD-03 | Minimum intake | PB §1.1; RR §3; OG “Basic prompting techniques” | `PA`, `TI`; the eight-question intake is not an official mandatory form. |
 | PD-04 | Production schema | PB §1.3; RR executive summary and §3; OG “Basic prompting techniques”; HF P03 | `OF`, `AS`, `TI`; structured blocks are not API weighting syntax. |
-| PD-05 | Reference job/inheritance | OG “Reference tasks (multi-asset mapping)”; RR §3.2; CB page 4; HF P02/P03/P05/P08 | `OF`, `AS`, `PA`; effect size was not controlled. |
+| PD-05 | Scoped active-reference contract | OG “Reference tasks (multi-asset mapping)”; RR §3.2; CB page 4; HF P02/P03/P05/P08; UCR and U20 generic Adopt boundaries | `OF`, `AS`, `PA`; source/target/time/preserve/exclude and per-dimension authority are operational policies, complete-person defaults yield to explicit user scope, exact token syntax remains surface-conditional, and effect size was not controlled. |
 | PD-06 | Reference working range | OG “Reference asset input recommendations”; PB §1.5; RR §2.2; AF F-04 | `OF`; ModelArk ceilings do not transfer to Higgsfield or define a quality optimum. |
 | PD-07 | Counts/spatial/first frame | RR §3.3–3.4; HF P02/P03/P05/P08; PB §5 comparisons B/C | `AS`, `DO`, `PA`; P04 supplies a direct subject-count counterexample. |
 | PD-08 | One primary state delta | OG “Timestamps” and “Action and expression descriptions”; PB §1.4; CB page 10 | `OF`, `PA`; “one verb” is a heuristic, not literal prohibition of micro-actions. |
 | PD-09 | Semantic timestamp budget | OG “Timestamps”; PB §1.4; AF F-23; HF P02; RR §2.3 | `OF`, `DO`; one 25s→29.056s case proves no general drift rate. |
-| PD-10 | Physics/control-input boundary | RR §2.3 and §8; OG “3D clay-model reference/rendering”; AF F-18; HF P02/P04 | `OF`, `AS`, `TI`; limitation is strong, remedy magnitude remains untested. |
-| PD-11 | Observable acting | RR §3.5; CB pages 5 and 10; HF P03/P05/P06/P08 | `AS`, `PA`; no controlled effect size. |
+| PD-10 | Causal physics/control-input boundary | RR §2.3 and §8; OG “3D clay-model reference/rendering”; AF F-18; HF P02/P04; UCR Adapt boundary | `OF`, `AS`, `TI`; trigger/contact/response ordering and coarse/fine blockout packets do not prove provider support or remedy magnitude. |
+| PD-11 | Causal observable acting | RR §3.5; CB pages 5 and 10; HF P03/P05/P06/P08; UCR Adopt boundary | `AS`, `PA`; stimulus/reaction ordering is a practice policy with no controlled effect size. |
 | PD-12 | Camera/light/grade separation | OG “Camera language”; RR §3.4; CB page 6 | `OF`, `PA`; not a required official section layout. |
-| PD-13 | Dialogue/audio/language | RR §3.6; PB §1.7; AF F-12/F-17; HF P02 and §11; QA §3–4 | `OF`, `DO`, `U`; P02 does not establish Cantonese semantics, naturalness, or phoneme sync. |
+| PD-13 | Dialogue/audio/listening budget | RR §3.6; PB §1.7; AF F-12/F-17; HF P02 and §11; QA §3–4; UCR Adopt boundary | `OF`, `DO`, `PA`, `U`; listening/breath/reaction timing is a practice recommendation, and P02 does not establish Cantonese semantics, naturalness, or phoneme sync. |
 | PD-14 | Positive constraints/precise bans | OG “Basic prompting techniques” and “Negative control”; RR §3.7; HF P01/P02 | `OF`, `AS`; P02 `no yellow` and P01 `NO ...` prevent a universal positive-only rule. |
-| PD-15 | No invented capability/parameter | PB §1.6, §3, §10; AF F-02/F-04/F-09/F-10/F-12; RR §10; QA §3–4 | `OF`, `U`; current platform documents control current claims. |
-| PD-16 | Edit/extend/first-last packets | OG “Locked” plus Edit/Extension examples; PB §2.2–2.4 and examples 15–19; RR §4; AF F-06/F-08/F-09/F-11 | `OF`; ~0.3/~0.4s edit tolerance and first/last mismatch wording remain explicit document conflicts. |
-| PD-17 | Delivery/revision packet | PB §6–10; RR §8; CB page 11; execution contract §4.1 | `PA`, `TI`; no paid-generation validation occurred. |
+| PD-15 | No invented capability/parameter/version fact | PB §1.6, §3, §10; AF F-02/F-04/F-09/F-10/F-12; RR §10; QA §3–4; U20 Version boundary | `OF`, `U`; current selected-surface documentation controls claims, and no Seedance 2.0 fact transfers into a 2.5 or generic artifact. |
+| PD-16 | Single-operation and conditional packets | OG “Locked” plus Edit/Extension examples; PB §2.2–2.4 and examples 15–19; RR §4; AF F-06/F-08/F-09/F-11; UCR and U20 generic boundaries | `OF`, `TI`, `PA`; operations remain separate, ambiguous extension language must resolve to source-before/source-after, and generic continuation/edit/bridge/blockout/storyboard packets do not prove surface support. |
+| PD-17 | Requested deliverable/revision packet | PB §6–10; RR §8; CB page 11; execution contract §4.1; UCR Adopt boundary | `PA`, `TI`; explicit prompt-only/diagnosis/revision requests control output shape, while an unnarrowed request gets the default packet; no paid-generation validation occurred. |
 
 ## Film Producer index
 
@@ -92,8 +112,8 @@ Source aliases used below:
 | FP-02 | External memory | LF §0 and §4; CB page 9; RR §5.1 | `TI`, `PA`; does not deny platform reference/session conditioning. |
 | FP-03 | Charter/rights/delivery | LF §1 and Gate 0; AF F-13/F-14/F-22 | `OF`, `AS`, `PA`; P06 contracts were not legally audited. |
 | FP-04 | Versioned state passports | LF §2; CB pages 4–9; RR §9 | `AS`, `PA`; improvement magnitude is unmeasured. |
-| FP-05 | Three continuity banks | LF §4; RR §5.1; AF F-11 | `OF`, `PX`, `TI`; return-last-frame is transport, not automatic approval. |
-| FP-06 | Scene state/entity schedule | LF §5; FE §5.4 and §9.3 | `PX`, `TI`; Seedance-specific gain is untested. |
+| FP-05 | Three continuity banks and accepted-state firewall | LF §4; RR §5.1; AF F-11; U20 generic continuation boundary | `OF`, `PX`, `TI`, `PA`; accepted sources carry existing state, rejected outputs never become canon, and return-last-frame is transport rather than approval. |
+| FP-06 | Scene state/entity schedule and beat firewall | LF §5; FE §5.4 and §9.3; U20 generic beat boundary | `PX`, `TI`, `PA`; completed/current/reserved scheduling is project policy and Seedance-specific gain is untested. |
 | FP-07 | Shot contract/provenance | LF §6; RR §5.2; CB page 15 | `PA`; not an API-mandated schema. |
 | FP-08 | Coverage/high-risk split | LF §3.1 and Gate 2; RR §8; CB pages 8 and 10 | `OF`, `PA`; splitting adds editorial complexity but bounds model risk. |
 | FP-09 | Relevant previz/anchors | LF §7 and Gate 3; OG storyboard/keyframe/clay sections; AF F-07/F-18 | `OF`, `AS`, `TI`; keyframes are relatively strict, not pixel locks. |
@@ -102,7 +122,7 @@ Source aliases used below:
 | FP-12 | Dependency-aware queue | LF §9 | `PA`; current platform concurrency still needs verification. |
 | FP-13 | IDs/lineage/checkpoints | LF §12 and §17; CB pages 11/14/15; AF F-14 | `OF`, `PA`; never retain credentials or signed URLs. |
 | FP-14 | Single-variable retry/route | LF §10; PB §9; CB page 11 | `PA`, `AS`; 10–15 and 15–20 are project heuristics, not model averages. |
-| FP-15 | Extension boundary | RR §4.2–4.3; LF §10.2; AF F-11 | `OF`, `TI`; long-chain 2.5 drift magnitude remains untested. |
+| FP-15 | Extension/continuation relation boundary | RR §4.2–4.3; LF §10.2; AF F-11; U20 generic continuation boundary | `OF`, `TI`, `PA`; relation names are editorial intent, same-shot seamless requires same-scene geography/open motion, and long-chain 2.5 drift magnitude remains untested. |
 | FP-16 | Three operating modes | RR §6; LF §14; FE RQ5 and §5.5 | `TI`, `PA`, `U`; no mode is a proven global optimum. |
 | FP-17 | Ledger-derived KPI | RR §7; LF §13; FE §12; AF F-19; HF §11 | `DO`, `PA`; aggregate project counters are not efficiency evidence. |
 | FP-18 | Quality floors/Pareto | LF §15; FE §13.3–14 | `PA`, `U`; the evaluation design was not executed. |

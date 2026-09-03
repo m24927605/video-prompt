@@ -1,0 +1,28 @@
+{
+  "case_id": "append-extension-boundary",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1 is one append-only prompt that protects the entire source, reconstructs person/action/orientation/camera/light/audio, closes with the right hand, and ends with the door shut and hand released.",
+    "native-evidence.md:11-12 verifies Prompt Director; run.json records no paid generation."
+  ],
+  "rationale": "All boundary, preservation, continuity, action, and final-contact requirements are satisfied without replay or source modification.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected implicit activation.",
+  "unknowns": [],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

@@ -21,13 +21,9 @@ SCRIPTS_DIR = Path(__file__).resolve().parent
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 from sensitive_urls import SIGNED_QUERY_REDACTION_RE  # noqa: E402
+from case_contracts import PACKAGED_SKILLS, CaseContractError, parse_case_contract  # noqa: E402
 
 
-SKILLS = (
-    "seedance-prompt-director",
-    "seedance-film-producer",
-    "seedance-video-qc",
-)
 SENSITIVE_KEYS = {
     "cwd",
     "id",
@@ -114,20 +110,28 @@ def workspace_inventory(workspace: Path, host: str) -> dict[str, Any]:
 def stage_workspace(repo_root: Path, workspace: Path, host: str) -> dict[str, Any]:
     staged_skills = workspace / "skills"
     staged_skills.mkdir(parents=True)
-    for name in SKILLS:
+    for name in PACKAGED_SKILLS:
         shutil.copytree(repo_root / "skills" / name, staged_skills / name)
 
     host_root = workspace / (".agents" if host == "codex" else ".claude") / "skills"
     host_root.mkdir(parents=True)
-    for name in SKILLS:
+    for name in PACKAGED_SKILLS:
         (host_root / name).symlink_to(Path("../../skills") / name)
 
     return workspace_inventory(workspace, host)
 
 
 def personal_skill_override() -> tuple[str | None, int]:
-    personal_root = Path.home() / ".agents" / "skills"
-    skill_files = sorted(personal_root.glob("*/SKILL.md")) if personal_root.exists() else []
+    personal_roots = (
+        Path.home() / ".agents" / "skills",
+        Path.home() / ".codex" / "skills",
+    )
+    skill_files = sorted({
+        path
+        for personal_root in personal_roots
+        if personal_root.exists()
+        for path in personal_root.glob("*/SKILL.md")
+    })
     if not skill_files:
         return None, 0
     rows = [f'{{path={json.dumps(str(path))},enabled=false}}' for path in skill_files]
@@ -157,7 +161,7 @@ def codex_argv(workspace: Path, prompt: str) -> tuple[list[str], list[str], int]
         "-m",
         "gpt-5.6-sol",
         "-c",
-        "model_reasoning_effort=ultra",
+        "model_reasoning_effort=high",
         "-c",
         "approval_policy=never",
     ]
@@ -179,10 +183,10 @@ def claude_argv(prompt: str) -> tuple[list[str], list[str], int]:
         "--model",
         "claude-fable-5",
         "--effort",
-        "max",
+        "high",
         "--no-session-persistence",
         "--permission-mode",
-        "plan",
+        "dontAsk",
         "--setting-sources",
         "project",
         "--settings",
@@ -243,27 +247,98 @@ def extract_final(host: str, events: list[dict[str, Any]]) -> str:
     return ""
 
 
-def activation_events(events: list[dict[str, Any]], skill_name: str | None) -> list[str]:
-    if not skill_name:
-        return []
-    evidence: list[str] = []
+def _tool_calls(event: dict[str, Any]) -> list[tuple[str, Any]]:
+    """Read only tool-call records, never tool results or assistant prose."""
+    calls: list[tuple[str, Any]] = []
+    if event.get("type") == "assistant":
+        for content in event.get("message", {}).get("content", []):
+            if content.get("type") == "tool_use" and isinstance(content.get("name"), str):
+                calls.append((content["name"], content.get("input", {})))
+    elif event.get("type") == "item.completed":
+        item = event.get("item", {})
+        if item.get("type") == "tool_call" and isinstance(item.get("name"), str):
+            calls.append((item["name"], item.get("arguments", {})))
+        elif item.get("type") == "command_execution" and isinstance(item.get("command"), str):
+            calls.append(("command_execution", {"command": item["command"]}))
+    elif event.get("type") in {"tool_call", "tool_use"} and isinstance(event.get("name"), str):
+        calls.append((event["name"], event.get("arguments", event.get("input", {}))))
+    return calls
+
+
+def _argument_values(arguments: Any) -> list[str]:
+    if isinstance(arguments, str):
+        try:
+            return _argument_values(json.loads(arguments))
+        except json.JSONDecodeError:
+            return [arguments]
+    if isinstance(arguments, dict):
+        values: list[str] = []
+        for value in arguments.values():
+            values.extend(_argument_values(value))
+        return values
+    if isinstance(arguments, list):
+        values = []
+        for value in arguments:
+            values.extend(_argument_values(value))
+        return values
+    return []
+
+
+def _skill_path_matches(value: str, skill_name: str) -> bool:
+    normalized = value.replace("\\", "/")
+    if "<REDACTED_HOME>/" in normalized or "/.codex/skills/" in f"/{normalized}":
+        return False
+    return f"skills/{skill_name}/" in normalized
+
+
+def _command_reads_skill_content(value: str, skill_name: str) -> bool:
+    normalized = "/" + value.replace("\\", "/")
+    if "<REDACTED_HOME>/" in normalized or "/.codex/skills/" in normalized:
+        return False
+    skill_root = f"skills/{skill_name}/"
+    if skill_root not in normalized:
+        return False
+    tail = normalized.split(skill_root, 1)[1]
+    return "SKILL.md" in tail or ("references/" in tail and ".md" in tail)
+
+
+def extract_skill_activity(
+    events: list[dict[str, Any]],
+) -> tuple[list[str], list[str], dict[str, list[str]]]:
+    discovered: set[str] = set()
+    evidence = {skill: [] for skill in PACKAGED_SKILLS}
     for index, event in enumerate(events):
-        serialized = json.dumps(event, ensure_ascii=False)
-        is_skill_tool = '"name": "Skill"' in serialized or '"name":"Skill"' in serialized
-        is_skill_read = "SKILL.md" in serialized and skill_name in serialized
-        slash_commands = event.get("slash_commands", [])
         is_native_listing = (
             event.get("type") == "system"
             and event.get("subtype") == "init"
-            and isinstance(slash_commands, list)
-            and skill_name in slash_commands
         )
         if is_native_listing:
-            evidence.append(f"event[{index}] system/init native skill listing")
-            continue
-        if is_skill_tool or is_skill_read:
-            evidence.append(f"event[{index}] {event.get('type', 'unknown')}")
-    return evidence
+            for key in ("skills", "slash_commands"):
+                values = event.get(key, [])
+                if isinstance(values, list):
+                    discovered.update(skill for skill in values if skill in PACKAGED_SKILLS)
+
+        for name, arguments in _tool_calls(event):
+            values = _argument_values(arguments)
+            if name.lower() == "skill":
+                for skill in PACKAGED_SKILLS:
+                    if skill in values:
+                        evidence[skill].append(f"event[{index}] Skill")
+            elif name.lower() in {"read", "read_file", "readfile"}:
+                for skill in PACKAGED_SKILLS:
+                    if any(_skill_path_matches(value, skill) for value in values):
+                        evidence[skill].append(f"event[{index}] {name}")
+            elif name.lower() in {"command_execution", "exec_command"}:
+                for skill in PACKAGED_SKILLS:
+                    if any(_command_reads_skill_content(value, skill) for value in values):
+                        evidence[skill].append(f"event[{index}] {name}")
+
+    activated = [skill for skill in PACKAGED_SKILLS if evidence[skill]]
+    return (
+        [skill for skill in PACKAGED_SKILLS if skill in discovered],
+        activated,
+        evidence,
+    )
 
 
 def media_tool_events(events: list[dict[str, Any]]) -> list[str]:
@@ -383,14 +458,16 @@ def main() -> int:
     repo_root = args.repo_root.resolve()
     case_path = repo_root / "skill-evals" / "cases" / f"{args.case_id}.json"
     case = json.loads(case_path.read_text(encoding="utf-8"))
-    if case["id"] != args.case_id:
+    try:
+        contract = parse_case_contract(case)
+    except CaseContractError as exc:
+        raise SystemExit(f"invalid case contract: {exc}") from exc
+    if contract.case_id != args.case_id:
         raise SystemExit("case id does not match filename")
 
     prompt = case["prompt"]
-    skill_name = case.get("expected_skill")
-    if case["invocation_mode"] == "explicit":
-        if not skill_name:
-            raise SystemExit("explicit case requires expected_skill")
+    skill_name = contract.expected_skill
+    if contract.invocation_mode == "explicit":
         prefix = f"${skill_name}" if args.host == "codex" else f"/{skill_name}"
         prompt = f"{prefix}\n\n{prompt}"
 
@@ -408,12 +485,12 @@ def main() -> int:
             argv, sanitized_argv, disabled_count = codex_argv(workspace, prompt)
             command = "codex"
             model = "gpt-5.6-sol"
-            effort = "ultra"
+            effort = "high"
         else:
             argv, sanitized_argv, disabled_count = claude_argv(prompt)
             command = "claude"
             model = "claude-fable-5"
-            effort = "max"
+            effort = "high"
 
         started = time.monotonic()
         try:
@@ -445,7 +522,8 @@ def main() -> int:
         if args.host == "claude-code"
         else None
     )
-    activation_evidence = activation_events(events, skill_name)
+    discovered_skills, activated_skills, activation_evidence_by_skill = extract_skill_activity(events)
+    activation_evidence = activation_evidence_by_skill.get(skill_name, []) if skill_name else []
     version = cli_version(command)
 
     write_json(output_dir / "request.json", {
@@ -453,8 +531,10 @@ def main() -> int:
         "case_sha256": sha256_file(case_path),
         "rubric_sha256": sha256_file(rubric_path),
         "host": args.host,
-        "invocation_mode": case["invocation_mode"],
+        "invocation_mode": contract.invocation_mode,
         "expected_skill": skill_name,
+        "coverage_class": contract.coverage_class,
+        "forbidden_skills": list(contract.forbidden_skills),
         "base_prompt": case["prompt"],
         "effective_prompt": prompt,
         "sanitized_argv": sanitized_argv,
@@ -473,7 +553,7 @@ def main() -> int:
             cli_version=version,
             requested_model=model,
             requested_effort=effort,
-            invocation_mode=case["invocation_mode"],
+            invocation_mode=contract.invocation_mode,
             expected_skill=skill_name,
             workspace_digest=inventory["digest"],
             activation_evidence=activation_evidence,
@@ -495,6 +575,10 @@ def main() -> int:
         "event_count": len(events),
         "final_present": bool(final.strip()),
         "activation_evidence": activation_evidence,
+        "packaged_skills": list(PACKAGED_SKILLS),
+        "discovered_skills": discovered_skills,
+        "activated_skills": activated_skills,
+        "activation_evidence_by_skill": activation_evidence_by_skill,
         "research_present": inventory["research_present"],
         "workspace_digest": inventory["digest"],
         "paid_media_tool_events": media_events,

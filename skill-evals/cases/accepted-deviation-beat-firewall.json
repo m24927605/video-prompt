@@ -1,0 +1,9 @@
+{
+  "id": "accepted-deviation-beat-firewall",
+  "title": "Accepted deviation advances the beat schedule without canonizing rejected runs",
+  "expected_skill": "seedance-film-producer",
+  "coverage_class": "integration",
+  "invocation_mode": "explicit",
+  "locale": "zh-Hant",
+  "prompt": "規劃三鏡頭的 AI 影片接續關係。原本 beat 2 是「角色打開信封」，beat 3 是「讀完後把信折起來」。已接受的 shot 1 意外但清楚地顯示角色已打開並讀完信；另一個被拒絕版本則把信撕破。請更新 completed/current/reserved beats、下一鏡所需 delta、是否用無縫同鏡續接、下一個刻意新鏡頭、橋接既知狀態、修復尾端或重新錨定漂移，並說明哪些輸出可以進 accepted state、哪些不得 canon。"
+}

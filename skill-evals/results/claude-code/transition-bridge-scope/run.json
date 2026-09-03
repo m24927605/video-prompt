@@ -1,0 +1,53 @@
+{
+  "case_id": "transition-bridge-scope",
+  "host": "claude-code",
+  "cli_version": "2.1.258 (Claude Code)",
+  "requested_primary_model": "claude-fable-5",
+  "requested_effort": "high",
+  "fallback_model": null,
+  "model_evidence": {
+    "requested_model_observed": true,
+    "actual_primary_model": "claude-fable-5",
+    "actual_primary_provider": "firstParty",
+    "auxiliary_models": [],
+    "fallback_detected": false
+  },
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 101.628,
+  "event_count": 47,
+  "final_present": true,
+  "activation_evidence": [
+    "event[7] Read"
+  ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "activated_skills": [
+    "seedance-prompt-director"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [
+      "event[7] Read"
+    ],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [],
+    "photography-aesthetics": [],
+    "screenplay-writer": []
+  },
+  "research_present": false,
+  "workspace_digest": "a1dbe078bdd51249b837ac284d0927025539ac94a77cc6bebc052d8ce1bbcf47",
+  "paid_media_tool_events": [],
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+}

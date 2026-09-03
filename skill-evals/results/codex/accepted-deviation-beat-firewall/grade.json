@@ -1,0 +1,34 @@
+{
+  "case_id": "accepted-deviation-beat-firewall",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:1-12 marks opening and reading completed by accepted Shot 1, removes the completed opening from the queue, makes folding the sole current delta, and keeps the next beat reserved.",
+    "final.md:18-24 defines Shot 2 as a conditionally seamless fold-only continuation and Shot 3 as the intentional next shot; final.md:22 gives a compact delta-focused successor instruction without restating completed events.",
+    "final.md:28-38 conditions seamless continuation on reviewed intact boundary evidence and routes local defects to tail repair or material/identity/direction drift to re-anchoring from an approved clean frame.",
+    "final.md:42-57 promotes only reviewed accepted media/derivatives and completely excludes the rejected torn-letter version, its frames, prop state, story implications, and descendants from canon, handoff, select, reference, or approved memory.",
+    "final.md:59-63 supplies nonnumeric production routes and explicitly keeps retry count, cost, time, usable seconds, platform/version, and extension capability unknown; no numeric retry, chain, work-slice, or review-cycle ceiling is invented.",
+    "events.jsonl:4-8 and native-evidence.md:11-12 verify explicit seedance-film-producer activation; run.json records workspace_digest=3083300b4c1ab0f761a2af021005369c342a17dd8522a1c352e3661aa5431789 and paid_media_tool_events=[]."
+  ],
+  "rationale": "The broadened repair is present in the current output. Completed/current/reserved beats, delta-only continuation, conditional relation choice, bridge/tail-repair/re-anchor decisions, and accepted/rejected lineage are all coherent. The former unsupported numeric-ceiling violation is fully removed, leaving no must-not or critical failure.",
+  "activation_evidence": "events.jsonl:4-8 and native-evidence.md:11-12 directly verify the expected explicit Film Producer activation.",
+  "unknowns": [
+    "The accepted tail's letter integrity, hand/orientation/motion boundary, platform/version, extension support, retry count, cost, time, and usable seconds remain correctly pending media/project evidence."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

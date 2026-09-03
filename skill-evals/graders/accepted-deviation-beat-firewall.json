@@ -1,0 +1,6 @@
+{
+  "case_id": "accepted-deviation-beat-firewall",
+  "must_cover": ["mark open-and-read as completed by the accepted shot", "remove already-completed future beats from downstream work", "define the next delta around folding the letter", "separate accepted state from the rejected torn-letter run", "choose and justify an appropriate continuation relation"],
+  "must_not": ["canonize the rejected tear", "ask the next shot to repeat reading", "treat prompt text as a full restatement of accepted state", "invent any numeric retry, chain, work-slice, or review-cycle ceiling that the user or project did not provide"],
+  "critical_case_traps": ["future-beat duplication", "rejected output promoted as continuity truth"]
+}

@@ -29,6 +29,14 @@ def resanitize_case(case_dir: Path, host: str) -> dict[str, object]:
         final = RUNNER.sanitize_string(final_path.read_text(encoding="utf-8"))
     result_events = [event for event in events if event.get("type") == "result"]
     result_event = result_events[-1] if result_events else {}
+    discovered_skills, activated_skills, activity_evidence = RUNNER.extract_skill_activity(events)
+    request_path = case_dir / "request.json"
+    request = (
+        json.loads(request_path.read_text(encoding="utf-8"))
+        if request_path.is_file()
+        else {}
+    )
+    expected_skill = request.get("expected_skill")
 
     if events_path.is_file():
         events_path.write_text(
@@ -38,14 +46,24 @@ def resanitize_case(case_dir: Path, host: str) -> dict[str, object]:
     if host == "claude-code" and result_event:
         RUNNER.write_json(case_dir / "response.json", result_event)
     if final:
-        final_path.write_text(final.rstrip() + "\n", encoding="utf-8")
+        normalized_final = "\n".join(line.rstrip() for line in final.splitlines()).rstrip() + "\n"
+        final_path.write_text(normalized_final, encoding="utf-8")
 
     run_path = case_dir / "run.json"
     if run_path.is_file():
         run = RUNNER.sanitize(json.loads(run_path.read_text(encoding="utf-8")))
+        run["packaged_skills"] = list(RUNNER.PACKAGED_SKILLS)
+        run["discovered_skills"] = discovered_skills
+        run["activated_skills"] = activated_skills
+        run["activation_evidence_by_skill"] = activity_evidence
+        if request_path.is_file():
+            run["activation_evidence"] = (
+                activity_evidence.get(expected_skill, []) if expected_skill else []
+            )
         run["sanitization"] = (
-            "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, "
-            "user-home and ephemeral-workspace paths, and signed-query values redacted."
+            "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/"
+            "uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values "
+            "redacted."
         )
         RUNNER.write_json(run_path, run)
 
@@ -53,10 +71,38 @@ def resanitize_case(case_dir: Path, host: str) -> dict[str, object]:
         path = case_dir / filename
         if path.is_file():
             RUNNER.write_json(path, RUNNER.sanitize(json.loads(path.read_text(encoding="utf-8"))))
-    for filename in ("native-evidence.md", "stderr.txt"):
-        path = case_dir / filename
-        if path.is_file():
-            path.write_text(RUNNER.sanitize_string(path.read_text(encoding="utf-8")), encoding="utf-8")
+    native_path = case_dir / "native-evidence.md"
+    if native_path.is_file():
+        lines = [
+            line
+            for line in native_path.read_text(encoding="utf-8").splitlines()
+            if not line.startswith((
+                "- Activation/discovery evidence:",
+                "- Discovered packaged skills:",
+                "- Activated packaged skills:",
+                "- Activation evidence for expected skill:",
+            ))
+        ]
+        discovered = ", ".join(discovered_skills) or "none"
+        activated = ", ".join(activated_skills) or "none"
+        lines.extend([
+            f"- Discovered packaged skills: `{discovered}`",
+            f"- Activated packaged skills: `{activated}`",
+        ])
+        if expected_skill:
+            expected_evidence = activity_evidence.get(expected_skill, [])
+            rendered = ", ".join(expected_evidence) or "none"
+            lines.append(f"- Activation evidence for expected skill: `{rendered}`")
+        native_path.write_text(
+            RUNNER.sanitize_string("\n".join(lines).rstrip() + "\n"),
+            encoding="utf-8",
+        )
+    stderr_path = case_dir / "stderr.txt"
+    if stderr_path.is_file():
+        stderr_path.write_text(
+            RUNNER.sanitize_string(stderr_path.read_text(encoding="utf-8")),
+            encoding="utf-8",
+        )
 
     return {
         "case": case_dir.name,

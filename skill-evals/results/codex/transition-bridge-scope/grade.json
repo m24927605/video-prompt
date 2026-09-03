@@ -1,0 +1,31 @@
+{
+  "case_id": "transition-bridge-scope",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:3-6 labels runtime unselected and protects both sources; final.md:11-41 generates only the unseen bridge and defines Video 1 exit, full morph, Video 2 entry, circle position/scale/clockwise phase/speed/camera, traffic/rain/light/reflection/ambience continuity.",
+    "final.md:44-61 supplies acceptance, labels two-video/boundary support unknown, and uses bounded single-variable/documented-runtime routes.",
+    "native-evidence.md:11-12 verifies Prompt Director; run.json records no paid generation."
+  ],
+  "rationale": "The complete provider-neutral bridge preserves both source intervals, all geometric/motion/audiovisual handoffs, and an explicit unknown runtime boundary without invented mode or parameter.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected explicit activation.",
+  "unknowns": [
+    "Two-video reference and endpoint-keyframe capabilities remain unverified until runtime selection."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

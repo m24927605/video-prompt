@@ -5,6 +5,8 @@
   "host": "claude-code",
   "invocation_mode": "implicit",
   "expected_skill": "seedance-video-qc",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "Audit this proposed claim for a production report: \"The ZEPHYR: Special project proves that Seedance 2.5 generated every sampled output in native 4K and solved five-character choreography.\" Available evidence: the project brief says Seedance 2.5; the one opened generation UI says \"Seedance 2\", shows a 4k quality badge and a Size field, while the decoded playback dimensions differ; its final frame contains only three of the five requested characters. Explain what can be stated, what is inference, and what remains unknown without laundering project-level claims into asset-level 2.5 evidence.",
   "effective_prompt": "Audit this proposed claim for a production report: \"The ZEPHYR: Special project proves that Seedance 2.5 generated every sampled output in native 4K and solved five-character choreography.\" Available evidence: the project brief says Seedance 2.5; the one opened generation UI says \"Seedance 2\", shows a 4k quality badge and a Size field, while the decoded playback dimensions differ; its final frame contains only three of the five requested characters. Explain what can be stated, what is inference, and what remains unknown without laundering project-level claims into asset-level 2.5 evidence.",
   "sanitized_argv": [
@@ -13,7 +15,7 @@
     "--model",
     "claude-fable-5",
     "--effort",
-    "max",
+    "high",
     "--no-session-persistence",
     "--permission-mode",
     "plan",
@@ -34,5 +36,5 @@
     "--verbose",
     "Audit this proposed claim for a production report: \"The ZEPHYR: Special project proves that Seedance 2.5 generated every sampled output in native 4K and solved five-character choreography.\" Available evidence: the project brief says Seedance 2.5; the one opened generation UI says \"Seedance 2\", shows a 4k quality badge and a Size field, while the decoded playback dimensions differ; its final frame contains only three of the five requested characters. Explain what can be stated, what is inference, and what remains unknown without laundering project-level claims into asset-level 2.5 evidence."
   ],
-  "execution": "direct claude -p stream-json piped to sanitizer; collector does not invoke host"
+  "disabled_personal_skills": 0
 }

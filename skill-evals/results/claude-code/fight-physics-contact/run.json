@@ -1,9 +1,9 @@
 {
   "case_id": "fight-physics-contact",
   "host": "claude-code",
-  "cli_version": "2.1.239 (Claude Code)",
+  "cli_version": "2.1.258 (Claude Code)",
   "requested_primary_model": "claude-fable-5",
-  "requested_effort": "max",
+  "requested_effort": "high",
   "fallback_model": null,
   "model_evidence": {
     "requested_model_observed": true,
@@ -14,15 +14,44 @@
   },
   "exit_code": 0,
   "timed_out": false,
-  "elapsed_seconds": 452.539,
-  "event_count": 210,
+  "elapsed_seconds": 148.863,
+  "event_count": 61,
   "final_present": true,
   "activation_evidence": [
-    "event[0] system/init native skill listing",
-    "event[24] user"
+    "event[12] Read",
+    "event[14] Read",
+    "event[16] Read"
   ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "activated_skills": [
+    "seedance-prompt-director"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [
+      "event[12] Read",
+      "event[14] Read",
+      "event[16] Read"
+    ],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [],
+    "photography-aesthetics": [],
+    "screenplay-writer": []
+  },
   "research_present": false,
-  "workspace_digest": "8814090cfaf8d6278bba3c23d22e9675c65a845724f6df8541f32e6d12e3fd58",
+  "workspace_digest": "e4f11f76a80dc6d16f66455824b4113c57be6efd3747ee46c9f596751acab74e",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
 }

@@ -1,0 +1,9 @@
+{
+  "id": "prompt-only-output-fidelity",
+  "title": "Prompt-only delivery remains narrow",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "implicit",
+  "locale": "zh-Hant",
+  "prompt": "請把這個需求寫成可直接使用的 AI 影片 prompt：8 秒雨夜公車站，一名穿深綠雨衣的成年女子在畫面左側收起唯一一把紅傘，聽見右側駛近的公車後抬頭，鏡頭固定中景，最後她仍在站牌旁並把傘握在右手。平台尚未決定。只要一份最終 prompt，不要分析、前言、驗收表、風險、修改階梯或多版本。"
+}

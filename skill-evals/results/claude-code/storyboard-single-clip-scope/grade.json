@@ -1,0 +1,32 @@
+{
+  "case_id": "storyboard-single-clip-scope",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 5,
+    "task_completeness": 19,
+    "evidence_discipline": 18,
+    "language_scope": 8
+  },
+  "total": 60,
+  "verdict": "FAIL",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "run.json: explicit seedance-prompt-director activation is verified; paid_media_tool_events is empty.",
+    "final.md correctly plans left-to-right/top-to-bottom panel order, one ordered shot per panel in one clip, full-person Image 2 binding, red-box continuity, rightward axis, and exclusion of line art/grid/annotations/placeholders.",
+    "final.md explicitly plans semantic high-level storyboard control rather than frame-perfect replication.",
+    "final.md never writes the requested clip prompt; it presents a future delivery plan and asks the user to confirm before it will produce the production packet."
+  ],
+  "rationale": "The plan demonstrates understanding of every major requirement, but the actual requested artifact is missing. The unnecessary plan-mode pause makes the output non-usable and fails the case.",
+  "activation_evidence": "native-evidence.md records seedance-prompt-director activation at event[17] Read and event[19] Read.",
+  "unknowns": [
+    "Runtime and unseen reference contents are unknown, but neither blocks a declarative provider-neutral prompt."
+  ],
+  "grader": {
+    "role": "fresh-context adversarial reviewer",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}

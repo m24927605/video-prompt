@@ -1,105 +1,128 @@
 ## Input basis
 
-- **Task:** Reference-based generation of one continuous 12-second shot with dialogue.
-- **Platform/model:** Unknown; this is platform-neutral. No model ID, aspect ratio, resolution, reference weighting, or runtime fields are assumed.
-- **Input mode:** Images, video, and audio are semantic references—not an edit source or first/last-frame pair.
-- **Assumptions:** References are uploaded in the stated order. “Both hands visible” is interpreted as all four human hands visible and empty at the end.
-- **Verified runtime parameters:** None. Twelve seconds is the requested creative duration, not a claim about endpoint support. Knowledge archive date: 2026-08-22.
+- **Operation:** Platform-neutral reference generation.
+- **Duration intent:** 12 seconds, one continuous shot.
+- **Platform/model:** Not specified; runtime fields, supported reference syntax, and audio controls remain unknown.
+- **Mapping assumption:** Image 1 is primary when Mara’s two views overlap; Image 2 supplies only details hidden or unclear in Image 1.
+- **No invented settings:** Aspect ratio, resolution, frame rate, seed, and provider-specific parameters are omitted.
 
 ## Final prompt
 
 ```text
-Generate one continuous 12-second shot with synchronized dialogue. No cuts, transitions, time jumps, or slow motion. The single primary event is the left-to-right transfer of exactly one brass case, ending with that case resting on the bench between Mara and Ivo.
+[TASK]
 
-REFERENCE CONTRACT — use upload order exactly:
+Generate one continuous 12-second dramatic shot using the uploaded references only for their explicitly assigned roles below. The single causal event is the controlled transfer of one brass case from Mara to Ivo, followed by Ivo placing it on the bench between them.
 
-@Image 1 and @Image 2 together define only Mara’s identity and her exact green courier coat.
-Use only: Mara’s face, hair, skin, body proportions, stable identifying features, and the green courier coat’s cut, construction, material, details, and color.
-Do not inherit: pose, expression, gaze, hand position, props, other wardrobe, accessories, background, platform, lighting, color grade, camera, lens, framing, composition, text, or other people.
+[REFERENCE BINDINGS — STRICT ROLE ISOLATION]
 
-@Image 3 defines only Ivo’s identity and his exact gray mechanic uniform.
-Use only: Ivo’s face, hair, skin, body proportions, stable identifying features, and the gray mechanic uniform’s cut, construction, material, details, and color.
-Do not inherit: pose, expression, gaze, hand position, props, background, platform, lighting, color grade, camera, lens, framing, composition, text, or other people.
+Image 1 → Mara, entire clip.
+Use only Mara’s primary identity—face, hair, body proportions, stable identifying features—and the visible design, color, fit, and material of her green courier coat.
+Do not inherit pose, expression, background, lighting, framing, crop, composition, props, or other people.
 
-@Image 4 defines only the train-platform geometry and wet-night lighting.
-Use only: the platform’s physical layout, bench and structural landmarks, surface materials, wet ground, motivated night-light direction, color, intensity, and wet-surface reflection behavior.
-Do not inherit: people, identities, faces, bodies, wardrobe, props, text, source framing, composition, camera position, lens, motion, or audio.
+Image 2 → Mara, entire clip.
+Use only complementary identity and green-coat details that are hidden or unclear in Image 1. Where both images show the same detail, Image 1 is authoritative.
+Do not inherit pose, expression, background, lighting, framing, crop, composition, props, or other people.
 
-@Video 1 defines only the relative timing and left-to-right spatial path of a single suitcase handoff.
-Apply only its reach, contact, grip-transfer, release cadence, and left-to-right trajectory to the brass case in this shot.
-Do not inherit: performers, identities, faces, anatomy, hand choice, wardrobe, suitcase appearance or material, location, background, camera, composition, lighting, color grade, text, or audio.
+Image 3 → Ivo, entire clip.
+Use only Ivo’s identity—face, hair, body proportions, stable identifying features—and his gray mechanic uniform.
+Do not inherit pose, expression, background, lighting, framing, crop, composition, props, or other people. Do not transfer any part of Ivo’s identity or uniform to Mara.
 
-@Audio 1 defines only Mara’s voice identity, timbre, and natural accent. Use it only for Mara’s line. Do not inherit its original words, background noise, music, room tone, or any other voice.
+Image 4 → environment, entire clip.
+Use only the train-platform geometry, architectural landmarks, surface materials, and wet-night lighting state. Preserve the platform’s spatial relationships and rain-wet reflective surfaces.
+Do not inherit people, identity, wardrobe, props, framing, crop, camera position, composition, or audio.
 
-@Audio 2 defines only Ivo’s voice identity, timbre, and natural accent. Use it only for Ivo’s line. Do not inherit its original words, background noise, music, room tone, or any other voice.
+Video 1 → brass-case action only, during the transfer.
+Use only its semantic timing and the suitcase handoff’s left-to-right screen path. Apply that path to the brass case.
+Do not inherit the suitcase’s appearance, size, material, identity, actors, hands, bodies, wardrobe, setting, camera, composition, lighting, color grade, cuts, or audio.
 
-Never blend, average, exchange, or transfer roles between references. Mara never acquires Ivo’s identity, uniform, or voice. Ivo never acquires Mara’s identity, coat, or voice. No reference supplies any property beyond its explicitly assigned role.
+Audio 1 → Mara’s speaking voice only.
+Use only its voice identity, timbre, accent, and natural vocal character for Mara’s exact line below.
+Do not inherit words, other voices, ambience, sound effects, music, or timing that conflicts with this shot.
 
-ENTITIES AND SPACE:
-Exactly two people: Mara and Ivo. Exactly one closed brass case throughout; no duplicate, replacement, morph, disappearance, or extra luggage.
-Mara wears the green courier coat from Images 1–2. Ivo wears the gray mechanic uniform from Image 3.
-Use the platform geometry and wet-night lighting from Image 4.
-A bench occupies frame center between them. Mara remains frame left; Ivo remains frame right. Neither crosses the center axis.
+Audio 2 → Ivo’s speaking voice only.
+Use only its voice identity, timbre, accent, and natural vocal character for Ivo’s exact line below.
+Do not inherit words, other voices, ambience, sound effects, music, or timing that conflicts with this shot.
 
-FIRST FRAME:
-A newly composed, static, eye-level medium-wide two-shot, framed from approximately the knees upward, with both faces, the bench seat, the case, and all four hands visible.
-Mara stands frame left in three-quarter profile toward Ivo. She holds exactly one brass case by its handle in her right hand beside her right thigh. Her left hand is empty and visible.
-Ivo stands frame right facing Mara. Both of his hands are empty, separate, and visible.
-This composition comes from the prompt only, not from any reference.
+[EXACT ENTITIES]
 
-SEMANTIC PACING:
-0.0–2.2 seconds — Mara keeps the case still and looks directly at Ivo. With controlled breath and a clipped, level delivery, using only Audio 1’s voice, Mara says exactly: “You were late.” Ivo remains silent and does not lip-sync.
+Exactly two people: Mara and Ivo.
+Exactly one portable case: a rigid brass case with one handle.
+No suitcase, duplicate case, extra luggage, extra people, identity blending, wardrobe swapping, or reflection copies.
 
-2.2–4.4 seconds — After a brief reaction pause, Ivo glances once at the case and returns his gaze to Mara. With quiet, steady delivery, using only Audio 2’s voice, Ivo says exactly: “I came anyway.” Mara remains silent and does not lip-sync.
+Mara wears only her green courier coat from Images 1–2.
+Ivo wears only his gray mechanic uniform from Image 3.
 
-4.4–9.4 seconds — Perform one continuous handoff. Within this interval, preserve Video 1’s relative reach/contact/release timing and left-to-right path. Mara moves the single brass case from frame left toward frame center using only her right hand. Ivo reaches with his left hand. Their grips overlap only after Ivo has securely closed his hand around the handle; Mara then releases. The path terminates directly above the center of the bench. Ivo lowers the case vertically the short remaining distance and places it onto the bench without moving it back toward frame left.
+[LOCATION AND CAMERA]
 
-9.4–12.0 seconds — Ivo releases the handle and withdraws his left hand. Both characters remain on their original sides. They hold quiet eye contact while the camera remains still. Preserve a clear final hold.
+Use the train platform from Image 4 under its wet-night lighting. The bench is centered between Mara and Ivo in the midground.
 
-PHYSICS:
-The brass case is rigid and has believable weight and inertia. Arms settle slightly under its weight. The handle remains attached and solid. Hands maintain anatomically clean contact without intersecting each other or the case. The case makes one restrained metallic contact sound when its base meets the bench, then becomes fully supported and motionless. It never opens, bends, floats, or changes size or material.
+Create an original composition independent of every reference: an eye-level, medium-wide, static two-shot from one side of the platform. No cuts, zooms, pans, reframing, or camera shake. Keep both characters, the case, the bench, and every hand continuously readable. Preserve the left-to-right screen axis throughout.
 
-CAMERA AND LIGHT:
-One locked camera position throughout. No pan, tilt, zoom, dolly, reframing, rack-focus distraction, or axis crossing. Keep both people, all hands, the case, and the bench readable during the complete transfer.
-Use only Image 4 for platform geometry and wet-night lighting. Wet reflections remain physically soft and subordinate; they must not resemble extra people, hands, or cases.
+[FIRST FRAME]
 
-AUDIO:
-English dialogue, exact wording and order, with no overlap.
-Audio 1 belongs exclusively to Mara. Audio 2 belongs exclusively to Ivo.
-Add only quiet, independently generated diegetic platform ambience and the action-linked case/bench contact sound. Do not copy ambience from either audio reference.
-No third voice, narration, music, subtitles, captions, signs, or generated on-screen text.
+Mara already stands frame left, facing slightly toward Ivo. She holds exactly one brass case by its handle in her right hand at thigh height. Her empty left hand is visible.
 
-FINAL STATE:
-Exactly one closed brass case rests fully supported and stationary on the bench between Mara and Ivo.
-Mara remains frame left and Ivo frame right.
-All four human hands are empty, separated from the case and from each other, fully visible inside the frame, and anatomically correct.
-Both identities and wardrobes remain unchanged. Hold this cut-ready state through the final frame.
+Ivo already stands frame right, facing slightly toward Mara. Both of his empty hands are visible. The bench occupies the clear space between them. Neither character changes sides.
+
+[TIMECODED SEMANTIC BEATS]
+
+0.0–2.2 seconds:
+Hold the tense opening composition. Mara keeps the brass case steady in her right hand and looks directly at Ivo. Ivo meets her gaze. No one approaches the case yet.
+
+2.2–3.8 seconds:
+Without changing position, Mara says exactly, “You were late.”
+Her delivery is quiet, clipped, and controlled. Only Mara speaks; Ivo remains silent and reacts with a brief delayed blink.
+
+3.8–8.2 seconds:
+After a short pause, Mara extends the brass case from frame left toward frame right, following only the timing and left-to-right screen path of Video 1. Ivo reaches with his left hand, the hand nearest the bench.
+
+Mara keeps hold of the handle until Ivo’s left hand has visibly closed around it and taken its weight. Only then does Mara release. The brass case remains rigid and retains the same size, design, and material throughout.
+
+8.2–9.5 seconds:
+Ivo controls the case’s remaining momentum, lowers it onto the center of the bench, and releases it. The case settles with a small, believable weight response and remains stationary between them. Mara does not touch it again.
+
+9.5–11.2 seconds:
+Ivo lifts his now-empty gaze from the case to Mara and says exactly, “I came anyway.”
+His delivery is restrained, steady, and matter-of-fact. Only Ivo speaks; Mara remains silent, watching him without moving toward the case.
+
+11.2–12.0 seconds:
+Hold the cut-ready final tableau. The brass case rests alone on the bench between them. Neither character touches it. Mara remains frame left and Ivo frame right. All four hands are empty, separated, unobstructed, and clearly visible.
+
+[PHYSICS AND CONTINUITY]
+
+The case has consistent mass and downward weight. Show an unbroken contact chain: Mara supports handle → Ivo closes his left hand around handle → Ivo assumes the weight → Mara releases → Ivo lowers case → case contacts bench → Ivo releases.
+
+No teleportation, floating, sliding, morphing, duplication, hand fusion, penetrations, or discontinuous changes of ownership.
+
+[AUDIO]
+
+Natural synchronized speech using Audio 1 only for Mara and Audio 2 only for Ivo. Preserve the exact dialogue wording and speaker order.
+
+Use restrained wet-platform ambience and subtle action-linked sounds: distant rain, low station room tone, quiet coat movement, handle contact, and one soft metallic bench-settle sound.
+
+No additional dialogue, voice swapping, narration, announcements, music, subtitles, captions, or visible text.
+
+[FINAL NON-LEAKAGE CONSTRAINT]
+
+Each reference controls only its assigned target and dimension. Mara never inherits Ivo’s face, body, hair, uniform, or voice. Ivo never inherits Mara’s face, body, hair, coat, or voice. Image 4 supplies no character or composition. Video 1 supplies no appearance, camera, location, or sound. Audio 1 belongs only to Mara; Audio 2 belongs only to Ivo.
 ```
 
 ## Acceptance checks
 
-- Exactly Mara, Ivo, and one brass case appear; no duplicate figures, reflections, or luggage.
-- Mara matches only Images 1–2 and wears the green courier coat; Ivo matches only Image 3 and wears the gray mechanic uniform.
-- Only Image 4 supplies platform geometry and wet-night lighting—not composition or people.
-- Only Video 1 supplies transfer timing and the left-to-right path.
+- Exactly Mara, Ivo, and one brass case appear.
 - Mara starts frame left holding the case in her right hand; Ivo starts frame right.
-- Dialogue is exact, ordered, non-overlapping, correctly lip-synced, and assigned to the correct audio identity.
-- The transfer has continuous grip, weight, release, and bench contact.
-- The camera stays locked and never loses the hands, case, or bench.
-- Final frame shows the single case stationary on the bench and all four hands empty and visible.
+- Identities, wardrobes, and voices remain correctly separated.
+- The case follows Video 1’s left-to-right timing/path without inheriting its suitcase design.
+- Both lines are exact, correctly assigned, ordered, and synchronized.
+- Ownership changes through visible contact rather than teleportation.
+- Final frame shows the case stationary on the bench, neither character touching it, and all four hands visible.
 
 ## Failure risks
 
-- Seven role-limited references create a meaningful risk of identity, wardrobe, composition, or audio leakage.
-- Fine hand contact may produce intersecting fingers, premature release, or case duplication.
-- Wet reflections may resemble duplicate subjects or props.
-- Separate audio-reference assignment and lip-sync depend on capabilities of the unspecified platform.
+The highest-risk failures are identity blending, coat/uniform crossover, replacement of the brass case with Video 1’s suitcase, premature release during the transfer, voice swapping, and hands becoming hidden in the final frame.
 
 ## Revision ladder
 
-Prospective and untested:
-
-1. **If framing hides a hand:** Change only the shot size one step wider. Keep references, blocking, timing, dialogue, and camera axis fixed. Stop if all four hands become continuously readable.
-2. **If one reference leaks:** Replace only the offending asset with a clean role-isolated crop or plate. Keep the prompt and all other assets fixed. If the same leakage persists, stop joint generation and route to separate character/background generation plus compositing.
-3. **If contact or case continuity fails:** Add only a simple blocking diagram defining the two grip points, left-to-right path, and bench endpoint. If the same defect persists, route the handoff to an insert or VFX instead of lengthening the prompt.
-4. **If voices swap or lip-sync remains unusable while picture passes:** Change only the audio route to silent picture generation followed by ADR using Audio 1 for Mara and Audio 2 for Ivo.
+1. If identities or wardrobe drift, change only the character-reference block to strengthen Image 1/Image 3 authority; keep action, camera, and audio fixed.
+2. If the case duplicates or teleports, change only the contact sequence by slowing the transfer and extending the shared-grip moment; keep all references fixed.
+3. If voices swap, change only the audio block to repeat speaker-to-audio ownership immediately before each line. After one failed audio-only retry, preserve the visual take and replace dialogue in post rather than altering the shot.

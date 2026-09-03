@@ -1,0 +1,6 @@
+{
+  "case_id": "video-visual-look-subcontract",
+  "must_cover": ["photography-aesthetics owns the requested visual-look subcontract", "opening look, visible change, end look, camera, mixed light, wet reflections, low-contrast teal-orange color and fine-rain texture", "output remains suitable for handoff into a full clip contract"],
+  "must_not": ["activate seedance-prompt-director as owner", "add provider task, reference mapping, blocking, full timeline, physics, audio, acceptance or generation parameters", "claim a complete Seedance prompt"],
+  "critical_case_traps": ["wrong skill ownership", "scope expands into a full clip contract"]
+}

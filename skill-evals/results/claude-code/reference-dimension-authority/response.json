@@ -1,0 +1,93 @@
+{
+  "duration_api_ms": 72949,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.5811359999999999,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 17503,
+    "cache_read_input_tokens": 15936,
+    "output_tokens": 4302,
+    "output_tokens_details": {
+      "thinking_tokens": 1582
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 17503,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 3483,
+        "cache_read_input_tokens": 12509,
+        "cache_creation_input_tokens": 8421,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 8421
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-fable-5": {
+      "inputTokens": 4,
+      "outputTokens": 4302,
+      "cacheReadInputTokens": 15936,
+      "cacheCreationInputTokens": 17503,
+      "webSearchRequests": 0,
+      "costUSD": 0.5811359999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 1582,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 3,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Skill 參考文件已讀完。這個任務是純文字交付（撰寫 prompt packet），不需要修改任何檔案或系統狀態,我直接在此交付成品。\n\n以下依照 skill 的預設 production packet 交付。\n\n---\n\n## 1. 輸入基礎（Input basis)\n\n- **任務**:reference-generate,單一影片 clip,一個 artifact、一個主要操作。\n- **平台/模型**:未選定。本 prompt 為平台中立;所有執行期參數(長寬比、時長、解析度、幀率、參考數量上限、token 語法支援)標記為**未知**,不填入任何「慣用預設值」。\n- **參考 token**:`@@Hero-A/台北#03` 與 `vid:route_B?cut=2` 以位元組層級原樣保留,視為不透明字串;其在實際平台上的解析行為為**未知**,由使用者選定平台後驗證。\n- **維度授權(使用者明確映射,優先於任何參考權威)**:\n  - 臉與髮型 → 唯一來源 `@@Hero-A/台北#03`\n  - 左到右行走節奏 → 唯一來源 `vid:route_B?cut=2`\n  - 服裝(紅色雨衣)、場景(雨夜巷口)→ 唯一來源:使用者明示文字;兩個參考均無資格覆蓋\n  - 鏡頭、光線細節、風格、音訊、時長、長寬比 → **無明確來源,維度不啟用**,不從上傳順序或媒體類型推測擁有者\n- **假設(已標明)**:單一主角、無其他角色;行走為本 clip 唯一主要事件。\n\n## 2. 最終 Prompt(平台中立,可直接貼用)\n\n```text\n[任務]\nGenerate 單一影片 clip:一名主角在雨夜的巷口,由畫面左側走向畫面右側。\n\n[精確實體]\n畫面中恰好一個人物(主角),無其他行人、無鏡像或倒影複製人。\n主角全程穿著紅色雨衣(使用者指定,任何參考素材不得覆蓋此服裝)。\n雨衣表面被雨打濕,呈現濕亮反光。\n\n[啟用參考與職責]\n參考一:@@Hero-A/台北#03\n  目標:本 clip 的主角。\n  作用範圍:整段 clip 的身分一致性。\n  允許繼承:僅臉部與髮型。\n  排除繼承:服裝、配件、姿勢、構圖、背景、光線、色調、其他人物。\n  此參考不控制服裝——服裝以本 prompt 文字指定的紅色雨衣為準。\n\n參考二:vid:route_B?cut=2\n  目標:主角的行走動作。\n  作用範圍:整段行走過程。\n  允許繼承:僅由左至右行走的節奏——步頻、步幅韻律、動作時序。\n  排除繼承:表演者身分、臉、髮型、服裝、場景、鏡頭運動、光線、色調、音訊。\n  此參考不控制主角外觀,也不控制環境。\n\n除上述兩項職責外,兩個參考不提供任何其他屬性;未指定來源的維度不從任一參考繼承。\n\n[場景與空間]\n夜晚,雨中,一處巷口(使用者指定,任何參考素材不得覆蓋此場景)。\n巷口位於畫面中景;地面有積水,反射環境光源。\n主角自畫面左側入鏡,沿巷口前的路徑走向畫面右側。\n\n[首幀]\n首幀:雨夜巷口空景已建立,雨持續落下,主角剛從畫面左緣入鏡,面朝行進方向(畫面右)。\n\n[動作與物理]\n主角以參考二的節奏由左向右行走;每一步落地時踏入積水,濺起小水花,\n水花隨重力回落;雨滴持續落在雨衣上並滑落。行走方向與速度全程穩定,不折返。\n\n[結束狀態]\nClip 結尾:主角走至畫面右側接近出鏡位置,行走節奏未中斷,\n巷口場景保持不變,雨持續。畫面停在可剪接的乾淨狀態。\n\n[限制]\n恰好一人;紅色雨衣全程不變色、不消失;場景全程為雨夜巷口,不切換場景。\n```\n\n## 3. 驗收檢查(可逐項判是/否)\n\n1. 畫面中恰好一人,無多餘人物或複製體。\n2. 主角臉與髮型與 `@@Hero-A/台北#03` 一致;服裝**不**來自該參考。\n3. 行走節奏(步頻、時序)與 `vid:route_B?cut=2` 一致;該參考的表演者外觀、場景、鏡頭**未**滲入。\n4. 主角全程穿紅色雨衣;場景全程為雨夜巷口——即使任一參考素材呈現不同服裝或場景。\n5. 行進方向為畫面左→右,無折返;踏水、雨滴滑落等物理反應可見。\n6. 結尾為可剪接狀態:主角接近右側出鏡、動作連續、場景未變。\n\n## 4. 失敗風險(無成功保證)\n\n- **參考滲漏**:身分參考的服裝或背景覆蓋紅色雨衣/巷口——這是本案最高風險,因參考素材與使用者指定屬性直接衝突。\n- **動作參考滲漏**:`vid:route_B?cut=2` 的表演者外觀或場景取代主角或巷口。\n- **Token 解析未知**:兩個 token 的語法在未選定平台上可能不被識別;需在實際平台驗證其掛載方式(上傳槽位、欄位)後才可斷言行為。\n- **方向漂移**:主角中途轉向或鏡頭運動抵銷左→右位移。\n\n## 5. 修訂階梯(每次只動一個變數)\n\n1. 若紅色雨衣被覆蓋 → 只強化服裝條款(在限制段加「參考一僅供臉與髮型,其服裝一律忽略」),其餘不動;仍失敗則路由到 `seedance-video-qc` 以輸出證據診斷。\n2. 若行走節奏未被繼承 → 只改參考二的職責描述為更具體的節奏語言(步頻/落地時序),不動身分與場景。\n3. 若場景被動作參考的環境取代 → 只在參考二的排除清單前置場景排除,不動其他段落。\n4. **停止條件**:同一缺陷在兩次孤立修訂後仍存在,停止加長 prompt,改走輸入端修正(裁切/替換參考素材)或分鏡拆分。\n\n---\n\n**一個待決事項**(不阻塞本交付):最終選定平台後,需驗證該平台的參考掛載方式與執行期參數(長寬比、時長等),再決定 token 如何隨素材提交;目前這些全部標記為未知,prompt 本文未填任何未驗證參數。",
+  "ttft_ms": 8439,
+  "type": "result",
+  "duration_ms": 73054,
+  "ttft_stream_ms": 1774,
+  "time_to_request_ms": 27,
+  "queued_turn_count": 0
+}

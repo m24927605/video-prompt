@@ -1,0 +1,9 @@
+{
+  "id": "sequential-edit-then-extend",
+  "title": "Edit and extension remain separate ordered artifacts",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "explicit",
+  "locale": "en",
+  "prompt": "Prepare the prompts for this ordered two-step job. First, edit @Video 1 so that only the blue umbrella held by the central adult becomes a red umbrella for the whole source; preserve every person, action, camera move, background, light and sound. Then append four seconds after that edited result: continue from its final frame as the same adult lowers the red umbrella and enters the doorway. The original source must not be edited and extended in one operation."
+}

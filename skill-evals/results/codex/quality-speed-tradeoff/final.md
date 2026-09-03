@@ -1,197 +1,192 @@
-Use the hybrid: quality-max treatment for irreplaceable performance and crash anchors, standard treatment for narrative coverage, and speed-max treatment for replaceable establishing/insert shots. This is a production-policy recommendation, not a proven optimum.
+The recommended choice is a hybrid: quality-max treatment for the two hero dialogue scenes and the crash; speed-with-floor treatment for connective material, establishing shots, and inserts. This protects the three festival-defining sequences without spending the ten-day clock polishing low-risk footage.
 
-## Evidence status and prerequisites
+This is a production policy, not a performance claim. No workflow, retry count, throughput, cost, or success rate below is presented as proven.
 
-As of 2026-08-22:
+## Evidence and assumptions
 
-- No controlled benchmark has been run. Approval rates, throughput, retry counts, costs, and completion probability are therefore `N/A (n=0)`.
-- The retry limits, quality floors, and day gates below are management rules—not performance estimates.
-- Day 1 must lock the actual platform/surface, model/version, region, quotas/concurrency, festival rules, delivery specifications, rights, budget ceiling, and named reviewers. Do not transfer capabilities or limits between platforms.
-- The plan assumes the script and dialogue can lock on Day 1 and that generation, editorial, and post can overlap. “Parallel” means logically queueable; actual capacity remains an unknown.
+Plan date: September 1, 2026.
 
-## Shot tiers
+Currently unknown and requiring a Day 1 lock:
 
-- **A — hero:** performance-critical singles/two-shots from both dialogue scenes; crash geography, impact, and consequence anchors.
-- **B — narrative:** dialogue masters, OTS, reactions, exits, critical prop handoffs; crash approach/recovery and essential transitions.
-- **C — connective:** establishing shots, inserts, cutaways, plates, textures, and other replaceable coverage.
+- Generation platform, displayed model, model ID/version, region, quotas, and current limits.
+- Festival runtime tolerance, aspect ratio, resolution, frame rate, codec, color, audio, subtitle, disclosure, and watermark requirements.
+- Rights status for likenesses, voices, music, brands, references, and training/reference media.
+- Actual generation latency, approval rate, cost, and team capacity.
 
-Tiering is per shot or beat, not per scene. All tiers keep the same hard floor.
+Do not transfer limits, pricing, or expected quality between Seedance surfaces or other providers. Verify the chosen surface’s current official documentation before queuing production.
 
-## Workflow comparison
+## Mode comparison
 
-| Decision | Quality-max | Speed-max with floor | Recommended hybrid |
+The ceilings below are proposed schedule-control policies for this pilot. A “valid generation” means reviewable media; provider failures are logged separately, consume wall time, but do not count as creative retries.
+
+| | Quality-max | Speed-max with floor | Recommended hybrid |
 |---|---|---|---|
-| Preparation | Full character, voice, wardrobe/injury, location, prop, vehicle/damage, camera, color, VFX, and sound passports; detailed A-shot previz | Minimum approved hero/location/vehicle/prop passports; complete rough animatic; simplify coverage aggressively | Full A passports and previz; standard B packets; lean but approved C packets |
-| Dialogue scenes | Multiple performance candidates, deeper independent review, more coverage | Short single-beat shots, minimum viable coverage, early ADR/OTS/reaction routes | A treatment for key performances; B treatment for masters, OTS, reactions, and edit cover |
-| Crash | Detailed trajectory/blockout; more generated candidates before VFX route | Pre-route difficult contact to fragmented coverage, sound, compositing, or 3D | Quality treatment for geography and emotional anchors; planned VFX/3D route for persistent contact physics |
-| Low-risk shots | Parallel after comprehensive look/state lock; some optional refinement | Broad one-pass fan-out; failed C shots are substituted, not polished | Broad one-pass C queue while A work proceeds |
-| Review | Two independent A reviewers; candidate comparison where useful | One accountable shot reviewer plus independent final QC | Two reviewers for A; one for B/C; every edit checked at structure lock |
-| Schedule policy | Structure lock Day 8; least finishing contingency | Structure/picture lock around Day 6; most finishing contingency | Structure lock Day 6, picture lock Day 7 |
-| Main trade-off | Most selectivity, but final decisions arrive latest | Maximum schedule protection, but little optional refinement | Concentrates time where failure is visible while protecting post-production |
+| Preparation | Full bible, maps, state assets, previz, and hero anchors before final generation | Minimum viable bible and complete animatic first | Full assets for hero dialogue/crash; minimum locked assets for everything else |
+| Hero dialogue | Multiple candidates, two-reviewer comparison, full neighbor-cut review | Simplified singles/reactions; upgrade only blocking failures | Quality-max performances and close-ups; fast masters, inserts, and edit cover |
+| Crash | Detailed previz, parallel plates/elements, serial state approvals, planned VFX | Reduce to readable approach/reaction/aftermath; avoid a monolithic impact shot | Quality treatment for the causal spine; plates, debris, inserts, and sound built in parallel |
+| Establishing/inserts | More candidates and full craft review | One valid candidate if it passes floors | One valid candidate normally; retry only if the cut has no substitute |
+| Editorial | Rolling cut, but more footage and review overhead | Complete blocking cut earliest; edit around defects | Blocking cut early; editor directs where additional quality matters |
+| Post | Full cleanup, VFX, ADR, foley, grade, mix, subtitles | Post absorbs text, speech, transitions, local defects, and timing | Full finish, with post designed into dialogue and crash routes from Day 1 |
+| Ten-day fit | Highest schedule exposure unless scope is reduced | Fastest policy, but exposes hero scenes to quality risk | Best initial allocation of the available clock |
+| Evidence status | Untested policy | Untested policy | Recommended inference, not proven optimum |
 
-Quality-max is not simultaneously speed-max. Speed-max does not waive the floor; it changes coverage and routes failures earlier.
+Quality-max is not “better” in the abstract: it consumes more review and retry capacity. Speed-max is not “fastest” until actual ledger data shows that its post burden does not erase generation savings.
+
+## Shot tiers and coverage
+
+Classify each shot by narrative value × technical risk:
+
+- **A:** two hero dialogue scenes; crash approach/decision/impact/aftermath; identity close-ups; any continuity-critical post-crash image.
+- **B:** required plot connectors, entrances/exits, continuity-critical reactions, prop ownership inserts, transitions.
+- **C:** low-risk establishing shots, atmosphere, neutral cutaways, textures, noncritical inserts.
+
+A continuity-critical insert is not C merely because it is short.
+
+For each hero dialogue scene, break coverage into:
+
+1. Geography/blocking master.
+2. Dialogue tactics and reveals as separate beats.
+3. Singles or OTS coverage for performance.
+4. Reactions and listening shots.
+5. Critical prop/hand inserts.
+6. Entrance, exit, and transition handles.
+
+For the crash, do not request one long “vehicle approaches, swerves, crashes, rolls, and settles” clip. Use:
+
+1. Approach and screen direction.
+2. Hazard recognition.
+3. Driver/passenger reaction.
+4. Avoidance input.
+5. Contact/impact fragment.
+6. Debris, glass, wheel, or environmental inserts.
+7. Vehicle stop state.
+8. Immediate aftermath and character/vehicle damage state.
+
+The audience must understand the causal sequence, but every physical event need not appear in one generated shot.
+
+## Parallel and serial work
+
+Run in parallel:
+
+- Independent establishing shots, inserts, textures, plates, reactions, and clean backgrounds.
+- The two dialogue scenes once their separate scene-state packets are locked, unless the second inherits crash damage, injury, wardrobe, or prop state.
+- Dialogue angles for independent locked beats after geography, axis, and eyelines are approved.
+- Crash background plates, vehicle elements, debris/smoke elements, interior reactions, sound design, and VFX preparation.
+- Rolling editorial, sound spotting, VFX breakdown, rights review, and subtitle preparation.
+- Compatible batches only: same platform/model, task, ratio, format, reference version, and QC rubric.
+
+Keep serial:
+
+- Canonical character, vehicle, location, wardrobe, voice, and damage-state approval.
+- Dialogue scene blocking before hero close-ups.
+- Each evolving crash state: intact → pre-impact → impact → damaged → aftermath.
+- Any shot dependent on an approved last pose, frame, motion direction, prop handoff, injury, or wardrobe state.
+- Promotion of generated material into approved memory.
+- Final performance selection, picture lock, conform, color lock, mix lock, and master approval.
+
+If Dialogue Scene 2 occurs after the crash and shows resulting injury or wardrobe damage, final Scene 2 generation waits for the approved crash end state. Previz can proceed with temporary assets.
 
 ## Non-negotiable hard floors
 
-Use `PASS`, `FAIL`, or `N/A_WITH_REASON`. Missing evidence is a failure. A shot routed to ADR, VFX, or cleanup is not approved until the finished result passes.
+These apply identically to all three modes. No aggregate score can compensate for failing one.
 
-| Gate | Final floor |
-|---|---|
-| Rights, safety, delivery | 100% of used likenesses, voices, references, music, brands, fonts, and outputs have approved status; 100% festival/master checks pass |
-| Story | 100% of locked mandatory beats have accepted editorial coverage; no placeholder counts as final coverage |
-| Identity and state | Correct character, voice, wardrobe/injury, location/light, vehicle damage, prop owner/hand, screen direction, and required/forbidden entities |
-| Editorial usability | Complete contracted interval plus 12 handle frames on each required edge at master frame rate, or an editor-approved intentional-cut waiver; 100% critical neighbor joins reviewed |
-| Structural defects | Zero unresolved blocker or major anatomy, topology, temporal, camera, contact, text, or audio defects in selected intervals |
-| Dialogue | 100% locked utterances represented; zero unapproved wording/speaker changes; correct voice and pronunciation; zero major sync-defect seconds during visible speech |
-| Performance | 100% of scripted tactics, reactions, reveals, and emotional turns have accepted coverage |
-| Crash | 100% of required causal beats and state transitions pass; geography, travel direction, impact cue, and consequence are readable; zero major physics-defect frames in visible crash action |
-| Provenance | 100% of final picture/audio segments trace to an approved or licensed source, post transform, reviewer decision, and rights record |
-| Final master | Zero temp media, missing media, unintended black/silence, watermarks, blockers, or majors; one uninterrupted playback plus targeted checks of every transition |
-
-The crash floor is a coherent event, not a single uninterrupted generated collision. Contact may be fragmented or obscured if cause, impact, and consequence remain clear.
-
-## Parallel and serial queues
-
-The serial spine is:
-
-```text
-Charter/specs/rights
-→ canonical passports and scene states
-→ complete blocking cut
-→ dialogue geography and crash trajectory anchors
-→ high-risk route decisions
-→ content-complete rough cut
-→ structure lock
-→ picture lock
-→ conform/VFX/color and sound
-→ final audio
-→ subtitle timing
-→ master QC
-```
-
-Serialize:
-
-- Canonical asset approval and promotion into approved memory.
-- Dialogue floor plan, axis, eyelines, and master blocking before hero close-ups.
-- Exact prop, pose, or performance handoffs.
-- Crash trajectory/direction → impact state → approved damage state → dependent aftermath.
-- Extension chains and any shot relying on an approved prior last frame.
-- Structure lock, picture lock, final audio, subtitle timing, mastering, and archive checkpoints.
-
-Parallelize after the relevant state packet is locked:
-
-- The two dialogue scenes, unless one requires an exact crash or wardrobe handoff.
-- Singles, OTS, reactions, and inserts within each dialogue scene after geography approval.
-- Establishing shots, inserts, plates, textures, and non-state-changing cutaways.
-- Crash driver reactions, wheel/pedal inserts, exterior approaches, debris plates, obscured-impact angles, and sound/VFX development.
-- Rolling editorial, full-clip review, ingest, cleanup preparation, and sound spotting.
-- Color and sound after picture lock, reconverging at the master.
-
-Do not make the crash one long prompt or extension chain. Decompose it into geography, recognition, avoidance input, short impact fragments, reaction, and aftermath.
+- **Rights and safety:** 100% of included media, likeness, voice, music, type, and reference rights cleared; zero unresolved delivery-policy violations.
+- **Story:** 100% of mandatory beats present and understandable in the cut.
+- **Identity and state:** zero unwaived continuity-critical identity, wardrobe, injury, vehicle-damage, location, direction, or prop-ownership errors.
+- **Dialogue:** final audio contains the exact approved wording; correct speaker and voice; intelligible at intended playback; no distracting sync error in the used interval. ADR is an acceptable pass route.
+- **Crash:** approach, cause, impact implication, and aftermath are causally readable; no conspicuous impossible contact, interpenetration, inertia, or vehicle-state reset in the final edit.
+- **Editorial usability:** every used interval is artifact-free enough for its intended size and duration, cuts with its neighbors, and has planned handles or an intentionally designed hard entrance/exit.
+- **Structural artifacts:** zero uneditable face changes, extra principals, catastrophic anatomy, disappearing vehicles/props, broken camera transitions, or unwanted text/watermarks.
+- **Sound and text:** any generated deficiency has an approved, scheduled ADR/VFX/graphic route before picture lock.
+- **Delivery:** zero unresolved codec, frame-rate, aspect, color-tag, channel, sync, subtitle, freeze/black-frame, naming, or checksum failures.
+- **Runtime:** must meet the festival’s actual accepted range. Treat 12:00 as the editorial target, not an invented tolerance, until specifications are confirmed.
 
 ## Retry and route ceilings
 
-These are caps per independently cuttable shot/beat. “Extra retry” means after the first valid, reviewable candidate.
-
-| Mode | A extra retries | B extra retries | C extra retries | Material route pivots |
-|---|---:|---:|---:|---:|
-| Quality-max | 5 | 3 | 1 | A: 2; B/C: 1 |
-| Speed-max | 2 | 1 | 0 | 1 for every tier |
-| Hybrid | 3 | 2 | 0 | A: 2; B/C: 1 |
+| Tier | Quality-max | Speed-max | Hybrid |
+|---|---:|---:|---:|
+| A | First valid run + up to 5 retries; at most 2 generation designs | First + 2 retries; at most 2 designs | First + 3 retries; at most 2 designs |
+| B | First + 3 retries; at most 2 designs | First + 1 retry; 1 design | First + 1 retry; 1 design |
+| C | First + 1 retry; 1 design | First valid run only | First valid run only |
 
 Additional rules:
 
-- The earliest stop condition wins: numeric cap, repeated defect, route gate, budget, or calendar cutoff.
-- The same blocker appearing twice triggers rerouting even if attempts remain.
-- Stop if identity/action constraints oscillate across revisions.
-- Change only one prompt, reference, parameter, or shot-design variable per retry.
-- Splitting or renaming a shot does not reset its attempt history.
-- A route pivot does not replenish retries.
-- Technical/provider failures are logged separately from creative attempts, but still consume wall clock and actual budget.
+- Change exactly one variable per retry: prompt, reference, parameter, camera, duration, or shot design.
+- The same blocking defect appearing twice triggers rerouting immediately, even if attempts remain.
+- Rejected outputs never become continuity references or handoff sources.
+- After the generation ceiling, permit one selected recovery route: split/shorten, locked camera, cutaway, ADR, local repair, traditional composite, 2D/3D simulation, or story-preserving redesign.
+- If that recovery route still fails a hard floor, replace, imply, or remove the shot. Do not start a second open-ended rescue cycle.
+- Generation freezes at the end of Day 7. After that, only an explicit picture-lock change record can reopen a shot.
 
-Route ladder:
+For the crash, the preferred recovery is a designed composite or implied impact—reaction, contact fragment, debris, sound, aftermath—not acceptance of visibly failed physics.
 
-1. Improve or state-specialize the reference.
-2. Lock the camera, shorten, simplify, or split the action.
-3. Replace with OTS, reaction, insert, cutaway, or alternate angle.
-4. Use local cleanup, compositing, ADR/dubbing, or sound design.
-5. Use 2D/3D/VFX/live action if allowed, or redesign the beat without losing its story function.
+## Ten-day hybrid schedule
 
-Every unresolved A shot needs an executable fallback by the end of Day 4.
+Work in bounded 90-minute production/review slices. Each slice ends with ledger updates, selects, blockers, and the next decision.
 
-## Recommended ten-day hybrid schedule
-
-| Day | Required outcome |
+| Day | Verifiable outcome |
 |---|---|
-| 1 | Lock script, specs, rights, platform/model, tiers, passports, shot contracts, ledger, owners, and failure routes |
-| 2 | Complete the full 12-minute blocking cut; lock dialogue geography and crash trajectory/damage states; begin compatible C shots |
-| 3–4 | Run both dialogue lanes after their anchor approvals; build the crash’s serial spine; run C shots, plates, editorial, VFX planning, and sound in parallel; lock the crash route by Day 4 |
-| 5 | Content-complete rough cut containing every beat as accepted media or an owned, executable post route; freeze nice-to-have generation |
-| 6 | Only blocking pickups; structure lock at end of day |
-| 7 | Final source/pickup cutoff at midday; picture lock at end of day |
-| 8 | VFX/cleanup, conform, color, dialogue edit/ADR, foley, crash sound, music, and mix |
-| 9 | Final audio, subtitles timed from actual audio, master candidate, first uninterrupted playback |
-| 10 | Bounded fixes, re-export, complete playback, targeted transition QC, checksums, delivery, and archive |
+| 1 | Charter, platform/delivery gate, rights matrix, script hierarchy, A/B/C classification, minimum bible locked |
+| 2 | Shot contracts and reviewer schema validated on three representatives: dialogue close-up, crash beat, C establishing shot; animatic assembled |
+| 3 | Complete blocking cut; dialogue geography and crash decomposition approved; previz checkpoint |
+| 4–5 | A lanes generate serial dependencies; B/C lanes run in parallel; editor, VFX, and sound ingest continuously |
+| 6 | **Full-film review cycle 1:** rough cut screened; findings clustered by root cause; pickup list and route decisions frozen |
+| 7 | Focused pickups and recovery routes only; approved-shot checkpoint; generation freeze |
+| 8 | Picture lock, conform, crash composite/cleanup, ADR, foley, grade, subtitle timing |
+| 9 | Mix, color, online, candidate master; **full-film review cycle 2** |
+| 10 | Targeted regression fixes only; uninterrupted final playback; technical/content/rights QC; delivery and archive |
 
-## Post-production responsibilities
+There are at most two full-film review cycles. Day 10 is final QC, not permission for another semantic rewrite. If a hard floor remains unresolved, preserve the latest valid checkpoint and report the exact blocked deliverable rather than claiming completion.
 
-One person may double-hat, but each function needs a named accountable owner.
+## State, lineage, and rollback
 
-- **Editorial:** blocking cut from Day 1, rolling assemblies, selects, handles, pickup list, structure/picture locks, conform, and master assembly.
-- **Continuity/data:** immutable canonical bank, approved-memory promotions, local handoffs, state deltas, hashes, run lineage, checkpoints, and rollback.
-- **VFX/cleanup:** crash plates/composites or 3D fallback, paint/roto, bounded artifact repair, and exact graphics/text.
-- **Sound:** dialogue edit and ADR, pronunciation, room tone, foley, crash design, music, mix, loudness, and stems.
-- **Color/conform:** normalize codec, frame rate, color tags, and audio layout; shot matching, skin/material/weather continuity, and delivery validation.
-- **Subtitles:** prepare text early, but time only after final audio; verify language, reading, safe area, and delivery format.
-- **QC/rights/archive:** independent content/technical/rights review; master, mezzanine, stems, subtitles, project files, sources, prompts, ledgers, approvals, model/version records, and checksums.
+Maintain three distinct stores:
+
+- **Canonical bank:** approved character, voice, wardrobe, vehicle, damage, location, camera, color, and sound passports.
+- **Approved memory:** accepted high-information frames or clips with source shot, timecode, crop, use boundary, and hash.
+- **Local handoff:** neighbor-only pose, motion, screen direction, prop owner, damage, light, and room tone.
+
+Every shot contract records its start state, one primary visible change, and end state. Use stable IDs such as `SC-CRASH`, `BT-CRASH-IMPACT`, and `SH-CRASH-IMPACT-030`; never reuse IDs after editorial changes.
+
+Ledger every run with prompt/reference hashes, model/version, changed variable, timing, actual billed cost if available, defects, reviewer, decision, and route. Retry only from the last approved parent. If crash damage or scene geography becomes corrupted, roll back to the scene-start checkpoint and replay accepted state changes.
+
+## Post-production ownership
+
+- **Producer/continuity lead:** charter, rights, tiering, state packets, checkpoints, schedule ceilings, and waiver authority.
+- **Director/performance reviewer:** beat clarity, acting, identity, hero selects, and final creative approval.
+- **Generation lead:** shot contracts, reference packets, one-variable retries, run ledger, and media ingestion.
+- **Editor:** blocking cut from Day 3, neighbor compatibility, handles, pickup requests, picture lock, and EDL/timeline provenance.
+- **VFX lead:** crash assembly, plates, paint/roto, contact fixes, exact graphics, cleanup, and transformation records.
+- **Sound lead:** ADR, dialogue edit, room tone, crash design, foley, music, mix, and final sync. Sound should sell the impact without concealing unclear story causality.
+- **Color/online:** normalization, shot matching, skin/material fidelity, color tags, legal range, and delivery conform.
+- **Subtitle/QC owner:** time from final audio, verify language/readability/safe area, perform complete master playback, checksums, and archive.
 
 ## KPI dashboard
 
-Report every metric with date, A-dialogue/A-crash/B/C cohort, platform/model/version, rubric version, numerator, denominator, and sample size.
+Do not set invented approval-rate or throughput targets. Record actual values from Day 2 onward and report median and P90 where sample size permits.
 
-Hard readiness KPIs:
+Quality:
 
-| KPI | Final target |
-|---|---:|
-| Required beat coverage | 100% |
-| Approved final-timeline coverage | 100% |
-| Critical neighbor-continuity pass | 100% |
-| Rights, delivery, and provenance coverage | 100% |
-| Dialogue-unit and performance-turn coverage | 100% |
-| Crash-transition pass | 100% |
-| Dialogue sync-blocker exposure | 0% |
-| Crash physics-blocker exposure | 0% |
-| Open blockers and majors | 0 |
-| Routed-task closure | 100% |
+- Hard-gate pass/fail by shot and by tier.
+- Required beats present / required beats.
+- Timecoded identity, continuity, anatomy, physics, lip-sync, and text defects.
+- Dialogue wording accuracy in the final mix.
+- Crash causal-beat coverage: approach, cause, impact implication, aftermath.
+- Shots passing neighbor-cut review / shots submitted.
+- Unresolved severity-one defects: hard target **zero**.
+- Delivery QC failures: hard target **zero**.
 
-Observed efficiency KPIs—no target until ledger data exists:
+Efficiency:
 
-```text
-first_pass_approval =
-  approved from first valid candidate / reviewed first valid candidates
+- `first_pass_approval = first-run approvals / valid first runs`
+- `additional_retries = extra valid runs / approved shots`
+- `time_per_approved_shot = shot-ready to approval wall time`
+- `usable_seconds_per_hour = in-cut approved seconds / production-review hours`
+- `waste_rate = generated seconds not entering cut / generated seconds`
+- `queue_wait_ratio = queue time / shot-ready-to-result time`
+- Human preparation, review, edit, VFX, and sound hours by tier.
+- Actual billed cost per approved second, only if the ledger contains complete billing data.
+- Recovery-route share and post hours by route.
+- Milestone adherence: blocking cut Day 3, pickup freeze Day 6, generation freeze Day 7, picture lock Day 8, candidate master Day 9, delivery Day 10.
 
-additional_retries_per_approval =
-  extra valid candidates before approval / approved units
-
-approval_cycle_time =
-  approved_at - shot_ready_at
-
-usable_seconds_per_human_hour =
-  unique in-cut seconds / logged prep, review, edit, VFX and sound hours
-
-queue_wait_ratio =
-  exposed queue time / shot-ready-to-result time
-
-technical_invalid_rate =
-  invalid submitted runs / all submitted runs
-
-waste_rate =
-  generated frames not entering the cut / all valid generated frames
-
-route_rate =
-  approved units requiring an alternate route / approved units
-```
-
-Track actual billed cost per approved second only when invoice-level billing coverage is complete; otherwise show `N/A`, not an estimate. Report medians and distributions, adding P90 only with a meaningful sample size.
-
-This production will generate observational ledger data, but because workflows are assigned by shot risk rather than randomly, it will not prove that the hybrid outperforms the other modes.
+After the three representative Day 2 tests, use actual project evidence to revise capacity forecasts and lane staffing. Those observations will describe this production configuration; they still will not prove a generally superior workflow.

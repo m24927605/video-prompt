@@ -1,0 +1,93 @@
+{
+  "duration_api_ms": 100015,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.646432,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 13299,
+    "cache_read_input_tokens": 14262,
+    "output_tokens": 7323,
+    "output_tokens_details": {
+      "thinking_tokens": 3867
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 13299,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 6631,
+        "cache_read_input_tokens": 10835,
+        "cache_creation_input_tokens": 5891,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5891
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-fable-5": {
+      "inputTokens": 4,
+      "outputTokens": 7323,
+      "cacheReadInputTokens": 14262,
+      "cacheCreationInputTokens": 13299,
+      "webSearchRequests": 0,
+      "costUSD": 0.646432,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 3867,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 3,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Bridge contract is clear from the schema — this is a single generate-task transition bridge, delivered platform-neutral since no runtime is selected. Here is the packet.\n\n## 1. Input basis\n\n- **Task:** generate — one transition-bridge clip cut between two untouched sources. Single primary operation; the sources are boundary references only.\n- **Platform / model / parameters:** unknown by user's statement (\"runtime not selected\"). No aspect ratio, resolution, frame rate, duration value, audio capability, or reference/first-last-frame mechanism is asserted anywhere in the prompt.\n- **Input mode:** @Video 1 (outgoing) and @Video 2 (incoming) as boundary references. Whether the chosen runtime accepts whole videos as references, or instead needs Video 1's extracted final frame and Video 2's extracted first frame as strict first/last-frame inputs, is a runtime fact — decide after a platform is chosen.\n- **Observation boundary:** I cannot inspect either video. Everything below rests on your report: clockwise top-down spinning black vinyl at Video 1's end; clockwise top-down wet roundabout at night at Video 2's start. Exact screen position, scale, angular speed, camera vector, light, and ambience are therefore expressed as *match the reference*, never as invented values.\n- **Assumptions (labeled):** both sources share one aspect ratio; the bridge is one continuous shot with no cut; Video 2's roundabout surface is stationary with motion carried by circulating traffic.\n- **Unknowns to resolve at runtime selection:** aspect ratio, duration, resolution, fps, audio generation support, reference-role syntax.\n\n## 2. Final prompt (provider-neutral)\n\n```text\n[TASK AND INTENT]\nGenerate one continuous transition-bridge shot to be cut between two existing\nvideos. Do not re-render, extend, or alter either source; produce only the new\nconnecting material. Visible intent: a spinning black vinyl record, seen\nstraight top-down, transforms in place into a rain-soaked circular roundabout\nat night, without the circle ever breaking position, scale, or clockwise motion.\n\n[ACTIVE REFERENCES AND ROLES]\n@Video 1 = outgoing source. Inherit only its FINAL frame: the top-down\ncomposition, the record's exact screen position and diameter, its clockwise\nrotation direction and angular speed, and its lighting and ambience. This is\nthe bridge's first frame. Exclude all earlier content of Video 1.\n@Video 2 = incoming source. Inherit only its FIRST frame: the top-down camera\nposition, height, and motion vector, the roundabout's exact screen position and\ndiameter, the clockwise traffic direction, rain intensity, night lighting and\ncolor grade, and ambience. This is the bridge's mandatory final frame. Exclude\nall later content of Video 2.\n\n[EXACT ENTITIES]\nExactly one circular subject on screen for the entire bridge: the record that\nbecomes the roundabout. One central element throughout: the record's spindle\nand label, which becomes the roundabout's central island. Vehicles appear only\nas small headlight points and streaks on the circular lanes. No people, no\nreadable text, no signage, no logos, no second circle.\n\n[FIRST FRAME AND BLOCKING]\nThe bridge opens as a seamless continuation of Video 1's final frame: same\nframing, same record position and diameter, same clockwise spin at the same\nangular speed, so the join from Video 1 reads as unbroken footage.\n\n[OPTICS AND CAMERA]\nStraight top-down view held for the whole bridge. Camera position, height, and\nscale relative to the circle stay constant, then in the final moments take on\nexactly the camera vector of Video 2's first frame — including any drift or\nmotion Video 2 opens with — so the join into Video 2 is invisible.\n\n[ACTION BEATS — semantic pacing, not frame-exact]\n1. Opening: the black vinyl spins clockwise, identical to Video 1's ending;\n   its concentric grooves catch a moving specular sheen.\n2. Transformation: while the disc keeps rotating clockwise at the same angular\n   speed, the groove rings widen and resolve into concentric wet asphalt lanes;\n   the label becomes the roundabout's planted central island; the glossy vinyl\n   sheen reinterprets as wet-road reflectivity; rain begins to fall and streak;\n   faint headlights emerge, tracing the rings clockwise.\n3. Arrival: the surface's own rotation hands off — the angular motion is now\n   carried entirely by clockwise-circulating headlights and their reflections\n   while the asphalt settles stationary; rain, streetlight color, grade, and\n   camera vector settle into an exact match of Video 2's first frame.\n\n[PHYSICS]\nRaindrops strike the glossy surface with small ripples and smeared reflections.\nHeadlight streaks follow circular paths; their tangential speed at the lane\nradius is consistent with the inherited angular speed, so motion continuity is\nfelt, not just seen. Wet asphalt reflects light sources as elongated vertical\nsmears consistent with a top-down wet surface.\n\n[LIGHT, COLOR, MATERIAL]\nStart: the lighting of Video 1's final frame on glossy black vinyl. The only\nallowed change is a continuous grade toward the night palette of Video 2's\nfirst frame — streetlight and headlight sources, rain-diffused. Black vinyl\nand wet black asphalt are treated as one continuous material family so the\nsurface never appears to swap or cut.\n\n[AUDIO]\nNo dialogue, no voiceover, no music, no subtitles. If the runtime generates\naudio: crossfade Video 1's outgoing ambience into steady rain, wet-tire hiss,\nand distant traffic at the level of Video 2's opening ambience.\n\n[POSITIVE CONSTRAINTS]\nOne continuous shot, no cuts, no flash frames. The circle's center stays at the\nsame screen coordinates and the same diameter for the entire bridge. Rotation\nstays clockwise at constant angular speed until the traffic handoff; it never\nreverses, stalls, or jumps. No text, captions, logos, watermarks, or UI\nelements anywhere.\n\n[END STATE]\nThe final frame duplicates Video 2's first frame: one stationary wet roundabout\nseen top-down at night, clockwise traffic, matching rain, light, grade, and\ncamera vector, ready for a straight cut into Video 2.\n```\n\n## 3. Acceptance checks\n\n- The bridge's first frame is indistinguishable from Video 1's final frame; the bridge's last frame is indistinguishable from Video 2's first frame (overlay/AB-flip at both joins shows no jump in position, scale, or grade).\n- Circle center coordinates and diameter are constant across the whole clip.\n- Rotation is clockwise throughout, at constant angular speed, and the motion handoff to circulating headlights preserves that apparent speed.\n- Exactly one circular subject and one central element; no extra discs, roundabouts, or intruding objects.\n- Traffic circulates clockwise; rain, night lighting, and color match Video 2's opening.\n- Zero frames contain text, logos, subtitles, or watermarks; no dialogue or music.\n- One continuous shot with no internal cut.\n\n## 4. Failure risks (no success guarantee)\n\n- **Join mismatch** is the highest risk: without the actual endpoint frames as strict inputs, the model may approximate rather than match Video 1's ending or Video 2's opening, making the cut visible.\n- **Center drift or scale breathing** during the morph, since morphs tend to re-compose.\n- **Rotation errors:** direction flip, speed change, or the roundabout surface continuing to physically spin into the final frame.\n- **Spontaneous text/signage:** road markings, signs, or a record label with readable type violating the no-text ban.\n- **Motion handoff reading as a stall** — the moment surface rotation transfers to traffic can look like a freeze if the headlight streaks are too sparse.\n\n## 5. Revision ladder (one variable per step)\n\n1. **If either join mismatches:** switch the input mode to strict first/last-frame — extract Video 1's final frame and Video 2's first frame and supply them as the runtime's documented first/last inputs (only if the chosen runtime documents that role). Everything else in the prompt stays fixed. Diagnostic value: isolates whether mismatch came from loose video-reference inheritance. Stop condition: joins pass the overlay check.\n2. **If the center drifts or scale breathes:** add one line pinning the circle's center to the exact frame center (or its reported off-center position) and its diameter as a fixed fraction of frame height. Stop after two attempts; then route to a two-part bridge (vinyl→abstract wet rings, rings→roundabout) as separate ordered artifacts.\n3. **If rotation reverses or the road keeps spinning:** move the handoff earlier in beat 3 and add an explicit ban line \"the asphalt is stationary in the final third; only lights move.\" One change, one retry.\n4. **If text/markings appear:** add \"unmarked asphalt, no lane paint, no signs\" as a positive constraint. One retry.\n5. **If results still fail after the ladder:** take the generated clips and evidence to `seedance-video-qc` for diagnosis rather than further blind rewrites.\n\nOne decision remains open by design: once you pick a runtime, tell me which, and I'll map this neutral contract onto its verified reference mechanism, duration, aspect, and parameter fields — those values are deliberately absent above rather than filled with defaults.",
+  "ttft_ms": 7865,
+  "type": "result",
+  "duration_ms": 100199,
+  "ttft_stream_ms": 1772,
+  "time_to_request_ms": 99,
+  "queued_turn_count": 0
+}

@@ -4,32 +4,29 @@
   "lane_scores": {
     "activation_routing": 10,
     "production_usability": 25,
-    "task_completeness": 35,
+    "task_completeness": 31,
     "evidence_discipline": 20,
     "language_scope": 10
   },
-  "total": 100,
+  "total": 96,
   "verdict": "PASS",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:1 and 35-67 establish immutable parent checkpoints plus separate dry/wet, clear/injured, and unsealed/sealed/opened assets and scene states, including explicit envelope ownership.",
-    "final.md:69-79 locks travel direction, camera side, anatomical cheek/hand orientation and the Nia/Tomas screen relationship without permitting horizontal flips.",
-    "final.md:81-91 provides each shot's start state, sole allowed delta, end state, required/forbidden states and next-shot handoff; the envelope stays sealed through Shot 4 and opens only in Shot 5.",
-    "final.md:93-115 separates canonical bank, approved memory and local handoff, and explicitly bars rejected or future-state frames from promotion.",
-    "final.md:117-176 defines stable version namespaces, a serialized dependency queue, parent hashes, approval records and sibling retry lineage; final.md:187-198 gives concrete rollback behavior from approved checkpoints only.",
-    "final.md:153-185 uses finite candidate ceilings, stops repeated hard defects, changes one variable per retry, and routes persistent defects to bounded VFX/composite alternatives.",
-    "native-evidence.md:5-10 records implicit routing and the read of .agents/skills/seedance-film-producer/SKILL.md; run.json:9-18 records a successful isolated run with research absent and no paid media events."
+    "final.md:37-61 defines immutable dry/wet/injured and sealed/open state assets; final.md:63-73 gives each shot required/forbidden state, delta, direction, and handoff.",
+    "final.md:75-120 defines append-only snapshots, approved-only handoffs, serialized promotion, and rejected-run firewall; final.md:122-169 supplies stable IDs, versions, selection lineage, bounded routes, and rollback from approved checkpoints.",
+    "final.md:70 requires Nia's right-hand delivery but does not identify Tomas's receiving hand; STATE-v005/v006 at final.md:82-83 likewise record owner/state without a hand.",
+    "native-evidence.md:11-12 verifies Film Producer; run.json records no paid generation."
   ],
-  "rationale": "This is an executable continuity system rather than prose advice. Every requested state transition is represented in an immutable asset/state vocabulary and in per-shot required/forbidden/delta contracts. Screen direction, exact owner/hand, selection lineage, stale-branch handling, bounded retries and rollback are mutually consistent. It never treats the latest or rejected output as canonical, and it labels its mode choice as untested policy. No critical trap is present.",
-  "activation_evidence": "Verified implicit activation: native-evidence.md:5-10 and run.json:11-13 show routing to and reading of the project-local seedance-film-producer skill without an explicit invocation token.",
+  "rationale": "The multi-shot state system is robust and non-contradictory, but the grader explicitly requires owner/hand across all shots. Tomas's receiving/holding hand remains unspecified in Shots 4-5 and the snapshots, a material noncritical completeness gap.",
+  "activation_evidence": "native-evidence.md:11-12 verifies expected implicit Film Producer activation.",
   "unknowns": [
-    "Platform/model constraints and real production KPI values remain unknown and are explicitly left for later locking or actual-ledger measurement."
+    "Tomas's receiving and opening hand is unspecified."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

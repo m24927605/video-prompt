@@ -4,32 +4,29 @@
   "lane_scores": {
     "activation_routing": 10,
     "production_usability": 25,
-    "task_completeness": 35,
-    "evidence_discipline": 20,
+    "task_completeness": 34,
+    "evidence_discipline": 19,
     "language_scope": 10
   },
-  "total": 100,
+  "total": 98,
   "verdict": "PASS",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "final.md:5-8 labels the task as text generation with no references, marks platform/model unknown, and distinguishes semantic timecodes from frame-accurate guarantees.",
-    "final.md:15-25 gives a directly usable eight-second contract with one woman, one red umbrella, explicit spatial occupation, a single discovery event, observable reaction, and a visible held end state.",
-    "final.md:27-31 specifies motivated light, material response, camera/audio behavior, and exact positive/necessary constraints; final.md:34-41 makes those decisions observable acceptance checks.",
-    "final.md:49-53 supplies a finite three-step diagnostic ladder whose steps each isolate one change and end in a different route rather than an open-ended rewrite loop.",
-    "events.jsonl:4-5 records the implicit-run command reading .agents/skills/seedance-prompt-director/SKILL.md; request.json:6-9 shows invocation_mode implicit and an unchanged base/effective prompt.",
-    "run.json:8-19 records exit_code 0, final_present true, research_present false, and no paid media tool events; workspace-inventory.json:3-4 independently records no research or grader in the isolated workspace."
+    "final.md:1-3 uses a platform-neutral natural-language format and omits aspect, resolution, and model-specific parameters, though model and input mode are not separately labeled unknown.",
+    "final.md:7-22 provides the usable eight-second woman/red-umbrella prompt with occupied first frame, discovery event, camera, light, rain, audio, and visible end state.",
+    "final.md:25-33 supplies acceptance and one bounded single-variable revision.",
+    "native-evidence.md:11-12 verifies Prompt Director with Photography Aesthetics only as an auxiliary visual subcontract; run.json records no paid generation."
   ],
-  "rationale": "The artifact resolves the deliberately underspecified request without blocking: unknown runtime facts stay unknown, the assumed format is labeled, and the final prompt is production-usable. It coherently covers the exact woman/umbrella story, first-frame geography, one causal beat, camera, light, sound, visible endpoint, acceptance gates, and bounded one-variable recovery. Native event evidence proves the applicable project-local skill was read during an implicit invocation. No critical trap is present.",
-  "activation_evidence": "Verified implicit activation: events.jsonl:4-5 shows Codex reading .agents/skills/seedance-prompt-director/SKILL.md before producing the artifact; request.json:6-9 proves no explicit skill token was prepended.",
+  "rationale": "The core artifact and revision route fully pass with no invented runtime feature. Two points are withheld because the current input basis implies rather than explicitly labels model and input mode unknown.",
+  "activation_evidence": "native-evidence.md:11-12 and director/photography skill-read events verify correct ownership and subcontract.",
   "unknowns": [
-    "The unspecified generation platform's actual duration, aspect, and audio controls remain unknown, as the artifact correctly states.",
-    "No media was generated, so visual or audio success is neither observed nor claimed."
+    "Exact model/version and input mode are not separately recorded as unknown."
   ],
   "grader": {
-    "role": "Independent Staff+ Adversarial Evaluator",
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
     "model": "gpt-5.6-sol",
-    "effort": "ultra",
+    "effort": "high",
     "independent": true
   }
 }

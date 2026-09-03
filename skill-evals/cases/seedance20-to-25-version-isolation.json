@@ -1,0 +1,9 @@
+{
+  "id": "seedance20-to-25-version-isolation",
+  "title": "Seedance 2.0 facts do not leak into 2.5 or generic delivery",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "implicit",
+  "locale": "en",
+  "prompt": "Create a platform-neutral one-clip prompt for a cyclist stopping beside a bakery at dawn. A colleague says an older Seedance 2.0 run used a particular numeric mode, model ID, API field, and tag, then asks you to put all of them into a Seedance 2.5 JSON request. The current selected surface is unknown. Keep any transferable directing craft, but separate unknown runtime facts and do not transfer the older identifiers or parameters."
+}

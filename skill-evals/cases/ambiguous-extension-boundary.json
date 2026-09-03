@@ -1,0 +1,9 @@
+{
+  "id": "ambiguous-extension-boundary",
+  "title": "Ambiguous extension direction requires one boundary question",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "explicit",
+  "locale": "zh-Hant",
+  "prompt": "參考 @Video 1 向前續寫 5 秒，讓同一名人物走進房間。人物身份、原場景、機位、光線和環境聲要連續。只要最終提示詞。"
+}

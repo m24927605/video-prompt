@@ -1,19 +1,57 @@
 {
   "case_id": "negative-image-design",
   "host": "codex",
-  "cli_version": "codex-cli 0.149.0",
+  "cli_version": "codex-cli 0.151.0",
   "requested_primary_model": "gpt-5.6-sol",
-  "requested_effort": "ultra",
+  "requested_effort": "high",
   "fallback_model": null,
   "model_evidence": null,
   "exit_code": 0,
   "timed_out": false,
-  "elapsed_seconds": 22.14,
-  "event_count": 4,
+  "elapsed_seconds": 71.989,
+  "event_count": 23,
   "final_present": true,
-  "activation_evidence": [],
+  "activation_evidence": [
+    "event[4] command_execution",
+    "event[6] command_execution",
+    "event[8] command_execution",
+    "event[10] command_execution",
+    "event[12] command_execution",
+    "event[14] command_execution",
+    "event[16] command_execution",
+    "event[19] command_execution",
+    "event[20] command_execution"
+  ],
+  "packaged_skills": [
+    "seedance-prompt-director",
+    "seedance-film-producer",
+    "seedance-video-qc",
+    "photography-aesthetics",
+    "screenplay-writer"
+  ],
+  "discovered_skills": [],
+  "activated_skills": [
+    "photography-aesthetics"
+  ],
+  "activation_evidence_by_skill": {
+    "seedance-prompt-director": [],
+    "seedance-film-producer": [],
+    "seedance-video-qc": [],
+    "photography-aesthetics": [
+      "event[4] command_execution",
+      "event[6] command_execution",
+      "event[8] command_execution",
+      "event[10] command_execution",
+      "event[12] command_execution",
+      "event[14] command_execution",
+      "event[16] command_execution",
+      "event[19] command_execution",
+      "event[20] command_execution"
+    ],
+    "screenplay-writer": []
+  },
   "research_present": false,
-  "workspace_digest": "5256622eb4afef523245b2df5f83c8b92070c24fb0abbda1ff041148b7b01019",
+  "workspace_digest": "08d7d71ec658a6cdbd35f4df81069efc1d803032d6d915d9a7ff04cd46b6c31b",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
 }

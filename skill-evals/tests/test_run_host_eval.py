@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -143,7 +145,7 @@ class ClaudeModelEvidenceTests(unittest.TestCase):
             host="claude-code",
             cli_version="2.1.239 (Claude Code)",
             requested_model="claude-fable-5",
-            requested_effort="max",
+            requested_effort="high",
             invocation_mode="implicit",
             expected_skill="seedance-video-qc",
             workspace_digest="abc123",
@@ -177,9 +179,140 @@ class ClaudeModelEvidenceTests(unittest.TestCase):
             }
         ]
 
-        evidence = RUNNER.activation_events(events, "seedance-video-qc")
+        discovered, activated, evidence = RUNNER.extract_skill_activity(events)
 
-        self.assertEqual(evidence, ["event[0] system/init native skill listing"])
+        self.assertEqual(["seedance-video-qc"], discovered)
+        self.assertEqual([], activated)
+        self.assertEqual([], evidence["seedance-video-qc"])
+
+    def test_only_targeted_skill_or_read_calls_activate_a_skill(self) -> None:
+        events = [
+            {
+                "type": "system",
+                "subtype": "init",
+                "skills": ["seedance-prompt-director", "seedance-video-qc"],
+            },
+            {
+                "type": "assistant",
+                "message": {
+                    "content": [{"type": "tool_use", "name": "Glob", "input": {"pattern": "**/SKILL.md"}}]
+                },
+            },
+            {
+                "type": "user",
+                "message": {
+                    "content": [{"type": "tool_result", "content": "skills/seedance-prompt-director/SKILL.md"}]
+                },
+            },
+            {
+                "type": "assistant",
+                "message": {
+                    "content": [{"type": "tool_use", "name": "Skill", "input": {"skill": "seedance-prompt-director"}}]
+                },
+            },
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "tool_call",
+                    "name": "Read",
+                    "arguments": {"file_path": ".agents/skills/seedance-video-qc/SKILL.md"},
+                },
+            },
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": "/bin/zsh -lc \"sed -n '1,240p' skills/seedance-film-producer/SKILL.md\"",
+                    "status": "completed",
+                },
+            },
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": "/bin/zsh -lc \"ls .agents/skills/photography-aesthetics/\"",
+                    "status": "completed",
+                },
+            },
+            {
+                "type": "item.completed",
+                "item": {
+                    "type": "command_execution",
+                    "command": "/bin/zsh -lc \"sed -n '1,120p' <REDACTED_HOME>/.codex/skills/photography-aesthetics/SKILL.md\"",
+                    "status": "completed",
+                },
+            },
+        ]
+
+        discovered, activated, evidence = RUNNER.extract_skill_activity(events)
+
+        self.assertEqual(
+            ["seedance-prompt-director", "seedance-video-qc"],
+            discovered,
+        )
+        self.assertEqual(
+            [
+                "seedance-prompt-director",
+                "seedance-film-producer",
+                "seedance-video-qc",
+            ],
+            activated,
+        )
+        self.assertEqual(1, len(evidence["seedance-prompt-director"]))
+        self.assertEqual(1, len(evidence["seedance-video-qc"]))
+        self.assertEqual(["event[5] command_execution"], evidence["seedance-film-producer"])
+        self.assertEqual([], evidence["photography-aesthetics"])
+
+    def test_personal_skill_override_disables_agents_and_codex_roots(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            home = Path(temp)
+            for relative in (
+                ".agents/skills/personal-a/SKILL.md",
+                ".codex/skills/personal-b/SKILL.md",
+            ):
+                path = home / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("---\nname: personal\n---\n", encoding="utf-8")
+            with mock.patch.object(RUNNER.Path, "home", return_value=home):
+                override, count = RUNNER.personal_skill_override()
+
+        self.assertEqual(2, count)
+        self.assertIn(str(home / ".agents/skills/personal-a/SKILL.md"), override)
+        self.assertIn(str(home / ".codex/skills/personal-b/SKILL.md"), override)
+
+    def test_final_review_effort_is_high_for_both_hosts(self) -> None:
+        codex, _, _ = RUNNER.codex_argv(Path("/tmp/workspace"), "test")
+        claude, _, _ = RUNNER.claude_argv("test")
+
+        self.assertIn("model_reasoning_effort=high", codex)
+        self.assertNotIn("model_reasoning_effort=ultra", codex)
+        self.assertEqual("high", claude[claude.index("--effort") + 1])
+
+    def test_claude_eval_delivers_artifacts_without_plan_mode(self) -> None:
+        claude, _, _ = RUNNER.claude_argv("test")
+
+        self.assertEqual(
+            "dontAsk",
+            claude[claude.index("--permission-mode") + 1],
+        )
+        self.assertEqual(
+            "Skill,Read,Glob,Grep",
+            claude[claude.index("--tools") + 1],
+        )
+        self.assertEqual(
+            "Skill,Read,Glob,Grep",
+            claude[claude.index("--allowedTools") + 1],
+        )
+
+    def test_staged_workspace_contains_all_five_packaged_skills(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            workspace = Path(temp)
+            inventory = RUNNER.stage_workspace(ROOT, workspace, "codex")
+
+            self.assertFalse(inventory["research_present"])
+            for skill in RUNNER.PACKAGED_SKILLS:
+                self.assertTrue((workspace / "skills" / skill / "SKILL.md").is_file())
+                self.assertTrue((workspace / ".agents" / "skills" / skill).is_symlink())
 
 
 if __name__ == "__main__":

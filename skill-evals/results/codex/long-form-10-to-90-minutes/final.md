@@ -1,468 +1,481 @@
-以下是一套可直接開案的 production OS v0.1。核心不是要求模型記住 75 分鐘，而是以外部的 bible、state、manifest、ledger 與剪輯 lineage 維持真相。
+以下是一套可落地、可分段執行、可稽核與回滾的 75 分鐘 AI 科幻公路電影製作系統。它把模型當成「逐鏡生成工具」，跨鏡記憶、連戲、版本與成片品質都由外部製作系統負責。
 
-本案不採巨型 prompt；每個 shot 都能獨立生成、審核、剪輯與回滾。也不把 extension 當長片骨幹。
+我先做兩項工作假設：
 
-## 1. 證據、假設與 Gate 0
+- 「四個主要場景」解讀為四個反覆使用的主要地點，不是全片只有四場戲。
+- 暫用工作片名與故事骨架示範；若已有劇本，可保留整套系統而替換內容。
 
-文件基準日：2026-08-22。
+## 1. 專案章程與證據邊界
 
-| 類別 | 目前狀態 |
-|---|---|
-| 使用者已鎖定 | 75 分鐘、兩主角、四個主要場景、車輛累積損壞、三日天候與服裝變化 |
-| 工作解讀 | 「四個主要場景」視為四個 location families；車內是移動子場景，不另算第五場 |
-| 創作假設 | 下述片名、角色、劇情、鏡數與時長分配都可替換 |
-| 尚未指定 | 實際平台 surface、顯示模型、完整 model ID、地區、官方文件版本、額度、價格、輸入輸出限制 |
-| 尚未指定 | 預算、交片日、發行版本、畫幅、rational frame rate、codec、color、音訊、字幕與無障礙規格 |
-| 尚未驗證 | A/B/C 比例、重試上限、shot 數、rolling assembly 節奏 |
-| 直接觀察 | 無；尚未看到本案生成媒體，也未做付費生成 |
+### 工作故事
 
-任何付費生成前，先鎖定 `platform_profile_id`：
+《北向殘光》：氣候製圖師林岑與前氣象工程師周拓，駕駛老舊燃料電池旅行車，穿越失控氣候帶，把一枚「氣候種子」送往海岸氣象塔。三天旅程中，他們發現種子啟動後會抹除用來重建它的災民記憶，必須在拯救現存聚落與保存亡者記憶之間做選擇。
 
-```text
-surface/provider
-displayed_model
-full_model_or_endpoint_id
-region
-official_doc_url_and_date
-supported_task_and_input_types
-output_duration/aspect/resolution/audio rules
-quota/price/billing behavior
-rights/watermark/disclosure terms
-```
+兩名主角：
 
-Seedance 2 UI、Seedance 2.0、2.5、ModelArk、LAS 或第三方介面若成為候選，必須各有獨立 profile；不得搬用彼此的預設值、限制、成本或參數。
-
-同一 Gate 也要鎖定角色肖像、聲音、音樂、字型、商標、參考圖、訓練／上傳權利，以及 `B_total`、各部門 ceiling、picture lock 與 master deadline。未完成者標成 `HOLD`，不能靠猜測進入正式生成。
-
-## 2. 工作故事與五層 hierarchy
-
-工作片名：《鹽雨線》，代碼 `FILM-SALT75`。
-
-工作 premise：2097 年，修車技師陸岑載著氣候檔案員葉澄，必須在三日磁暴前，把最後的降雨模型送到潮汐上行塔。途中發現模型與葉澄的記憶植入物綁定；上傳可能抹除她的自傳記憶，而陸岑早已知道風險。
+- `CHAR-001 林岑`：精準、控制欲強；負責導航與氣候判讀。
+- `CHAR-002 周拓`：熟悉機械、隱瞞種子真相；負責駕駛與修車。
 
 四個主要地點：
 
-- `LOC-01` 穹城外環：車庫、封鎖閘口。
-- `LOC-02` 白鹽公路帶：鹽原道路、廢棄驛站。
-- `LOC-03` 風針天線谷：中繼站、天線場。
-- `LOC-04` 潮汐上行塔：堤道、機房、外部平台。
-- `VEH-001-INT` 車廂是車輛的移動子場景。
+- `LOC-001 鹽海補給站`
+- `LOC-002 風廊公路`：鹽灘、風機峽谷、維修隧道等子區域
+- `LOC-003 沉降觀測站`
+- `LOC-004 海岸氣象陣列`：引道、堤道、主塔
 
-### 層級預算
+### 平台閘門
 
-| 層級 | 首輪規模 | 必需 artifact | Exit gate |
-|---|---:|---|---|
-| Film | 75:00 | charter、劇本、bible、三日 story/color/sound arc | 故事、權利、格式鎖定 |
-| Sequence | 8 | 目標、轉折、時長、進出狀態 | 不可逆轉折與依賴清楚 |
-| Scene | 約 38 | scene card、floor plan、continuity state、coverage | 地理、角色與狀態可解 |
-| Beat | 約 168 | 單一可見行為、反應或資訊轉移 | 每個 beat 有存在理由 |
-| Final shot | 約 600 | shot contract、input packet、QC/route | 可獨立生成、審核、剪輯 |
-| Coverage contract | 約 780 | primary、conditional backup、pickup trigger | 備援用途明確 |
+文件日期：`2026-09-01`。
 
-600 鏡對應平均約 7.5 秒的剪輯長度，僅是 animatic 預算，不是平台單段能力宣稱。780 份 coverage contracts 也不會全部立即生成；備援鏡只在風險或 rough cut 缺口觸發。
+官方於 2026-07-31 發布 Seedance 2.5，描述單次最長 30 秒及多輪 extension；這只是官方能力聲明，不代表本專案入口、區域、帳號或 API 一定具備相同能力，也不構成長片工作流已驗證。[ByteDance Seedance 2.5 官方發布](https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5)
 
-### 八個 sequences
+正式付費生成前，以下皆為硬性 `UNKNOWN/BLOCKED`：
 
-| SQ | 時碼 | 敘事轉折 | 狀態弧 | 場／beats／final shots |
-|---|---|---|---|---:|
-| 01 | 00–08 | 建立任務與隱瞞；闖過城閘，無法回頭 | Day 1 乾冷霾；服裝乾淨；車完整 | 4／17／54 |
-| 02 | 08–17 | 互不信任；共同選擇危險鹽原 | 熱霾、揚塵；服裝積塵；濾網堵塞 | 5／20／65 |
-| 03 | 17–27 | 沙暴擦撞；發現模型與葉澄相連，決定改道 | 右燈滅、玻璃裂、保桿鬆；衣袖磨破 | 5／23／78 |
-| 04 | 27–37 | 解碼證實上傳代價；葉澄拿回決定權 | Day 2 低雲細雨；衣服半乾帶鹽；舊傷保留 | 5／24／80 |
-| 05 | 37–46 | 關係破裂後互救；建立平等約定 | 雷雨、濕泥；冷卻與自動駕駛失效、後門卡死 | 5／20／68 |
-| 06 | 46–56 | 陸岑坦白；兩人決定用車作隔離緩衝 | Day 2 夜至 Day 3 黎明；保溫層、補胎、電力受限 | 5／22／76 |
-| 07 | 56–67 | 上傳中止；只剩把車接成電力橋 | Day 3 風暴核心；車進入不可逆熱損 | 5／26／104 |
-| 08 | 67–75 | 完成橋接；葉澄保住身份核心，車永久熄火 | 風雨轉亮；衣物仍破損；車成固定殘骸 | 4／16／75 |
+- 實際平台：官方 UI、API、ModelArk、LAS 或第三方整合
+- 顯示模型名與完整 model ID
+- 區域可用性、配額、費率、輸入上限與輸出保存期
+- 真實輸出解析度、幀率、音訊格式、色彩標籤
+- 商用、肖像、聲音、音樂、品牌及訓練資料披露要求
+- 發行規格與地區分級
 
-### Scene → Beat → Shot 範例
+每次 preflight 必須保存：文件 URL、查核日期、平台畫面或 API 回應、model ID、測試任務、實際輸出 metadata。不同平台的數值不可互相套用。
 
-`SC-04-03`：Day 2 中午，天線谷解碼室，約 3:30。
+### 暫定交付規格
 
-| Beat | 單一主要變化 | Coverage |
-|---|---|---|
-| BT-01 | 核心從盒內進入 reader | wide、進場 two-shot、插槽 insert |
-| BT-02 | 葉澄辨認自己的神經簽章 | OTS、乾淨 UI plate、葉澄 CU |
-| BT-03 | 陸岑承認早知風險 | profile two-shot、兩個 singles、reaction |
-| BT-04 | 核心 ownership：陸岑 → 葉澄 | 中景、獨立手部 insert、陸岑 reaction |
-| BT-05 | 雷擊使 reader 斷電 | 剪影 two-shot、天線／受損車 cutaway |
-| BT-06 | 葉澄決定繼續，但由她決定條件 | two-shot、single、screen-right exit |
+在發行商確認前使用：
 
-共 18 個 coverage contracts，預計剪入 12–14 鏡。交接、碰撞、精確 UI、複雜物理都拆成獨立 shots，不在同鏡要求角色「交接、轉身、說完台詞、走出門」。
+- 片長：`75:00`，允差待發行方決定
+- 畫幅：2.39:1
+- 時基：24 fps
+- 工作母版：3840×1608、ProRes 422 HQ 或同級 mezzanine
+- 色彩：統一色彩管理；最終 SDR/HDR 路線在素材測試後鎖定
+- 音訊：48 kHz／24-bit；立體聲與 5.1
+- 字幕：主要語言 sidecar；翻譯版本依發行需求
+- 精確 UI、路牌與字幕均後製合成，不依賴生成模型拼字
 
-## 3. Creative bible、資產與 continuity
+這些是製作提案，不是平台能力聲明。
 
-### Passport inventory
+## 2. 操作模式：Hybrid
 
-| Passport | 最少內容 |
-|---|---|
-| `CHAR-001/002` | 臉、髮、體態、姿勢、手別、步態、多角度與表情 reference、禁止漂移 |
-| Voice/behavior | 台灣華語或最終語言／口音、音色、語速、發音字典、呼吸、凝視、手勢、反應節奏、權利 |
-| Wardrobe/injury | Day 1 乾淨／積塵／磨破，Day 2 半乾／全濕／泥污，Day 3 保溫／膠帶修補；傷勢另版 |
-| `VEH-001` | 八方向外觀、比例、內裝、座位、控制件、左右細節、機械狀態、聲音特徵 |
-| `LOC-01…04` | floor plan、出入口、軸線、地標、材質、光向、時段／天候版本、room tone |
-| Props | 記憶核心、工具、持有人／手別、開合狀態；精確圖文另做乾淨 artwork |
-| Look | camera grammar、鏡頭尺度、movement、color script、材質、VFX 規則 |
-| Sound/subtitle | 環境、車損聲弧、foley、音樂 motif、靜默、字幕字型／版位／語言 |
-| Rights/delivery | 來源、授權範圍、地區、期限、核准人、master spec |
+採「全片先工作，再按重要性升級」：
 
-所有 passport 均含：
+- A 級：故事轉折、身份近景、雙人關鍵表演、車禍／複雜物理、最終上傳。
+- B 級：一般對話、駕駛、地點內行動。
+- C 級：空鏡、插入、反應、道路、天候 plate、轉場與聲音覆蓋。
+
+所有級別共用不可降低的底線：權利、安全、故事 beat、人物身份、服裝／車況／道具狀態、方向、可剪區間與交付相容性。
+
+這是起始政策，不是已由本片實測為最優。A/B/C 分配、候選數及重試上限要在代表性 pilot 後用實際帳本決定。
+
+## 3. 75 分鐘故事分解
+
+全片規劃 8 個 sequence、24 個 scene。暫列約 572 個剪輯鏡位，僅作拆解與工作量基線，不等於必須生成 572 支獨立素材，也不是成本預測。
+
+| Sequence | Scene | 分鐘 | 日／地點 | 可見 beat 鏈 | 車況 |
+|---|---|---:|---|---|---|
+| SQ-010 出發 | SC-010-010 | 3.0 | D1／LOC-001 | 交接種子 → 拒絕改道 → 啟程 | v01 |
+|  | SC-010-020 | 3.0 | D1／LOC-002 | 氣象塔靜默 → 收到倒數 → 選風廊 | v01→v02 |
+|  | SC-010-030 | 2.0 | D1／LOC-002 | 掃描機逼近 → 熄燈滑行 → 脫身 | v02 |
+| SQ-020 風廊 | SC-020-010 | 3.0 | D1／LOC-002 | 風向突變 → 路標失效 → 林岑接管導航 | v02 |
+|  | SC-020-020 | 3.5 | D1／LOC-002 | 亂流推車 → 閃避 → 撞擊護欄 | v02→v03 |
+|  | SC-020-030 | 2.5 | D1／LOC-002 | 檢查損傷 → 互相責怪 → 暫時和解 | v03 |
+| SQ-030 沙牆 | SC-030-010 | 3.0 | D1／LOC-002 | 熱控警報 → 滑行停車 → 發現漏液 | v03→v04 |
+|  | SC-030-020 | 4.0 | D1／LOC-002 | 搶修 → 發現航線遭改 → 周拓說謊 | v04 |
+|  | SC-030-030 | 3.0 | D1暮／LOC-002 | 沙牆抵達 → 視野歸零 → 衝向觀測站 | v04 |
+| SQ-040 真相 | SC-040-010 | 3.0 | D1夜／LOC-003 | 抵達 → 建立空間 → 封門避沙 | v04 |
+|  | SC-040-020 | 4.0 | D1夜／LOC-003 | 解碼種子 → 聽見記憶 → 林岑識破真相 | v04 |
+|  | SC-040-030 | 2.0 | D1夜／LOC-003 | 電力不足 → 爭奪種子 → 決定續行 | v04 |
+| SQ-050 洪水 | SC-050-010 | 3.0 | D2／LOC-003 | 雨水倒灌 → 搶回種子 → 啟動車輛 | v04 |
+|  | SC-050-020 | 4.0 | D2／LOC-003→002 | 水位升高 → 車門受阻 → 破水逃出 | v04→v05 |
+|  | SC-050-030 | 3.0 | D2／LOC-002 | 隧道停靠 → 綁固引擎蓋 → 更換路線 | v05 |
+| SQ-060 告白 | SC-060-010 | 3.0 | D2／LOC-002 | 雨中失去導航 → 憑地標前進 → 看見海 | v05 |
+|  | SC-060-020 | 3.0 | D2／LOC-002 | 周拓坦白 → 林岑欲毀種子 → 中止衝突 | v05 |
+|  | SC-060-030 | 4.0 | D2／LOC-004 | 駛上堤道 → 爆胎 → 勉強拖行 | v05→v06 |
+| SQ-070 最後里程 | SC-070-010 | 4.0 | D3／LOC-004 | 霧中喚醒 → 拆取備援電芯 → 再次啟動 | v06 |
+|  | SC-070-020 | 3.0 | D3／LOC-004 | 車身偏斜 → 懸吊崩壞 → 車輛停駛 | v06→v07 |
+|  | SC-070-030 | 3.0 | D3／LOC-004 | 取出種子 → 放棄物資 → 步行到塔 | v07 |
+| SQ-080 放晴 | SC-080-010 | 4.0 | D3／LOC-004 | 接入主塔 → 系統要求抹除 → 兩人改寫選項 | v07 |
+|  | SC-080-020 | 3.0 | D3／LOC-004 | 上傳 → 風向逆轉 → 雲層裂開 | v07 |
+|  | SC-080-030 | 2.0 | D3／LOC-004 | 返回車旁 → 收到記憶訊號 → 留白結尾 | v07 |
+
+分鐘合計為 75。
+
+### Beat／shot 原則
+
+每個 beat 只能有一個主要可見變化。若描述出現兩個獨立的「然後」，先拆 beat，再決定鏡頭。
+
+每場至少規劃：
+
+- 空間 master／establishing
+- 雙人鏡頭與必要 OTS／single
+- 車內與車外方向匹配
+- 手、種子、儀表、受損零件 inserts
+- 沉默反應、道路或天候 cutaway
+- 入場、離場與前後場 handles
+- 複雜接觸、精確文字、長對白及物理破壞的替代 coverage
+
+一個生成 clip 可以含多個剪輯鏡位，但不得把它當成 sequence 記憶來源。每個可剪 shot 仍有自己的 contract 與選擇 lineage。
+
+## 4. Creative bible 與不可變 passport
+
+### Bible 清單
+
+- `STORY-BIBLE`：主題、世界規則、角色知情範圍、時間線、禁止提前揭露事項
+- `CHAR-001/002`：臉、體型、髮型、慣用手、步態、表演語法、禁漂移特徵
+- `VOICE-001/002`：語言、口音、音域、節奏、發音字典與聲音權利
+- `WARD-*`：每一天及乾／濕／破損狀態
+- `VEH-001`：車身幾何、內裝座位、方向盤、損壞狀態機
+- `PROP-001 氣候種子`：尺寸、材質、發光規則、持有人與開關狀態
+- `LOC-001..004`：平面圖、出入口、地標、光向、軸線與可用機位
+- `WEATHER-*`、`LIGHT-*`：三天氣候與時段
+- `CAMERA-BIBLE`：鏡頭尺寸、運動、手持程度、軸線政策
+- `COLOR-SCRIPT`：赭黃 → 鉛灰／青綠 → 冷藍後暖白
+- `VFX-BIBLE`：天空、沙塵、雨水、介面與氣象塔效果
+- `SOUND-BIBLE`：車內共鳴、風、雨、塔台脈衝、記憶聲音
+- `SUBTITLE-STYLE`：字體權利、安全區、斷行與說話者規則
+
+每個 passport 都要有：
 
 ```text
-stable_id, version, parent_hash, owner, rights_status,
-draft/approved/retired, approved_by/at, source_paths,
-allowed_attributes, forbidden_attributes, sha256
+asset_id, entity_id, version, owner, rights_status,
+draft/approved/retired, approval_date, source_paths,
+allowed_attributes, excluded_attributes, sha256
 ```
 
-新天候、濕度、服裝、傷勢或車損必須是新的不可變版本。舊版可以退休供稽核，但不能以 alias、fallback 或「最新版」含糊引用。
+新服裝、濕度、污損、光線或車況都是新版本；不得把互相衝突的狀態塞進同一張 reference sheet。
 
-### 車損 state machine
+### 三天狀態弧線
+
+| 狀態 | 天候／光 | 林岑 | 周拓 | 車 |
+|---|---|---|---|---|
+| D1-A | 強烈乾燥日光 | 赭色工作外套、乾淨 | 深藍外套、乾淨 | v01 基準舊化 |
+| D1-B | 塵霾、橙灰暮色 | 同套積塵 | 袖口磨破、積塵 | v02 積塵 |
+| D1-C | 沙暴、低能見度 | 防塵巾、髮亂 | 領口封閉 | v03 擋風玻璃裂、右前葉子板凹 |
+| D1-N | 觀測站冷白夜光 | 積塵未清 | 同前 | v04 右鏡脫落、熱控漏液、頭燈閃 |
+| D2-A | 陰雨 | `WARD-001-D2-wet` | `WARD-002-D2-wet` | v04 |
+| D2-B | 暴雨、泥水 | 濕透、外套較深 | 肩部臨時防水補片 | v05 泥線、車門卡、引擎蓋束帶 |
+| D3-A | 冷霧 | 半乾、鹽漬固定 | 半乾、補片固定 | v06 左後胎毀、電量危急 |
+| D3-B | 雲裂、暖白 | 狀態不回復 | 狀態不回復 | v07 懸吊崩壞、停駛 |
+
+污損只能累積，除非故事中出現清洗或換衣 beat。
+
+### Continuity store
+
+分成三個不可混用的庫：
+
+1. `canonical_bank`：人工批准的人物、車、地點、服裝與世界真相。
+2. `approved_memory`：只從通過 QC 的鏡頭提升，記錄來源 shot、timecode、crop 與允許用途。
+3. `local_handoff`：相鄰鏡頭的姿勢、位置、運動尾端、車況、道具持有人與 room tone；不能覆蓋 canonical truth。
+
+參考素材必須標註角色，例如 `identity`、`wardrobe_state`、`vehicle_state`、`location_geometry`、`motion_only`、`audio_timing`。不得把被拒鏡頭或漂亮但錯誤的 frame 提升成身份真相。
+
+## 5. Shot manifest 與 contract
+
+Manifest 至少包含：
 
 ```text
-DMG01 完整
-→ DMG02 鹽塵、濾網堵塞
-→ DMG03 右燈滅、玻璃裂、保桿鬆
-→ DMG04 冷卻／自駕失效、後門卡死
-→ DMG05 膠帶與補片、電力受限
-→ DMG06 不可逆熱損、冒煙
-→ DMG07-DEAD 永久熄火
+shot_id, sequence_id, scene_id, beat_id, tier, risk, priority, owner,
+required_entities, forbidden_entities, start_state_id, primary_delta,
+end_state_id, axis, screen_direction, camera, look, sound,
+input_packet_id, prompt_version, parameter_set_id,
+platform, model_id, task, intended_duration, handles,
+dependencies, continuation_relation, max_valid_runs,
+extension_allowed, max_extension_rounds,
+hard_gates, reviewer, decision, selected_run, route
 ```
 
-這是 scene-level snapshot。一次事故內仍須拆成 `DMG03a → 03b → 03c`，讓每個 shot 只新增一項可見傷害。修補只能新增膠帶、束帶或補片；除非劇本明示完成維修，舊裂痕不能消失。
+`prompt_version` 與 `parameter_set_id` 必須分開；不可把某平台參數藏進自然語言 prompt。
 
-### 三種 continuity store
-
-| Store | 權威與用途 |
-|---|---|
-| Canonical bank | 人工核准的角色、車、地點、聲音、風格與狀態真相；生成結果不得自動改寫 |
-| Approved memory | 從核准 shot 提升的少量高資訊 frame/clip；記錄 shot、timecode、crop、用途邊界 |
-| Local handoff | 僅供相鄰鏡頭：姿勢、位置、行進方向、鏡頭速度、末幀、車損、光色、道具持有人與 room tone |
-
-State 採交易式更新：
-
-```text
-scene-start checkpoint
-+ approved shot delta
-= next approved state
-```
-
-只有 `APPROVE_SELECT` 或完成後期後再核准的 selection 能提交 delta。`REJECTED`、`ROUTED` 或原始生成結果不能改 state，也不能成為下一代 reference。
-
-### Reference policy
-
-- 每個 packet 只放該鏡需要的角色、服裝、車損與地點狀態。
-- 不在同一 reference sheet 混入乾／濕、完好／損壞、白天／夜晚等互斥版本。
-- 每份 reference 記錄 role、rights、hash、crop 與 inheritance exclusions。
-- Storyboard 控制順序與構圖；keyframe 是較嚴格參考，但不是 pixel lock。
-- Exact text、UI、logo 使用 clean plate 加後期 graphic。
-- Prompt 只描述本鏡可見事件；整份 bible 不複製進 prompt。
-- 不保存 credential、cookie、signed URL 或私人連結。
-
-## 4. Shot manifest、依賴佇列與 lineage
-
-### Shot manifest 必填欄位
-
-```text
-identity:
-  film/sequence/scene/beat/shot, owner, tier, risk, priority
-
-narrative:
-  purpose, start_state, one_primary_delta, expected_end_patch
-
-entities:
-  required, forbidden, exact_passport/state_versions_and_hashes
-
-space:
-  floor_plan, axis, screen_direction, eyelines, entrance_exit
-
-camera/look:
-  size, side, height, lens_feel, movement, focus, light,
-  weather, palette, VFX_intent, head_tail_handles
-
-sound:
-  speaker, exact_dialogue, language, room_tone, foley, music_or_silence
-
-inputs/runtime:
-  ref_packet_id/hash/roles, prompt_id/hash,
-  platform_profile, model_id, task, aspect, duration, output/audio parameters
-
-acceptance/route:
-  hard_gates, neighbor_compatibility, retry_ceiling, fallback_routes
-
-provenance:
-  parent_run, one_changed_variable, output_hash,
-  actual_queue/generation/review/human_time, billed_cost,
-  reviewer, decision, timecoded_defects
-```
-
-Prompt text與 runtime parameters 分開保存，不能假設不同 surface 的 schema 可攜。
-
-### 填寫範例
+範例：
 
 ```yaml
-shot_id: SH-04-03-121
-tier: A
-purpose: "核心 ownership 由陸岑轉給葉澄"
-dependencies:
-  - STATE-SC-04-03-BT04-START_v002@sha256
-  - PROP-CORE-CLOSED_v003@sha256
+shot_id: SH-060-030-020
+beat_id: BT-060-030-02
+purpose: 讓爆胎成為最後里程的不可逆代價
 required:
-  - CHAR-001-right-hand
-  - CHAR-002-left-hand
-  - PROP-CORE
+  - CHAR-001@WARD-001-D2-wet-v02
+  - CHAR-002@WARD-002-D2-wet-v03
+  - VEH-001-damage-v05
+  - LOC-004-causeway-rain-v02
 forbidden:
-  - extra_hands
-  - duplicated_core
-  - WARD-D1
-  - faces_in_frame
-start_state:
-  core_owner: CHAR-001
-  core_hand: right
-primary_delta: "核心進入 CHAR-002 左手"
-expected_end_patch:
-  core_owner: CHAR-002
-  core_hand: left
-space:
-  axis: reader-to-door
-  screen_direction: CHAR-001-left_to_CHAR-002-right
-camera:
-  locked_insert: true
-  handles: required
-inputs:
-  ref_packet: REFPACK-SH-04-03-121_v004@sha256
-  prompt: PROMPT-SH-04-03-121_p003@sha256
-  runtime_profile: PLATFORM-PROFILE-TBD
-acceptance:
-  hard:
-    - exactly_one_core
-    - correct_sleeves_and_hands
-    - ownership_and_direction_unambiguous
-    - no_uneditable_contact_artifact
-    - usable_entry_and_exit_handles
-routes:
-  - split_before_after_inserts
-  - offscreen_transfer_plus_reaction
-  - controlled_prop_composite
+  - VEH-001-damage-v01
+  - dry_clothing
+start_state: 車以低速沿堤道前進，兩人仍在車內
+primary_delta: 左後輪失壓並塌陷
+end_state: 車停在原車道；人物尚未下車；輪胎已毀
+screen_direction: left_to_right
+continuation_relation: intentional_next_shot
+extension_allowed: false
+hard_gates:
+  - 人物與車況版本正確
+  - 爆胎位置是左後輪
+  - 車未翻覆、人物未離車
+  - 無無法以剪輯或 VFX 修復的車體變形
 ```
 
-### Queue
+## 6. 依賴佇列
+
+狀態流：
 
 ```text
-BLOCKED → READY → RUNNING → INCOMING → REVIEW → APPROVED
-                                          ↘ REJECTED
-                                          ↘ ROUTED
-                                          ↘ SUPERSEDED
+BLOCKED → READY → RUNNING → INCOMING → QC
+        → REJECTED / SELECTED → APPROVED
+        → HANDOFF_PROMOTED → IN_CUT → LOCKED
 ```
 
-只有所有 dependency 的精確版本與 hash 都核准，才可進入 `READY`。
+主要依賴：
 
-必須序列化：
-
-- 車損、服裝濕／乾、傷勢、天候與道具 ownership。
-- 連續動作、軸線、座位與 local handoff。
-- 依賴上一個 approved pose/frame 的鏡頭。
-- Approved-memory promotion。
-- Scene／Day／DMG checkpoint 的 state commit。
+```text
+權利與平台 preflight
+  → canonical passports
+  → scene continuity state
+  → animatic/blocking
+  → shot contract
+  → generation
+  → dailies/select
+  → local handoff promotion
+  → rolling rough cut
+  → pickups
+  → picture lock
+  → VFX/color/sound/subtitles
+  → master QC
+```
 
 可以平行：
 
-- 已鎖定狀態的空景、道路 plate、insert、reaction、cutaway、texture。
-- 不依賴末幀的 B/C 級 connective shots。
-- Sound spotting、VFX breakdown、rights review 等不改寫相同真相的工作。
+- 獨立空鏡、plate、insert、reaction、道路 texture
+- 已鎖定狀態且無相鄰 handoff 的場次
+- room tone、foley spotting、VFX breakdown
+- 不修改同一 canonical truth 的審查工作
 
-只有 platform profile、model、task、比例、格式、ref packet 與 QC rubric 全部相同時才批次化，否則無法歸因失敗。
+必須序列化：
 
-### 版本與 selection lineage
+- 車況 v01→v07 的提升
+- D1→D2→D3 服裝與天候狀態
+- 同動作或同 shot 的有限 continuation
+- approved-memory promotion
+- 依賴上一鏡末幀、運動向量或道具交接的鏡頭
 
-完整 lineage 必須可反查：
+不同 model、比例、reference packet、任務或 rubric 不得混成同一批，否則無法判斷失敗來源。
 
-```text
-asset/state hashes
-→ shot-contract + prompt + runtime-profile hashes
-→ run_id + output hash
-→ select_id + source in/out
-→ cleanup/VFX/color/audio transforms
-→ timeline placement
-→ master hash
-```
+## 7. 版本、命名與 selection lineage
 
-命名例：
+穩定 ID 永不因剪輯重排而重用：
 
 ```text
-FILM-SALT75_SH-04-03-121_take-003_run-r017_prompt-p003_ref-r004_profile-07_v001.mov
-FILM-SALT75_VEH-001_DMG04_v002_APPROVED.png
-FILM-SALT75_SC-04-03_state_v012.yaml
+FILM-NORTHLIGHT
+SQ-060
+SC-060-030
+BT-060-030-02
+SH-060-030-020
 ```
 
-規則：
-
-- Stable ID 永不重用；metadata 才有權威，檔名中的 `APPROVED` 只供閱讀。
-- 每個 run 記錄 `parent_run` 與唯一 changed variable。
-- 重試只能從最近核准的 parent／anchor 分支，不可從 rejected child 延伸。
-- Select 記錄 source in/out、timeline in/out、crop、retime、audio replacement、post ops、鄰鏡與核准人。
-- 一個 shot 可以進剪輯但其末幀不適合 handoff；memory promotion 必須另行核准。
-- 平台或模型更新開新 branch 跑 regression set，絕不覆寫舊 render。
-
-## 5. 混合模式、重試與失敗路由
-
-採 hybrid 作為起始政策：
-
-| Tier | 用途 | 工作方式 |
-|---|---|---|
-| A | 轉折、身份近景、核心表演、車損轉換、碰撞、暴雨、高潮 | previz/keyframe、較多候選、兩名 reviewer、完整鄰鏡 QC |
-| B | 對話、一般駕駛、標準動作 | 標準 passport/ref packet；被 rough cut 阻塞才升級 |
-| C | 空景、insert、reaction、transition、plate | 首輪單一 blocking candidate；可平行 |
-
-所有 tier 共用權利、故事、身份、狀態、方向、可剪區間與交付 hard floor。
-
-未測的初始政策：
-
-- A/B/C 約 20/50/30，依 animatic 重排。
-- 有效重試上限 A=4、B=3、C=2。
-- 同一 blocking defect 連續兩次，即使未達上限也要換 route。
-- 先以 12-shot regression/pilot suite 校準；實際生成需另行授權。
-- `extension_depth=0` 為預設。必要的單一相鄰動作可特批一次 bounded branch，但不得再延伸成鏈。
-
-「有效 run」指請求完成且媒體可播放。平台錯誤另記 queue/time/cost，不混入創意重試率。
-
-| 缺陷 | 優先路由 |
-|---|---|
-| 身份、服裝或車損漂移 | 狀態專用 reference、簡化構圖、改 angle／insert |
-| 手、交接、碰撞、物理失敗 | 拆前因／接觸／反應／結果；必要時 3D、simulation、composite |
-| 精確文字錯 | clean plate + tracking/graphic |
-| 局部瑕疵 | edit、paint、roto、key、cleanup |
-| 鄰鏡方向或姿勢錯 | re-edit、reaction、cutaway 或重做單一 end-state |
-| 對白、聲線、lip-sync 錯 | dialogue edit、ADR／dubbing |
-| 權利、安全或交付不明 | `HOLD`；不得用視覺修補規避 |
-
-## 6. Gates、checkpoints 與 rollback
-
-| Gate／Checkpoint | 通過條件 |
-|---|---|
-| `G0 / CP00 Charter` | 平台、權利、交付 frame 定義、成本／時間 ceiling、責任人鎖定 |
-| `G1 / CP10 Bible` | 兩角色、四地點、三日 wardrobe/weather、車損 state machine、聲畫 bible 核准 |
-| `G2 / CP20 Breakdown/previz` | 8 sequences、scene/beat/shot、floor plans、coverage、fail routes、animatic anchors |
-| `G3 / CP30 Blocking cut` | 整片從頭到尾可播；每個 required beat 有 blocking media 或具名 placeholder |
-| `G4 / CP40 Dailies/selects` | 完整 clip review、hard gate、state、跨鏡與 neighbor QC；核准 shot hashes |
-| `G5 Structure lock` | 故事與節奏成立；P0 pickups 關閉；新鏡或重排開始需要 change record |
-| `G6 / CP50 Picture lock` | 每個 required beat 有核准 placement；EDL/XML/AAF、frame count、source lineage 完整 |
-| `G7 VFX/conform` | 所有 source、VFX、retime、crop、color tags、audio channels 逐 placement 對帳 |
-| `G8 / CP60 Finish locks` | Color、final mix/stems/M&E、ADR、music、subtitles 分別核准 |
-| `G9 / CP70 Master/archive` | Master hash、完整播放 QC、rights/QC reports、manifest 與 restore test 通過 |
-
-另在每個故事日界、重大 `DMG` 轉換及各 sequence approved-shot lock 建立輕量 checkpoint。
-
-每個 checkpoint 保存：
+檔名：
 
 ```text
-script/bible/state versions
-asset/prompt/runtime/output hashes
-approved selects and memory promotions
-timeline/EDL and placement lineage
-open defects, routes and waivers
-actual budget/time ledger
-platform/model/doc versions
-approvals
+FILM-NORTHLIGHT_SH-060-030-020_take-003_run-r017_
+prompt-p004_ref-r006_model-full-id_v001.mov
 ```
 
-Rollback：
+完整 lineage：
 
-1. 單鏡失敗：回最近核准 parent／handoff。
-2. 軸線、服裝、天候、車損污染：回 scene-start，依序重播 approved deltas。
-3. 跨日污染：回最近 Day／DMG checkpoint。
-4. Passport 改版：沿 dependency graph 只使受影響 shot/select 失效，不動無關節點。
-5. Picture lock 後變更：新 cut branch，列出 VFX、color、sound、ADR、music、字幕、master 的下游影響。
-6. Master 修正：產生新 master ID/hash；修正版仍需完整播放與定點複查。
-7. 所有 rollback 都開新 branch，不刪除或覆寫原 checkpoint。
+```text
+canonical asset hashes
+→ input packet r006
+→ prompt p004 + parameters cfg003
+→ parent run r012
+→ run r017 + output sha256
+→ review decision d006
+→ select sel002
+→ timeline item TL-v023-00418
+→ VFX/color/audio transforms
+→ master checksum
+```
 
-## 7. Rough cut、pickups 與 finishing
+每次 run 只能改一個變數，並記錄 queue、生成、審查、人工修正時間及實付成本。Rejected output 只能作診斷，不能作 handoff 父節點。
+
+## 8. 最小端到端 pilot
+
+不要直接展開 572 個鏡位。先做約 12 鏡的代表性 vertical slice，涵蓋：
+
+- D1 日光雙人車內對話
+- 車外完整身份鏡頭
+- v02→v03 的損壞變化
+- D2 雨中濕服裝
+- 道具交手與手部 insert
+- D3 冷霧身份近景
+- LOC-004 大遠景與 VFX plate
+- ADR、foley、色彩匹配、字幕與一個交付片段
+
+正式 pilot 前，先用 3 個假素材驗證 reviewer 輸入／輸出 schema、timecode defect、decision 與 lineage 是否可讀寫。
+
+Pilot 的出口不是「畫面漂亮」，而是：
+
+- schema 能走完
+- 狀態能重播
+- 選片能追溯
+- 進 NLE 後可剪
+- 一個完整影音字幕 master 能通過 QC
+- 實際時間與成本可寫入 KPI
+
+## 9. 重試、失敗路由與上限
+
+目前使用者尚未提供生成預算，因此不虛構重試數字。
+
+在任何付費生成前，A/B/C 各級的 `max_valid_runs` 必須填入整數；空值即不能進 `READY`。上限由 pilot 實際成本、交付時鐘及剩餘預算批准。
+
+通用政策：
+
+- 每次只改 prompt、reference、parameter 或 shot design 其中一項。
+- 同一 hard defect 重現、限制彼此振盪、需要使用 rejected frame、達到上限或權利不明時，停止再生。
+- extension 預設關閉；例外僅限同場、同 shot 的連續動作，且 `max_extension_rounds` 必須事先填定。
+- extension 不跨 scene，更不承擔長片記憶。
+
+失敗路由依序評估：
+
+1. 修正 canonical source 或狀態資產
+2. 簡化單一動作或鎖定鏡位
+3. 拆成短 shot
+4. 改用 insert、reaction、cutaway
+5. 局部剪輯、paint、roto、composite
+6. 3D／模擬處理車體與複雜物理
+7. ADR／配音處理可用畫面
+8. 最後才改寫故事 beat
+
+## 10. Rough cut、pickups 與 finishing
 
 ### Editorial
 
-1. 先做完整 75 分鐘 animatic，對白可用 scratch audio。
-2. Blocking cut 允許 `APPROVED_BLOCKING` 媒體和清楚標記的 placeholder； rejected take 不得偷放進剪輯。
-3. Dailies 必須看完整 clip 與實際音訊，檢查 opening、middle、ending、高風險 timecode，不能只看 thumbnail。
-4. Rough cut 先為故事、表演與節奏服務，不因生成成本高就保留無用鏡頭。
-5. Pickup ticket 必須含 timeline 位置、缺失 beat、前後 state、required/forbidden、handles、聲音、依賴、風險、ceiling 與替代路由。
-6. Pickup 優先序：
-   - `P0` 故事不可理解、狀態矛盾、必要 beat 缺失；
-   - `P1` 表演、節奏、方向、handles；
-   - `P2` 可接受但待美化的局部問題。
-7. P2 優先走 edit/VFX/color/sound；不為像素小瑕疵無限重生。
+依序建立：
 
-### Finishing
+1. 75 分鐘 animatic：場景卡、storyboard、暫時對白與聲音。
+2. Blocking cut：先讓所有故事 beat 存在，不追求最終畫質。
+3. Rolling rough cut：只有 accepted takes 可進時間線。
+4. Pickups cut：按缺口而非按漂亮程度升級。
+5. Structure lock：P0/P1 缺口解決後凍結場序與狀態。
+6. Picture lock：之後新增或換鏡必須列出 VFX、color、sound、ADR、music、subtitle 影響。
 
-- **VFX/cleanup**：paint、roto、key、composite、車損一致化、精確 UI／文字；persistent physics 改走 3D/simulation。
-- **Conform**：回連原檔，統一 frame rate、codec、duration、color tags、audio channels、檔名；保留所有 transforms。
-- **Color**：匹配人物膚色／材質、光向、三日天候、車損表面、gradient/banding 與 legal range。
-- **Dialogue/ADR**：畫面可用而語音不可用時走 ADR；依 voice passport、發音字典與權利記錄執行。
-- **Foley/SFX**：車聲隨 `DMG01→07` 演化，從正常運轉到異音、冷卻嘶聲、熱損與最終靜默；room tone 跨 cut 連續。
-- **Music**：先建立 sequence cue map 與 motif；temp music 不得成為未清權的 final。輸出 full mix、stems 與必要 M&E。
-- **Final mix**：檢查 speaker、voice identity、lip-sync、perspective、action sync、loudness與聲道；數值依 Gate 0 交付契約。
-- **Subtitles**：只依 final audio 重新 spotting，不依 prompt 時點。檢查文字、speaker、標點、換行、閱讀速率、安全區、遮擋與跨 cut。
-- **Mastering**：只從核准的 picture、grade、mix、字幕 hash 組裝；核對 frame count、codec、color/audio metadata、命名與 checksum。
-- **Archive**：保存 master/mezzanine、stems/M&E、字幕、timeline、EDL/XML/AAF、VFX/grade、prompt/reference/state/run ledgers、核准與拒絕決策、rights、QC、waiver、tool/model/platform/doc versions；最後做實際 restore test。
+Pickups 分級：
 
-## 8. QC 系統
+- P0：缺故事資訊或因果
+- P1：人物、方向、車況、服裝或道具連戲錯
+- P2：表演、節奏、反應不足
+- P3：純視覺升級
 
-Hard gates 必須先全部通過，不能被平均分抵銷：
+先處理 P0/P1；P3 不得拖延結構鎖。
 
-- 權利、安全、交付規格。
-- Required story beat、角色、道具與地點。
-- 正確身份、服裝、天候、車損、座位、方向與 ownership。
-- 無不可剪的結構、肢體、物理或 blocking artifact。
-- 有完整 usable interval、handles 與鄰鏡相容性。
-- 聲音或文字要通過，或已有核准的後期路由。
+### VFX／cleanup
 
-檢查層級：
+- 沙塵、雨水、塔台能量與遠景天空做分層 plate。
+- 車損若核心物理不穩，使用 3D／composite，不無限重生。
+- 手、臉、邊緣、反射與局部車牌用 paint／roto 修復。
+- 所有 UI、路牌、精確字樣後製合成。
+- Conform 統一 codec、fps、色彩標籤、音訊通道與命名；保存原始媒體及每次 transformation。
 
-1. **Intra-shot**：身份、動作、時序、肢體、物理、camera、light、sound。
-2. **Cross-shot**：人物、服裝、車損、天候、道具、軸線。
-3. **Neighbor cut**：姿勢、速度、視線、光色、room tone、進出方向。
-4. **Scene/sequence**：故事狀態、情緒、資訊、三日弧與節奏。
-5. **Final master**：至少一次完整不間斷播放，再逐一檢查所有 edit、VFX、字幕與音訊 transition。
+### Color
 
-Final QC 分開記錄：
+- 先做 input normalization，再做鏡間 match。
+- 逐場核對皮膚、衣料、車漆、濕度、日別與動機光。
+- 檢查 banding、天空漸層、暗部壓縮、邊緣爬動與 upscale ghosting。
+- D1、D2、D3 使用 color script，但不能用調色掩蓋錯誤的天候狀態。
 
-- Technical：duration、aspect、resolution、frame rate、codec、color tags、duplicate/drop/freeze/black frames、audio sync/channels/clipping、字幕 safe area、checksum。
-- Content：故事、身份、服裝、車損、天候、肢體、物理、文字、聲音、音樂、字幕。
-- Rights：肖像、聲音、音樂、字型、商標、reference、watermark與 disclosure。
+### Sound、ADR、music
 
-每個 finding 都要有 timecode、嚴重度、direct observation／inference／unknown、owner、route、開關時間。Mastering 人員不能單獨核准自己的 final master。
+- 對白、ADR、foley、車輛、環境、VFX、music 分 stem。
+- 車況 v01–v07 有不同機械聲：正常共鳴、頭燈／熱控異常、濕艙、爆胎拖行、最後斷電。
+- 每個地點保存 room tone passport。
+- 原生生成語音只可作素材；發音、聲音身份、lip-sync 或噪聲不合格便走 ADR。
+- 音樂以「記憶脈衝」為 motif，避免覆蓋關鍵車況或氣象敘事聲。
+- 最終 loudness、峰值與聲道規格依發行方鎖定。
 
-## 9. KPI dashboard
+### 字幕與 mastering
 
-所有數字只能來自實際 ledger。尚無資料時顯示 `N/A`，不能填 0 或臆測值；每張卡標示 `as_of`、cut/master version、樣本數及分子／分母。
+字幕必須從 final mix 的實際音訊重新定時，不讀 prompt 時間碼。檢查說話者、斷行、閱讀速度、安全區、遮擋、跨切點與 sidecar／burn-in 需求。
 
-| KPI | 計算 |
+Master 至少包含：
+
+- Picture master
+- Textless master
+- Stereo／5.1 mix 與 stems
+- M&E
+- Subtitle sidecars
+- QC report、checksum
+- 使用到的模型、工具、權利、waiver 與披露記錄
+
+## 11. QC 閘門
+
+### Shot QC
+
+先 hard gate，後評分：
+
+- 必要／禁止 entity
+- 人物、服裝、車況、道具狀態
+- primary delta 是否唯一且完成
+- 軸線、方向、eyeline
+- 完整可用區間與 handles
+- anatomy、motion、contact、physics
+- 音訊／文字是否通過或已有批准的 post route
+- 與前後鏡可剪
+
+### Scene／sequence QC
+
+- geography 是否能理解
+- completed/current/reserved beat 是否被越權提前完成
+- 車損、濕度與服裝是否單向演化
+- 是否缺 master、reaction、insert、exit
+- 聲音透視與 room tone 是否連續
+- 演員知情範圍是否提前洩漏
+
+### Final QC
+
+- 至少一次不中斷完整播放
+- 再逐一檢查每個 cut、VFX、字幕與音訊轉場
+- 技術檢查：片長、fps、codec、色彩標籤、黑／凍／掉幀、sync、clipping、聲道、字幕與 checksum
+- 內容檢查：故事、身份、服裝、車況、天候、物理、文字、音樂、權利、披露與 watermark
+
+## 12. Checkpoint 與 rollback
+
+| Checkpoint | 內容 |
 |---|---|
-| Ledger 完整率 | 已填必填欄位 ÷ scope 應填欄位 |
-| Orphan lineage | 無法回溯 source hash/run 的 current-cut placements ÷ 全 placements |
-| Blocking beat coverage | 有 block/media 的 required beats ÷ required beats；placeholder 另列 |
-| Picture beat coverage | 有 approved placement 的 required beats ÷ required beats |
-| First-pass approval | 第一個 valid run 即核准的 shots ÷ 已完成首個 valid-run review 的 shots |
-| Additional retries | 每個 approved shot 首次核准前的 valid runs − 1；報 median、分布、P90、n |
-| Time per approved shot | `approved_at − ready_at`，另拆 queue、generation、review、repair |
-| Usable seconds/hour | 進入 current cut 的 approved 秒數 ÷ 實際 production＋review 人時 |
-| Actual cost/in-cut second | 已入帳 generation、tool、post 成本 ÷ locked cut 的 approved 秒數 |
-| Human correction time | prep、review、edit、VFX、sound repair 的實際分鐘 |
-| Queue wait ratio | queue duration ÷ `result_at − ready_at` |
-| Waste rate | 未進 current cut 的有效生成秒數或成本 ÷ 全有效生成秒數或成本 |
-| Continuity pass | 無身份／服裝／車損／天候／ownership blocker 的鄰鏡對 ÷ reviewed pairs |
-| Pickup closure | 已核准 pickups ÷ 已核准 pickup scope；另列 open blockers 與 aging |
-| Stage first-pass/rework | 各後期工作 v1 通過率；後續版本的回合、人時與成本 |
-| Open QC findings | 依嚴重度、sequence、owner、route 與 aging 統計 |
-| Master/Archive | 完整播放紀錄、finding 數、remaster 次數、checksum與 restore pass/fail |
+| CP-00 Charter lock | 權利、平台、model ID、交付、預算、重試上限 |
+| CP-01 Schema/pilot lock | 三鏡 schema fixture、12 鏡 vertical slice、實際 KPI |
+| CP-02 Bible semantic lock | 劇本、passport、狀態機、地點圖、camera/color/sound bible |
+| CP-03 Previz lock | 75 分鐘 animatic、coverage 與風險路由 |
+| CP-04 Blocking-cut lock | 全片第一次可看的 end-to-end cut |
+| CP-05 Structure lock | 場序、狀態、P0/P1 pickups |
+| CP-06 Approved-shot lock | selects、approved memory、timeline lineage |
+| CP-07 Picture/sound/color lock | conform、VFX、mix、字幕 |
+| CP-08 Master/archive | master、QC、checksum、權利與完整帳本 |
 
-KPI 應按 A/B/C、sequence、defect type、platform profile、完整 model ID 和日期分組。只有全部 hard floors 已通過，才比較品質、時間與成本的 Pareto 關係；不能把「最快」寫成「最好」。
+回滾規則：
 
-## 10. 實際開工順序
+- 重試永遠從 approved parent 分支，不從 rejected child 繼承。
+- 車況、服裝、軸線或道具損壞時，退回 scene-start state，依 approved delta 重播。
+- Structure lock 後的變更必須附 downstream impact。
+- 模型或平台更新只能建立新 branch，通過 pilot regression 後才可採用。
+- Canonical truth 不被生成結果覆寫。
 
-1. 完成 Gate 0：平台、權利、交付、預算與時程。
-2. 鎖 creative bible、四地點 floor plans、三日 wardrobe/weather 與 `VEH-001` state machine。
-3. 建立 8-sequence、38-scene、168-beat 的完整 animatic。
-4. 完成 12-shot 風險 pilot；涵蓋身份近景、two-shot、車內、車損、雨塵、手部、物理、UI、對白。付費生成另行授權。
-5. 用實際 ledger 重訂 A/B/C 比例、重試 ceiling、路由與時程；不把起始政策當結論。
-6. 做完整 blocking rough cut，再由剪輯缺口觸發 final upgrades 和 pickups。
-7. Structure lock、picture lock，依序完成 VFX/conform、color、sound/ADR/foley/music、字幕、mastering、final QC 與 archive。
+語義尚未凍結前不建立全域 seal。若審查重開語義，先按根因聚類，修 source of truth 或 compiler/schema，跑 focused regression，再做一次全驗證與 reseal。預設每個工作 slice 90 分鐘、最多兩次完整 seal/review cycle；達上限時保存最新有效 checkpoint，列出 blocker，不能假稱完成。
 
-這份是本片的可執行基線，不是聲稱已被本案實測的最佳流程；目前也沒有執行任何媒體生成。
+## 13. KPI dashboard
+
+目前所有值都應顯示 `N/A—尚未執行`。Pilot 後才建立 baseline 與專案門檻。
+
+| KPI | 計算方式／資料源 |
+|---|---|
+| First-pass approval | 首個有效 run 即批准的 shot／有效首 run |
+| Additional retries | 批准前額外有效 run／批准 shot |
+| Time per approved shot | shot-ready 到 approved 的實際壁鐘時間 |
+| Usable seconds/hour | 進 cut 的批准秒數／製作與審查工時 |
+| Cost per in-cut second | 所有付費生成及專用 post 成本／成片秒數 |
+| Waste rate | 未進 cut 的生成秒數或成本／全部生成 |
+| Queue wait ratio | 排隊時間／shot-ready 到結果時間 |
+| Human correction time | prep、review、edit、VFX、sound 修復工時 |
+| State violation rate | 車況／服裝／天候／道具 hard-state 錯誤 shot／有效受審 shot |
+| Pickup rate | pickup 鏡位／structure-lock 鏡位 |
+| Lineage completeness | 有完整 asset→run→select→timeline→master 路徑的時間線項目／全部項目 |
+| Defect escape | 下一關才發現的 blocking defect／本關已審項目 |
+| ADR replacement | ADR 對白時長／最終對白時長 |
+| Master QC reopen count | master QC 後重新開啟 picture、sound 或 subtitle 的次數 |
+
+報告中位數、分布與樣本足夠時的 P90；不得以平台宣傳速度、UI 素材數、價格頁或解析度 badge 取代實際 ledger。這套架構的成功標準不是「生成很多」，而是 75 分鐘每個剪輯項目都能說明：它從哪個已批准狀態出發、改變了什麼、由誰批准、如何進入成片，以及出錯時應退回哪個 checkpoint。

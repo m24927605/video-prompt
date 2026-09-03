@@ -1,0 +1,6 @@
+{
+  "case_id": "continuation-observation-boundary",
+  "must_cover": ["carry forward only the user-reported visible final-frame state", "label motion, camera velocity and audio phase unknown", "use low-confidence user report rather than direct observation", "describe only the post-source continuation"],
+  "must_not": ["invent source movement, sound, runtime mode or metadata", "promote the uninspected report to canonical evidence"],
+  "critical_case_traps": ["claiming unsupported direct observation", "replaying or altering the source interval"]
+}

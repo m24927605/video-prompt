@@ -1,0 +1,9 @@
+{
+  "id": "transition-bridge-scope",
+  "title": "Two-source transition generates only the bridge",
+  "expected_skill": "seedance-prompt-director",
+  "coverage_class": "integration",
+  "invocation_mode": "explicit",
+  "locale": "en",
+  "prompt": "Write a provider-neutral transition-bridge prompt between @Video 1 and @Video 2. Do not alter either source segment. Video 1 ends on a clockwise top-down view of one black vinyl record; Video 2 begins on a clockwise top-down view of one wet circular roundabout at night. Generate only the connecting bridge: preserve the central circle's screen position, scale, rotation direction and angular speed while grooves become wet roads, then arrive at Video 2's opening camera vector, traffic direction, rain, light and ambience. No text, logo, dialogue or subtitle. The runtime is not selected."
+}

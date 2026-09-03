@@ -1,10 +1,12 @@
 # Native host evidence
 
 - Host: `codex`
-- Model/effort: `gpt-5.6-sol` / `ultra`
+- CLI version: `codex-cli 0.151.0`
+- Requested primary model: `gpt-5.6-sol`
+- Requested effort: `high`
 - Invocation: `explicit`
 - Expected skill: `seedance-video-qc`
-- Isolated workspace: `<REDACTED_WORKSPACE>
-- Research present: `false`
-- Activation evidence: explicit $seedance-video-qc invocation
-- Activation evidence: Codex event item_1 read skills/seedance-video-qc/SKILL.md and QC references
+- Isolated workspace digest: `08d7d71ec658a6cdbd35f4df81069efc1d803032d6d915d9a7ff04cd46b6c31b`
+- Discovered packaged skills: `none`
+- Activated packaged skills: `seedance-video-qc`
+- Activation evidence for expected skill: `event[4] command_execution`

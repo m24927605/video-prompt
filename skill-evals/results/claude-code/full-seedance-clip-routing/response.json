@@ -1,0 +1,107 @@
+{
+  "duration_api_ms": 151451,
+  "stop_reason": "end_turn",
+  "total_cost_usd": 0.9287310000000001,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 22868,
+    "cache_read_input_tokens": 70907,
+    "output_tokens": 7984,
+    "output_tokens_details": {
+      "thinking_tokens": 1220
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22868,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 3868,
+        "cache_read_input_tokens": 23885,
+        "cache_creation_input_tokens": 2410,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2410
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "modelUsage": {
+    "claude-haiku-4-5-20251001": {
+      "inputTokens": 1029,
+      "outputTokens": 27,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 0,
+      "costUSD": 0.0011639999999999999,
+      "contextWindow": 200000,
+      "maxOutputTokens": 32000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-haiku-4-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-fable-5": {
+      "inputTokens": 10,
+      "outputTokens": 7984,
+      "cacheReadInputTokens": 70907,
+      "cacheCreationInputTokens": 22868,
+      "webSearchRequests": 0,
+      "costUSD": 0.927567,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 1220,
+      "canonicalModel": "claude-fable-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Write 工具在此 session 被停用，計畫檔無法建立；此任務為純文字交付、不涉及任何系統變更，我直接依 `seedance-prompt-director` 的 production packet 規格在此交付完整成果。\n\n---\n\n# 8 秒 Seedance 單一 Clip — 完整 Prompt Packet\n\n## 1. Input basis（輸入基礎）\n\n- **任務類型**：reference-generate（單一圖片參照 @Image 1 供身份，文字生成 8 秒影片）。\n- **平台/模型**：未指定 → 本 prompt 為**平台中立**。所有 runtime 參數（aspect ratio、解析度、fps、API 欄位、參照數量上限）均為 **unknown**，未在 prompt 中填入任何未驗證預設值。\n- **時長**：8 秒為**語意節奏意圖**，非影格精度承諾。\n- **@Image 1 內容未知**（無法檢視）：角色的臉、髮、體型、可見服裝與鞋**全部由 @Image 1 繼承**，文字中不重述細節以免與圖片衝突；性別中性描述。\n- **假設**（已標註，可推翻）：角色為單人、可步行、無對白需求；便利店為現代亞洲城市風格門面。\n\n## 2. Final Prompt（可直接貼用）\n\n```text\n【任務與意圖】\nGenerate 一個 8 秒單鏡頭 clip：夜間雨巷中，@Image 1 的角色離開便利店門口，\n走入雨中，橫越畫面至右側停下。單一主要事件：走位並停下。全程一鏡到底，無剪接。\n\n【精確實體】\n畫面中恰好一個人（@Image 1 的角色）。一間便利店門面。恰好一扇玻璃自動門。\n無其他行人、無車輛、無鏡面倒影複製人。\n\n【參照映射】\n@Image 1 = 角色身份與服裝狀態的唯一來源。\n生效範圍：全片時長內的角色身份。\n允許繼承：臉、髮型、體型比例、圖中可見的服裝、鞋與配件。\n排除繼承：@Image 1 的背景、姿勢、構圖、裁切、光線，以及圖中任何其他人物。\n\n【場景空間圖】\n地點：狹窄城市巷弄，夜間，持續降雨。\n便利店門面位於畫面左側偏後景，玻璃門內暖白日光燈外溢至濕地面。\n巷子由左向右延伸至畫面右緣；右側為昏暗巷壁與一盞遠處冷色路燈。\n地面為濕柏油，積著淺水洼，反射店燈與路燈。\n行進軸：畫面左 → 畫面右，橫向，全程不跨越此軸。\n\n【第一幀 blocking】\n角色已在畫面內：站在便利店自動門外、畫面左三分之一處、中景深，\n全身可見，身體朝向畫面右側，視線望向巷子深處（畫面右）。\n雙手自然垂放身側，未持任何物品。\n畫面右三分之二為空的濕巷，是行進終點區域。\n主光源：左後方的便利店暖白燈光。雨已在下。\n\n【格式與時長】\n時長意圖 8 秒。畫面比例與解析度依實際平台設定，不在本 prompt 內指定。\n\n【鏡頭】\n單一鏡頭意圖：中遠景（全身入鏡），攝影機約胸口高度，位於行進軸的觀眾側。\n攝影機以緩慢等速向右橫移，與角色行進平行跟拍，保持角色在畫面中偏左位置；\n角色停步後約一秒，攝影機同步停止。焦點全程鎖定角色。無變焦、無手持晃動、無切換。\n\n【分段動作 beats】（語意節奏，非精確影格）\n0–2 秒：角色站在門口簷下，呼出一口氣，肩膀微縮，邁出第一步走出簷下、進入雨中；\n自動門在身後合上。\n2–6 秒：角色以平穩步速沿巷向畫面右側行走，約四步，步幅一致，踩過一處淺水洼。\n6–8 秒：角色減速，最後半步落定，雙腳停穩於畫面右三分之一處；\n重心先微微前傾、再回正；視線先於頭部轉動，望向畫面右外側，眨眼一次，靜止。\n\n【物理】\n雨：中等雨勢，雨絲近乎垂直、帶輕微斜角落下；在便利店燈的逆光中可見雨線；\n雨滴持續打在角色肩膀與頭髮上，布料與髮絲隨時間逐漸顯濕、出現光澤。\n腳步：每一步鞋底接觸濕柏油，接觸瞬間濺起小而低的水花；\n踩入水洼時反射光被踩碎、角色通過後水面漣漪回復平靜。\n停步：最後一步承重時膝蓋微沉吸收慣性，身體前傾後回正，不滑步、不漂移。\n\n【可觀察表演】\n不指定情緒。可見行為：出門前一次可見的呼氣；入雨瞬間肩膀短暫聳縮一次，隨後放鬆；\n行走時目光平視前方，雙手全程自然擺動、不插口袋；\n停下後，眼睛先移向畫面右外、頭部再跟上轉動；一次眨眼；胸口可見平穩呼吸起伏。\n\n【光線與材質】\n主光：畫面左後便利店暖白燈光，在角色背側形成暖色輪廓光。\n環境：巷內冷藍色調微光，遠處路燈冷白點光源。\n允許變化：角色由左至右行進時，身上光比從暖光主導漸變為冷光主導。\n材質：濕柏油低角度鏡面反射、玻璃門映出室內貨架光、角色濕髮與濕布料的高光。\n\n【聲音】\n無對白，角色全程不說話、不出現口型。\n環境音：持續而均勻的雨聲、雨滴打在遮雨棚上的密集點狀聲、遠處城市低頻嗡鳴。\nSFX：開頭一次自動門滑動與關閉聲（與畫面門動作同步）；\n每一步與畫面同步的踩水腳步聲，踩入水洼那一步聲音明顯較重。\n無 BGM。無字幕。無旁白。\n\n【正向約束】\n全程恰好一人；雨全程不停；一鏡到底無切換；角色服裝與身份與 @Image 1 一致不漂移；\n無字幕、無 BGM、無其他行人入鏡、無鏡頭甩動。\n\n【結束狀態】\n最後一幀：角色靜止站立於畫面右三分之一，3/4 側面朝向畫面右，視線望向畫面右外；\n雙腳站定、雙手垂放；雨持續落下、水洼漣漪仍在；攝影機已靜止；\n只剩雨聲與環境音。留下可直接剪接的靜止尾拍。\n```\n\n## 3. Acceptance checks（驗收條件，全部可 yes/no 判定)\n\n1. 全程恰好一人，臉、髮、體型、服裝與 @Image 1 一致，8 秒內無身份漂移。\n2. 第一幀：角色在畫面左三分之一的便利店門口、面向右、右側留空。\n3. 行進方向全程為左→右，無跳軸、無瞬移、無方向反轉。\n4. 雨全程可見且連續；角色肩髮出現漸進濕潤變化。\n5. 至少一步有可見濺水；水洼反射被踩碎後回復。\n6. 第 6–8 秒內完成減速與停步；末幀角色完全靜止於畫面右三分之一。\n7. 停步後有「視線先動、頭部後轉」的可見表演節拍。\n8. 鏡頭為單一緩慢右移跟拍，角色停後鏡頭停，無切換、無變焦。\n9. 音訊：有自動門聲（僅開頭一次）、腳步聲與步伐同步、持續雨聲；無對白、無 BGM、無字幕。\n10. 末幀為靜止可剪尾拍（角色與鏡頭皆停，僅雨在動）。\n\n## 4. Failure risks（僅列任務相關，不保證成功）\n\n- **腳步接觸物理**：濺水與踩水洼是已知弱項，可能出現腳底穿模或無水花。\n- **8 秒節奏擠壓**:「出門＋四步＋減速停步＋視線表演」偏滿，可能停步倉促或走不到位。\n- **移動鏡頭 × 移動主體**：橫移跟拍可能與行走競爭，導致背景漂移或角色滑步。\n- **身份/服裝漂移**：雨中濕潤變化可能連帶改變髮型或服裝細節。\n- **自動門聲/腳步聲**：音畫同步無法保證，可能需後期補音。\n\n## 5. Revision ladder（一次只改一個變數）\n\n1. **腳步物理失敗** → 只改鏡頭：右移跟拍改為**固定機位**（角色從左走到右入定點），其餘全部不動。目的：排除鏡頭運動干擾動作物理。若仍失敗 → 路線改為後期補濺水 VFX。\n2. **停步倉促/走不到位** → 只改 beats：刪去「踩水洼」一拍，行走段改為三步（0–2 / 2–5.5 / 5.5–8）。其餘不動。若仍擠 → 拆成兩個 clip（走 / 停）交由多鏡頭規劃。\n3. **身份漂移** → 只改參照區塊：明確加上「濕潤只改變光澤，不改變髮型輪廓與服裝款式」。若仍漂移 → 換更乾淨的正面全身參照圖重跑。\n4. **雨不可見** → 只改光線區塊：加強「店燈逆光中雨絲明顯可見」的單句權重描述。其餘不動。\n5. **音訊失敗**（門聲缺失、腳步不同步）→ 不改 prompt，直接**後期配音**（雨聲床＋腳步 foley），此項停止重跑。\n\n每一 rung 保留原 prompt 為基準版本；同一硬缺陷在對應單變數修改後仍重現，即停止生成並走該 rung 的改道路線。\n\n---\n\n**唯一待決事項**（不阻塞使用）：若你告知實際平台與模型（如 Seedance 2.5 on ModelArk），我可以補上經該平台文件驗證的 aspect ratio、時長參數與 reference 上限，並轉成可直接提交的參數格式。",
+  "ttft_ms": 5610,
+  "type": "result",
+  "duration_ms": 150257,
+  "ttft_stream_ms": 1800,
+  "time_to_request_ms": 37,
+  "queued_turn_count": 0
+}

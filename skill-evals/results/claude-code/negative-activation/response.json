@@ -1,16 +1,14 @@
 {
-  "is_error": false,
-  "duration_api_ms": 52546,
-  "num_turns": 1,
+  "duration_api_ms": 14707,
   "stop_reason": "end_turn",
-  "total_cost_usd": 0.347617,
+  "total_cost_usd": 0.17874099999999998,
   "usage": {
     "input_tokens": 2,
-    "cache_creation_input_tokens": 5680,
-    "cache_read_input_tokens": 3423,
-    "output_tokens": 4591,
+    "cache_creation_input_tokens": 6056,
+    "cache_read_input_tokens": 3427,
+    "output_tokens": 1063,
     "output_tokens_details": {
-      "thinking_tokens": 3644
+      "thinking_tokens": 361
     },
     "server_tool_use": {
       "web_search_requests": 0,
@@ -18,19 +16,19 @@
     },
     "service_tier": "standard",
     "cache_creation": {
-      "ephemeral_1h_input_tokens": 5680,
+      "ephemeral_1h_input_tokens": 6056,
       "ephemeral_5m_input_tokens": 0
     },
     "inference_geo": "not_available",
     "iterations": [
       {
         "input_tokens": 2,
-        "output_tokens": 4591,
-        "cache_read_input_tokens": 3423,
-        "cache_creation_input_tokens": 5680,
+        "output_tokens": 1063,
+        "cache_read_input_tokens": 3427,
+        "cache_creation_input_tokens": 6056,
         "cache_creation": {
           "ephemeral_5m_input_tokens": 0,
-          "ephemeral_1h_input_tokens": 5680
+          "ephemeral_1h_input_tokens": 6056
         },
         "type": "message"
       }
@@ -47,20 +45,24 @@
       "costUSD": 0.001024,
       "contextWindow": 200000,
       "maxOutputTokens": 32000,
+      "thinkingTokens": 0,
       "canonicalModel": "claude-haiku-4-5",
-      "provider": "firstParty"
+      "provider": "firstParty",
+      "costBasis": "list"
     },
     "claude-fable-5": {
       "inputTokens": 2,
-      "outputTokens": 4591,
-      "cacheReadInputTokens": 3423,
-      "cacheCreationInputTokens": 5680,
+      "outputTokens": 1063,
+      "cacheReadInputTokens": 3427,
+      "cacheCreationInputTokens": 6056,
       "webSearchRequests": 0,
-      "costUSD": 0.346593,
+      "costUSD": 0.17771699999999999,
       "contextWindow": 1000000,
       "maxOutputTokens": 64000,
+      "thinkingTokens": 361,
       "canonicalModel": "claude-fable-5",
-      "provider": "firstParty"
+      "provider": "firstParty",
+      "costBasis": "list"
     }
   },
   "permission_denials": [],
@@ -91,12 +93,15 @@
     },
     "by_type": {}
   },
+  "is_error": false,
+  "num_turns": 1,
   "subtype": "success",
   "api_error_status": null,
-  "result": "I'll answer this inline — it's a self-contained snippet, so no files or tool calls are needed.\n\n```python\nimport re\n\n_NDF_TIMECODE = re.compile(r\"([0-9]{2}):([0-9]{2}):([0-9]{2}):([0-9]{2})\")\n\n\ndef timecode_to_frames(timecode: str, fps: int) -> int:\n    \"\"\"Convert a non-drop-frame SMPTE timecode 'HH:MM:SS:FF' to a total frame count.\n\n    Raises TypeError/ValueError for bad types, malformed strings, out-of-range\n    fields, or drop-frame input (the ';' separator is rejected on purpose).\n    \"\"\"\n    if not isinstance(fps, int) or isinstance(fps, bool) or fps <= 0:\n        raise ValueError(f\"fps must be a positive integer, got {fps!r}\")\n    if not isinstance(timecode, str):\n        raise TypeError(f\"timecode must be str, got {type(timecode).__name__}\")\n\n    m = _NDF_TIMECODE.fullmatch(timecode)\n    if m is None:\n        raise ValueError(f\"malformed timecode {timecode!r}; expected 'HH:MM:SS:FF'\")\n\n    hh, mm, ss, ff = map(int, m.groups())\n    if hh > 23 or mm > 59 or ss > 59:\n        raise ValueError(f\"out-of-range field in {timecode!r}: HH<=23, MM<=59, SS<=59\")\n    if ff >= fps:\n        raise ValueError(f\"frame field {ff} must be < fps ({fps}) in {timecode!r}\")\n\n    return ((hh * 60 + mm) * 60 + ss) * fps + ff\n```\n\nExamples:\n\n```python\ntimecode_to_frames(\"01:00:00:00\", 24)   # 86400  -> 3600 s * 24\ntimecode_to_frames(\"00:01:30:12\", 30)   # 2712   -> 90 s * 30 + 12\ntimecode_to_frames(\"00:00:10:25\", 25)   # ValueError: frame field 25 must be < fps (25)\n```\n\nRecap of what it does and the rules it enforces:\n\n- Pure function, stdlib only; returns `((HH*60 + MM)*60 + SS) * fps + FF`.\n- Validation: `fps` must be a positive `int` (bools rejected); the string must be exactly four ASCII two-digit fields separated by `:` (so `;` drop-frame form, whitespace, and Unicode digits are all rejected); `MM`/`SS` ≤ 59; `FF` < `fps`.\n- One assumption to flag: hours are capped at 23 per SMPTE 12M (timecode wraps at 24 h). If you need to parse durations longer than a day, drop `hh > 23` from the range check — that's the only change required.",
-  "ttft_ms": 43171,
-  "ttft_stream_ms": 1849,
-  "time_to_request_ms": 24,
+  "result": "Since this is a self-contained code question with no files to change, here's the answer directly — nothing to execute or plan.\n\n```python\ndef timecode_to_frames(tc: str, fps: int) -> int:\n    \"\"\"Convert a non-drop-frame SMPTE timecode 'HH:MM:SS:FF' to a frame count.\"\"\"\n    if not isinstance(fps, int) or fps <= 0:\n        raise ValueError(f\"fps must be a positive integer, got {fps!r}\")\n    if not isinstance(tc, str):\n        raise TypeError(f\"timecode must be a string, got {type(tc).__name__}\")\n\n    parts = tc.split(\":\")\n    if len(parts) != 4 or not all(p.isdigit() and len(p) == 2 for p in parts):\n        raise ValueError(f\"timecode must be 'HH:MM:SS:FF' with two digits per field, got {tc!r}\")\n\n    hh, mm, ss, ff = (int(p) for p in parts)\n    if mm > 59 or ss > 59:\n        raise ValueError(f\"minutes and seconds must be 0-59, got {tc!r}\")\n    if ff >= fps:\n        raise ValueError(f\"frames field {ff} must be less than fps {fps}\")\n\n    return ((hh * 60 + mm) * 60 + ss) * fps + ff\n```\n\nExamples:\n\n```python\n>>> timecode_to_frames(\"00:00:01:00\", 24)\n24\n>>> timecode_to_frames(\"01:00:00:12\", 25)   # 1 hour at 25 fps, plus 12 frames\n90012\n>>> timecode_to_frames(\"00:01:00:30\", 25)   # frames field >= fps\nValueError: frames field 30 must be less than fps 25\n```\n\nA couple of notes: `isdigit()` plus the length check rejects negatives, whitespace, and drop-frame separators (`;`), which is correct since drop-frame is explicitly out of scope. Hours aren't capped, so timecodes beyond 24 hours parse fine; add `hh > 23` validation if you need strict SMPTE 24-hour wrapping.",
+  "ttft_ms": 6801,
   "type": "result",
-  "duration_ms": 51625
+  "duration_ms": 13841,
+  "ttft_stream_ms": 1651,
+  "time_to_request_ms": 26,
+  "queued_turn_count": 0
 }

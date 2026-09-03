@@ -1,0 +1,42 @@
+{
+  "case_id": "video-visual-look-subcontract",
+  "case_sha256": "a00262f6638221810e0e5f7bcf873dd94ae3d18baa07bbcade149d598188851a",
+  "rubric_sha256": "0d245f00fad973dd0960e2d0f9d8ba7941ec54fa1df15e21161b8920ef44e3fc",
+  "host": "claude-code",
+  "invocation_mode": "implicit",
+  "expected_skill": "photography-aesthetics",
+  "coverage_class": "collision",
+  "forbidden_skills": [
+    "seedance-prompt-director"
+  ],
+  "base_prompt": "只設計這支影片的 visual-look 子契約：雨夜便利店門口、冷暖混合光、濕地反射、35mm 手持感、低對比青橙色調與細雨質感。輸出 opening look、visible change、end look、camera、lighting、color 與 texture。不要寫完整 Seedance clip prompt，不要提供 blocking、時間軸、音訊、reference contract、驗收或生成參數。",
+  "effective_prompt": "只設計這支影片的 visual-look 子契約：雨夜便利店門口、冷暖混合光、濕地反射、35mm 手持感、低對比青橙色調與細雨質感。輸出 opening look、visible change、end look、camera、lighting、color 與 texture。不要寫完整 Seedance clip prompt，不要提供 blocking、時間軸、音訊、reference contract、驗收或生成參數。",
+  "sanitized_argv": [
+    "claude",
+    "-p",
+    "--model",
+    "claude-fable-5",
+    "--effort",
+    "high",
+    "--no-session-persistence",
+    "--permission-mode",
+    "dontAsk",
+    "--setting-sources",
+    "project",
+    "--settings",
+    "{\"disableBundledSkills\": true, \"skillOverrides\": {\"doctor\": \"off\"}}",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "{\"mcpServers\": {}}",
+    "--no-chrome",
+    "--tools",
+    "Skill,Read,Glob,Grep",
+    "--allowedTools",
+    "Skill,Read,Glob,Grep",
+    "--output-format",
+    "stream-json",
+    "--verbose",
+    "只設計這支影片的 visual-look 子契約：雨夜便利店門口、冷暖混合光、濕地反射、35mm 手持感、低對比青橙色調與細雨質感。輸出 opening look、visible change、end look、camera、lighting、color 與 texture。不要寫完整 Seedance clip prompt，不要提供 blocking、時間軸、音訊、reference contract、驗收或生成參數。"
+  ],
+  "disabled_personal_skills": 0
+}

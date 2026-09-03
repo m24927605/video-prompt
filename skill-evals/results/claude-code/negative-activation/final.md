@@ -1,31 +1,22 @@
-I'll answer this inline — it's a self-contained snippet, so no files or tool calls are needed.
+Since this is a self-contained code question with no files to change, here's the answer directly — nothing to execute or plan.
 
 ```python
-import re
-
-_NDF_TIMECODE = re.compile(r"([0-9]{2}):([0-9]{2}):([0-9]{2}):([0-9]{2})")
-
-
-def timecode_to_frames(timecode: str, fps: int) -> int:
-    """Convert a non-drop-frame SMPTE timecode 'HH:MM:SS:FF' to a total frame count.
-
-    Raises TypeError/ValueError for bad types, malformed strings, out-of-range
-    fields, or drop-frame input (the ';' separator is rejected on purpose).
-    """
-    if not isinstance(fps, int) or isinstance(fps, bool) or fps <= 0:
+def timecode_to_frames(tc: str, fps: int) -> int:
+    """Convert a non-drop-frame SMPTE timecode 'HH:MM:SS:FF' to a frame count."""
+    if not isinstance(fps, int) or fps <= 0:
         raise ValueError(f"fps must be a positive integer, got {fps!r}")
-    if not isinstance(timecode, str):
-        raise TypeError(f"timecode must be str, got {type(timecode).__name__}")
+    if not isinstance(tc, str):
+        raise TypeError(f"timecode must be a string, got {type(tc).__name__}")
 
-    m = _NDF_TIMECODE.fullmatch(timecode)
-    if m is None:
-        raise ValueError(f"malformed timecode {timecode!r}; expected 'HH:MM:SS:FF'")
+    parts = tc.split(":")
+    if len(parts) != 4 or not all(p.isdigit() and len(p) == 2 for p in parts):
+        raise ValueError(f"timecode must be 'HH:MM:SS:FF' with two digits per field, got {tc!r}")
 
-    hh, mm, ss, ff = map(int, m.groups())
-    if hh > 23 or mm > 59 or ss > 59:
-        raise ValueError(f"out-of-range field in {timecode!r}: HH<=23, MM<=59, SS<=59")
+    hh, mm, ss, ff = (int(p) for p in parts)
+    if mm > 59 or ss > 59:
+        raise ValueError(f"minutes and seconds must be 0-59, got {tc!r}")
     if ff >= fps:
-        raise ValueError(f"frame field {ff} must be < fps ({fps}) in {timecode!r}")
+        raise ValueError(f"frames field {ff} must be less than fps {fps}")
 
     return ((hh * 60 + mm) * 60 + ss) * fps + ff
 ```
@@ -33,13 +24,12 @@ def timecode_to_frames(timecode: str, fps: int) -> int:
 Examples:
 
 ```python
-timecode_to_frames("01:00:00:00", 24)   # 86400  -> 3600 s * 24
-timecode_to_frames("00:01:30:12", 30)   # 2712   -> 90 s * 30 + 12
-timecode_to_frames("00:00:10:25", 25)   # ValueError: frame field 25 must be < fps (25)
+>>> timecode_to_frames("00:00:01:00", 24)
+24
+>>> timecode_to_frames("01:00:00:12", 25)   # 1 hour at 25 fps, plus 12 frames
+90012
+>>> timecode_to_frames("00:01:00:30", 25)   # frames field >= fps
+ValueError: frames field 30 must be less than fps 25
 ```
 
-Recap of what it does and the rules it enforces:
-
-- Pure function, stdlib only; returns `((HH*60 + MM)*60 + SS) * fps + FF`.
-- Validation: `fps` must be a positive `int` (bools rejected); the string must be exactly four ASCII two-digit fields separated by `:` (so `;` drop-frame form, whitespace, and Unicode digits are all rejected); `MM`/`SS` ≤ 59; `FF` < `fps`.
-- One assumption to flag: hours are capped at 23 per SMPTE 12M (timecode wraps at 24 h). If you need to parse durations longer than a day, drop `hh > 23` from the range check — that's the only change required.
+A couple of notes: `isdigit()` plus the length check rejects negatives, whitespace, and drop-frame separators (`;`), which is correct since drop-frame is explicitly out of scope. Hours aren't capped, so timecodes beyond 24 hours parse fine; add `hh > 23` validation if you need strict SMPTE 24-hour wrapping.

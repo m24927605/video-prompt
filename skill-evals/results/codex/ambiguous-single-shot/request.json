@@ -5,6 +5,8 @@
   "host": "codex",
   "invocation_mode": "implicit",
   "expected_skill": "seedance-prompt-director",
+  "coverage_class": "archived",
+  "forbidden_skills": [],
   "base_prompt": "幫我寫一個可直接使用的 Seedance 影片 prompt：雨夜便利店門口，一個女生發現有人把她的紅傘拿走。要有電影感，8 秒。平台和模型版本我還沒決定；請在不必要追問的前提下直接給可用方案。",
   "effective_prompt": "幫我寫一個可直接使用的 Seedance 影片 prompt：雨夜便利店門口，一個女生發現有人把她的紅傘拿走。要有電影感，8 秒。平台和模型版本我還沒決定；請在不必要追問的前提下直接給可用方案。",
   "sanitized_argv": [
@@ -28,15 +30,15 @@
     "-m",
     "gpt-5.6-sol",
     "-c",
-    "model_reasoning_effort=ultra",
+    "model_reasoning_effort=high",
     "-c",
     "approval_policy=never",
     "-c",
-    "<PERSONAL_SKILLS_DISABLED:50>",
+    "<PERSONAL_SKILLS_DISABLED:73>",
     "--json",
     "-C",
     "<REDACTED_WORKSPACE>",
     "幫我寫一個可直接使用的 Seedance 影片 prompt：雨夜便利店門口，一個女生發現有人把她的紅傘拿走。要有電影感，8 秒。平台和模型版本我還沒決定；請在不必要追問的前提下直接給可用方案。"
   ],
-  "disabled_personal_skills": 50
+  "disabled_personal_skills": 73
 }

@@ -1,0 +1,6 @@
+{
+  "case_id": "reference-dimension-authority",
+  "must_cover": ["preserve both supplied reference tokens byte-for-byte", "assign face/hair and walking rhythm to distinct dimensions", "keep the explicit raincoat and location requirements authoritative", "leave unmapped dimensions inactive rather than guessed"],
+  "must_not": ["translate, renumber, normalize or replace either token", "infer authority from upload order or media type", "claim unverified token syntax is supported by a platform"],
+  "critical_case_traps": ["token mutation", "reference authority leaks into user-locked wardrobe or location"]
+}

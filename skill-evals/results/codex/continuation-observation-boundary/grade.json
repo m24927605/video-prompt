@@ -1,0 +1,32 @@
+{
+  "case_id": "continuation-observation-boundary",
+  "host": "codex",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 25,
+    "task_completeness": 35,
+    "evidence_discipline": 20,
+    "language_scope": 10
+  },
+  "total": 100,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "final.md:3-6 classifies the boundary as author/user report rather than direct observation, carries only the reported visible adult/coat/umbrella/door/reflection facts, and lists subject motion, camera velocity, and audio phase unknown.",
+    "final.md:11-17 preserves the source and begins only after it; final.md:21-23 denies any assertion that the source subject/camera was stationary or that sound existed.",
+    "final.md:19 and 25 define only the post-source hold and end state; final.md:28 says seamless motion/camera/audio validation is unavailable without the actual media/metadata.",
+    "events.jsonl:3-8 and native-evidence.md:11-12 verify implicit seedance-prompt-director activation; run.json records no paid generation."
+  ],
+  "rationale": "The continuation cleanly separates low-confidence reported visible state from unknowable temporal/audio state and never replays, edits, or canonizes the unseen source.",
+  "activation_evidence": "events.jsonl:3-8 and native-evidence.md:11-12 directly verify expected implicit activation.",
+  "unknowns": [
+    "Source motion vector, camera velocity, audio content/phase, duration, frame rate, and playback timing remain correctly unresolved."
+  ],
+  "grader": {
+    "role": "Independent adversarial reviewer (provider: OpenAI)",
+    "model": "gpt-5.6-sol",
+    "effort": "high",
+    "independent": true
+  }
+}
