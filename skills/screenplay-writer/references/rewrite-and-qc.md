@@ -25,6 +25,8 @@ Before diagnosing, record:
 - current canonical version;
 - whether the user wants diagnosis only, alternatives, or applied edits.
 
+Record tier and span with each locked item as the constraint lock defines them, so the pass knows what may bend before it starts and does not treat a requirement scoped to one stretch as binding the whole film.
+
 ## Evidence protocol
 
 Every material finding must include:
@@ -46,7 +48,7 @@ Run one problem class at a time:
 1. **Story contract** — premise, central question, genre promise, ending, and constraints.
 2. **Reverse outline** — sequence pressure, cause/consequence, reveal order, setup/payoff, middle repetition, and earned ending.
 3. **Character** — agency, motive, tactic, cost, relationships, knowledge, contradiction, and arc.
-4. **Scene** — objective, resistance, tactic shifts, turn/stasis, entrance/exit, visual action, and sequence obligation.
+4. **Scene** — objective, resistance, tactic shifts, turn/stasis, entrance/exit, visual action, the card's declared failure condition, and sequence obligation.
 5. **Audience knowledge** — truth, inference, misdirection, fairness, and reveal timing.
 6. **Dialogue/performance** — voice, subtext, exposition, timing, silence, and playability.
 7. **Visual/aural writing** — filmability, geography, objects, sounds, repeated explanation, and production scope.

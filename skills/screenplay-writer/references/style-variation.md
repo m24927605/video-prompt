@@ -28,6 +28,14 @@ Choose a small number of axes and state where the project sits. Do not maximize 
 | Transitions | hard causal cuts ↔ associative image/sound bridges |
 | Production scale | contained ↔ expansive |
 
+The `Sound` axis records how sound is used. Whether non-diegetic music exists in this film at all is a separate settlement made with the sound contract, not a position on this range.
+
+For each axis you commit to, also name the nearest register the work will be mistaken for, and the one observable difference that separates them. The position on the range tells a reviewer where the project sits; the excluded neighbor tells them when a page has slipped.
+
+Do the same for the genre promise: name the adjacent genre whose pleasures this film must not deliver, and state what a reader would see on the page if it had started delivering them.
+
+Keep every exclusion observable — a difference visible in scene entry, in information order, in what would be in front of the camera, in how long a beat is held, in what a character is permitted to say, or in how an emotion is allowed to arrive. An exclusion phrased as a mood cannot be checked and will not survive a rewrite. Two or three of these are enough; a full inventory of everything the film is not becomes its own house style.
+
 Add project-specific axes only when they change actual pages.
 
 ## Voice profile from samples

@@ -1,13 +1,19 @@
-# 影片篇｜時間軸、鏡頭運動、片長
+# 影片視覺篇｜動態、鏡頭運動與連續性
 
-前七個檔案描述的是**一幀**。這個檔案處理的是**幀與幀之間**。
+前七個檔案描述的是**一幀**。本檔提供幀與幀之間的 **visual-look subcontract**，供
+`seedance-prompt-director` 併入已選定的 provider/task operation。它保有攝影機運動、主體動作與
+時間性風格的美學技法，但不擁有完整影片 prompt 或任何 provider 操作契約。
 
-靜圖提示詞回答「這張圖長什麼樣」；影片提示詞必須回答「這一秒怎麼變成下一秒」。
-把 `05-recipes.md` 的靜圖組裝結果原封不動餵給影片模型，得到的是一段幾乎不動的素材 ——
-這是本 skill 用在影片上最常見、也最容易被誤判成「模型不行」的失敗。
+本檔可以回答「這個畫面從 opening look 如何可見地變化到 end look」，但不決定 task、references、
+timeline、blocking、physics、acting、audio、acceptance、平台參數、時長或 negative 欄位。這些由
+`seedance-prompt-director` 的已驗證 provider/task contract 決定；多鏡與跨鏡 production 則由
+`seedance-film-producer` 決定。
 
-本檔給出四樣靜圖流程沒有的東西：**攝影機運動軸**、**主體動作軸**、**片長與轉場的硬規則**、
-以及 `圖二 09 固定長鏡頭` `圖二 10 手持跟拍` `圖二 19 偽紀錄片` 三項在靜圖情境下的等效替換。
+For a scoped visual-look subcontract, include numeric motion or timing values only when the user provided them.
+Translate all other table measurements into qualitative direction before export.
+
+本檔給出靜圖流程沒有的兩個視覺軸：**攝影機運動**與**主體動作**，以及
+`圖二 09 固定長鏡頭` `圖二 10 手持跟拍` `圖二 19 偽紀錄片` 在靜圖情境下的等效替換。
 
 > **關於本檔的模型行為描述**：下面所有「難度」「失敗風險」「哪些動作會崩」都是**跨模型的經驗優先序**，
 > 不是任何模型的規格書。各家模型與各個版本的表現差異很大，且會隨版本改變。
@@ -17,59 +23,62 @@
 
 ---
 
-## 一、影片提示詞與靜圖提示詞的根本差異
+## 一、影片 visual-look 與靜圖 look 的差異
 
-### 影片提示詞的最小結構是三段，不是一段
+### 視覺子契約：opening → change → end
 
-| 段 | 回答什麼 | 缺了會怎樣 |
-|---|---|---|
-| 起始狀態 | 第 1 幀的構圖、主體位置、朝向、景別 | 模型自行決定開場，命中率低；接不上前一個鏡頭 |
-| 過程中的變化 | 攝影機怎麼移動、主體做了什麼、速度多快 | **整段靜止**，只剩雲飄、髮絲抖、噪點浮動 |
-| 結束狀態 | 最後 1 幀的構圖、主體位置、朝向、景別 | 動作做到一半停住，或在片長內來回做完好幾遍 |
+靜圖 look 回答「這張圖長什麼樣」；影片 visual-look 要補足畫面如何從 opening 變到 end。
+交付給 prompt director 時，可用三個視覺欄位，並保持它們只描述 look：
 
-三段之中最常被漏掉的是第三段。只寫 `she turns her head` 而不寫
-`ends held on her face looking off-frame left`，模型不知道動作該在哪裡收，常見結果是轉回去再轉一次。
+| 欄位 | 描述的視覺資訊 |
+|---|---|
+| opening look | 初始構圖、景別、主體位置／朝向、光與色彩 |
+| visible change | 攝影機運動或主體動作的可見變化、速度與幅度線索 |
+| end look | 收在何種構圖、位置、朝向、光與畫面重心 |
 
-### 反例（把靜圖提示詞直接餵給影片模型）
+例如：`opening look: medium shot, rain-slicked neon street, magenta side key; visible change:
+slow physical push-in while she raises her gaze; end look: held medium close-up, jaw set,
+gaze off-frame left.` 這只是 visual subcontract；prompt director 仍須依 operation contract 決定
+哪些欄位可用、如何表達與是否需要額外的 reference／audio／acceptance 資訊。
 
-```
-A Taiwanese woman in her early thirties in a red wool coat, standing on a rain-slicked neon
-street at night, medium shot at eye level, magenta shop sign as key from camera left, 50mm at
-f/2, saturated magenta and green, crushed blacks, 2.39:1
-```
+### 不變量（invariants）
 
-這段話在生圖上是好提示詞，在影片上是壞提示詞。它沒有任何一個字描述變化，
-模型只能把同一個狀態重複整段，你會拿到一張會下雨的照片。
+opening → change → end 只回答「什麼會變」。同樣要回答的是**什麼不准變** —— 沒有被宣告成不變的屬性，
+等於允許模型在片段中途重抽它。子契約因此可以有第四個欄位：
 
-### 正例（同一個畫面改寫成影片提示詞）
+| 欄位 | 描述的視覺資訊 |
+|---|---|
+| invariants | 整段必須維持同一狀態的 look 屬性，一行一項 |
 
-```
-Opens on a Taiwanese woman in her early thirties in a red wool coat, rain flattening her short
-hair to her forehead, both hands buried in her pockets, standing still under a shop awning on a
-rain-slicked street, medium shot at eye level; over the full five seconds the camera pushes in
-slowly on a dolly, physically moving forward about sixty centimetres so the perspective shifts
-and the framing tightens to a medium close-up, while she lifts her head and turns to look
-off-frame left; ends held on her face at chest height, jaw set, gaze off-frame; magenta shop
-sign as the only key from camera left, the far side of her face two stops under, rain streaking
-through the beam and reflections sliding across the wet asphalt behind her, 50mm at f/2, 24fps
-with a 180 degree shutter, saturated magenta and green, crushed blacks, preserve natural skin
-tone, 2.39:1
-```
+（匯出時對應本檔末〈Visual-look subcontract export〉的 `Look constants:` 那一行。）
 
-差異只有那三個結構句：`Opens on…` / `over the full five seconds… while…` / `ends held on…`。
-光、色、鏡頭、畫幅這些槽位一個字都沒改 —— 靜圖那套技法在影片裡完全照用，
-**只是需要在外面再包一層時間軸**。
+寫法四條：
 
-注意這個正例同時通過了 `SKILL.md` 的〈輸出閘門〉：主體是具體名詞、有族裔、有頭髮狀態、
-有手的明確狀態、有視線方向。**影片提示詞不能因為多了時間軸就放鬆主體描述** ——
-主體寫得越糊，模型在後面幾秒把他重繪成別人的機率越高。
+1. **一行一個屬性。** 主光方向、主色相與白平衡、材質與表面狀態（含服裝與道具的濕乾、髒污、磨損、
+   反光 —— 僅限表面狀態，款式與識別不屬於本檔）、天氣與地面狀態各自一行。合併成一句總則，
+   模型通常只會滿足其中一項。
+
+2. **用可檢查的幀端點，不要用形容詞。** `consistent`、`stable`、`throughout` 沒有可驗收的邊界，
+   驗片時無從判定過或不過；改成指名兩個端點再涵蓋中間段，例如：
+
+   `<屬性名>: <狀態描述>, unchanged from the opening frame through the closing frame, and at every point between`
+
+   端點語彙自己寫，不必照抄這個句型；能指出兩個可比對的幀，這條就成立。
+
+3. **只列環境與光學層的 look 屬性。** identity、asset scope、演出、姿勢、表情、對白與事件順序
+   一律不得寫進 invariants。這條無條件成立，不因使用者限縮 blocking 或 timeline 而放寬 ——
+   那些欄位屬於 `seedance-prompt-director` 與 `seedance-film-producer`，本檔越界只會製造
+   兩份互相矛盾的契約。
+
+4. **本質是「維持」的目標就寫進 invariants，不要塞進 end look。** 把不變的東西寫成 end look，
+   等於暗示它需要先變化再回來。end look 只描述有變化的屬性收在哪裡。
 
 ### 免費的環境動態（可加，但不能取代主體動作）
 
 雨、雪、煙、霧、蒸汽、火焰、水面、風中的頭髮與衣料、窗簾、旗幟、遠處已在畫面內的人流、
 車燈流動 —— 這些是模型相對最擅長、崩壞率最低的動態，成本極低，寫一句就讓畫面「活著」。
-但它們是**背景動態**，不能當成第二段的「變化」：一段只有雨在下、人完全不動的片段，
-觀眾讀到的仍然是靜止畫面。環境動態的用途是墊底，主體動作的用途是敘事，兩者都要有。
+但它們是**背景動態**；是否需要主體動作、以及如何把動作放入 provider prompt，由
+`seedance-prompt-director` 依 task contract 決定。
 
 寫法範例：`rain falling steadily through the beam`、`steam curling up off the cup`、
 `her hair and the hem of her coat lifting in the wind`、`traffic lights bleeding past in the
@@ -103,7 +112,7 @@ far background`。
 | 急推 | `crash zoom in, a fast optical zoom from a wide framing to a tight framing on his face in under a second, the camera itself not moving, the framing snapping tight and then holding` | 驚嚇、強調、喜劇重音 | **中高**。快速變焦容易帶進畫面撕裂與主體重繪，且模型常把它誤讀成剪接。緩解：放在片段開頭（推完之後留 3–4 秒穩定畫面），並明寫 `optical zoom, the camera itself not moving` |
 | 焦點轉移 | `rack focus at f/1.8, sharpness pulling from the rain-covered glass thirty centimetres from the lens back to her face two metres behind it, the foreground falling soft as her eyes come sharp` | 在不動機位的情況下轉移注意力；兩個資訊的先後揭露 | **中**。風險是全程都清楚（沒發生焦點轉移）或前後景一起模糊。緩解：明寫「誰先清楚、誰後清楚」，並同時給淺景深光圈（`f/1.8` 以下）與兩者的實際距離 |
 | 穩定器滑行 | `steadicam glide, the camera moving forward at walking pace with no vertical bounce, the horizon staying level, a foreground pillar passing close on the left` | 流暢帶入、探索空間、優雅的主觀移動 | **中**。太穩會被模型做成完全靜止（缺少位移線索）。緩解：一定要給速度與「經過什麼」—— 前景物件掠過是模型判斷位移的主要依據 |
-| 微手持 | `near-static frame with a faint handheld float, the framing drifting by about one percent of the frame width and never correcting` | 讓固定機位有人味而不失去穩定；訪談與對白的安全預設 | **低**。失敗率極低，是「不知道要用什麼運動」時的預設值 |
+| 微手持 | `near-static frame with a faint handheld float, barely perceptible low-frequency drift that never snaps back, no high-frequency shake` | 讓固定機位有人味而不失去穩定；訪談與對白的安全預設 | **低**。失敗率極低，是「不知道要用什麼運動」時的預設值 |
 | 空拍下降 | `slow aerial descent, the camera dropping from roof height toward the street at a steady rate, the downward angle held constant on the crossing below` | 建立場景、由宏觀進入微觀 | **中高**。下降過程中地面細節會被反覆重繪，建築幾何易扭曲，畫面內的文字招牌極易變形成另一串符號。緩解：高度變化幅度小、避開有大量文字的立面、不要同時要求主體大動作 |
 
 ### 運動的寫法規則
@@ -122,6 +131,31 @@ far background`。
 6. **相機運動與主體動作不要方向相衝**：相機 orbit + 主體轉身 = 兩個旋轉疊加，崩壞率極高；
    相機後拉 + 主體同時走離鏡頭 = 兩個後退疊加，尺寸變化過大。
    相機大幅移動時，主體只做微動作；主體大幅動作時，相機固定或只做緩推。
+7. **運動用雙極寫法：一個允許 + 逐項禁止。**
+   先把要的那一項寫成肯定句（含速度與幅度參照物），再把**不要的軸逐一點名**關掉，而不是只寫一個
+   「靜止」或「穩定」的形容詞。軸的清單是固定的：橫搖、俯仰搖、滾動、變焦、推軌、升降、環繞、
+   漂移、手持晃動。
+   `locked-off tripod frame, no pan, no tilt, no roll, no zoom, no dolly move, no handheld float`
+   比 `static camera` 可控，因為後者只是一個形容詞，前者關掉的是具體的自由度。
+   **軸清單管的是運動，機位高度還要另外釘一次視點。** 上面清單裡的 `升降` 關掉的是高度的**變化**；
+   即使升降被關掉，這一鏡的**起始機位**仍然可能落在高處。景別只說主體佔多少畫面，沒有說相機站在哪
+   （相機高度是 `SKILL.md` 十軸表的第 3 軸）。要它不動就寫 `camera height constant`，
+   並把不要的高處視點逐項點名：`no aerial view, no drone shot, no bird's-eye angle, no raised or crane position`。
+   空拍與俯瞰是很強的預設傾向（這是使用觀察，不是任何平台的已驗證行為）；
+   禁止清單漏掉視點這一項，前面關掉的自由度會從起始機位回來。
+   **禁止清單若是跨鏡沿用的同一串字，它必須自帶例外，例外寫在清單前面而不是後面**，
+   並且**把允許的那個運動逐字寫出來**，不要寫成指向別處的「本鏡指定的運動」：
+   `the only camera movement is a slow forward push of about half a metre; no pan, no tilt, no roll, no zoom, no orbit, no handheld float`。
+   一串寫死的「全都不准動」貼到本來就指定了運鏡的鏡次上就是自相矛盾，模型可能兩邊都不做。
+   同理，刻意要的那一點晃動（微手持、穩定器的呼吸）必須從**該鏡的**清單裡拿掉，
+   並在肯定端把幅度寫清楚；整串照抄不改，等於用清單取消了自己指定的運動。
+   **穩定度同樣兩極都寫**：要多少晃，就把晃的種類與頻率寫成肯定句，再把相反狀態（完全不動、
+   或高頻亂抖）寫成禁止句 —— 上表的手持跟拍、微手持與穩定器滑行三列已經是這個寫法。
+   同一個約束用正反各講一次，是這一軸最便宜的保險。
+   否定擺在它守護的那句肯定之後（`SKILL.md` 硬規則 15）。這條只適用於**行為**的排除
+   （運動軸、穩定度、對焦面）；**色相的排除不適用，物件的排除以正面列舉為原則** —— 色名與物名本身是強 token；
+   色相一律走正面列舉（見 `02-tone-color.md` 限制調色盤），物件的部位級例外見 `SKILL.md` 硬規則 15。
+   是否另有 negative 欄位由 prompt director 依 provider/task contract 決定，不在這條規則內。
 
 ---
 
@@ -197,40 +231,38 @@ far background`。
 
 ---
 
-## 四、硬規則
+## 四、視覺連續性建議（非 provider 操作契約）
 
-1. **一個生成片段 ＝ 至多 1 個攝影機運動 ＋ 至多 1 個主體動作。**
-   任一項超過一個就會失控：兩個相機運動 → 隨機漂移；兩個主體動作 → 兩個動作各做一半，
-   或在片長內來回抽動。要兩個動作就分成兩個片段。
-   **降級條款**：選了難度「高」或「中高」的相機運動（orbit、crane、dolly zoom、whip pan、
-   crash zoom、空拍下降）時，主體動作降級成呼吸、眨眼、髮絲飄動這類微動作 ——
-   算力要留給幾何，不要同時要求表演。
+以下是 visual-look 的取捨與風險提示，不是所有模型或單一 clip 的強制格式。它們不宣告
+字數、negative、畫幅、時長、剪接或平台 UI 的通則；prompt director 必須以當前 provider/task
+evidence 決定可用控制與最終 prompt。cut 或 transition **only if the operation contract explicitly
+allows it**，並由 prompt director 寫入；本檔不自行路由或實作這些操作。
 
-2. **單一片段內禁止出現剪接語彙。**
-   禁用詞：`cut to`、`then the camera cuts`、`next shot`、`transition to`、`dissolve to`、
-   `meanwhile`、`montage`、`intercut`、`split screen`、`flashback`，以及中文的「然後切到」「接著鏡頭轉向」。
-   後果很具體：模型不會剪接，它只會在同一個連續空間裡「變形」過去 ——
-   你會得到畫面撕裂、主體融解、場景在中途被重繪。
-   **多鏡頭一律分次生成，剪接留給後製。**
+1. **控制密度建議：優先一個攝影機運動與一個主體動作。**
+   同時增加多個大幅運動會提高隨機漂移與幾何崩壞風險。選擇高難度運動（orbit、crane、
+   dolly zoom、whip pan、crash zoom、空拍下降）時，較小的主體動作通常更容易維持畫面可讀性。
 
-3. **片長預算。** 常見的可選片長是 5s 與 10s，但**各平台與各版本提供的長度不同**
-   （也有 4s、6s、8s，以及把片段接續延長的功能），下筆前先確認當下模型實際能選什麼，不要假設。
+2. **轉場是 operation 選擇，不是本 library 的禁令或預設。**
+   若 operation contract 支援 cut、transition 或其他相鄰鏡頭控制，提供其必要的視覺 look
+   與兩端狀態給 prompt director；否則只描述連續畫面內的視覺 change。不得由本檔推斷平台能否
+   剪接、轉場或如何實作多鏡。
+
+3. **時間節奏以 provider task 為準。** 平台可選時長、extension 與可用節奏必須先由 prompt
+   director 確認；這裡的秒數例子只用來說明動作速度，不構成任何平台或單 clip 的長度規則。
 
    | 片長 | 裝得下什麼 | 不要嘗試 |
    |---|---|---|
    | 5s | 1 個相機運動 + 1 個主體動作。分鏡時用「1s 安定 + 3s 動作 + 1s 收尾」當心理模型去配秒數（這是規劃用的切法，不是模型的內部行為） | 走完一整條走廊、完成一段對白、任何有起承轉合的事 |
    | 10s | 同一個動作放慢，或「1 個動作 + 該動作的餘韻」（走到定位後站定並轉頭） | 兩個獨立事件。片段越長，越後段的臉、服裝、場景越容易漂移 —— 這是連續性成本，沒有固定的秒數門檻，但方向是單調的：能用短的就用短的 |
 
-   一個 30 秒的段落 = 6 個各負責一件事的 5 秒鏡頭，不是一段 30 秒生成。
-   先寫分鏡表，再逐格寫提示詞。
+   多鏡段落的節奏與分鏡數量由 `seedance-film-producer` 規劃，而非從這些示意時間外推。
 
-4. **同段落的所有片段共用同一份「主體外觀 ／ 光 ／ 色 ／ 載體」文字，逐字複製貼上。**
-   只更換運動、動作、景別與焦段光圈四個部分。
-   主體外觀也必須逐字複製 —— 跨片段換臉、換衣服是影片工作流的頭號問題，
-   而不同措辭的同義描述就足以觸發它。不這樣做的話，每個片段的色調與光位也會漂移，
-   剪在一起會像好幾個不同的場景。
+4. **跨鏡 look continuity。** 同段落可重用主體外觀、光、色與載體描述，並只改必要的
+   運動、動作、景別或焦段。跨鏡 identity／asset scope 與 production continuity 屬於
+   `seedance-film-producer`；reference contract 仍由 prompt director 擁有。
 
-5. **幀率與快門必須明寫。**（快門角是否被精確執行依模型而定；但寫了至少不會拿到逐次不同的隨機糊度。）
+5. **幀率與快門是可選的視覺語彙。** 只有 provider/task contract 證實可表達或可控制時才交給
+   prompt director；本表不保證其被任何模型精確執行。
 
    | 要什麼 | 提示詞 | 對應項目 |
    |---|---|---|
@@ -242,32 +274,31 @@ far background`。
    | 慢動作 | `filmed at 96fps and played back at 24fps, four times slower than real time, very little blur on any single frame` | 與 `24 動態模糊` 互斥：幀率拉高等於每格曝光變短，拖影必然減少，二選一 |
    | 交錯掃描錄影 | `interlaced video with combing artefacts on every fast movement`（NTSC 區寫 `60i`，PAL 區寫 `50i`） | `圖二 14 數位早期`、`圖二 17 VHS 錄影帶` |
 
-6. **首尾幀思維：能給首幀圖就給。**
-   標準工作流是兩段式 ——
+6. **首尾 look 思維。** 若 prompt director 的 provider/task contract 支援首幀或尾幀，
+   可將它們視為 visual reference；本檔不假定任何平台都有這個能力。常見的視覺工作法是：
    (a) 先用 `05-recipes.md` 的靜圖組裝順序產出首幀圖（構圖、光、色、質感全部在這一步鎖死）；
-   (b) 用該圖做 image-to-video，影片提示詞**只寫變化**。
+   (b) 將 image-to-video 的 visual subcontract **只寫變化**，交由 prompt director 組裝。
    純文字 text-to-video 在構圖、光位與色彩上的命中率明顯低於 image-to-video，
    而且跨片段的一致性只能靠首幀圖來守。給了首幀圖之後：
 
-   - **不要在影片提示詞裡重寫一次靜態描述**。文字與圖打架時，模型兩邊都做不好。
+   - **不要在 visual subcontract 裡重寫一次靜態描述**。文字與圖打架時，模型兩邊都做不好。
    - 只留：相機運動（含速度與幅度）、主體動作（含秒數）、結束狀態、幀率與快門。
    - 若模型支援首尾兩幀，把兩張都給，文字可以只剩速度詞（`even pace across the shot, no easing`）。
 
-7. **一個片段只有一個空間、一個時間、一個光位。**
-   片段內不可以改變地點、改變時段（黃昏變夜晚）、改變主光方向、改變主體數量。
+7. **連續 look 優先保持一個空間、時間與主光方向。**
+   在連續畫面中改變地點、時段、主光方向或主體數量，通常會提高畫面不連續的風險。
    例外是**光源本身在動**：手電筒、車燈、旋轉警示燈、雲影 —— 這種要明寫「光源在動」，
    而不是寫「光線改變」。
 
-8. **善用負面提示詞（模型支援時）。** 影片專屬的失效模式要指名，這不是堆砌詞：
-   `morphing face, changing identity, extra limbs, warping background, sudden scene change,
-   duplicated subject, text flickering`。
-   模型若沒有負面提示詞欄位，就不要把這些字塞進正向提示詞 —— 那等於在要求它們出現。
+8. **失效風險是 QC 線索，不是 negative 規則。** changing identity、extra limbs、warping
+   background、duplicated subject 與 text flickering 可作為檢查清單。是否存在 negative 欄位、
+   是否採用、以及如何表達，都由 prompt director 的已驗證 provider/task contract 決定。
 
-9. **不要在畫面提示詞裡寫聲音。** 除非模型明確有音軌欄位，
-   `we hear footsteps` 這類句子會被當成畫面內容處理，容易生出多餘的人或物。
+9. **聲音不屬於 visual-look subcontract。** 音軌、對白、音效與音畫因果由 prompt director
+   的完整 shot contract 處理；本檔只可說明畫面可見的聲音來源或動作線索。
 
-10. **接不上就重生，不要靠後製救。** 兩個片段的主體長得不一樣時，
-    正確做法是用同一張首幀圖（或前一片段的尾幀）重生，不是在剪接上加轉場遮掩。
+10. **連續性失敗交由正確 owner 診斷。** identity、動作或視覺 continuity 不成立時，
+    `seedance-video-qc` 用生成證據診斷；後續 revision 由 prompt director 或 film producer 決定。
 
 ---
 
@@ -339,7 +370,7 @@ hip height, REC dot and burned-in timecode in the corner, 16:9
 
 **B 類｜靜圖可用，但關鍵特徵是時間性的，影片才完整**（8 項）
 
-| 風格 | 只有影片拿得到的特徵 | 影片提示詞補語 |
+| 風格 | 只有影片拿得到的特徵 | video visual-look 補語 |
 |---|---|---|
 | `圖二 03 北歐冷冽` | deadpan 的力量來自「事情很久都不發生」 | `locked-off wide frame, nobody moves for the whole shot except one figure already visible at the left frame edge who walks slowly further into the room` |
 | `圖二 05 煙霧體積光` | 煙必須在光柱裡翻滾流動，靜圖的煙是凝固的 | `haze drifting slowly through the beam, the shaft breathing as the smoke rolls` |
@@ -383,88 +414,24 @@ hip height, REC dot and burned-in timecode in the corner, 16:9
 | **新增：主體動作** | 不存在 | 每片段至多一項（環境動態可另外疊加，不佔名額） |
 | 11 風格包 | 最後一層 | 順延一層。選 C 類三項時只能用在影片上 |
 
-`SKILL.md` 把「攝影機運動 + 主體動作」合稱為影片的第 12 軸；
-實際寫提示詞時要當成**兩條獨立的軸**各選一項，不要合併思考。
+`SKILL.md` 把「攝影機運動 + 主體動作」合稱為影片的第 12 軸；輸出 visual subcontract 時仍把
+兩者分開，讓完整 shot contract 的 owner 決定取捨與組裝。
 
-### 影片版組裝順序
+## Visual-look subcontract export
 
-取代 `05-recipes.md` 的靜圖十一槽，改用以下十四槽。
-順序一樣是權重問題：時間性指令必須排在前段，排在句尾會被整段忽略。
+只輸出會改變畫面外觀與動態讀感的內容：**opening look**、**visible change**、**end look**、
+**camera**、**lighting**、**color** 與 **texture**。不要在這裡補 task、reference mapping、完整
+timeline、blocking、physics、acting、audio、acceptance、平台參數或多鏡 production plan。
 
-```
-1  主體與場景（起始狀態）
-2  起始景別 + 相機高度 + 主體朝向
-3  攝影機運動（1 個，含速度與幅度）
-4  主體動作（1 個，含秒數）
-5  結束狀態（結束景別 / 朝向 / 位置）
-6  光位（含暗部落在哪）
-7  光質
-8  光源與色溫（＋光源本身的動態）
-9  影調與對比
-10 色彩
-11 鏡頭焦距 + 光圈 + 焦點變化
-12 幀率與快門角
-13 質感 / 載體
-14 風格總結 + 畫幅
+```text
+Opening look: <framing, camera height, subject orientation, light, color, texture>.
+Visible change: <one useful camera-motion option and the visible subject/environment motion>.
+End look: <ending framing, orientation, focus, light, color, and visual hold>.
+Look constants: <lighting direction, palette allocation, material/texture response>.
+Handoff: seedance-prompt-director decides the provider operation, timing, references, causality,
+audio, acceptance, and final prompt assembly.
 ```
 
-槽 3–5 是影片專屬的三槽，也是唯一決定「會不會動」的三槽。它們必須連在一起寫成一個句群，
-中間不要插入光線描述 —— 插入之後模型常把運動描述當成靜態場景的一部分。
-
-### image-to-video 的縮短版（建議路徑）
-
-給了首幀圖之後，槽 1、2、6–11、13、14 全部由圖承擔，文字只留四槽：
-
-```
-3  攝影機運動（含速度與幅度）
-4  主體動作（含秒數）
-5  結束狀態
-12 幀率與快門角
-```
-
-範例：
-
-```
-Slow dolly push-in, the camera physically moving forward about sixty centimetres over the full
-five seconds, perspective shifting as the framing tightens to a medium close-up; she lifts her
-head and turns to look off-frame left over two seconds; ends held on her face, gaze off-frame,
-rain still falling behind her; 24fps with a 180 degree shutter
-```
-
-### 完整範例：一段 20 秒的分鏡
-
-**需求**：「夜裡的城市，一個人站在便利商店外，要港片的感覺，大概 20 秒。」
-
-**共用技法（4 項）**：`圖二 13 港片霓虹`（風格包）+ `11 自發光` + `41 雙性照明` + `24 動態模糊`（180° shutter）
-**逐鏡指定**：景別、焦段與光圈（近的兩鏡走 `25 淺景深`，遠的兩鏡收到中等景深，
-避開 `05-recipes.md` 表 B 的「遠景 ↔ 淺景深」互相抵銷）
-
-**共用文字**（四個片段逐字複製，一個字都不要改）：
-
-```
-A Cantonese man in his forties in a soaked grey nylon jacket, hair flattened to his forehead,
-one hand closed around a cooling can of coffee, standing outside a convenience store on a wet
-night street. Lit only by neon tubes and shop practicals, no white film light anywhere:
-magenta raking one side of his face, jade green raking the other, an even 1:1 between the two
-coloured sources, a dark band down the centre line where neither reaches. Coloured light
-contaminating the skin uncorrected, preserve natural skin tone underneath, crushed blacks
-tinted rather than neutral, heavy halation around every source, wet asphalt doubling the
-signage, rain falling steadily, 35mm grain, 24fps with a 180 degree shutter, 1.85:1
-```
-
-（`41 雙性照明` 的三個條件在這段裡全部滿足：哪一側是哪個顏色、兩色交界在哪、兩者的強度關係
-`an even 1:1` —— 這是 `圖二 13` 覆寫 `05-recipes.md` T41 例外條款預設值的地方，
-港片霓虹要的是兩色等亮 + 中線暗帶，不是一側壓暗。）
-
-| 鏡次 | 秒數 | 景別（起 → 訖） | 鏡頭 | 攝影機運動 | 主體動作 |
-|---|---|---|---|---|---|
-| 1 | 5s | `23 全身照` → `23 全身照` | `85mm at f/2.8, shot from across the road` | `locked-off tripod frame` | `he stands motionless under the awning, breathing, a passer-by already crossing the foreground and walking out of frame left` |
-| 2 | 5s | `20 中景` → `19 近景` | `85mm at f/2` | `slow dolly push-in, about one metre, perspective shifting` | `he lifts his head and turns to look off-frame left over two seconds` |
-| 3 | 5s | `32 特寫` → `32 特寫` | `100mm at f/1.4` | `rack focus from the rain on the glass thirty centimetres away back to his eyes` | `he blinks twice and exhales, the breath drifting up` |
-| 4 | 5s | `23 全身照` → `21 遠景` | `85mm at f/2.8` | `locked-off tripod frame` | `he walks away from camera down the street until he is a small figure at the far end` |
-
-**為什麼第 4 鏡不用 `dolly pull-out`**：那會讓相機後退與主體後退疊加成同方向的兩段位移，
-尺寸變化過大、崩壞率高（見第二節寫法規則 6）。要收尾的「抽離感」，
-讓主體自己走遠、機位不動，是同樣效果的低風險寫法。
-
-四個片段分四次生成，剪接在後製完成。**沒有任何一個片段的提示詞裡出現 `cut` 或「然後」。**
+若輸入首幀已承擔 composition、lighting、color 與 texture，subcontract 只需交付 camera motion、
+visible change 與 end look，並明示哪些既有視覺屬性不得重設。多鏡 look continuity 交給
+`seedance-film-producer`；生成後證據與失敗路由交給 `seedance-video-qc`。

@@ -9,6 +9,7 @@ Read this file when ranking takes, comparing prompt revisions, or choosing quali
 - Inspect every complete clip before pairwise preference.
 - Record platform/model/version, prompt/reference/parameter differences, seed when documented, and actual duration/spec.
 - Treat same-seed runs as only approximately comparable where officially supported; never assume deterministic equality.
+- Compare variants at the same quality tier, or declare the tier difference and exclude the dimensions that tier cannot settle. [QC-26]
 - Keep failed, missing, corrupt, moderated and unevaluable outputs in denominators according to a declared rule.
 
 ## Scoring order

@@ -47,6 +47,16 @@ Characters rarely state the screenplay's diagnosis of themselves.
 
 Subtext must come from interests, history, power, and risk. Deliberately vague dialogue without a concrete pressure underneath is not subtext.
 
+## The unspoken line
+
+For a beat whose weight sits in silence, in a held look, or in a line that means the opposite of what it says, write the character's unspoken sentence — what they are saying to themselves at that moment — and keep it off the page.
+
+- It is hidden operating state, like the scene contract. It never becomes dialogue, a parenthetical, a voice-over, or an action line that reports the feeling.
+- Use it as a test, not as content. The visible behavior written on the page must be producible by a performer playing that sentence. If the same action would equally serve three unrelated unspoken lines, the beat is under-written. If it only reads to someone who has been told the sentence, it is over-interior, and the beat needs a choice, an object, or a tactic instead.
+- Keep it in the character's own register and inside their knowledge. A sentence more articulate than the character could think is the writer's diagnosis of the scene, and the pages will drift toward explaining it.
+- One line per participant per beat is usually enough. A running interior track is prose, and it will not survive contact with a performer.
+- Where a scene is deliberately silent, the unspoken lines are also the record of who is refusing to say what, and why the refusal costs something.
+
 ## Tactic shifts
 
 Mark the exchange by tactic changes rather than equal turns:
@@ -104,6 +114,7 @@ Read every line aloud mentally or with performers when available:
 - Does the line repeat what the action already showed?
 - Does the response acknowledge, deflect, exploit, or misunderstand the previous move?
 - Would a silence or action create more playable pressure?
+- Where the beat turns on what is not said, can a performer play the unspoken line through what is written?
 - Are joke, dialect, profanity, and formality earned by this character rather than spread evenly across the cast?
 
 Do not make every line maximally clever, quotable, elliptical, or distinct. Ordinary connective speech is necessary contrast; polish only the lines that need dramatic precision.

@@ -46,6 +46,19 @@ Route defects deliberately:
 
 Normalize codec, frame rate, duration, color tags, audio channels and filenames into the project master. Preserve source media and transformations. Upscale/interpolate only with a defined need and inspect ghosting, edge distortion and texture crawl.
 
+Conform against the delivered container, not against geometry drawn into the picture: bars, mattes, or a wider ratio inside the frame are content and travel with it. Reconcile each shot's target duration against the delivered clip length before conform, and route a systematic gap back to shot design instead of absorbing it in the timeline.
+
+## Baked-in versus separable layers
+
+Decide before shooting which elements are baked into the generated take and which are delivered as separate layers. Anything baked in cannot be re-timed, translated, remixed, or removed without rejecting the take, so the layer assignment is a production decision made at breakdown, not a preference discovered later in the mix.
+
+- **Sound.** Assign every audio element to a layer before the first request. Shots ask only for the in-world sources belonging to that space and moment, drawn from the location and prop passports. Anything the mix must stay free to change — score, any non-diegetic element, anything whose timing, language or licensing is unsettled — is deferred to the mix and kept out of the request. Baking a musical or non-diegetic element into a take is a legitimate choice when the production wants it; record it as a decision with its cost noted, because changing it afterwards means re-running the shot.
+- **On-screen text.** Keep a per-scene inventory of the text allowed to be visible in the delivered picture, each item with its source: in-world graphic, composited artwork, or none. Anything else the generator renders — captions, provider marks, invented signage, subtitle-like overlays — is a defect in an otherwise acceptable frame, because burned text cannot be conformed, translated, or re-timed and collides with any separate caption deliverable.
+- The hard gate tests conformance to this plan, not the presence or absence of music: an accepted take carries no rendered text outside that scene's inventory and no audio outside its declared layer assignment.
+- Picture-accepted and sound-rejected is a route, not an automatic re-run: mute and re-voice, or replace the audio layer, before spending a retry.
+
+The prompt clauses that carry these restrictions belong to `seedance-prompt-director`; the layer assignment, the inventory, and the gate are production decisions.
+
 ## Color and sound
 
 Color checks: shot match, motivated light, skin/material fidelity, day/weather state, gradients/banding, legal range and calibrated playback. A container or `4k` badge does not identify generation resolution, bit depth or color pipeline.

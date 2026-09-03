@@ -18,6 +18,17 @@ Record current requirements before proposing story mechanics:
 
 Do not silently trade one constraint for another. When two conflict, explain the conflict and provide the smallest decision needed.
 
+Record each entry with two attributes beyond its text:
+
+- **tier** — `hard` (violating it invalidates the deliverable), `strong` (may bend only with the reason stated in the delivery), or `default` (a starting position the draft may overturn on its own evidence);
+- **span** — the scenes, the sequence, or the whole film that the entry binds.
+
+An entry with no span is read as film-wide, which is usually wider than the user meant. A requirement that holds only for one stretch must say so, and a later scene may then legitimately require what an earlier span forbade — an attribute pinned constant through one sequence and required to change in the next is two entries with different spans, not a contradiction.
+
+When two entries collide, the higher tier wins and the decision is reported in the delivery. When they collide at the same tier, stop and ask; do not trade one for the other silently. Ask the user to set tier and span only where the answer changes what gets written — otherwise record your assumption and label it.
+
+Carry tier and span into every rewrite's intent lock, so a pass knows what may bend before it starts, and into the rewrite log alongside the protected material. Carrying them into `continuity.json` is a schema change: specify the new `locked_material` entry shape and update validation first, as that file requires.
+
 ## Story contract
 
 Define these in concrete terms:
@@ -27,7 +38,7 @@ Define these in concrete terms:
 | Premise | What specific situation could only be this movie? |
 | Dramatic engine | What pursuit repeatedly generates pressure, choice, and consequence? |
 | Central dramatic question | What uncertain outcome keeps the audience reading? |
-| Genre promise | What pleasures, tensions, or emotional experiences must the film actually deliver? |
+| Genre promise | What pleasures, tensions, or emotional experiences must the film actually deliver? Which adjacent genre's pleasures must it refuse, and what would show on the page if it began delivering them? |
 | Theme tension | Which two defensible values are placed in conflict? Do not reduce this to a lesson. |
 | Protagonist engine | What do they pursue, why now, what tactic do they default to, and what does that tactic cost? |
 | Opposition | Who or what actively adapts against that pursuit? |
@@ -78,19 +89,40 @@ Create one card per intended scene:
 ```text
 ID / slugline / story time / estimated pages
 Entrance state:
-Characters present and why now:
+Characters present and why now (list closed / open):
 Objective by character:
 Opposition and leverage:
 Tactics and tactic shifts:
 Audience question:
 Truth / audience knowledge / character knowledge:
 Visual or aural action:
+Event list (closed / open):
 Turn or intentional stasis:
+Failure condition:
+Nearest wrong version:
 Exit delta — plot / relationship / knowledge / risk / commitment:
 Open setup or payoff:
 Next-scene obligation:
 Continuity locks:
 ```
+
+The failure condition and the nearest wrong version make the scene falsifiable in its own terms rather than only against the general rubric.
+
+- **Failure condition** names the observable outcome that invalidates this scene even when every other obligation is met — the audience leaves holding information it must not have yet, the turn arrives from outside the characters, the exit state matches the entrance state without an intended stasis, a character acts on knowledge the card did not give them.
+- **Nearest wrong version** names the plausible neighboring scene this brief invites — the version a competent pass would write by default — and the one visible difference that separates it from the intended scene.
+
+Write both before drafting. A failure condition written after the pages describes what was written, not what was required. State it as something a reader can observe on the page, not as a quality adjective.
+
+A `review` or `rewrite` pass tests the declared condition first and the general rubric second. When a scene fails its own declared condition, report that before any craft note; when it passes, say so, because a scene that satisfies its contract and still reads flat has a problem in the contract, not in the pages.
+
+Mark both `closed / open` lists deliberately rather than leaving the question unstated.
+
+- `closed` means a drafting, continuation, or rewrite pass may not add an event, an entrance, a character, or a location beyond what the card lists. A beat that appears to need one is an escalation to the card's owner, not a license to invent.
+- `open` means the pass may add behavior, texture, and incident that does not change the exit delta or the knowledge state.
+
+Close the lists when the scene's meaning depends on one action being the only thing that happens, when a later payoff depends on exactly who was in the room, or when the sequence around it is already approved. Leave them open for a first exploratory pass, and record why, so a later reader can tell an authorized addition from drift.
+
+A closed list is a continuity fact, not a style preference: an added third party, an added exit, or an added incident in a closed scene is a defect at the same level as an injury that resets.
 
 The card is a contract, not prose to be expanded sentence by sentence. It locks dramatic obligations while leaving blocking, line order, discoveries, and performance texture to the drafting pass.
 

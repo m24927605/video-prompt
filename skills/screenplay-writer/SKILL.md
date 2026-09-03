@@ -61,7 +61,7 @@ Do not call a screenplay unit complete until the applicable gates pass:
 - **Character:** actions follow desires, fears, knowledge, relationships, and costs rather than writer convenience; major characters remain morally and emotionally specific.
 - **Scene:** someone pursues something under resistance; tactics change; the scene turns or intentionally holds; its exit state differs in plot, relationship, knowledge, risk, or commitment.
 - **Dialogue:** characters do not explain shared knowledge; lines express tactics rather than summaries; voices remain distinguishable without relying on catchphrases; silence and action may answer.
-- **Cinema:** action is concise, spatially intelligible, playable, and primarily visible/audible; images and sounds carry meaning without author commentary.
+- **Cinema:** action is concise, spatially intelligible, playable, and primarily visible/audible; images and sounds carry meaning without author commentary; the sound contract is settled and no beat depends on music it does not authorize.
 - **Originality:** adjacent scenes do not repeat the same conflict engine, entry, reveal, emotional waveform, and exit; generic turns fail the premise-specific echo test.
 - **Authorship:** confirmed voice choices survive revision; ordinary lines and controlled slack remain; no universal ban list or forced anti-AI recipe flattens the work into a house style.
 - **Continuity and format:** scene order, time, location, injury, wardrobe, props, knowledge, setup/payoff, sluglines, character cues, dialogue blocks, and locked material remain consistent.

@@ -2,10 +2,20 @@
 
 Read this file after recording direct evidence. Do not jump from a symptom to a fix without a bounded hypothesis.
 
+## Locate the defect before choosing its level
+
+A defect's distribution is diagnostic and is cheaper to establish than any hypothesis about its cause. Test three axes:
+
+1. **Across takes** — re-firing the identical text with identical parameters changes no variable and varies only the sample. This is a control run, not a wasted retry. A defect that survives N identical re-fires is contract-determined and routes to a rewrite, a split, or another route; a defect that appears in some samples and not others is sampling variance and routes to selection among takes under a declared take budget, never to a rewrite. Without a control, a defect cannot be attributed to the prompt at all.
+2. **Across the clip** — a defect confined to an interval is a repair, insert or trim candidate. A defect present in every frame is contract- or model-level and has no local repair route.
+3. **Across the frame** — a defect confined to a region is a repair, cutaway or composite candidate. A defect present everywhere in the rectangle is not.
+
+Record the distribution in the finding. `Change only: nothing (control run, N samples)` is a valid action packet entry, and the ceiling that bounds it is a take budget, not a rewrite budget. [QC-25]
+
 ## Diagnose in order
 
-1. **Task/runtime** — wrong task family, asset role, prompt verb, hint, aspect/duration/format, model/platform assumption.
-2. **Reference conflict** — ambiguous mapping, unintended inheritance, redundant/conflicting asset, weak state reference.
+1. **Task/runtime** — wrong task family, asset role, prompt verb, hint, aspect/duration/format, model/platform assumption; text and parameters disagreeing on timing, length or take structure, or a schedule that over-books the requested runtime. [QC-24]
+2. **Reference conflict** — test the binding before the inheritance: an asset may be unused, misbound to the wrong entity, conflated with another, or correctly bound but over-inherited. Then audit inheritance channel by channel, since leakage usually appears on a channel the reference was never granted. Ambiguous mapping, redundant/conflicting asset, and weak state reference sit under the same step.
 3. **Entity/state** — wrong count/identity, mixed wardrobe/injury/weather/prop state, ownership or end-state omission.
 4. **Space/camera** — missing first-frame occupation, landmarks, axis, eyelines, directions, or competing movement.
 5. **Physics/action** — too many state changes, no contact causality, impossible body/material burden, camera masking action.
@@ -22,7 +32,7 @@ Higher upstream failures invalidate lower-level polish work.
 | Wrong task/error | Align one mismatched role/verb/hint/parameter from current docs | endpoint probe | stop until runtime contract is known |
 | Missing/extra entity | Add exact count/required/forbidden line | cleaner single-role asset, reduce cast | split/composite |
 | Identity/wardrobe drift | Return to one approved state-specific canonical asset | shorten shot or isolate character | identity composite/2D/3D/live action |
-| Reference leakage | Add allowed/excluded inheritance for the offending asset | remove or rebuild that asset | separate roles across shots |
+| Reference leakage | Name the channel that leaked, then add allowed/excluded inheritance for the offending asset on that channel | remove or rebuild that asset | separate roles across shots |
 | Spatial/axis failure | Add first-frame occupation, landmarks, camera side and end positions | use floor plan/diagram/master | reframe/cutaway/new coverage |
 | Hands/contact | Lock camera and keep one interaction | keyframe/blockout, split into inserts/reactions | traditional VFX/3D/practical |
 | Wrong physics/material | State contact→force→inertia/material→result | state asset or blockout | simulation/composite/redesign |
@@ -33,11 +43,18 @@ Higher upstream failures invalidate lower-level polish work.
 | Text/subtitle failure | Isolate short static requirement | clean plate + tracking | graphic/subtitle composite |
 | Audio seam | Match room tone/perspective/level intent | crossfade/mix | replace generated soundtrack |
 | Neighbor mismatch | Repair the one end-state/vector/light/level mismatch | insert/reaction/cutaway | pickup/re-edit |
+| Unrequested damage or feature appearing where the contract bounded it by number | Restate the bound as the object, the place on it, and the surface that stays whole | Give each object its own sentence naming its state | Isolate the object in its own shot or insert |
+| Defect on an attribute the contract appears to forbid | Read that clause standing alone before charging the model | Resolve every pointer in it to a literal value | Contract rewrite, not another take |
+
+**An inert clause is a contract defect, not a take failure.** Before filing a prohibition as violated, read it by itself with nothing else in view. A clause that points at a document not submitted with it — *the listed items*, *the rest*, *that area*, *the master* — never bound anything, because nothing at the other end of the pointer reached the generator; report it the way a contract that over-books its own runtime is reported, as a defect of the text routed to a rewrite, and expect no number of retries to change it. A clause that bounds a diffuse feature by how many there are — *no second one*, *only one of them* — carries a weaker warrant: it rests on an uncontrolled observation of such a bound leaving the feature free, not on a controlled comparison, so record it as suspected inert, restate the bound as a place and an edge, and say in the finding that the rewrite is precautionary. Either way, charging the clause to the model before reading it alone is a misdiagnosis that spends the take budget on nothing. [QC-28]
+
+Edit spill is diagnosed only after the job has been inspected as a differential against its source; see the delta-edit dimension in the inspection rubric. [QC-27]
 
 ## One-variable action packet
 
 ```text
 Observed defect and evidence:
+Defect distribution across takes / clip / frame:
 Root-cause hypothesis:
 Alternative hypothesis:
 Change only:
@@ -71,5 +88,7 @@ Stop generation when:
 - further progress requires a rejected or drifted frame as truth;
 - rights, policy, platform or delivery cannot pass;
 - a mature edit/VFX/ADR/graphics route has lower expected cost/risk.
+
+A retry counts as isolated only where it was controlled. State how many samples were taken and whether the text and parameters were unchanged; an uncontrolled retry sequence cannot support the repeated-defect stop condition. [QC-25]
 
 Record last approved checkpoint, observed defects, tested hypotheses, spent time/cost and next route.

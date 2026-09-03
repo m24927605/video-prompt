@@ -53,6 +53,8 @@ Use the following version-1 shape as the current contract. Do not add alternate 
 }
 ```
 
+Constraint tier and span are not part of version 1. Recording them on `locked_material` entries is exactly this kind of change: write the new entry shape and update validation before any file uses it.
+
 ### Character state
 
 Track only future-relevant fields:
@@ -77,6 +79,20 @@ Keep separate:
 - **reveal state** — planned, planted, noticed, understood, contradicted, or paid off.
 
 This separation is mandatory for mystery, suspense, deception, dramatic irony, and any scene where characters act on unequal information.
+
+### Singulars
+
+Some elements mean what they mean because they happen once. A gesture, an image, a sound, a word, a silence, a break in a character's habit, a departure from the film's own rhythm — the force comes from having no neighbors.
+
+Record each one with the span it must be unique across (a scene, a sequence, an act, the film) and the reason it is singular. Then treat that span as spent: no other scene inside it may use the same element, and a rewrite that adds an instance is a continuity defect, not a stylistic choice, even when the new instance reads well on its own page.
+
+Singulars are not a new key in the version-1 shape. Record each one inside the existing setups and payoffs entry it belongs to, naming the span it must stay unique across and why. Review singulars alongside setups and payoffs, and in the same pass:
+
+- a payoff rehearsed three times before it arrives has already been paid;
+- a habit-break in a character who has already broken the habit is a repetition, not a turn;
+- a singular whose span was cut has lost its meaning and needs a new span or a different function.
+
+A singular is not the same as a locked line. The locked line's text is fixed; the singular's scarcity is fixed, and it can be violated by a scene that never touches the original at all.
 
 ## Hot context for one scene
 
@@ -135,6 +151,7 @@ Typical propagation failures:
 - Object ownership and body/wardrobe state survive cuts.
 - Audience inference remains fair after rewrites.
 - Open setups/payoffs have status and owner; no payoff points to a deleted setup.
+- Singulars remain unique across the spans they were recorded for.
 - Locked material remains verbatim where required.
 - The canonical screenplay and continuity revision describe the same story state.
 

@@ -8,6 +8,10 @@
 
 三條軸各取一項組成完整的打光描述。同一條軸內的項目通常互斥。
 
+For a scoped visual-look subcontract, include numeric lighting values only when the user provided them. Otherwise
+export qualitative source color, direction, hierarchy, shadow, and surface response rather than copying K values,
+ratios, stops, exposure, or distance from the examples below.
+
 ---
 
 ## 一、光位與光形
@@ -181,7 +185,7 @@
 - **英文關鍵詞**：`warm practical light` / `tungsten light source` / `incandescent glow`
 - **原理**：光源本身色溫落在 2700–3200K（家用鎢絲燈泡約 2700K、鹵素與影視鎢絲燈 3000–3200K、暖白 LED 2700–3000K；高壓鈉氣路燈更低，約 2000K，低壓鈉燈近乎單色橘黃，嚴格說沒有可用的色溫值）。光譜紅橘分量高、藍光稀薄，以 5600K daylight 白平衡拍攝時整體偏 amber。實體燈具多為小面積光源，可近似點光源、遵守平方反比：距離加倍光量剩四分之一，被攝體距燈 1m 與 2m 相差約 2 級曝光，因此臉亮、背景快速掉入暗部，陰影邊緣也偏銳——除非加燈罩或紙燈籠把它擴成面光源，那才是柔的。典型參數 f/1.8–f/2.8、ISO 800–1600、1/50s。
 - **情緒**：溫暖、親密、懷舊、安全感、慵懶、私密
-- **提示詞**：`warm tungsten table lamp at 2900K just outside the frame, camera left, amber pool of light falling off two stops from face to background, skin rendered honey-gold, one small patch of cool blue-grey ambient kept in the background for contrast, shot at f/2 on 5600K daylight white balance`
+- **提示詞**：`warm tungsten table lamp just outside the frame, camera left, a small amber pool falling visibly from the lit face into a much darker background, skin rendered honey-gold, one restrained patch of cool blue-grey ambient kept behind for contrast`
 - **強化**：`01 暖色調`、`37 弱光`、`42 暗色調`、`46 高對比`
 - **衝突**：`36 冷光源`、`38 冷色調`、`48 閃光燈`
 - **常見錯誤**：只寫 "warm lighting" 而不指定色溫與燈具實體，模型會回一張平均的橘色濾鏡照；正確做法是指名光源物件（table lamp / bare bulb / sodium street lamp）、給出 K 值與拍攝白平衡、寫出衰減級數，並保留一小塊冷色環境光作對照，暖才成立。兩點界線要記住：那塊冷色只是次要環境對照，主光仍是暖的，所以不牴觸與 `36 冷光源` 的衝突（衝突指的是誰當主光）；另外本條的燈具可以不入鏡，一旦要求「發光物件必須在畫面裡看得見」，那是 `11 自發光`。

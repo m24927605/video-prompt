@@ -112,6 +112,7 @@ AI 生成影像最一眼假的地方不在光位，也不在構圖，而在**表
 | `a touch of purple fringing on the out-of-focus highlight edges` | 大光圈（f 值 2 或更小，例如 f/1.4、f/2）時用。這是**縱向**色差，跟上一條是不同的東西：它出現在焦平面前後的高反差邊緣，**畫面中央一樣會有**，不限邊緣。兩條不要混寫成一句。 |
 | `imperfect focus falloff, the plane landing a centimetre behind the near eye` | 用了 `圖一 25 淺景深` 時必寫。AI 的散景常常是一個乾淨的切面，真實鏡頭是漸進的、而且合焦點常常沒對準。 |
 | `corner vignetting about half a stop down` | 需要「用真實鏡頭拍的」感覺時；給級數，不要只寫 `vignette`（會拿到後製的黑框）。 |
+| `corner illumination matching the centre, no darkening toward the frame edges` | 明確**不要**暗角時用——與上一列是同一項的兩個方向，只能擇一。四角與中心的亮度關係是要裁決的一項：不寫，這個落差就是一個未指定的值，會隨每次重生變動；只寫 `no vignette` 則是純否定，模型沒拿到要收斂到哪裡，所以先正面寫「四角與中心等亮」再補否定。這一列取消瑕疵而不是加入瑕疵，不佔下面「上限 3 個」的名額（同 `03-framing.md` 鏡頭瑕疵詞庫）。 |
 | `shadow noise left in place rather than cleaned up` | 用了 `圖一 42 暗色調`、`圖一 37 弱光`、`圖二 06 單光源夜戲` 時用。乾淨到沒有雜訊的暗部是不可能的曝光。數位場景寫 `high-ISO digital noise`，底片場景才寫 `grain`。 |
 | `one blown highlight left uncorrected on the forehead` | 需要現場感、抓拍感時用（街拍紀實，以及 `圖二 19 偽紀錄片`、`圖二 10 手持跟拍` 在靜圖上的等效替代，見 `08-motion.md`）。完美的曝光本身就是一種假。 |
 | `slight motion blur on the near hand while the face stays sharp` | 主體有動作時用。局部動態模糊代表快門有長度，也代表這一刻是被「抓到」的，不是擺出來的。要更明確就給快門值：`1/15 second`。 |
@@ -209,6 +210,29 @@ AI 生成影像最一眼假的地方不在光位，也不在構圖，而在**表
 
 第 1 與第 6 項屬於構圖層，對策要寫在景別與視角/朝向槽；第 2、3、5 項是表面層，寫在主體槽與質感/載體槽；
 第 4 項是光位層，是唯一該動打光的情況。
+
+### 1-7 身體狀態：寫骨性地標，不要寫形容詞
+
+「消瘦」「病弱」「強壯」「疲憊」是**評價**，不是可畫的東西。模型收到評價只能用平均先驗去填，
+交回來的是一張健康的臉配上一個抽象標籤。可畫的是**骨性地標與軟組織之間的關係**：
+哪個窩陷下去、哪條肌腱浮出來、哪塊骨頭的邊緣被讀得出來、衣服在哪一處離開身體。
+
+- **寫關係，不要寫程度**：`the hollow at the temple sitting below the rim of the eye socket`、
+  `the collarbone standing clear of the hollow above it`、`the cords of the neck readable when the head turns`、
+  `the tendons on the back of the hand raised above the knuckles`、
+  `the forearm narrower than the upper arm`、`the shirt standing away from the shoulder and falling straight past the waist`。
+  每一句單獨讀都畫得出來 —— 句子裡不出現任何指向本次未一起送出之文件的詞。
+- **同一組地標寫兩次，逐字相同**：一次在人物描述句裡，一次在提示詞尾段。
+  重述必須**逐字**；第二次不可以補新細節——補了就是第二份規格，兩份規格會互相打架
+  （與硬規則 14 的「可重用區塊逐字複製」同一條紀律）。
+- **加一句升級句，指名最可能發生的那一個失敗**（擺放照硬規則 15，並依 `09-model-dialects.md`
+  通則 2 的否定分流決定放哪裡）：
+  `Most important: this face must not be rendered as healthy, rested or retouched.`
+  升級句寫成**一句普通的句子**，語言與提示詞其餘部分相同；不要寫成 `CRITICAL:` 這類全大寫標籤
+  （見 `09-model-dialects.md` 通則的標籤條）。
+- **詞彙要封頂**：只用你列出的那些地標，不要換到「屍體」「骷髏」「殭屍」那一類詞。
+  一旦漂移過去，交回來的常常是特效妝而不是人 —— 這是使用觀察，不是受控結果；
+  但封頂的成本是零，沒有理由不做。
 
 ---
 

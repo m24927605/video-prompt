@@ -22,6 +22,7 @@ Prompt length is not a quality proxy. Keep information that changes model decisi
 |---|---|---|---|
 | API/task error | role, hint, verb, ratio/duration/format mismatch | align the one mismatched task control | current official docs / endpoint probe |
 | Wrong/missing entity | mapping or count ambiguity | rewrite one binding/count; keep all else | cleaner canonical asset or split shot |
+| Lateral flip of an asymmetric attribute | side named once, or left implied | restate the side at each mention; hold all else | isolate the attribute in an insert, or mirror-correct in post |
 | Reference leakage | one asset controls unintended properties | add allowed/excluded inheritance or remove that asset | rebuild asset by role |
 | Identity/state drift | mixed state, weak asset, too many subjects | return to one approved state asset | shorten, reduce cast, composite |
 | Spatial/axis error | under-specified first frame or landmarks | add one layout/axis and exact positions | master/insert split, reframe |
@@ -35,9 +36,28 @@ Prompt length is not a quality proxy. Keep information that changes model decisi
 
 Root-cause labels remain hypotheses unless a controlled one-variable test demonstrates them.
 
+## Causal and contradiction audit
+
+Before drafting or repairing, read the shot in causal order: trigger before reaction, and contact before response. For dialogue, reserve a listening/breath/reaction budget so a listener can register the line before their answer or physical response. [PD-10] [PD-11] [PD-13]
+
+Resolve these contradictions before generation; if both outcomes are required, split the shot or choose one constraint:
+
+- one-take vs cuts;
+- fixed camera vs viewpoint jump;
+- no-two-shot constraint vs a requested shoulder or reflection that reveals the second person;
+- fixed distance vs face-filling framing;
+- third-person view vs character-owned camera;
+- no BGM vs score;
+- protected source vs restyle;
+- changed outcome vs stale constraints in the action, camera, sound, continuity, or end state.
+
 ## One-variable ladder
 
 Preserve the working prompt. Each rung states one changed variable, fixed invariants, predicted diagnostic signal, and stop condition.
+
+Build the prompt so a one-variable rung is mechanical rather than disciplined. Keep the parts that must not move—the reference contract, the invariants, the audio contract, the exclusions—as separable named blocks, carry them to the next rung byte-for-byte, and let the rung change one block, or one line inside one block. Record the ladder's fixed list as the names of the blocks held identical, not as a re-description of their contents: a rung that retypes an invariant has already changed more than one variable.
+
+Resubmitting identical text with identical parameters is not a rung. It samples the generator's variance and tests no hypothesis. Record it as a sample count against the parent rung—how many draws, what the spread was—rather than as a step in the ladder, so the ladder keeps meaning one change per line. Sampling and one-variable testing answer different questions; neither substitutes for the other, and this skill takes no position on which spends a budget better.
 
 ```text
 Run / parent:

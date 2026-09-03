@@ -10,6 +10,7 @@ Audit what the evidence actually supports, diagnose the most likely upstream cau
 ## Route the request
 
 - Use this skill when the user supplies or describes generated video, frames, timecodes, variants, an original prompt, or a failed result.
+- Inspect as a delta edit rather than as a fresh render when a source image, frame or clip is supplied and the job is a scoped change to it. [QC-27]
 - Use `seedance-prompt-director` for initial prompt drafting or when the user explicitly wants the repaired final prompt after diagnosis.
 - Use `seedance-film-producer` for multi-shot production architecture rather than a particular media failure.
 - Do not use this as generic film criticism without generated-media adherence or technical QC goals.
@@ -18,16 +19,16 @@ Audit what the evidence actually supports, diagnose the most likely upstream cau
 
 1. Reply in the user's language; preserve the language, accent, and wording of any dialogue under review.
 2. Establish evidence modality before judging: full video and audio, screenshots, transcript, waveform/ASR, prompt, reference files, or user-reported symptoms. Ask for opening, middle, end, transitions, and high-risk action timecodes when absent. [QC-01]
-3. Label every conclusion as **direct observation**, **inference**, or **unknown**. Screenshots cannot prove continuous motion; an unmuted icon cannot prove audio quality, dialogue accuracy, voice naturalness, or lip-sync. [QC-02] [QC-12]
+3. Label every conclusion as **direct observation**, **inference**, or **unknown**. Screenshots cannot prove continuous motion; an unmuted icon cannot prove audio quality, dialogue accuracy, voice naturalness, or lip-sync. An absence claim is bounded by the interval and frame area actually inspected, never proven. [QC-02] [QC-12] [QC-21]
 4. Gate by actual platform/model/version and archive date. Keep Seedance 2.0, UI `Seedance 2`, Seedance 2.5, and platform capabilities separate. For current claims, check current official sources; archived knowledge date is 2026-08-22.
 5. Never invent hidden parameters, negative-prompt fields, seed determinism, costs, limits, causes, or guarantees. Root causes are hypotheses unless directly demonstrated.
 6. Do not call paid media generation. A recommendation to regenerate is a route decision, not authorization to execute it.
-7. Preserve the working prompt. Change one necessary variable per iteration and state the invariants. Stop at a project-specific retry/cost/time ceiling. [QC-14] [QC-16]
+7. Preserve the working prompt. Change one necessary variable per iteration and state the invariants. A re-fire that changes nothing is a control run rather than a wasted retry; without one, a defect cannot be attributed to the prompt at all. Stop at a project-specific retry/cost/time ceiling. [QC-14] [QC-16] [QC-25]
 
 ## Workflow
 
-1. Reconstruct the contract: required and forbidden entities, reference roles, action order, start/end state, camera, audio, text, and delivery needs.
-2. Apply hard gates before scores. A critical identity/entity/story/delivery/rights or uneditable structural failure cannot be averaged away by attractive images. [QC-03]
+1. Reconstruct the contract: required and forbidden entities, reference roles, action order, start/end state, camera, audio, text, and delivery needs. Record any internal units the prompt declares with their order and boundaries, note which surface each timing/length/format value came from, and reconcile text against runtime parameters before scoring. [QC-23] [QC-24]
+2. Apply hard gates before scores. Harvest the gates the contract itself declares first, and state which gate list the verdict used. A critical identity/entity/story/delivery/rights or uneditable structural failure cannot be averaged away by attractive images. [QC-03] [QC-19]
 3. Inspect fidelity before cross-shot consistency: first verify the correct character/object/location, then judge whether it stays consistent. A consistently wrong identity is still a failure. [QC-04]
 4. Evaluate prompt adherence; identity, wardrobe, injury, prop, and location continuity; temporal stability; anatomy/artifacts; physics/contact/inertia; blocking/screen direction; camera/optics; observable acting; text/subtitles; audio/dialogue/lip-sync; and edit usability. [QC-05] [QC-06]
 5. Record timecoded evidence and sampling limits. Inspect fast hands, short text, cuts, and lip movement densely enough for the claim; automated metrics are diagnostic only. [QC-07]

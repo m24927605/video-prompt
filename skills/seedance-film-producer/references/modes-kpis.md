@@ -48,6 +48,7 @@ Recommended means the current evidence best supports it as an initial policy, no
 - unambiguous continuity-critical direction/ownership;
 - no uneditable structural or blocking artifact;
 - complete usable interval and neighbor compatibility;
+- no rendered text outside the scene's on-screen-text inventory and no audio outside its declared layer assignment (both are defined in the editorial and finishing reference);
 - sound/text requirements either pass or have an approved post route.
 
 Project-specific numeric floors may be added, but never present them as model averages.
@@ -75,11 +76,22 @@ queue_wait_ratio = queue time / shot-ready-to-result time
 waste_rate = generated seconds or cost not entering cut / total generated seconds or cost
 ```
 
-Report median, distribution and P90 retries/time where sample size permits. Costs and times come from actual ledgers. Marketing counters, UI asset totals, price pages and claimed schedules do not substitute for production data.
+Report median, distribution and P90 retries/time where sample size permits. Split `first_pass_approval`, `additional_retries` and `waste_rate` by retry class; a shot whose retries are mostly resamples has a different problem from one whose retries are mostly revisions, and the merged figure distinguishes neither. Costs and times come from actual ledgers. Marketing counters, UI asset totals, price pages and claimed schedules do not substitute for production data.
 
 ## Retry and route policy
 
 Set ceiling by shot risk, budget and delivery clock. Change one prompt, reference, parameter, or shot-design variable at a time. Stop and route when the same blocking defect persists, critical constraints oscillate, the ceiling is reached, a rejected frame would need promotion, or rights/delivery cannot pass.
+
+Retries divide into two classes, and a merged count hides both:
+
+- **resample** — the same prompt, references and parameters submitted again for a different sample. It tests whether the defect was sampling variance. Because nothing changed, it can never repair a specification error.
+- **revision** — the single-variable change the retry policy already requires [FP-14]. Only this class yields attribution.
+
+Record `retry_class` on every run alongside the reviewer's stated reason: which observed defect made this a variance problem rather than a specification problem. Count each class against its own ceiling rather than a shared one; where the project has set no ceiling, keep it unknown [FP-14].
+
+Provider records may expose no parent link between attempts, and a single submission may return several samples, so neither attempt order nor sibling grouping is recoverable from platform records afterwards. Assign lineage and `retry_class` in the production ledger at submission time; never plan to reconstruct them later.
+
+Unchanged re-submission is common enough in practice to need its own line in the ledger, and no controlled evidence shows whether it repairs shots or burns budget. That is the reason to count it separately, not a reason to recommend or forbid it.
 
 Possible routes: cleaner/state-specific asset, simpler prompt/action, locked camera, shorter/split shot, insert/reaction/cutaway, local edit, traditional VFX/composite, 2D/3D/live action, ADR/dubbing, graphic overlay, or story redesign.
 

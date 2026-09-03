@@ -27,7 +27,7 @@ Before writing, state internally:
 6. **Turn** — leverage, interpretation, relationship, risk, commitment, or the practical situation changes. A quiet scene may intentionally hold, but the reason and value of that stasis must be clear.
 7. **Exit delta** — identify what is different and what obligation now passes forward.
 
-Do not render these labels into the screenplay. They are hidden operating state.
+Do not render these labels into the screenplay. They are hidden operating state. A beat that turns on what is not said also carries an unspoken line, held the same way; see the dialogue and voice reference.
 
 ## Choose the scene engine
 
@@ -65,6 +65,21 @@ Action lines primarily describe what an audience can see or hear and what perfor
 
 Action paragraph length serves reading speed. Keep ordinary blocks short, but allow a longer paragraph when geography or sustained action genuinely requires it. Do not create a mechanical pattern of one-line blocks.
 
+### The sound world
+
+Settle the film's sound contract alongside the other project-level decisions, and hold it:
+
+- which in-world sources this story can draw on — the categories its settings actually contain, and the particular ones this world owns;
+- whether non-diegetic music is an authorized device; if it is, what job it is permitted to do and what job stays with the scene; if it is not, record that once and hold it;
+- whether silence is a state the film can rest in, or an absence the writing is expected to fill;
+- where a character's hearing and the audience's hearing diverge, if they do.
+
+Both settlements are legitimate. A film may run entirely on sound its own world makes, or may treat composed music as a primary instrument — including music characters perform and hear. Choose on the story's terms rather than by default, and note where a scene departs from the choice.
+
+The contract binds the writing either way. Where score is not authorized, no action line may ask music to supply an emotion the scene does not play. Where it is authorized, name the job the music is doing rather than writing the feeling it is meant to produce. In both cases, a beat that works only because the reader supplies music is not written yet.
+
+When a sound is load-bearing, establish it where the audience learns it, not only where it pays off. For what a sound can do inside a scene, see the sound bullet above; for where this contract sits among the project's other tonal dials, see the style matrix.
+
 ## Quiet scenes
 
 A scene does not need a twist, revelation, confrontation, or hook merely to prove it is dramatic. A quiet or texture scene earns its place when it changes at least one of:
@@ -77,6 +92,8 @@ A scene does not need a twist, revelation, confrontation, or hook merely to prov
 - the tempo required before or after a high-pressure sequence.
 
 Do not add crying, confession, shouting, surprise visitors, accidents, or thematic lines to rescue a deliberately quiet scene.
+
+Scarcity builds meaning the same way repetition does, and spends faster. An action, image, or silence that carries weight because it happens once loses it as soon as a neighboring scene repeats it, so check the span before reusing one; track these as singulars in continuity.
 
 ## Action sequences
 
@@ -106,4 +123,5 @@ Different writers may generate variants of one scene, but one lead writer must i
 - The audience can understand essential geography without a shot list.
 - Exposition appears only where a character has a reason to control, conceal, contest, or act on it.
 - Meaning is carried by events, images, sound, and performance space rather than author explanation.
+- The scene does not meet its declared failure condition, and nothing was added beyond a list the card marked closed.
 - The exit delta and next obligation are explicit outside the screenplay and implicit inside it.
