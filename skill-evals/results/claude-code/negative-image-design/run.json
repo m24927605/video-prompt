@@ -1,7 +1,7 @@
 {
   "case_id": "negative-image-design",
   "host": "claude-code",
-  "cli_version": "2.1.258 (Claude Code)",
+  "cli_version": "2.1.259 (Claude Code)",
   "requested_primary_model": "claude-fable-5",
   "requested_effort": "high",
   "fallback_model": null,
@@ -20,8 +20,8 @@
   },
   "exit_code": 0,
   "timed_out": false,
-  "elapsed_seconds": 55.896,
-  "event_count": 34,
+  "elapsed_seconds": 56.106,
+  "event_count": 36,
   "final_present": true,
   "activation_evidence": [
     "event[6] Skill"
@@ -53,7 +53,7 @@
     "screenplay-writer": []
   },
   "research_present": false,
-  "workspace_digest": "ef1133230c8e3a441a6b06e6247f1e546e1ff934d84faae48f0a044df38825a6",
+  "workspace_digest": "496ef4c520b63a156bbad1905bc6576d6127787ed0afb48a063e1f4e059b152c",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "session/thread/turn/request/uuid/idempotency identifiers and signed-query values removed before persistence"
 }

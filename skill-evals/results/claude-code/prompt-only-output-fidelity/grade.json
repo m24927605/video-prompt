@@ -3,30 +3,37 @@
   "host": "claude-code",
   "lane_scores": {
     "activation_routing": 10,
-    "production_usability": 21,
-    "task_completeness": 29,
-    "evidence_discipline": 18,
-    "language_scope": 6
+    "production_usability": 24,
+    "task_completeness": 34,
+    "evidence_discipline": 19,
+    "language_scope": 9
   },
-  "total": 84,
-  "verdict": "FAIL",
+  "total": 96,
+  "verdict": "PASS",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "run.json: implicit seedance-prompt-director activation is verified; paid_media_tool_events is empty.",
-    "final.md's central prompt correctly includes one woman, one red umbrella, frame-left bus-stop blocking, fixed medium camera, right-side bus audio trigger, and the required final right-hand ownership.",
-    "final.md does not invent resolution/aspect settings and keeps the platform unspecified.",
-    "final.md nevertheless adds a preface, horizontal separators, and a post-prompt supplemental paragraph even though the user explicitly requested only one final prompt and prohibited analysis/preface/extras."
+    "同樣直接以 prompt 開場、無前言，且固定中景一次寫足：「單一連續鏡頭,約 8 秒,夜間雨景,寫實電影感。全程固定機位、固定中景,無任何鏡頭運動:不推拉、不搖攝、不俯仰、不變焦、不剪接、播放速率恆定。」",
+    "左側走位＋唯一紅傘＋唯一人物：「她站在畫面左側、站牌立柱旁,身體朝向畫面右側偏前。她右手持全片唯一的一把紅色雨傘;畫面中自始至終只有這一把傘,不出現第二把傘。」、「全片只有一名人物,無其他行人、無其他車輛進入畫面」。",
+    "公車聲觸發動作：「畫面右側外傳來公車由遠而近的引擎聲與輪胎壓過濕路面的水聲,音量逐漸增大。她聽見聲音後,先是肩膀與頭部微微一頓,隨即抬起頭,視線轉向畫面右側聲音來處」。",
+    "結束狀態鎖到最後一幀：「結束狀態:最後一幀中,女子仍站在畫面左側的公車站牌旁,位置與開場大致相同;紅傘已完全收合,握在她的右手中,傘尖朝下;她抬著頭,視線望向畫面右側,雨仍在下,公車尚未入畫。」",
+    "額外連續性鎖定區塊（rubric 第 3 lane 明列 continuity state 加權）：「全程不可改變的條件(自第一幀至最後一幀):雨衣保持深綠色;傘保持紅色且僅此一把;人物數量恆為一人;機位、景別、構圖不變;雨持續下著。」——以「保持／恆為／不變」的生成指令句式寫給模型，非寫給使用者的驗收清單，故不觸犯 must_not 的 acceptance checklist。",
+    "平台未定下改採語意節奏而非硬秒數，邊界處理較正確：「動作(語意節奏,非精確秒數)」。",
+    "多一層 A 沒有的實務保險：「站牌牌面上只有經雨水反光的模糊色塊與圖形,不出現任何可辨識的文字、字母或數字,也不出現似字非字的殘缺符號」。",
+    "全文 grep 未出現任何版本號、Seedance 字樣、aspect ratio、解析度、fps、seed 或 API 參數，平台參數保持未定；must_not 六項全未犯（無前言、驗收表、風險段、修改階梯、多版本、付費生成）。",
+    "扣分處（language_scope 9）：題目寫明「8 秒」，B 改寫為「約 8 秒」放寬了使用者的硬性規格；另「動作(語意節奏,非精確秒數)」括號屬對指令本身的後設註記，混入應為純 prompt 的交付物，屬輕微 scope 漂移。"
   ],
-  "rationale": "The embedded prompt is strong, but output-shape fidelity is a material requirement in this case. The explicit preface and supplement violate the narrow one-artifact contract, putting the case below the 90 threshold.",
-  "activation_evidence": "native-evidence.md records seedance-prompt-director activation at event[7] Skill and event[18] Read.",
+  "rationale": "Graded by two independent fresh-context reviewers in a blind A/B against the pre-absorption output of the same case; neither was told which side was which. Both selected this output. The lower of the two records is retained here. Panel totals for this output: 97/96. Not comparable with grades produced by a different grader model.",
+  "activation_evidence": "run.json activated_skills=['seedance-prompt-director']; expected_skill=seedance-prompt-director; paid_media_tool_events=[]",
   "unknowns": [
-    "Selected platform/runtime parameters remain intentionally unknown."
+    "Single run per side, so run-to-run variance is not separated from the skill change.",
+    "Graders were told the two outputs differed by skill-file version, which can prime them to find a difference; direction was withheld.",
+    "Grader model differs from the one that produced the earlier grades in this directory."
   ],
   "grader": {
-    "role": "fresh-context adversarial reviewer",
-    "model": "gpt-5.6-sol",
-    "effort": "high",
+    "role": "fresh-context adversarial reviewer (blind A/B panel of two; lower-scoring record retained)",
+    "model": "claude-opus-5",
+    "effort": "session default (not pinned)",
     "independent": true
   }
 }

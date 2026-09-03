@@ -3,30 +3,46 @@
   "host": "claude-code",
   "lane_scores": {
     "activation_routing": 10,
-    "production_usability": 5,
-    "task_completeness": 20,
-    "evidence_discipline": 18,
-    "language_scope": 8
+    "production_usability": 23,
+    "task_completeness": 33,
+    "evidence_discipline": 17,
+    "language_scope": 10
   },
-  "total": 61,
-  "verdict": "FAIL",
+  "total": 93,
+  "verdict": "PASS",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "run.json: explicit seedance-prompt-director activation is verified; paid_media_tool_events is empty.",
-    "final.md correctly plans Image 1 as full-person scope, Image 2 as face/identity only with text-authoritative red uniform, and Video 1 as structure/depth/density only.",
-    "final.md plans exactly two people, one letter, and final ownership in the man's right hand while excluding the example's story/POV/camera/style/content.",
-    "final.md never produces the requested production-ready 12-second clip prompt; it stops at a plan, asks two questions, and says the packet will be produced only after confirmation."
+    "Activation (run.json): expected_skill 'seedance-prompt-director'; activated_skills: [\"seedance-prompt-director\"]; activation_evidence_by_skill shows event[4] Read + event[6] Read for that skill and empty lists for seedance-film-producer, seedance-video-qc, photography-aesthetics, screenplay-writer. events.jsonl event[4] reads '.claude/skills/seedance-prompt-director/references/prompt-schema.md', event[6] reads '.../references/reference-motion-audio.md'. No skill crossover. paid_media_tool_events: [] and the deliverable generates nothing.",
+    "must_cover 1 (Image 1 = complete visible woman, excludes background/pose/composition/crop/light) — COVERED in the prompt block: '@Image 1 = 角色A(女主)的完整人物參考。採用:臉、髮型、身形比例、深綠色長外套、黑色靴子、銀色墜飾;以上即此參考管轄的全部通道,清單已封閉。不繼承:來源圖的背景、姿勢、構圖、裁切、光線,以及圖中任何其他人物。' Persistence also locked: '[全程不變項] … 角色A的深綠長外套、黑靴與銀色墜飾持續可見且不改變'.",
+    "must_cover 2 (Image 2 = face/identity only, does not override red rescue uniform) — COVERED: '@Image 2 = 角色B(男主)的臉與身份參考,僅此一項職責,清單已封閉。不繼承:來源圖的服裝、配件、背景、姿勢、構圖、裁切、光線。硬性要求(管轄整段影片):角色B的服裝只由本文規定——紅色救援制服;任何參考影像中的服裝都不得出現在角色B身上。' must_not 'inherit Image 2 wardrobe' is explicitly blocked; must_not 'reduce the complete-person reference to face only' is not committed (Image 1 keeps the wardrobe channels).",
+    "must_cover 3 (Video 1 transfers only hierarchy / control depth / detail density) — COVERED in Input basis: '`@Video 1` = **僅結構範例**:它管轄的是本 prompt 的段落層級、控制深度與細節密度,即「我如何寫這份 prompt」,而不是畫面內容。因此它**不寫進 prompt、也不應隨生成任務上傳**'. This is a blanket structural exclusion, stronger than an in-prompt caveat.",
+    "must_cover 4 (example's story/POV/camera/style/people/assets/dialogue/ending excluded) — SUBSTANTIVELY covered but enumerated only partially: '一旦上傳,它的故事、POV、鏡頭、風格就有了滲入管道,正是你要排除的東西.' Only 4 of the 8 named channels are listed; 人物/素材/對白/結局 are not named as example exclusions, though the prompt independently authors its own people, assets, silence ('兩人全程不說話'), third-person camera ('中景雙人鏡頭起…唯一的鏡頭運動是緩慢向前推近') and ending, so no example content is imported. Basis for the single non-critical deduction in lane 3.",
+    "must_cover 5 (exactly two people and one letter) — COVERED with a hard rule: '[精確實體] 畫面中自始至終恰好兩個人:角色A(女主)、角色B(男主),無第三個人形、無路人、無倒影複製人形。恰好一封已封口的信封,全片只存在這一封。硬性要求:任一畫格出現第三個人形或第二封信,該次生成作廢。' must_not 'merge identities or duplicate the letter' is explicitly guarded.",
+    "must_cover 6 (final letter ownership only the man's right hand) — COVERED with fail conditions: '[結束狀態] 最後一幀:信封只在角色B的右手中、貼近其胸前;角色A雙手皆空、垂放身側… 硬性要求:最後一幀若信封仍在角色A手中、或在角色B左手、或兩人同時持信,該次生成作廢。' The handoff is also staged in the beat sheet ('約一秒鐘兩人各持信封一端' → '角色A鬆手…角色B右手單獨持信') and re-checked in acceptance checks: '她右手遞 → 兩端同持約一秒 → 她鬆手 → 最後一幀信只在他右手'.",
+    "No version/platform fabrication (rubric critical failure #1/#2 cleared): '**平台/模型**:未指定 → 交付平台中立 prompt。長寬比、解析度、幀率、音訊輸出通道等 runtime 參數一律不臆填、標記為未知;12 秒需在你實際選定的平台以其時長參數設定,prompt 內的秒數只是節奏語意。' No Seedance version, no invented parameter or negative-prompt field; constraints are written as in-prompt '硬性要求' text.",
+    "No success guarantee (critical failure #2 cleared): section heading '## 4. Failure risks(僅列本任務相關,無成功保證)' and '已把「服裝只由本文規定」提升為管轄全片的硬性條款,但這是文字意圖,非保證。'",
+    "Bounded retries / lineage preserved (critical failure #6 cleared): '## 5. Revision ladder(每階只改一個變數,其餘全部保持)' with terminal stop conditions — '若插入鏡仍失敗兩次,改走首末幀(first/last-frame)任務鎖定結尾持信狀態' and '仍失敗則接受後製合成素面信封,停止用 prompt 解決。'",
+    "Lane 4 deduction (a) — verifiable self-report inaccuracy: line 1 claims '我已載入 seedance-prompt-director 的完整規格', but workspace-inventory.json lists four references (prompt-schema.md, provenance.md, reference-motion-audio.md, revision-failure-patterns.md) and events.jsonl shows only two Read calls (prompt-schema.md, reference-motion-audio.md); revision-failure-patterns.md and provenance.md were never read, yet the failure-risk and revision-ladder sections are delivered as if spec-backed.",
+    "Lane 4 deduction (b) — unsourced empirical generalization stated unhedged: '**交接失敗**:換手是最常見的物理失敗點——信封複製、瞬移、換到左手。' No basis is cited and no platform is named. Deduction (c): revision step 1 falls back to '首末幀(first/last-frame)任務' although the output itself says the platform is undetermined.",
+    "Lane 2 deduction: the pasteable code block contains no line about @Video 1 at all — the 'do not upload it' guard lives only in the prose above the block, so a user who pastes the block and still attaches Video 1 (the way the brief framed it) has no in-artifact protection. The block is otherwise self-contained and directly usable, with assumptions flagged as changeable: '**已做的內容假設**(可改):女主以右手遞信;女主畫面左、男主畫面右;全片無對白…'",
+    "Language and scope: entire deliverable is zh-Hant matching the prompt locale, e.g. '唯一待你決定的問題:**最終要投放到哪個平台/模型?**' Reference tokens are preserved verbatim as instructed ('**參考映射**(依上傳順序,token 原樣保留)'). Scope is exactly one 12s single-clip packet; no media generated, no external action, no extra deliverable beyond the stated default packet."
   ],
-  "rationale": "The reasoning covers most reference-boundary requirements, but the requested artifact is absent. A plan that promises a later prompt is not a production-usable prompt, so the case fails well below threshold.",
-  "activation_evidence": "native-evidence.md records seedance-prompt-director activation at event[18] Read and event[27] Read.",
+  "rationale": "Activation is clean and natively evidenced (run.json activated_skills = seedance-prompt-director, two Reads inside that skill's references, zero crossover into the other four packaged skills, paid_media_tool_events empty), so lane 1 is 10. Lane 3 gets 33: all six must_cover items are handled with quoted, in-artifact hard rules — Image 1's full wardrobe channels with the five exclusions, Image 2 as face/identity only with the red uniform declared as governing the whole film, Video 1 scoped to hierarchy/control depth/detail density and deliberately kept out of the upload set, exactly-two-people/one-letter, and the final right-hand ownership with explicit invalidation conditions — with one non-critical thinness: the example-exclusion prose names only 故事/POV/鏡頭/風格 of the eight channels the brief listed, though the prompt independently authors its own people, assets, silence and ending so nothing leaks. Lane 2 is 23: the fenced prompt is directly pasteable, assumptions are labelled changeable, acceptance checks are observable and the closing question is a single real decision, but the block itself never names @Video 1, so the strongest guard in the answer exists only outside the artifact. Lane 4 is 17 rather than 18+: platform and runtime boundaries are handled unusually well (refuses to fill aspect/resolution/fps, treats the 12s as rhythm semantics, states 無成功保證 and 非保證), yet three claims are weak — the opening '已載入…完整規格' is contradicted by the event stream (2 of 4 references read), '換手是最常見的物理失敗點' is an unsourced generalization, and the first/last-frame fallback assumes a capability of a platform the answer itself calls undetermined. Lane 5 is 10: fully zh-Hant, tokens preserved, no unrequested action. 10+23+33+17+10 = 93, no rubric-listed critical failure triggered, and the core artifact is production-usable, so PASS. | Two independent fresh-context reviewers graded this output; panel totals 96/93; the lower record is retained.",
+  "activation_evidence": "run.json activated_skills=['seedance-prompt-director']; expected_skill=seedance-prompt-director; paid_media_tool_events=[]",
   "unknowns": [
-    "Platform and dialogue remain open, but neither was a blocking gap because the user requested a platform-neutral prompt and unspecified audio could be labeled as an assumption."
+    "No exemplar for @Video 1 exists in the case JSON or workspace inventory, so I cannot verify whether the prompt's paragraph hierarchy, control depth and detail density actually match the referenced example — only that no example story/POV/camera content is visibly imported.",
+    "Cannot verify from the artifact whether the target platform (deliberately left unspecified) accepts literal '@Image 1' / '@Image 2' tokens inside prompt text, or supports the first/last-frame task mode the revision ladder falls back to.",
+    "Cannot judge from the artifact whether a Chinese-language prompt body is optimal for the eventual model, since the output itself leaves the model undetermined and never raises prompt language as a variable.",
+    "The decision not to upload @Video 1 to the generation job is a defensible reading of '只參考提示詞的段落層級' but is a judgment call; the grader spec does not state whether the evaluator expected the exclusion to also appear inside the prompt block.",
+    "events.jsonl records the assistant's thinking blocks as empty strings, so I cannot inspect the reasoning that produced the reference-scope decisions — only the reads and the final text.",
+    "Graded without an A/B counterpart, unlike the other four re-run cases.",
+    "Grader model differs from the one that produced the earlier grades in this directory."
   ],
   "grader": {
-    "role": "fresh-context adversarial reviewer",
-    "model": "gpt-5.6-sol",
-    "effort": "high",
+    "role": "fresh-context adversarial reviewer (panel of two; lower-scoring record retained)",
+    "model": "claude-opus-5",
+    "effort": "session default (not pinned)",
     "independent": true
   }
 }

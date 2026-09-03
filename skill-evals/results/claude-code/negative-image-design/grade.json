@@ -3,30 +3,35 @@
   "host": "claude-code",
   "lane_scores": {
     "activation_routing": 10,
-    "production_usability": 23,
+    "production_usability": 24,
     "task_completeness": 33,
-    "evidence_discipline": 12,
+    "evidence_discipline": 16,
     "language_scope": 10
   },
-  "total": 88,
-  "verdict": "FAIL",
+  "total": 93,
+  "verdict": "PASS",
   "critical_failures": [],
   "activation_verified": true,
   "evidence": [
-    "run.json: implicit collision routing correctly activated photography-aesthetics and did not activate seedance-prompt-director; paid_media_tool_events is empty.",
-    "final.md supplies a square Swiss-style static image prompt with one orange circle, white background, and exact black MONDAY text, with no video timeline/camera motion/audio workflow.",
-    "final.md claims its natural-language form is directly compatible with several named current image systems and gives platform-dependent negative-prompt advice without any source/runtime evidence in the case.",
-    "final.md adds model-specific usage claims and parameter suggestions beyond the requested provider-unspecified static prompt."
+    "路由正確、無 Seedance 汙染：開頭即排除攝影／影片軸——「這張是平面向量式海報而非攝影，所以攝影軸大多不適用」；全篇無 Seedance、分鏡、運鏡、聲音、時間軸、end state 字樣，靜態圖需求未被擴張成影片（critical_case_traps 兩項皆未觸發，must_cover「no invented video timeline」達成）。",
+    "must_cover「square Swiss minimal design」達成：「A minimalist Swiss-style graphic design poster in a square composition, flat vector artwork」，並在說明中交代版面決策依據——「圓形置於中線上方偏右、標題落在左下，這是瑞士國際主義風格典型的非對稱網格配置」。",
+    "must_cover「orange circle, white ground and exact MONDAY title」齊備且標題以逐字母鎖定：「on a plain solid white background」「One large solid orange circle, perfectly round with a crisp sharp edge... a single flat uniform orange fill, not a gradient and not a shaded 3D sphere」「The single word MONDAY, spelled exactly M-O-N-D-A-Y in bold black grotesque sans-serif capitals」。",
+    "must_cover「provider-neutral delivery」達成、must_not 六項皆未違反：全文無模型名稱、無跨模型轉換建議、無 negative prompt 欄位或平台參數；否定句一律內嵌於正文並貼在其守護的肯定句後——「把每個否定句貼在它守護的肯定句後面（例如圓形最容易被模型畫成有陰影的 3D 球體，就在描述圓形的那句直接關掉）」。",
+    "可用性最強處是元素封口與可調槽位：prompt 內含「The poster contains exactly three elements — the white background, the orange circle, and the black MONDAY headline — and nothing else anywhere in the frame」；並提供對稱版替代字串「the circle dead center on the vertical axis, the word MONDAY centered directly below it」與比例槽位「the circle's diameter spanning about half the width of the poster」，最後給出變因控制紀律——「要改動時一次只改一個槽位再重生，才能判斷差異來自哪裡」。",
+    "證據紀律扣分處：同樣存在未附依據的模型行為泛化，且其中一項是在目標模型未定時對「多數模型」下的相容性推測——「只寫「minimal Swiss design」而不給位置，模型會自己亂擺」「英文單一短詞成功率高」「直接寫十六進位色碼（如 `orange (#F25C05)`）多數模型也能大致貼近」；均有對沖語（「大致」「仍建議多抽幾張挑字最乾淨的」），未指名任何模型，故不觸發 must_not 的 named-model compatibility，也未達 rubric critical list 的捏造層級。",
+    "語言與範圍：全篇繁中、全形標點一致（「Prompt 已完成。」「設計說明與可調的槽位」），未執行任何外部動作、未生成付費媒體，未逾越使用者指定範圍。"
   ],
-  "rationale": "The static-design artifact and ownership are correct, but the evidence lane is materially weakened by unsupported cross-model compatibility and platform-field guidance. Under the ≥90 rule, the otherwise usable answer fails.",
-  "activation_evidence": "native-evidence.md records photography-aesthetics activation at event[9] Skill and event[20] Read, with no forbidden Seedance activation.",
+  "rationale": "Graded by two independent fresh-context reviewers in a blind A/B against the pre-absorption output of the same case; neither was told which side was which. Both selected this output. The lower of the two records is retained here. Panel totals for this output: 93/93. Not comparable with grades produced by a different grader model.",
+  "activation_evidence": "run.json activated_skills=['photography-aesthetics']; expected_skill=photography-aesthetics; paid_media_tool_events=[]",
   "unknowns": [
-    "Target image model, exact text-rendering reliability, and negative-prompt-field availability are unknown."
+    "Single run per side, so run-to-run variance is not separated from the skill change.",
+    "Graders were told the two outputs differed by skill-file version, which can prime them to find a difference; direction was withheld.",
+    "Grader model differs from the one that produced the earlier grades in this directory."
   ],
   "grader": {
-    "role": "fresh-context adversarial reviewer",
-    "model": "gpt-5.6-sol",
-    "effort": "high",
+    "role": "fresh-context adversarial reviewer (blind A/B panel of two; lower-scoring record retained)",
+    "model": "claude-opus-5",
+    "effort": "session default (not pinned)",
     "independent": true
   }
 }

@@ -1,28 +1,28 @@
-完成。這是平面設計海報而非攝影場景,所以我沒有套用光位、景深等攝影軸,而是以「平面正面構圖 + 亮調」的邏輯組裝:平塗、無陰影、無縱深,讓白底讀成一整塊乾淨色面。
+Prompt 已完成。這張是平面向量式海報而非攝影，所以攝影軸大多不適用；我採用「有限色盤正面列舉＋逐句封口」的寫法，並把每個否定句貼在它守護的肯定句後面（例如圓形最容易被模型畫成有陰影的 3D 球體，就在描述圓形的那句直接關掉）。
 
-## Prompt(直接可用)
+## 可直接使用的 Prompt
 
 ```
-A minimalist Swiss-design graphic poster, square format, on a pure flat white
-background. A single solid orange circle, flat color with no gradient, no
-shadow and no outline, placed slightly above the center of the composition.
-Below the circle, the word "MONDAY" in black, set in a bold geometric
-sans-serif typeface, all uppercase, wide even letter-spacing, horizontally
-centered. Strict grid alignment, generous white negative space, only two
-colors on white: vivid orange and pure black. Flat vector-style rendering
-with crisp clean edges, International Typographic Style, print poster
-aesthetic, no texture, no depth, no additional elements.
+A minimalist Swiss-style graphic design poster in a square composition, flat vector
+artwork on a plain solid white background. One large solid orange circle, perfectly
+round with a crisp sharp edge, placed above the center line and offset toward the
+right; the circle is a single flat uniform orange fill, not a gradient and not a
+shaded 3D sphere, and it casts no shadow on the white background. The single word
+MONDAY, spelled exactly M-O-N-D-A-Y in bold black grotesque sans-serif capitals,
+set on one straight horizontal baseline in the lower left of the poster, letters
+evenly spaced, edges sharply rendered like printed type, not hand-drawn lettering.
+The poster contains exactly three elements — the white background, the orange
+circle, and the black MONDAY headline — and nothing else anywhere in the frame.
+Clean flat print finish, perfectly even illumination across the whole poster with
+no vignette, no paper texture, and no border line around the edge.
 ```
 
-## 各段在控制什麼
+## 設計說明與可調的槽位
 
-- **開頭三句**先鎖定主體與版面:方形、白底、橘圓在中心偏上、標題在下方置中。生成模型對排版的服從度靠這種明確的相對位置描述,不靠風格詞。
-- **字體描述**用 `bold geometric sans-serif, all uppercase, wide even letter-spacing` 展開「無襯線標題」,比只寫 sans-serif 更接近瑞士風格的 Helvetica/Akzidenz 氣質(依本 skill 規則,不寫特定字體或設計師名,展開成技術描述)。英文單字 MONDAY 入畫的成功率不錯,但字距與筆畫偶爾仍會歪,多抽幾張挑字最正的。
-- **`flat color / no gradient / no shadow / no texture / no depth`** 是這張圖的關鍵防線:模型很容易自作主張幫圓形加漸層、投影或紙張紋理,必須在正文裡明講排除,才能得到真正的平塗色面。
-- **`International Typographic Style` + `print poster aesthetic`** 收尾當風格總結,把前面的具體指令歸攏到瑞士國際主義排版傳統。
+- **版面**：我做了一個具體決定 —— 圓形置於中線上方偏右、標題落在左下，這是瑞士國際主義風格典型的非對稱網格配置。只寫「minimal Swiss design」而不給位置，模型會自己亂擺。若你偏好**正中對稱**的莊嚴感，把位置句改成 `the circle dead center on the vertical axis, the word MONDAY centered directly below it`。
+- **文字**：拼字逐字母寫死（`spelled exactly M-O-N-D-A-Y`）是為了壓低生成文字時多字母、缺字母的機率；英文單一短詞成功率高，但仍建議多抽幾張挑字最乾淨的。
+- **封口句**：「exactly three elements … and nothing else anywhere in the frame」是正面列舉後當場封口，防止模型自己加裝飾線條、副標或雜訊。
+- **橘色深淺**：目前留給模型決定。想鎖定色相可在 orange 前加形容，例如 `warm red-orange` 或 `bright tangerine orange`；若有品牌色票，直接寫十六進位色碼（如 `orange (#F25C05)`）多數模型也能大致貼近。
+- **圓形大小比例**：想更精確可加一句 `the circle's diameter spanning about half the width of the poster`。
 
-## 可調的旋鈕(一次只改一項)
-
-- 想要更典型的瑞士不對稱版面:把 `horizontally centered` 改成 `left-aligned on the grid, in the lower third`,圓形改 `in the upper right quadrant`。
-- 想指定橘色色感:把 `vivid orange` 換成 `warm red-orange` 或 `bright tangerine orange`。
-- 想加一行小字副標:在 MONDAY 句後加一句描述其位置與相對大小,但極簡風格下建議維持單一元素層級。
+要改動時一次只改一個槽位再重生，才能判斷差異來自哪裡。

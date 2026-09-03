@@ -31,7 +31,7 @@
     {
       "path": "skills/photography-aesthetics/SKILL.md",
       "type": "file",
-      "sha256": "855d150295c066309da70bf725d40c422f66659b466f924d0d2db845540cb78e"
+      "sha256": "2c7a48cb09e555c9bf947004d36c473e6b4091b23f6f629251143d0ef2f5e031"
     },
     {
       "path": "skills/photography-aesthetics/agents/openai.yaml",
@@ -41,17 +41,17 @@
     {
       "path": "skills/photography-aesthetics/references/01-lighting.md",
       "type": "file",
-      "sha256": "1483d1532971780986b007ef6171be11b73397e6f72f2f16145b1caea0f36590"
+      "sha256": "79f0af248834b7b2a0dc1bfa90378dd3b18a2b213c4a78a67bf062ee6429a05f"
     },
     {
       "path": "skills/photography-aesthetics/references/02-tone-color.md",
       "type": "file",
-      "sha256": "f5a58de146a94d5cf5f649ea480243015b6fbf3a5ef2e608e1337b81ff1df3a1"
+      "sha256": "d79261d8dbff45171b097aa817f8b1c61cf30f70f19850987957b87d900d0e82"
     },
     {
       "path": "skills/photography-aesthetics/references/03-framing.md",
       "type": "file",
-      "sha256": "7924b4b04dbb9740e127607d0259cca4198a4f4354b510844858607a33359e32"
+      "sha256": "7e6f6e23d1c09d220f775e7c691d37f129a7a3e32f3321b56fd2e993f8a54da1"
     },
     {
       "path": "skills/photography-aesthetics/references/04-film-styles.md",
@@ -61,27 +61,27 @@
     {
       "path": "skills/photography-aesthetics/references/05-recipes.md",
       "type": "file",
-      "sha256": "8ed55510b6c817708d83132994031a1f484f78ae18e29f6e84ae5635aa3642a4"
+      "sha256": "631b5ef5669b1ec7e2a1df376125383ba2df579d042731b6605a8ec3b0730052"
     },
     {
       "path": "skills/photography-aesthetics/references/06-analysis.md",
       "type": "file",
-      "sha256": "f4f40942b2a0fd103cc700f30d5ac7534afc23c5ec5744c7841a74cc3c9046ab"
+      "sha256": "ff3d1f69684928dfa64c264ca262c378dc28b300243ceaa97d0157b1ba7c4902"
     },
     {
       "path": "skills/photography-aesthetics/references/07-beyond-the-charts.md",
       "type": "file",
-      "sha256": "9d87145014959fa6a535008b366a41b149029bf8641c4339c4b88f3e809e6adf"
+      "sha256": "2b1dc81cc2dc1e8df6c747f94e3decda9d85e61091f026bce9f6828da90b6ed9"
     },
     {
       "path": "skills/photography-aesthetics/references/08-motion.md",
       "type": "file",
-      "sha256": "60a809d84fada2d323b7aeaf38faf0c902e95abc8b2df083317d1f4a8c81590a"
+      "sha256": "eeaf071218fd68aab4b2cb9fde2c10acf4608a87cb33ceae102ff33e4cad6124"
     },
     {
       "path": "skills/photography-aesthetics/references/09-model-dialects.md",
       "type": "file",
-      "sha256": "69046f283ed048d04b051a61375be056ca8de9215bd85cc769c613041f271e6e"
+      "sha256": "a483d834cc9703c7cfd21bd87829afff4a66a328654da2ec339aecdbe0132944"
     },
     {
       "path": "skills/photography-aesthetics/references/10-zh-lexicon.md",
@@ -91,12 +91,12 @@
     {
       "path": "skills/photography-aesthetics/references/11-image-input.md",
       "type": "file",
-      "sha256": "c83ac60fe76762352ea7e319b047dc2f2d0ca0278583acca72c93e6b70e1e9f4"
+      "sha256": "c34eb5e21bb70f991bccba2ca32cd46a25f43dbbeac361ae21bc1b4bbcda0dcf"
     },
     {
       "path": "skills/screenplay-writer/SKILL.md",
       "type": "file",
-      "sha256": "85a76d3a9f9906e8e576fcffcf0b4ca2a6d0b6539bf01dd5c70ee0eda6515dff"
+      "sha256": "2b889d689fc1d151a6165a75826814b3a87b83c4a14c65b1f1e75f889aa5d306"
     },
     {
       "path": "skills/screenplay-writer/agents/openai.yaml",
@@ -106,17 +106,17 @@
     {
       "path": "skills/screenplay-writer/references/continuity.md",
       "type": "file",
-      "sha256": "433bdcf51a47621871b6ec790d2a6602e6b2d26226c90dd24ddd7a7d7e509d85"
+      "sha256": "6adec1906e48333dcbb3d2d0b582fcac1b41a0ff4914fb987000e9b71d9f6802"
     },
     {
       "path": "skills/screenplay-writer/references/development.md",
       "type": "file",
-      "sha256": "8b14ff6090fb4e430c54e22022798862615a49a91450da38dcf16fcbd9ce145c"
+      "sha256": "5f9cc661e6d1ff34fa29620e21db639c5a8d06874abfa666454a2e12c0b7013d"
     },
     {
       "path": "skills/screenplay-writer/references/dialogue-and-voice.md",
       "type": "file",
-      "sha256": "598879d37bb7c37455b9e3a467b8334f5644af7e1ec444d2990992e94f248337"
+      "sha256": "f6d98d23e92bbc9f2a93bfdeb9dfd2abf9989d935f732d8651202e8dec1f1784"
     },
     {
       "path": "skills/screenplay-writer/references/formatting.md",
@@ -131,22 +131,22 @@
     {
       "path": "skills/screenplay-writer/references/rewrite-and-qc.md",
       "type": "file",
-      "sha256": "69be5a9c6653bfc3d919d16cae9f974591c74c326283827882f26a48192fd423"
+      "sha256": "51a437795731c5c2a16881f9ead1312ffe29a6c0b6abcf113af4cdb28761682f"
     },
     {
       "path": "skills/screenplay-writer/references/scene-writing.md",
       "type": "file",
-      "sha256": "ba69985a6a555cb9780d13d1b86db763bf55b2a8b665640cbd09001ee40329a1"
+      "sha256": "25d5171d9abee6ac31da6f01ef3d6cc9a10613214bb2e3270f8c248da000c038"
     },
     {
       "path": "skills/screenplay-writer/references/style-variation.md",
       "type": "file",
-      "sha256": "b0c2da15a34276d36957b628f3a695847ae3cf1d7f167de38dc681e3eee5e038"
+      "sha256": "9eb1075b967b83d5613e4129b3da65b7f1f7f9fa9573e6fcc972f615c6648371"
     },
     {
       "path": "skills/seedance-film-producer/SKILL.md",
       "type": "file",
-      "sha256": "c429489ab3e60e58352f475b49e0d6c653ea33bfb7b3a9cf4332d36131c13898"
+      "sha256": "6919330d9b8cd975b224d0553899be7b478f80e08dd052e466188acd3d4d9432"
     },
     {
       "path": "skills/seedance-film-producer/agents/openai.yaml",
@@ -156,22 +156,22 @@
     {
       "path": "skills/seedance-film-producer/references/assets-continuity-lineage.md",
       "type": "file",
-      "sha256": "94632af2400a9b9b22d27400b74defde740dc2db03027d13f24e8130d108e756"
+      "sha256": "80758ca87eb9a7506aba34616aaaec61cc0d383a878a10269b22cee6085129e3"
     },
     {
       "path": "skills/seedance-film-producer/references/editorial-finishing.md",
       "type": "file",
-      "sha256": "3880697754729e517a14669a357ea245f50e108f4ee6887a3b8d6f71d5812b6e"
+      "sha256": "2c020914049bd9a963108295a9b2fe53a4b2892382c0408f4b93a1e13c0e3e26"
     },
     {
       "path": "skills/seedance-film-producer/references/modes-kpis.md",
       "type": "file",
-      "sha256": "1928b6d8e6e60be8b40ee9e12e6d975d476a3f14dc37fb03256731db78295a6e"
+      "sha256": "dc7757cf6eb94a206335796bcb312ba1e83616e12b3b2d84b7eaf24dfee32a33"
     },
     {
       "path": "skills/seedance-film-producer/references/production-hierarchy.md",
       "type": "file",
-      "sha256": "b0518e70c7b95e1b0ec7bdefc0c15eb3f95e0a91e160a64e035b03fefeef2c68"
+      "sha256": "f535c89e23c21651731421673862792088d7a0be8ee3e3d3b03dfb55c323cc62"
     },
     {
       "path": "skills/seedance-film-producer/references/provenance.md",
@@ -181,7 +181,7 @@
     {
       "path": "skills/seedance-prompt-director/SKILL.md",
       "type": "file",
-      "sha256": "956cc126a914964a9bdbd638a76c239efdd22fd0beaa2ba62d73ebc4d60ec31e"
+      "sha256": "55f6fbef36539937284a4670fe938bd0725d688235d01ee942205873fedb4b7d"
     },
     {
       "path": "skills/seedance-prompt-director/agents/openai.yaml",
@@ -191,27 +191,27 @@
     {
       "path": "skills/seedance-prompt-director/references/prompt-schema.md",
       "type": "file",
-      "sha256": "44de81e205efc0637950951918d18b06b08cef5678ef45fd3c3349203705caeb"
+      "sha256": "bc6933e199cdc2aeba7e7cb6663924360634a4b9aae39a6cdad01adce5957062"
     },
     {
       "path": "skills/seedance-prompt-director/references/provenance.md",
       "type": "file",
-      "sha256": "96e3135c5f0c31a42ea4a488290ac6a7ccadda74c19bab65e7f1ebfec82facee"
+      "sha256": "19aaa84b997b8dd35970d1b431c5eebb7af1c603bb7c6ab883d00886d7b693ee"
     },
     {
       "path": "skills/seedance-prompt-director/references/reference-motion-audio.md",
       "type": "file",
-      "sha256": "2357cc0b3aa9f7d79b9834c2abb3db00cdfd9fb5128aee389c3015c49ba5a2f2"
+      "sha256": "3b0a63a51bb5dfce9d82cef90ad004331780e21372561ae12ca7be67216ecc66"
     },
     {
       "path": "skills/seedance-prompt-director/references/revision-failure-patterns.md",
       "type": "file",
-      "sha256": "bbc6f5e516ec9c2968df3de7f6855b17e92d7722d4a8d4e110e0142c57d32386"
+      "sha256": "a67fd6a8cdf09ffbf5db9f6271a867d07514dcffd449cb137b2d05424810c692"
     },
     {
       "path": "skills/seedance-video-qc/SKILL.md",
       "type": "file",
-      "sha256": "1cb8c25b3bca95a34409c22b1c83ee209a5e99e79b19125a784fa2c2a134b780"
+      "sha256": "99a7da2e9bcace1225429b08384a80921b1d812196b3377b59933f52ea006160"
     },
     {
       "path": "skills/seedance-video-qc/agents/openai.yaml",
@@ -221,23 +221,23 @@
     {
       "path": "skills/seedance-video-qc/references/inspection-rubric.md",
       "type": "file",
-      "sha256": "51e2f7d59937c45f07a540825dac6100b1e87e66d256cf0242aa804ae5c3fb7e"
+      "sha256": "bf3bf665b402ddd8ede646e8e45121695c3c690611986021b09e7de6ce5e3625"
     },
     {
       "path": "skills/seedance-video-qc/references/provenance.md",
       "type": "file",
-      "sha256": "3061662a06d8073aea0b481aea74cd3d410404b51206352ccd700e383e549e32"
+      "sha256": "5c85fc6de45ed5bcc226be13388582dcd06bb4fac0a6fc561dcb8149ce4191c3"
     },
     {
       "path": "skills/seedance-video-qc/references/root-cause-actions.md",
       "type": "file",
-      "sha256": "3d44ad6ce095f6786f81f0bcab21e8b74e74d966f0be8c6e46ab181d6e90ceeb"
+      "sha256": "269f18d62345472037909205f40cdada67c7bb44610712ff4390a64c6824d917"
     },
     {
       "path": "skills/seedance-video-qc/references/variant-comparison.md",
       "type": "file",
-      "sha256": "23dfa4f0a95ea72d5603e209750b314a8c62e338955bcba897dcaeac2bab482d"
+      "sha256": "653dfb4f3dd040083d3310ffa411b978b77cab4cfadd8d35116ab95239b6b030"
     }
   ],
-  "digest": "a1dbe078bdd51249b837ac284d0927025539ac94a77cc6bebc052d8ce1bbcf47"
+  "digest": "496ef4c520b63a156bbad1905bc6576d6127787ed0afb48a063e1f4e059b152c"
 }

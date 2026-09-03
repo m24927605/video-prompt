@@ -1,7 +1,7 @@
 {
   "case_id": "reference-dimension-authority",
   "host": "claude-code",
-  "cli_version": "2.1.258 (Claude Code)",
+  "cli_version": "2.1.259 (Claude Code)",
   "requested_primary_model": "claude-fable-5",
   "requested_effort": "high",
   "fallback_model": null,
@@ -14,8 +14,8 @@
   },
   "exit_code": 0,
   "timed_out": false,
-  "elapsed_seconds": 75.557,
-  "event_count": 26,
+  "elapsed_seconds": 124.047,
+  "event_count": 47,
   "final_present": true,
   "activation_evidence": [
     "event[7] Read",
@@ -49,7 +49,7 @@
     "screenplay-writer": []
   },
   "research_present": false,
-  "workspace_digest": "e4f11f76a80dc6d16f66455824b4113c57be6efd3747ee46c9f596751acab74e",
+  "workspace_digest": "496ef4c520b63a156bbad1905bc6576d6127787ed0afb48a063e1f4e059b152c",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "session/thread/turn/request/uuid/idempotency identifiers and signed-query values removed before persistence"
 }

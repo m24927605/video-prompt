@@ -1,7 +1,7 @@
 {
   "case_id": "person-and-example-reference-scope",
   "host": "claude-code",
-  "cli_version": "2.1.258 (Claude Code)",
+  "cli_version": "2.1.259 (Claude Code)",
   "requested_primary_model": "claude-fable-5",
   "requested_effort": "high",
   "fallback_model": null,
@@ -14,12 +14,12 @@
   },
   "exit_code": 0,
   "timed_out": false,
-  "elapsed_seconds": 146.716,
-  "event_count": 57,
+  "elapsed_seconds": 158.152,
+  "event_count": 77,
   "final_present": true,
   "activation_evidence": [
-    "event[6] Read",
-    "event[8] Read"
+    "event[4] Read",
+    "event[6] Read"
   ],
   "packaged_skills": [
     "seedance-prompt-director",
@@ -40,8 +40,8 @@
   ],
   "activation_evidence_by_skill": {
     "seedance-prompt-director": [
-      "event[6] Read",
-      "event[8] Read"
+      "event[4] Read",
+      "event[6] Read"
     ],
     "seedance-film-producer": [],
     "seedance-video-qc": [],
@@ -49,7 +49,7 @@
     "screenplay-writer": []
   },
   "research_present": false,
-  "workspace_digest": "a1dbe078bdd51249b837ac284d0927025539ac94a77cc6bebc052d8ce1bbcf47",
+  "workspace_digest": "496ef4c520b63a156bbad1905bc6576d6127787ed0afb48a063e1f4e059b152c",
   "paid_media_tool_events": [],
-  "sanitization": "Current sanitizer and skill-activity parser reapplied: session/thread/turn/request/uuid/cwd/memory, user-home and ephemeral-workspace paths, and signed-query values redacted."
+  "sanitization": "session/thread/turn/request/uuid/idempotency identifiers and signed-query values removed before persistence"
 }

@@ -1,1 +1,40 @@
-{"case_id":"reference-dimension-authority","host":"claude-code","lane_scores":{"activation_routing":10,"production_usability":25,"task_completeness":35,"evidence_discipline":19,"language_scope":9},"total":98,"verdict":"PASS","critical_failures":[],"activation_verified":true,"evidence":["run.json: explicit seedance-prompt-director activation is verified; paid_media_tool_events is empty.","final.md preserves @@Hero-A/台北#03 and vid:route_B?cut=2 byte-for-byte.","final.md assigns face/hair and walking rhythm to distinct reference dimensions while keeping the red raincoat and rainy-night alley text-authoritative.","final.md leaves unmapped dimensions inactive and explicitly marks the token syntax/runtime interpretation unknown rather than inferring authority from upload order or media type."],"rationale":"Reference tokens and per-dimension ownership remain exact, explicit, and provider-neutral. No token mutation or authority leakage occurs.","activation_evidence":"native-evidence.md records seedance-prompt-director activation at event[7] Read and event[9] Read.","unknowns":["The selected platform's token syntax and reference attachment behavior remain unknown."],"grader":{"role":"fresh-context adversarial reviewer","model":"gpt-5.6-sol","effort":"high","independent":true}}
+{
+  "case_id": "reference-dimension-authority",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 23,
+    "task_completeness": 33,
+    "evidence_discipline": 17,
+    "language_scope": 10
+  },
+  "total": 93,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "must_cover 1(token 逐位元組保留)met 且明說:「`@@Hero-A/台北#03` 與 `vid:route_B?cut=2` 視為不透明字串,逐位元組原樣保留,未做任何改寫、正規化或重新編號」。我比對全檔 9 處出現(第 7、25、32、44、54、67、100、102 行),grep 只回傳兩種字串變體,與題目一致,無翻譯/重新編號/正規化。",
+    "must_cover 3 與 critical_case_trap「reference authority leaks into user-locked wardrobe or location」met,且以 prompt 內建裁決條款處理:「【總則(本 prompt 內衝突時,此段為準)】紅色雨衣與雨夜巷口為硬性要求,由本文指定;任何參考素材中出現的服裝、地點、天氣、光線均不得取代它們。」另設硬性作廢:「若臉與髮型不符該參考,或雨衣不是紅色,本 take 作廢。」",
+    "must_cover 2(兩維度分離)met 且雙向封閉:「允許繼承:臉部特徵、髮型——此兩項為該參考職權的完整清單」「允許繼承:左至右步行的節奏——步頻、步幅節拍、落腳韻律;此一項為完整清單」,各附排除清單「排除繼承:身形比例、體態、服裝、配件、姿勢、動作、構圖、背景、光線、色調、風格、聲音」。",
+    "must_cover 4 與 must_not 2 met,且 input basis 與 prompt 本文各寫一次:「所有其他維度(光線、色彩、鏡頭、風格、音訊、身形、姿勢……)**無得主、不啟用**,不從上傳順序或媒體類型推斷歸屬」;prompt 內:「除上述兩項職權外,不存在其他啟用參考;未列出的維度不由任何參考控制。」",
+    "must_not 3(不得宣稱 token 語法被平台支援)met:「其在任一平台上的 runtime 解讀方式為**未知**——此語法是否被目標平台支援,需在使用者選定平台後另行查證。」風險段再收斂一次:「兩個 token 的語法是否有效完全取決於尚未選定的平台」。",
+    "無 rubric CF#2(捏造參數或成功保證):「所有 runtime 參數(長寬比、時長、解析度、幀率、音訊通道)一律不寫入 prompt,列為未知」,風險段明寫「但無成功保證」。全文無任何版本號,亦無 Seedance 2.0/2.5 歸屬語句。",
+    "無 rubric CF#4(缺主體/參考角色/結束狀態):實體「畫面中恰好一個人,無第二個人影、無鏡像或倒影複製人」;結束狀態「最後一格:主角仍在行走中,已行至畫面右側三分之一處,面向與動勢仍為畫面右方…雨未停,鏡頭未動。」為可量測的剪接終幀。",
+    "無 rubric CF#6(無限重試或遺失工作 prompt):修訂階梯每級單變數且有終止條件,如「若兩次仍滲漏 → 改用純節奏描述(步頻/節拍文字化)取代該參考,轉入診斷」「兩次無效即停止,回報平台限制」,原 prompt 全文保留。",
+    "扣分證據(lane 4):開場「已依 skill 的 schema 與 reference-dimension-authority 規則完成」引用了一個不存在的規則名。我對 /Users/sin-chengchen/products/video-prompt/skills 全目錄 grep「reference-dimension-authority」零命中,該字串只存在於 evaluator-only 的 case 與 grader 檔名。等於把評測腳手架識別碼寫進使用者交付物,且是無依據的自我引用。",
+    "扣分證據(lane 2/3):input basis 稱鏡頭、光線、音訊「無得主、不啟用」,但 prompt 仍寫滿【鏡頭】「固定機位…無搖攝、無俯仰、無滾轉」與【音訊(封閉清單)】「無音樂、無人聲、無旁白、無字幕」。僅靠第 9 行「標註為假設的補足內容(使用者未指定,為使 clip 可拍而補,均可退回)」調和,措辭上仍有張力,讀者須自行對照才確認不是猜維度歸屬。"
+  ],
+  "rationale": "Graded by two independent fresh-context reviewers in a blind A/B against the pre-absorption output of the same case; neither was told which side was which. Both selected this output. The lower of the two records is retained here. Panel totals for this output: 97/93. Not comparable with grades produced by a different grader model.",
+  "activation_evidence": "run.json activated_skills=['seedance-prompt-director']; expected_skill=seedance-prompt-director; paid_media_tool_events=[]",
+  "unknowns": [
+    "Single run per side, so run-to-run variance is not separated from the skill change.",
+    "Graders were told the two outputs differed by skill-file version, which can prime them to find a difference; direction was withheld.",
+    "Grader model differs from the one that produced the earlier grades in this directory."
+  ],
+  "grader": {
+    "role": "fresh-context adversarial reviewer (blind A/B panel of two; lower-scoring record retained)",
+    "model": "claude-opus-5",
+    "effort": "session default (not pinned)",
+    "independent": true
+  }
+}

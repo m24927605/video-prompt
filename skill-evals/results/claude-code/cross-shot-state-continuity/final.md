@@ -1,130 +1,134 @@
-The Write tool (and plan-file editing) is disabled in this session, so I'll deliver the full continuity plan directly here instead. It follows the seedance-film-producer conventions: the model has no cross-shot memory, so the production system below carries all state.
-
-# Five-Shot Continuity Plan — "The Envelope" (Nia → Tomas)
+Here is the production plan. One framing note up front: the generator will not remember shot 1 when it renders shot 5 — continuity lives entirely in the state system below, where each shot reads the prior approved state and submits exactly one delta.
 
 ## 0. Assumptions and unknowns
 
-- Platform/model, aspect ratio, per-shot duration, and budget are unspecified → treat as project-charter gates to lock before generation. Archived Seedance knowledge is dated 2026-08-22; recheck current docs for limits/pricing.
-- Retry ceiling: unknown — recorded as a project parameter, not invented.
-- Operating mode: **hybrid** — shots 3 and 4 are A-tier (contact/injury and hand-to-hand prop transfer are the highest-failure actions in AI video), shots 1, 2, 5 are B-tier.
+Platform/model, aspect, per-shot duration, reference-slot limits, and the project retry ceiling are **not specified** — the plan is platform-agnostic and those must be filled in at charter time (my archived Seedance knowledge is dated 2026-08-22; re-check current docs). No numeric retry ceiling is invented below; it's a required input. Operating mode assumed: **quality-max on hero states** (envelope, cheek, coat wetness) since the whole scene is a continuity exercise.
 
-## 1. Hierarchy
+## 1. Scene state machine (the spine)
 
-```
-FILM-ENVELOPE
-└── SQ-010 "Delivery in the rain"
-    ├── SC-010-01  Interior, dry — Nia seals the envelope            → SH-010-01-010
-    ├── SC-010-02  Street, rain onset — shoulders wet                → SH-010-02-010
-    ├── SC-010-03  Fence, steady rain — cheek cut, envelope pocketed → SH-010-03-010 (+ insert INS-03A)
-    └── SC-010-04  Meeting point, steady rain
-        ├── SH-010-04-010  handoff                                   (+ insert INS-04A)
-        └── SH-010-04-020  Tomas opens; Nia stays wet and injured    (+ insert INS-05A)
-```
+Three tracked entities evolve; everything else is invariant. Each state is a separate immutable asset version — never overwrite the dry coat sheet with a wet one.
 
-One primary delta per shot. Shots 1→4 cross scene boundaries, so their continuation relation is **intentional next shot** (story continuity, no promise of frame continuity). Shot 4→5 is inside one scene and may **bridge known states** from shot 4's approved tail frame.
+| Track | S1 | S2 | S3 | S4 | S5 |
+|---|---|---|---|---|---|
+| Coat | `WARD-NIA-CREAM-DRY-v1` | → `WARD-NIA-CREAM-WETSHLDR-v1` | frozen | frozen | frozen |
+| Injury | none | none | → `INJ-NIA-LCHEEK-FRESH-v1` | frozen | frozen |
+| Envelope | unsealed → **sealed** | sealed, Nia's right inner pocket | sealed, pocket (invariant) | sealed, Nia right hand → **Tomas** | sealed → **opened** (Tomas) |
+| Weather | dry `LOC-A-DRY-v1` | → rain begins `LOC-B-RAIN-v1` | rain `LOC-C-FENCE-RAIN-v1` | rain, under awning `LOC-D-AWNING-RAIN-v1` | frozen |
 
-## 2. State-specific assets (versioned passports — a new state is a new immutable version, never an edit of the base)
+Key design decisions:
+
+- **Wetness is frozen at "shoulders wet" after shot 2.** Progressive soaking across 3–5 is unverifiable drift bait; declare `WETSHLDR` an invariant for shots 3–5 rather than letting each render pick its own saturation.
+- **Shots 4–5 happen under an overhang/awning.** Rain continues in the background (preserves weather continuity and Nia's wet/injured look) but the envelope and its contents stay dry and legible when Tomas opens it — otherwise shot 5 has a physics problem (soaked paper).
+- **Envelope has exactly four legal states**: `unsealed → sealed → in-pocket-sealed → opened`. `opened` is reachable only in shot 5 and only in Tomas's hands.
+
+## 2. State-specific asset inventory (passports)
+
+Each entry: stable ID, version, `draft/approved/retired` status, sha256, owner, and admitted/denied reference channels recorded in the production registry (not the provider's asset panel).
 
 **Characters**
-- `CHAR-NIA` — base passport (face refs, build, right-handed; dry-hair and rain-wet-hair look states as separate reference sheets).
-- `CHAR-TOMAS` — base passport. **Forbidden in shots 1–3.**
+- `CHAR-NIA-v1` — face/hair/build, front + both profiles. Both-cheek references matter: the left-cheek cut is a mirror-flip hazard, and QC needs a clean baseline of each cheek.
+- `CHAR-NIA-LCHEEK-CUT-v1` — Nia identity sheet with the fresh cut composited on the **left** cheek, approved before shot 3 queues. This, not prompt prose, is the authority of record for the injury from shot 3 onward.
+- `CHAR-TOMAS-v1` — enters registry at shot 4; forbidden in shots 1–3.
 
-**Wardrobe (one state per sheet, never combined)**
-- `WARD-NIA-COAT-DRY-v1` — cream coat, dry, matte.
-- `WARD-NIA-COAT-WETSHLD-v1` — same coat, darkened/saturated **only at shoulders and upper arms**.
-- `WARD-NIA-COAT-WET-v1` — rain-soaked shoulders/upper body, damp overall (shots 3–5).
+**Wardrobe** — `WARD-NIA-CREAM-DRY-v1` and `WARD-NIA-CREAM-WETSHLDR-v1` (same coat, darkened saturated patches on shoulders/upper arms only, dry below chest). Two sheets, never combined.
 
-**Injury**
-- Base: no facial injury (implicit in `CHAR-NIA`).
-- `INJ-NIA-CHEEK-FRESH-v1` — fresh cut, **left cheek**, thin blood line (end of shot 3).
-- `INJ-NIA-CHEEK-DRIED-v1` — same cut, identical position/geometry, blood drying and rain-streaked (shots 4–5).
+**Props** — `PROP-ENV-BLUE` geometry sheet (color, size, flap style, any seal mark) plus per-state versions: `-SEALED-v1` (authority for shots 1–4) and `-OPENED-v1` (torn flap, shot 5 only). If the envelope carries visible text, render it clean in post, not in generation.
 
-**Prop — `PROP-ENV` (blue envelope) state machine**
-```
-unsealed → sealed → sealed-pocketed (hidden) → sealed-in-hand → transferred → opened
-```
-- Versions: `PROP-ENV-UNSEALED-v1`, `PROP-ENV-SEALED-v1` (flap down, intact — kept dry by the inner pocket), `PROP-ENV-OPENED-v1` (torn flap, letter emerging).
-- **Ownership ledger:** Nia (shots 1 through the start of 4) → Tomas (end of 4 onward). **Hand:** Nia retrieves and hands off with her **right hand**; Tomas receives with his **left** (his downstage hand on the locked axis below), opens with both.
-- If the envelope face carries any legible text/marking, supply it as clean artwork for post compositing — never rely on the model for exact text.
+**Reference authority rule:** identity, coat color/cut, envelope look, and injury are carried by approved image assets; prompt text carries only the shot's delta and blocking. Never state the same attribute in both channels. Reference packet order is part of the contract — reproduce it exactly on retry.
 
-**Locations / weather state machine**
-- `LOC-INT-v1`, `LOC-STREET-rainonset-v1`, `LOC-FENCE-rain-v1`, `LOC-MEET-rain-v1`.
-- Weather: `dry` (shot 1) → `rain-onset` (shot 2) → `rain-steady` (shots 3–5). Regression is forbidden in every downstream shot.
+## 3. Screen direction and geography
 
-## 3. Screen direction and axis (locked once, for the whole sequence)
+One line of action for the whole scene, locked before any generation:
 
-Nia's journey reads **left → right** in every travel shot, and the camera stays on **Nia's left side of the action axis** throughout. This one choice does double duty:
+- **Nia travels frame-left → frame-right** in shots 2 and 3 (fence crossed left-to-right).
+- **Camera stays on Nia's left side of the axis for shots 3–5.** This is deliberate: with camera on her left, her cut left cheek faces camera — visible, checkable, and any mirror-flip by the model is instantly caught in QC.
+- **Shot 4–5 axis:** Nia frame-left facing frame-right; Tomas frame-right facing frame-left; eyelines locked to each other. The envelope transfer moves left-to-right, matching her travel direction, from her **right hand** to his **left hand** (the natural facing-transfer geometry — specify his receiving hand or the model will improvise).
+- Forbidden in every shot: axis jumps, mirrored compositions, Nia entering from frame-right.
 
-- Her **left cheek is the camera-facing cheek**, so the cut stays visible in shots 3–5 without re-blocking.
-- Facing screen-right, her **right arm is the downstage (camera-near) arm**, so the inner-pocket retrieval and right-hand handoff read cleanly.
+## 4. Shot contracts (manifest)
 
-Shot 4/5 blocking: Nia frame-left facing right, Tomas frame-right facing left, eyelines locked in the scene state. The envelope travels left→right across frame, matching the journey direction.
-
-## 4. Shot manifest — required/forbidden states and handoff deltas
-
-Each shot reads the **prior approved continuity state**; its prompt describes **only the delta**, never a replay of earlier shots' contracts.
-
-| Shot | Start state | Primary delta | End state → handoff | Required | Forbidden |
-|---|---|---|---|---|---|
-| SH-010-01-010 | Nia dry, uninjured, envelope unsealed in hands | Seals envelope | `PROP-ENV-SEALED`, owner Nia | CHAR-NIA, WARD-DRY-v1, PROP-ENV | rain, wet coat, any facial injury, Tomas, opened/torn envelope |
-| SH-010-02-010 | Nia dry; envelope pocketed (right inner pocket, hidden) | Rain begins; shoulders darken | `WARD-WETSHLD-v1`, weather `rain-onset` | CHAR-NIA, LOC-STREET | facial injury, Tomas, visible envelope, fully soaked coat, coat ending dry |
-| SH-010-03-010 | Wet-shouldered; envelope pocketed | Fence climb; snag cuts **left** cheek | `WARD-WET-v1` + `INJ-CHEEK-FRESH-v1`; envelope still sealed and pocketed | CHAR-NIA, LOC-FENCE, rain-steady | visible/dropped envelope, dry coat, right-cheek or missing injury, Tomas |
-| SH-010-04-010 | Nia wet + `INJ-CHEEK-DRIED-v1`; envelope pocketed | Right-hand draw from inner pocket; hands sealed envelope to Tomas | Owner → **Tomas**, envelope still sealed | both characters, PROP-ENV-SEALED | opened/torn envelope, dry coat, healed/absent/wrong-side cut, left-hand handoff, a second envelope |
-| SH-010-04-020 | Tomas holds sealed envelope; Nia in frame, wet + cut | Tomas opens it | `PROP-ENV-OPENED-v1`, owner Tomas | both characters, sealed→opened transition | envelope still sealed at end, envelope back with Nia, Nia dry, cut healed or moved |
-
-Note the firewall logic: every forbidden list blocks both **future states** (no shot may pre-complete a reserved beat — e.g., no open envelope before shot 5) and **regressions** (no shot may revert an accepted state — e.g., no dry coat after shot 2). If a take accidentally completes a future beat and is *rejected*, it stays diagnostic only; if it's *accepted* as a deviation, remove that beat downstream and recompute the next delta.
-
-**Risk-split coverage (A-tier insurance, not new story beats):**
-- `INS-03A` — close insert of the fence snag/cut moment.
-- `INS-04A` — close insert of the envelope changing hands (blue envelope + two hands only).
-- `INS-05A` — close insert of the flap tearing open.
-
-These cover the three highest-failure elements (contact, hands, tearing physics) so a defect routes to an editorial cut-around instead of endless full-shot retries.
-
-## 5. Shot handoffs — three separate continuity stores
-
-1. **Canonical bank** — human-approved passports above. A generated result can *never* replace these automatically.
-2. **Approved memory** — high-information frames promoted from *accepted* shots only, after QC (identity fidelity, no disqualifying artifact, cross-shot compatibility), with source shot/timecode recorded.
-3. **Local handoff** — transient neighbor state written on each shot's approval: last approved frame, positions, screen direction, prop owner/hand, light, room tone. Serves the adjacent shot only; never overrides canonical truth.
-
-On each approval, snapshot `SC-010-0N_continuity-state_vNNN.yaml`, e.g. after shot 3:
+`SC-001` scene state file `SC-001_continuity-state_vNNN.yaml` is updated only on shot approval.
 
 ```yaml
-scene_id: SC-010-03
-weather: rain-steady
-screen_axis: travel-left-to-right, camera on Nia's left side
-characters:
-  CHAR-NIA:
-    wardrobe: WARD-NIA-COAT-WET-v1
-    injury: INJ-NIA-CHEEK-FRESH-v1
-    held_props: []
-props:
-  PROP-ENV:
-    state: sealed-pocketed
-    owner: CHAR-NIA
-    location: right inner coat pocket (hidden)
+SH-001-010:  # Seal
+  required: [CHAR-NIA-v1, WARD-NIA-CREAM-DRY-v1, PROP-ENV-BLUE, LOC-A-DRY-v1]
+  forbidden: [CHAR-TOMAS, rain, wet-coat, any-injury, PROP-ENV-BLUE-OPENED]
+  population: {people: 1, key_props: 1, closed: true}
+  start: envelope unsealed in Nia's hands
+  primary_delta: Nia seals the blue envelope
+  end: sealed envelope in Nia's right hand; coat fully dry; face unmarked
+  coverage: medium + insert on hands/flap (hands + prop = high risk; the insert
+    is the edit cover if the master's seal action fails)
+
+SH-001-020:  # Rain begins
+  required: [CHAR-NIA-v1, WARD-NIA-CREAM-DRY-v1→WETSHLDR-v1, LOC-B-RAIN-v1]
+  forbidden: [CHAR-TOMAS, any-injury, envelope-visible-out-of-pocket, fully-soaked-coat]
+  start: coat dry, envelope already stowed right inner pocket (stow happens
+    off-screen between 1 and 2 — a hand-into-pocket action is a cheap
+    insert pickup if the edit needs it)
+  primary_delta: rain starts; shoulders darken with wet
+  end: WETSHLDR state established; travel direction L→R
+  invariants: [FACE-CLEAN, ENV-POCKETED]
+
+SH-001-030:  # Fence / injury
+  required: [CHAR-NIA-LCHEEK-CUT-v1(end-state), WETSHLDR-v1, LOC-C-FENCE-RAIN-v1]
+  forbidden: [CHAR-TOMAS, right-cheek-injury, envelope-visible, dry-coat,
+    blood-on-coat-beyond-cheek, torn-coat]
+  population: {people: 1, key_props: 0 visible, closed: true}
+  start: Nia approaches fence frame-left, face unmarked
+  primary_delta: climbs fence L→R; wire/edge cuts LEFT cheek
+  end: over the fence, thin fresh cut on left cheek, envelope never seen
+  note: contact + injury + climb = highest-risk shot. Coverage split:
+    (a) climb wide, (b) close on the cheek moment, (c) landing single
+    showing the cut — three jobs, one shot, reassembled in edit.
+
+SH-001-040:  # Handoff
+  required: [CHAR-NIA-LCHEEK-CUT-v1, CHAR-TOMAS-v1, WETSHLDR-v1,
+    PROP-ENV-BLUE-SEALED-v1, LOC-D-AWNING-RAIN-v1]
+  forbidden: [PROP-ENV-BLUE-OPENED, left-hand-give, dry-coat, clean-cheek,
+    bandage, third-person]
+  population: {people: 2, key_props: 1, closed: true}
+  start: Nia frame-left wet/injured; Tomas frame-right; envelope in her
+    right inner pocket
+  primary_delta: Nia draws envelope from RIGHT inner pocket with RIGHT hand,
+    extends it; Tomas takes it — ownership transfers Nia→Tomas
+  end: sealed envelope in Tomas's hands; seal visibly intact at boundary frame
+  coverage: two-shot master + insert on the hand-to-hand exchange (the insert
+    is the QC evidence that the seal survived and the correct hands were used)
+
+SH-001-050:  # Open
+  required: [CHAR-TOMAS-v1, PROP-ENV-BLUE-SEALED→OPENED-v1,
+    CHAR-NIA-LCHEEK-CUT-v1, WETSHLDR-v1, LOC-D-AWNING-RAIN-v1]
+  forbidden: [envelope-back-in-Nia's-hands, dry-coat, healed/clean cheek,
+    injury-migrating-to-right-cheek, second-envelope]
+  start: exact end state of SH-001-040
+  primary_delta: Tomas breaks the seal and opens the envelope
+  end: envelope open in Tomas's hands; Nia unchanged (wet, cut, watching)
+  note: Nia is pure invariant here — her contract line is "no change,"
+    which must be stated as inherited invariant IDs, not re-described prose
 ```
+
+**Invariant slots** (referenced by ID so a change is a version bump, not five edits): `INV-COAT-STATE`, `INV-INJURY-STATE`, `INV-ENV-STATE`, `INV-AXIS-LR`, `INV-LIGHT-SC001`. Each shot inherits the current pointer; QC compares invariants at every boundary.
+
+## 5. Handoffs between shots
+
+At each approved boundary, write a **local handoff record**: last approved frame (QC-passed before promotion — `return_last_frame`-style transport is not approval), Nia's position/pose, travel vector, camera side of axis, prop owner + hand, wetness level, light direction, rain audio bed. Continuation relations: S1→S2 and S3→S4 are **intentional next shots** (story continuity, no frame-continuity promise — location changes); S4→S5 is **bridge known states** at the same setup and is the strictest boundary: Tomas's grip, envelope orientation, and both characters' positions must match frame-adjacently. Serialize the whole queue — every shot depends on its predecessor's approved end state (evolving wardrobe/injury/prop ownership forbids parallel generation). Only the inserts (envelope flap, hand exchange) can run in parallel once their parent master's state is approved.
 
 ## 6. Versioning, naming, retry lineage
 
-- **Stable IDs, never reused:** `SH-010-04-010`, `CHAR-NIA`, `PROP-ENV`, `WARD-NIA-COAT-WET-v1`…
-- **Filenames:** `FILM-ENVELOPE_SH-010-04-010_take-002_run-r009_prompt-p003_ref-r004_<model-id>_<res>_v001.mp4`. `_APPROVED` in a filename is a readable aid; registry status metadata is authoritative.
-- **Asset registry:** `asset_id, entity_id, state, version, owner, rights_status, source_paths, allowed/excluded attributes, status, approval, sha256`.
-- **Run ledger per generation:** `run_id, parent_run, shot_id, prompt text/hash, parameters, reference IDs/hashes/roles, ONE changed variable, output path/hash, hard gates, reviewer, decision, route, actual time/cost`.
-- **Retry rules:** every retry branches from the **parent approved run**, never from a rejected child; exactly one variable changes per retry so failures stay attributable. A rejected output is diagnostic evidence only — it can never become canonical, approved memory, or a handoff source. When the (project-set) ceiling is hit or the same hard defect repeats, route instead of rephrasing: cleaner state-specific reference → simpler action / locked camera → split the shot / use the insert → local edit or VFX → redesign the beat.
+- **Naming:** `SC001_SH-040_take-002_run-r011_prompt-p003_ref-r005_v001.mov`; assets as `CHAR-NIA-LCHEEK-CUT_v001_APPROVED.png`. IDs are never reused; `APPROVED` in a filename is a readable aid — status metadata is authoritative.
+- **Run ledger** per generation: `run_id, parent_run, shot_id, prompt hash + composing block versions, ordered reference packet with hashes, the one changed variable, retry_class (resample vs. single-variable revision), output hash, timecoded defects, reviewer, decision, route`.
+- **Retry rules:** retries always branch from the **last accepted parent run**, never from a rejected child — a rejected take is diagnostic evidence only and can never become a handoff source, approved memory, or canonical truth, even if one nice frame in it "looks right." Change exactly one variable per retry so failures are attributable. When the (project-supplied) ceiling is hit, route sideways instead of grinding: cheek cut won't hold → composite it in post from the approved injury asset; hand exchange keeps failing → tighter insert or an over-the-shoulder that hides the contact frame.
 
-## 7. Rollback and overwrite protection
+## 7. Rollback — how later shots can't overwrite earlier state
 
-- **Immutable checkpoints** after bible lock and after each shot approval (CP-SH01…CP-SH05), plus sequence picture lock. Each stores the state snapshot, approved hashes, open defects, and tool/model versions.
-- **Corrupted-state rule:** if a later run contradicts earlier truth (shot 4 renders a dry coat, an already-open envelope, or a right-cheek cut), reject the run, return to the last good scene checkpoint, and **replay only accepted deltas** forward. Never patch canonical state to match a bad render.
-- **No overwrites:** new outputs land in an `incoming/` area; promotion to approved is a separate, human-signed step. Approved renders and passports are read-only.
-- **Queue discipline:** shots 1→5 are a strictly serialized dependency chain (evolving wardrobe, injury, weather, and prop ownership). Only the three inserts may run in parallel — each only after its parent shot's state is approved.
+- **Three stores, one-way flow:** the canonical bank (approved passports + scene-state YAML) is human-write-only — no generated output ever updates it automatically; approved memory holds promoted frames from *accepted* shots only; local handoffs serve adjacent shots and never override canonical truth.
+- **Checkpoints:** immutable snapshot after bible lock and after each shot approval (`CKPT-SC001-SH010` … `-SH050`), containing the state YAML, approved hashes, and open defects.
+- **Corruption recovery:** if shot 5 comes back with a dry coat or a right-cheek cut, the fix is *never* to edit earlier assets to match — roll back to `CKPT-SC001-SH040` and retry shot 5 from the shot-4 approved end state. If the state file itself was corrupted, return to scene start and **replay only accepted deltas** (seal → wet shoulders → cut → transfer) to reconstruct it.
+- **Downstream firewall:** shots 1–3's approved renders and their state versions are pinned; nothing queued for 4–5 has write access to them. A shot-5 output showing a resealed envelope fails the `forbidden` gate at QC and is rejected before it can touch anything.
 
-## 8. Continuity verification pass (before any generation)
+## 8. Remaining pipeline (brief)
 
-- Trace `PROP-ENV` through all five contracts: exactly one seal (shot 1), one transfer (shot 4), one open (shot 5); pocketed and invisible in 2–3.
-- Trace monotonicity: dry→wet never reverses; the cut appears once, left cheek only, constant geometry, fresh→dried only.
-- Confirm every camera block keeps the left cheek and right hand camera-facing (single-axis rule).
-- Confirm every forbidden list covers both pre-completion and regression for its shot.
+Rough-cut the five approved takes plus inserts before final-quality upgrades — the cut will tell you whether you need the pocket-stow pickup between 1 and 2. Post handles: cut/blood touch-up consistency, any envelope text as a clean graphic, rain audio bed continuous across 2–5 (level drop under the awning), color match of the cream coat across dry/wet states in the grade. Archive checkpoints, ledger, and registry with the master.
 
-If you'd like, next step I can materialize this as actual files (`production/00-charter.md`, `bible/`, `state/*.yaml`, five shot contracts + three inserts, ledger CSV templates, and a rollback runbook) once file writing is enabled — say the word and I'll generate them.
+**Inputs I still need from you before anything queues:** platform + model version, aspect/duration per shot, and the retry ceiling per shot. Everything else above is ready to execute.

@@ -1,1 +1,43 @@
-{"case_id":"cross-shot-state-continuity","host":"claude-code","lane_scores":{"activation_routing":10,"production_usability":25,"task_completeness":35,"evidence_discipline":19,"language_scope":9},"total":98,"verdict":"PASS","critical_failures":[],"activation_verified":true,"evidence":["run.json: implicit routing activated only seedance-film-producer; paid_media_tool_events is empty.","final.md defines immutable dry, wet-shoulder, wet, fresh-injury, and dried-injury state assets plus sealed/pocketed/transferred/open envelope states.","final.md shot manifest gives per-shot start, delta, end, required, and forbidden states, including right-hand transfer and no opening before shot 5.","final.md locks screen direction, canonical/approved/local handoffs, stable IDs, parent-approved retry lineage, checkpoints, rollback, and no automatic promotion of the latest render."],"rationale":"This is a complete and internally coherent five-shot continuity system. Invented production choices such as Tomas receiving with his left hand are presented as plan decisions and do not contradict the brief.","activation_evidence":"native-evidence.md records seedance-film-producer activation at event[6] Skill, event[13] Read, event[15] Read, and event[44] Read.","unknowns":["Platform, shot durations, project retry ceiling, and actual approved reference assets are not supplied."],"grader":{"role":"fresh-context adversarial reviewer","model":"gpt-5.6-sol","effort":"high","independent":true}}
+{
+  "case_id": "cross-shot-state-continuity",
+  "host": "claude-code",
+  "lane_scores": {
+    "activation_routing": 10,
+    "production_usability": 23,
+    "task_completeness": 33,
+    "evidence_discipline": 18,
+    "language_scope": 9
+  },
+  "total": 93,
+  "verdict": "PASS",
+  "critical_failures": [],
+  "activation_verified": true,
+  "evidence": [
+    "Distinct state assets with an explicit no-overwrite rule: \"Each state is a separate immutable asset version — never overwrite the dry coat sheet with a wet one.\" and \"**Wardrobe** — `WARD-NIA-CREAM-DRY-v1` and `WARD-NIA-CREAM-WETSHLDR-v1` (same coat, darkened saturated patches on shoulders/upper arms only, dry below chest). Two sheets, never combined.\"",
+    "Injured state is an approved asset that outranks prose: \"`CHAR-NIA-LCHEEK-CUT-v1` — Nia identity sheet with the fresh cut composited on the **left** cheek, approved before shot 3 queues. This, not prompt prose, is the authority of record for the injury from shot 3 onward.\" plus the mirror-flip QC rationale \"Both-cheek references matter: the left-cheek cut is a mirror-flip hazard, and QC needs a clean baseline of each cheek.\"",
+    "Envelope state/owner/hand tracked across all five shots in the state-machine table row \"| Envelope | unsealed → **sealed** | sealed, Nia's right inner pocket | sealed, pocket (invariant) | sealed, Nia right hand → **Tomas** | sealed → **opened** (Tomas) |\", with \"**Envelope has exactly four legal states**: `unsealed → sealed → in-pocket-sealed → opened`. `opened` is reachable only in shot 5 and only in Tomas's hands.\"",
+    "Per-shot required/forbidden/delta delivered as machine-shaped contracts, e.g. \"SH-001-040:  # Handoff\" with \"forbidden: [PROP-ENV-BLUE-OPENED, left-hand-give, dry-coat, clean-cheek, bandage, third-person]\", \"primary_delta: Nia draws envelope from RIGHT inner pocket with RIGHT hand, extends it; Tomas takes it — ownership transfers Nia→Tomas\", \"end: sealed envelope in Tomas's hands; seal visibly intact at boundary frame\".",
+    "Screen direction locked with QC justification and explicit receiving hand: \"**Camera stays on Nia's left side of the axis for shots 3–5.** This is deliberate: with camera on her left, her cut left cheek faces camera — visible, checkable, and any mirror-flip by the model is instantly caught in QC.\" and \"from her **right hand** to his **left hand** (the natural facing-transfer geometry — specify his receiving hand or the model will improvise).\"",
+    "Handoff record and continuation relations are specified, with transport explicitly distinguished from approval: \"write a **local handoff record**: last approved frame (QC-passed before promotion — `return_last_frame`-style transport is not approval), Nia's position/pose, travel vector, camera side of axis, prop owner + hand, wetness level, light direction, rain audio bed.\" and \"S4→S5 is **bridge known states** at the same setup and is the strictest boundary\".",
+    "Lineage/selection detail A does not carry: \"Reference packet order is part of the contract — reproduce it exactly on retry.\" and the ledger field list \"`run_id, parent_run, shot_id, prompt hash + composing block versions, ordered reference packet with hashes, the one changed variable, retry_class (resample vs. single-variable revision), output hash, timecoded defects, reviewer, decision, route`\".",
+    "Rejected-frame promotion explicitly closed, including the tempting single frame: \"a rejected take is diagnostic evidence only and can never become a handoff source, approved memory, or canonical truth, even if one nice frame in it \\\"looks right.\\\"\" and \"the canonical bank ... is human-write-only — no generated output ever updates it automatically\".",
+    "Checkpoint and rollback from approved state only: \"roll back to `CKPT-SC001-SH040` and retry shot 5 from the shot-4 approved end state. If the state file itself was corrupted, return to scene start and **replay only accepted deltas** (seal → wet shoulders → cut → transfer)\", plus \"**Downstream firewall:** shots 1–3's approved renders and their state versions are pinned; nothing queued for 4–5 has write access to them.\"",
+    "Drift control the brief did not ask for but continuity needs: \"**Wetness is frozen at \\\"shoulders wet\\\" after shot 2.** Progressive soaking across 3–5 is unverifiable drift bait; declare `WETSHLDR` an invariant for shots 3–5 rather than letting each render pick its own saturation.\" — and the shot-1→2 gap is assigned rather than left implicit: \"stow happens off-screen between 1 and 2 — a hand-into-pocket action is a cheap insert pickup if the edit needs it\".",
+    "Evidence discipline: \"Platform/model, aspect, per-shot duration, reference-slot limits, and the project retry ceiling are **not specified** ... (my archived Seedance knowledge is dated 2026-08-22; re-check current docs). No numeric retry ceiling is invented below; it's a required input.\" No version attribution or invented limit/cost anywhere.",
+    "SCOPE ADDITION (lane 5): B restages the brief's last two shots — \"**Shots 4–5 happen under an overhang/awning.** Rain continues in the background ... but the envelope and its contents stay dry and legible when Tomas opens it\" — a declared, justified producer call, but a change to the user's stated scene.",
+    "MINOR GAP (lane 3): continuation relations are classified for \"S1→S2 and S3→S4 are **intentional next shots**\" and S4→S5, but S2→S3 is never assigned a relation."
+  ],
+  "rationale": "Graded by two independent fresh-context reviewers in a blind A/B against the pre-absorption output of the same case; neither was told which side was which. Both selected this output. The lower of the two records is retained here. Panel totals for this output: 93/95. Not comparable with grades produced by a different grader model.",
+  "activation_evidence": "run.json activated_skills=['seedance-film-producer']; expected_skill=seedance-film-producer; paid_media_tool_events=[]",
+  "unknowns": [
+    "Single run per side, so run-to-run variance is not separated from the skill change.",
+    "Graders were told the two outputs differed by skill-file version, which can prime them to find a difference; direction was withheld.",
+    "Grader model differs from the one that produced the earlier grades in this directory."
+  ],
+  "grader": {
+    "role": "fresh-context adversarial reviewer (blind A/B panel of two; lower-scoring record retained)",
+    "model": "claude-opus-5",
+    "effort": "session default (not pinned)",
+    "independent": true
+  }
+}
