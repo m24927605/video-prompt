@@ -473,6 +473,17 @@ def main() -> int:
 
     output_dir = repo_root / "skill-evals" / "results" / args.host / args.case_id
     output_dir.mkdir(parents=True, exist_ok=True)
+    # A run that dies before it writes its artifacts leaves the previous run's
+    # files in place, and the directory then reads as a valid result for a run
+    # that never happened. Stamp the directory on entry and clear the stamp only
+    # on success, so an incomplete run is visible instead of silent.
+    incomplete_marker = output_dir / "INCOMPLETE"
+    incomplete_marker.write_text(
+        f"case={args.case_id} host={args.host} started={time.time():.0f}\n"
+        "This run did not finish. Any other file in this directory is from an\n"
+        "earlier run and does not describe the run that wrote this marker.\n",
+        encoding="utf-8",
+    )
     rubric_path = repo_root / "skill-evals" / "rubric.md"
 
     with tempfile.TemporaryDirectory(prefix=f"seedance-{args.host}-{args.case_id}-") as temp:
@@ -594,6 +605,7 @@ def main() -> int:
     )
     if result.returncode != 0 or not final.strip() or media_events or model_invalid:
         return 1
+    incomplete_marker.unlink(missing_ok=True)
     return 0
 
 

@@ -206,6 +206,12 @@ def aggregate(root: Path) -> bool:
             grade_path = case_root / "grade.json"
             run_path = case_root / "run.json"
             request_path = case_root / "request.json"
+            if (case_root / "INCOMPLETE").is_file():
+                run_failures.append(
+                    f"{case_id}: INCOMPLETE marker present — the last run did not finish, "
+                    "so the files here belong to an earlier run"
+                )
+                continue
             if not grade_path.is_file() or not run_path.is_file() or not request_path.is_file():
                 run_failures.append(f"{case_id}: missing grade/run/request")
                 continue
